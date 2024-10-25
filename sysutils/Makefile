@@ -657,6 +657,7 @@
     SUBDIR += kubectl
     SUBDIR += kubie
     SUBDIR += kubo-go
+    SUBDIR += kustomize
     SUBDIR += kvmclock-kmod
     SUBDIR += lava
     SUBDIR += lbl-cf
