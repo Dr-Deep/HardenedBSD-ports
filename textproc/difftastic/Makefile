@@ -1,5 +1,5 @@
 PORTNAME=	difftastic
-DISTVERSION=	0.57.0
+DISTVERSION=	0.61.0
 CATEGORIES=	textproc
 
 MAINTAINER=	amdmi3@FreeBSD.org
@@ -19,15 +19,14 @@ PLIST_FILES=	bin/difft
 CARGO_CRATES=	ahash-0.8.11 \
 		aho-corasick-1.1.3 \
 		allocator-api2-0.2.16 \
-		assert_cmd-2.0.5 \
+		assert_cmd-2.0.8 \
 		atty-0.2.14 \
 		autocfg-1.1.0 \
 		bitflags-1.3.2 \
 		bitflags-2.5.0 \
-		bstr-0.2.17 \
 		bstr-1.9.1 \
 		bumpalo-3.14.0 \
-		cc-1.0.90 \
+		cc-1.1.30 \
 		cfg-if-1.0.0 \
 		clap-3.2.25 \
 		clap_lex-0.2.4 \
@@ -67,7 +66,7 @@ CARGO_CRATES=	ahash-0.8.11 \
 		itertools-0.11.0 \
 		itoa-1.0.10 \
 		lazy_static-1.4.0 \
-		libc-0.2.153 \
+		libc-0.2.155 \
 		libm-0.2.8 \
 		libmimalloc-sys-0.1.24 \
 		line-numbers-0.3.0 \
@@ -80,7 +79,7 @@ CARGO_CRATES=	ahash-0.8.11 \
 		mio-0.8.11 \
 		nom-7.1.3 \
 		normalize-line-endings-0.3.0 \
-		num-traits-0.2.18 \
+		num-traits-0.2.19 \
 		once_cell-1.19.0 \
 		os_str_bytes-6.6.1 \
 		owo-colors-3.5.0 \
@@ -98,13 +97,10 @@ CARGO_CRATES=	ahash-0.8.11 \
 		rayon-1.10.0 \
 		rayon-core-1.12.1 \
 		redox_syscall-0.4.1 \
-		regex-1.9.6 \
-		regex-automata-0.1.10 \
-		regex-automata-0.3.9 \
+		regex-1.10.4 \
 		regex-automata-0.4.6 \
-		regex-syntax-0.7.5 \
 		regex-syntax-0.8.2 \
-		rustc-hash-1.1.0 \
+		rustc-hash-2.0.0 \
 		rustix-0.37.27 \
 		rustversion-1.0.14 \
 		ryu-1.0.17 \
@@ -113,6 +109,7 @@ CARGO_CRATES=	ahash-0.8.11 \
 		serde-1.0.197 \
 		serde_derive-1.0.197 \
 		serde_json-1.0.114 \
+		shlex-1.3.0 \
 		signal-hook-0.3.17 \
 		signal-hook-mio-0.2.3 \
 		signal-hook-registry-1.4.1 \
@@ -127,7 +124,7 @@ CARGO_CRATES=	ahash-0.8.11 \
 		textwrap-0.16.1 \
 		thread_local-1.1.8 \
 		tree-sitter-0.20.10 \
-		tree_magic_mini-3.1.4 \
+		tree_magic_mini-3.1.5 \
 		typed-arena-2.0.2 \
 		unicode-ident-1.0.12 \
 		unicode-width-0.1.11 \
@@ -175,9 +172,6 @@ OPTIONS_DEFINE=	DOCS
 LIB_DEPENDS+=	libatomic.so:lang/gcc${GCC_DEFAULT}
 LDFLAGS+=	-L/usr/local/lib/gcc${GCC_DEFAULT} -latomic
 .endif
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/difft
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

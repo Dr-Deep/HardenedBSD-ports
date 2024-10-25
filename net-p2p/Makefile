@@ -34,6 +34,13 @@
     SUBDIR += ethash
     SUBDIR += go-ethereum
     SUBDIR += gtk-gnutella
+    SUBDIR += heartwood
+    SUBDIR += heartwood-cli
+    SUBDIR += heartwood-httpd
+    SUBDIR += heartwood-node
+    SUBDIR += heartwood-remote-helper
+    SUBDIR += heartwood-tools
+    SUBDIR += intermodal
     SUBDIR += jackett
     SUBDIR += jigdo
     SUBDIR += ktorrent
@@ -71,9 +78,11 @@
     SUBDIR += p5-WWW-BitTorrent
     SUBDIR += phex
     SUBDIR += prowlarr
+    SUBDIR += pulsar-client-cpp
     SUBDIR += py-ed2k-tools
     SUBDIR += py-libtorrent-rasterbar
     SUBDIR += py-nicotine-plus
+    SUBDIR += py-pulsar-client
     SUBDIR += py-transmission-rpc
     SUBDIR += py-tremc
     SUBDIR += pyln-bolt7

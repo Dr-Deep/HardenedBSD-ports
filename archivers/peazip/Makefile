@@ -1,5 +1,5 @@
 PORTNAME=	peazip
-PORTVERSION=	9.7.1
+PORTVERSION=	9.9.1
 PORTREVISION=	1
 CATEGORIES=	archivers
 MASTER_SITES=	https://github.com/giorgiotani/PeaZip/releases/download/${PORTVERSION}/
@@ -11,6 +11,8 @@ COMMENT=	Free archiver and file compressor
 WWW=		https://peazip.github.io
 
 LICENSE=	LGPL3
+
+ONLY_FOR_ARCHS=	i386 amd64 aarch64
 
 USES=		cpe desktop-file-utils dos2unix fpc lazarus:flavors zip xorg
 USE_XORG=	x11

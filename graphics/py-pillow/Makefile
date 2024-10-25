@@ -1,6 +1,5 @@
 PORTNAME=	pillow
-PORTVERSION=	10.3.0
-PORTREVISION=	1
+PORTVERSION=	10.4.0
 CATEGORIES=	graphics python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -8,6 +7,7 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Fork of the Python Imaging Library (PIL)
 WWW=		https://python-pillow.org/ \
+		https://pillow.readthedocs.io/en/stable/ \
 		https://github.com/python-pillow/Pillow
 
 LICENSE=	PIL

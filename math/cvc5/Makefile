@@ -1,6 +1,6 @@
 PORTNAME=	cvc5
 DISTVERSIONPREFIX=	cvc5-
-DISTVERSION=	1.1.2
+DISTVERSION=	1.2.0
 CATEGORIES=	math java
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
@@ -12,12 +12,14 @@ LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	bash:shells/bash \
-		${LOCALBASE}/lib/libcadical.a:math/cadical \
 		${LOCALBASE}/lib/symfpu.a:math/symfpu \
 		${PYTHON_PKGNAMEPREFIX}toml>0:textproc/py-toml@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}tomli>0:textproc/py-tomli@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pexpect>0:misc/py-pexpect@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}pybind11>0:devel/py-pybind11@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyparsing>0:devel/py-pyparsing@${PY_FLAVOR}
-LIB_DEPENDS=	libantlr3c.so:devel/libantlr3c
+LIB_DEPENDS=	libantlr3c.so:devel/libantlr3c \
+		libcadical.so:math/cadical
 
 USES=		cmake:testing ncurses compiler:c++17-lang \
 		localbase:ldflags pkgconfig python:build
@@ -43,7 +45,7 @@ OPTIONS_GROUP=			SOLVERS
 OPTIONS_GROUP_SOLVERS=		CRYPTOMINISAT KISSAT
 OPTIONS_RADIO=			NUMLIB
 OPTIONS_RADIO_NUMLIB=		GMP CLN
-OPTIONS_DEFAULT=		CRYPTOMINISAT EDITLINE JAVA GMP # COCOALIB KISSAT
+OPTIONS_DEFAULT=		CRYPTOMINISAT EDITLINE GMP # COCOALIB KISSAT # JAVA is broken
 OPTIONS_SUB=			yes
 
 COCOALIB_DESC=			Use CoCoALib for further polynomial operations
@@ -55,6 +57,7 @@ JAVA_CMAKE_ON=			-DJAVA_INCLUDE_PATH:PATH=${JAVA_HOME}/include \
 				-DJAVA_AWT_LIBRARY:PATH=${JAVA_HOME}/jre/lib/${ARCH}/libjawt.so \
 				-DJAVA_JVM_LIBRARY:PATH=${JAVA_HOME}/jre/lib/${ATCH}/libjava.so
 JAVA_BUILD_DEPENDS=		swig:devel/swig
+JAVA_BROKEN=			compilation fails: error: unmappable character for encoding ASCII, see https://github.com/cvc5/cvc5/issues/11145
 
 EDITLINE_DESC=			Use Editline for better interactive support
 EDITLINE_CMAKE_BOOL=		USE_EDITLINE
@@ -91,5 +94,6 @@ CMAKE_ARGS+=		-DENABLE_GPL:BOOL=ON
 PORTSCOUT=	limit:^[1-9]\.[0-9]+\.[0-9]+ # prevent older generation versions like 1.8, 1.7, etc.
 
 # some tests are skipped without any explanation, see https://github.com/cvc5/cvc5/issues/10456
+# test interactive_shell_define_fun_rec_multiline fails, see https://github.com/cvc5/cvc5/issues/11146
 
 .include <bsd.port.mk>

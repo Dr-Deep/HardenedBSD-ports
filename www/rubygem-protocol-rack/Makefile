@@ -1,15 +1,17 @@
 PORTNAME=	protocol-rack
-PORTVERSION=	0.5.0
+PORTVERSION=	0.10.1
 CATEGORIES=	www rubygems
 MASTER_SITES=	RG
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Implementation of the Rack protocol/specification
-WWW=		https://github.com/socketry/protocol-rack
+WWW=		https://socketry.github.io/protocol-rack/ \
+		https://github.com/socketry/protocol-rack
 
 LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/license.md
 
-RUN_DEPENDS=	rubygem-protocol-http>=0.23<1:www/rubygem-protocol-http \
+RUN_DEPENDS=	rubygem-protocol-http>=0.37<1:www/rubygem-protocol-http \
 		rubygem-rack>=1.0,3:www/rubygem-rack
 
 USES=		gem

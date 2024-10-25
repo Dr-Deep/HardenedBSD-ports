@@ -1,5 +1,6 @@
 PORTNAME=	gitlab-agent
-PORTVERSION=	16.11.1
+PORTVERSION=	${GITLAB_VERSION}
+PORTREVISION=	${GITLAB_PORTREVISION} # modify it in www/gitlab/Makefile.common
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 
@@ -14,7 +15,7 @@ BUILD_DEPENDS=	git>=0:devel/git \
 		golangci-lint>=0:devel/golangci-lint
 
 USES=		go:modules,1.22
-GO_MODULE=	gitlab.com/gitlab-org/cluster-integration/gitlab-agent/v16
+GO_MODULE=	gitlab.com/gitlab-org/cluster-integration/gitlab-agent/v17
 
 _BUILD_DATE=	$$(date -u "+%Y-%m-%d-%H%M UTC")
 GO_TARGET=     ./cmd/kas
@@ -29,4 +30,5 @@ PLIST_FILES=	bin/kas
 do-install:
 	${INSTALL_PROGRAM} ${WRKDIR}/bin/kas ${STAGEDIR}${PREFIX}/bin/kas
 
+.include "${.CURDIR}/../../www/gitlab/Makefile.common"
 .include <bsd.port.mk>

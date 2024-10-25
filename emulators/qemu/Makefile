@@ -1,6 +1,5 @@
 PORTNAME=	qemu
-PORTVERSION=	8.2.2
-PORTREVISION=	2
+DISTVERSION=	9.1.0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.qemu.org/
 DIST_SUBDIR=	qemu/${PORTVERSION}
@@ -12,15 +11,16 @@ WWW=		https://www.qemu.org/
 LICENSE=	GPLv2
 
 .if ${FLAVOR:U} != tools && ${FLAVOR:U} != guestagent
-ONLY_FOR_ARCHS=	aarch64 amd64 i386 powerpc64 powerpc64le
+ONLY_FOR_ARCHS=	aarch64 amd64 powerpc64 powerpc64le
 # We need to check if it build with other ARCHS
 .endif
 
 BUILD_DEPENDS=	bash:shells/bash
 .if ${FLAVOR:U} != tools && ${FLAVOR:U} != guestagent
 LIB_DEPENDS+=	libfdt.so:sysutils/dtc \
-		libzstd.so:archivers/zstd \
-		libslirp.so:net/libslirp
+		libinotify.so:devel/libinotify \
+		libslirp.so:net/libslirp \
+		libzstd.so:archivers/zstd
 .endif
 .if (${FLAVOR:U} != nox11 && ${FLAVOR:U} != tools && ${FLAVOR:U} != guestagent)
 LIB_DEPENDS+=	libepoxy.so:graphics/libepoxy
@@ -269,8 +269,13 @@ PLIST_SUB+=	BSDUSER=""
 PLIST_SUB+=	LINUXBOOT_DMA=""
 .endif
 
+post-patch:
+.if ${FLAVOR:U} == tools
+	@${REINPLACE_CMD} -e '/keymaps/d' ${WRKSRC}/pc-bios/meson.build
+.endif
+
 post-patch-CDROM_DMA-off:
-	@${REINPLACE_CMD} -e '/USE_DMA_CDROM/d' ${WRKSRC}/include/hw/ide/internal.h
+	@${REINPLACE_CMD} -e '/USE_DMA_CDROM/d' ${WRKSRC}/hw/ide/ide-internal.h
 
 do-build:
 	cd ${WRKSRC} && ${SETENVI} ${WRK_ENV} ${GMAKE} -j${MAKE_JOBS_NUMBER}

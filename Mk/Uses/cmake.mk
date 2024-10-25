@@ -62,7 +62,9 @@ _INCLUDE_USES_CMAKE_MK=	yes
 
 _valid_ARGS=		indirect insource noninja run testing _internal
 
-_CMAKE_VERSION=		3.28.3
+# Reminder: devel/cmake-core, devel/cmake-doc, devel/cmake-gui, and devel/cmake-man
+# are all affected by changing _CMAKE_VERSION. Please check each of these ports.
+_CMAKE_VERSION=		3.30.5
 CMAKE_BIN=		${LOCALBASE}/bin/cmake
 
 # Sanity check
@@ -103,6 +105,7 @@ CMAKE_ARGS+=		-DCMAKE_C_COMPILER:STRING="${CC}" \
 			-DCMAKE_MODULE_LINKER_FLAGS:STRING="${LDFLAGS}" \
 			-DCMAKE_SHARED_LINKER_FLAGS:STRING="${LDFLAGS}" \
 			-DCMAKE_INSTALL_PREFIX:PATH="${CMAKE_INSTALL_PREFIX}" \
+			-DCMAKE_AUTOGEN_PARALLEL:STRING="${MAKE_JOBS_NUMBER}" \
 			-DCMAKE_BUILD_TYPE:STRING="${CMAKE_BUILD_TYPE}" \
 			-DTHREADS_HAVE_PTHREAD_ARG:BOOL=YES \
 			-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=YES \
@@ -179,6 +182,7 @@ do-configure:
 
 .    if !target(do-test) && ${cmake_ARGS:Mtesting}
 CMAKE_TESTING_ON?=		BUILD_TESTING
+CMAKE_TESTING_PARALLEL_LEVEL?=	${MAKE_JOBS_NUMBER}
 CMAKE_TESTING_TARGET?=		test
 
 # Handle the option-like CMAKE_TESTING_ON and CMAKE_TESTING_OFF lists.
@@ -192,7 +196,7 @@ do-test:
 	@cd ${BUILD_WRKSRC} && \
 		${SETENVI} ${WRK_ENV} ${CONFIGURE_ENV} ${CMAKE_BIN} ${CMAKE_ARGS} ${CMAKE_TESTING_ARGS} ${CMAKE_SOURCE_PATH} && \
 		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${MAKE_CMD} ${_MAKE_JOBS} ${MAKE_ARGS} ${ALL_TARGET} && \
-		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} ${CMAKE_TESTING_TARGET}
+		${SETENVI} ${WRK_ENV} ${TEST_ENV} CTEST_PARALLEL_LEVEL=${CMAKE_TESTING_PARALLEL_LEVEL} ${MAKE_CMD} ${MAKE_ARGS} ${CMAKE_TESTING_TARGET}
 .    endif
 .  endif
 

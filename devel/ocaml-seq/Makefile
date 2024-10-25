@@ -1,6 +1,7 @@
 PORTNAME=	seq
 PORTVERSION=	0.2.2
 DISTVERSIONPREFIX=	${PKGNAMEPREFIX}${PORTNAME}-
+PORTREVISION=	1
 CATEGORIES=	devel
 PKGNAMEPREFIX=	ocaml-
 
@@ -9,6 +10,9 @@ COMMENT=	Compatibility library for the iterator type of OCaml
 WWW=		https://github.com/c-cube/seq
 
 LICENSE=	LGPL21
+
+DEPRECATED=	Seq is provided by lang/ocaml.
+EXPIRATION_DATE=	2024-12-10
 
 USES=		ocaml:dune
 USE_GITHUB=	yes

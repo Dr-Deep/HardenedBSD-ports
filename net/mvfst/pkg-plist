@@ -11,13 +11,16 @@ include/quic/api/QuicAsyncUDPSocket.h
 include/quic/api/QuicAsyncUDPSocketImpl.h
 include/quic/api/QuicBatchWriter.h
 include/quic/api/QuicBatchWriterFactory.h
+include/quic/api/QuicCallbacks.h
 include/quic/api/QuicEventBase.h
 include/quic/api/QuicGsoBatchWriters.h
 include/quic/api/QuicPacketScheduler.h
 include/quic/api/QuicSocket.h
+include/quic/api/QuicSocketLite.h
 include/quic/api/QuicStreamAsyncTransport.h
 include/quic/api/QuicTimer.h
 include/quic/api/QuicTransportBase.h
+include/quic/api/QuicTransportBaseLite.h
 include/quic/api/QuicTransportFunctions.h
 include/quic/api/test/MockQuicSocket.h
 include/quic/api/test/Mocks.h
@@ -44,6 +47,7 @@ include/quic/codec/QuicWriteCodec.h
 include/quic/codec/Types.h
 include/quic/common/BufAccessor.h
 include/quic/common/BufUtil.h
+include/quic/common/ChainedByteRange.h
 include/quic/common/CircularDeque-inl.h
 include/quic/common/CircularDeque.h
 include/quic/common/EnumArray.h
@@ -51,6 +55,7 @@ include/quic/common/FunctionLooper.h
 include/quic/common/IntervalSet-inl.h
 include/quic/common/IntervalSet.h
 include/quic/common/NetworkData.h
+include/quic/common/Optional.h
 include/quic/common/SmallCollections.h
 include/quic/common/SocketUtil.h
 include/quic/common/TimePoints.h
@@ -64,6 +69,8 @@ include/quic/common/events/QuicEventBase.h
 include/quic/common/events/QuicTimer.h
 include/quic/common/testutil/MockAsyncUDPSocket.h
 include/quic/common/third-party/enum.h
+include/quic/common/third-party/optional.h
+include/quic/common/third-party/optional_flag_manipulator_fwd.h
 include/quic/common/udpsocket/FollyQuicAsyncUDPSocket.h
 include/quic/common/udpsocket/LibevQuicAsyncUDPSocket.h
 include/quic/common/udpsocket/QuicAsyncUDPSocket.h
@@ -79,6 +86,7 @@ include/quic/congestion_control/CongestionController.h
 include/quic/congestion_control/CongestionControllerFactory.h
 include/quic/congestion_control/Copa.h
 include/quic/congestion_control/Copa2.h
+include/quic/congestion_control/EcnL4sTracker.h
 include/quic/congestion_control/NewReno.h
 include/quic/congestion_control/Pacer.h
 include/quic/congestion_control/PacketProcessor.h
@@ -158,10 +166,11 @@ include/quic/server/third-party/siphash.h
 include/quic/state/AckEvent.h
 include/quic/state/AckHandlers.h
 include/quic/state/AckStates.h
+include/quic/state/AckedPacketIterator.h
+include/quic/state/ClonedPacketIdentifier.h
 include/quic/state/DatagramHandlers.h
 include/quic/state/LossState.h
 include/quic/state/OutstandingPacket.h
-include/quic/state/PacketEvent.h
 include/quic/state/PendingPathRateLimiter.h
 include/quic/state/QuicAckFrequencyFunctions.h
 include/quic/state/QuicConnectionStats.h

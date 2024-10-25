@@ -1,5 +1,6 @@
 PORTNAME=	cucumber
 PORTVERSION=	9.2.0
+PORTREVISION=	2
 CATEGORIES=	devel rubygems
 MASTER_SITES=	RG
 
@@ -13,11 +14,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	rubygem-builder>=3.2<4:devel/rubygem-builder \
 		rubygem-cucumber-ci-environment>=9<11:devel/rubygem-cucumber-ci-environment \
-		rubygem-cucumber-core>=13<14:devel/rubygem-cucumber-core \
+		rubygem-cucumber-core13>=13<14:devel/rubygem-cucumber-core13 \
 		rubygem-cucumber-cucumber-expressions>=17.0<18:devel/rubygem-cucumber-cucumber-expressions \
 		rubygem-cucumber-gherkin27>=24<28:textproc/rubygem-cucumber-gherkin27 \
 		rubygem-cucumber-html-formatter>=20.3<22:textproc/rubygem-cucumber-html-formatter \
-		rubygem-cucumber-messages>=19<25:devel/rubygem-cucumber-messages \
+		rubygem-cucumber-messages24>=19<25:devel/rubygem-cucumber-messages24 \
 		rubygem-diff-lcs>=1.5<2:textproc/rubygem-diff-lcs \
 		rubygem-mini_mime>=1.1<2:mail/rubygem-mini_mime \
 		rubygem-multi_test>=1.1<2:devel/rubygem-multi_test \

@@ -1,5 +1,6 @@
 PORTNAME=	qgis
-DISTVERSION=	3.36.2
+DISTVERSION=	3.38.3
+PORTREVISION=	3
 CATEGORIES=	graphics geography
 MASTER_SITES=	https://qgis.org/downloads/
 
@@ -12,6 +13,7 @@ LICENSE_FILE=	${WRKSRC}/doc/LICENSE
 
 BUILD_DEPENDS=	gpsbabel>=1.7.0:astro/gpsbabel \
 		opencl>=0:devel/opencl \
+		${PY_SETUPTOOLS} \
 		${PYTHON_PKGNAMEPREFIX}cycler>=0.11.0:devel/py-cycler@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}python-dateutil>=2.8.2:devel/py-python-dateutil@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}future>=0.18.2:devel/py-future@${PY_FLAVOR} \
@@ -31,7 +33,7 @@ BUILD_DEPENDS=	gpsbabel>=1.7.0:astro/gpsbabel \
 		${PYTHON_PKGNAMEPREFIX}requests>=2.28.0:www/py-requests@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}six>=1.16.0:devel/py-six@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}sqlite3>=3.7.16:databases/py-sqlite3@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}yaml>=5.4.1:devel/py-yaml@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}pyyaml>=5.4.1:devel/py-pyyaml@${PY_FLAVOR}
 LIB_DEPENDS=	libabsl_log_internal_check_op.so:devel/abseil \
 		libdraco.so:archivers/draco \
 		libexiv2.so:graphics/exiv2 \
@@ -49,7 +51,7 @@ LIB_DEPENDS=	libabsl_log_internal_check_op.so:devel/abseil \
 		libproj.so:graphics/proj \
 		libprotobuf-lite.so:devel/protobuf \
 		libqjson-qt5.so:devel/qjson \
-		libqscintilla2_qt5.so:devel/qscintilla2-qt5 \
+		libqscintilla2_qt5.so:devel/qscintilla2@qt5 \
 		libqt5keychain.so:security/qtkeychain@qt5 \
 		libqwt.so:x11-toolkits/qwt6@qt5 \
 		librttopo.so:devel/librttopo \
@@ -103,7 +105,7 @@ RUN_DEPENDS=	astyle:devel/astyle \
 		${PYTHON_PKGNAMEPREFIX}termcolor>=2.1.0:devel/py-termcolor@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}xcffib>=0.11.1:x11/py-xcffib@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}xlrd>=2.0.1:textproc/py-xlrd@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}yaml>=5.4.1:devel/py-yaml@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}pyyaml>=5.4.1:devel/py-pyyaml@${PY_FLAVOR}
 
 ### Fortran is needed by numpy, GRASS, etc.
 USES=		bison cmake compiler:features desktop-file-utils \
@@ -112,7 +114,7 @@ USES=		bison cmake compiler:features desktop-file-utils \
 USE_GL=		gl
 USE_GNOME=	libxml2
 USE_LDCONFIG=	yes
-USE_PYQT=	pyqt5 qscintilla2 pysip sip
+USE_PYQT=	pyqt5 pysip qscintilla2 qtbuilder:build sip:build
 USE_QT=		3d buildtools:build core concurrent dbus declarative \
 		designer:build qdoc:build gamepad gui linguist:build location \
 		multimedia network printsupport qmake:build script serialport \
@@ -134,7 +136,8 @@ CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE:STRING=Release \
 CMAKE_ON=	USE_OPENCL WITH_ASTYLE WITH_BINDINGS WITH_COPC \
 		WITH_CUSTOM_WIDGETS WITH_DRACO WITH_EPT \
 		WITH_INTERNAL_LAZPERF WITH_POSTGRESQL
-CMAKE_OFF=	ENABLE_TESTS WITH_INTERNAL_MDAL WITH_QTWEBKIT WITH_QWTPOLAR
+CMAKE_OFF=	BUILD_WITH_QT6 ENABLE_TESTS WITH_INTERNAL_MDAL WITH_QTWEBKIT \
+		WITH_QWTPOLAR
 
 CONFLICTS_INSTALL=	qgis-ltr
 

@@ -1,6 +1,7 @@
 PORTNAME=	gleam
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.0
+DISTVERSION=	1.4.1
+PORTREVISION=	2
 CATEGORIES=	lang
 
 MAINTAINER=	dch@FreeBSD.org
@@ -10,11 +11,11 @@ WWW=		https://gleam.run/
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/compiler-core/LICENCE
 
+BROKEN_i386=	needs SSE or SSE2 type extensions to compile
+
 USES=		cargo ssl
 USE_GITHUB=	yes
 GH_ACCOUNT=	gleam-lang
-
-.include "Makefile.deps"
 
 RUSTFLAGS+=	--cap-lints=warn
 
@@ -38,9 +39,6 @@ do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/bin/
 	${MV} ${WRKSRC}/target/release/gleam \
 		${STAGEDIR}${PREFIX}/bin/
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/gleam
 
 post-install-DOCS-on:
 	(cd ${WRKSRC} && \

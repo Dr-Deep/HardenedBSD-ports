@@ -12,7 +12,6 @@
     SUBDIR += bnc
     SUBDIR += catgirl
     SUBDIR += cgiirc
-    SUBDIR += ctrlproxy
     SUBDIR += dancer
     SUBDIR += dircproxy
     SUBDIR += dxirc
@@ -32,7 +31,6 @@
     SUBDIR += ircII
     SUBDIR += ircd-hybrid
     SUBDIR += ircd-ratbox
-    SUBDIR += ircd-ratbox-devel
     SUBDIR += ircproxy
     SUBDIR += iroffer-dinoex
     SUBDIR += irssi
@@ -44,7 +42,6 @@
     SUBDIR += konversation
     SUBDIR += kvirc
     SUBDIR += libircclient
-    SUBDIR += miau
     SUBDIR += muh
     SUBDIR += ngircd
     SUBDIR += onis
@@ -74,6 +71,7 @@
     SUBDIR += py-irc
     SUBDIR += py-limnoria
     SUBDIR += py-sopel
+    SUBDIR += py-sopel-help
     SUBDIR += quassel
     SUBDIR += quassel-core
     SUBDIR += quirc
@@ -84,7 +82,6 @@
     SUBDIR += rubygem-lita-irc
     SUBDIR += rubygem-net-irc
     SUBDIR += scrollz
-    SUBDIR += sic
     SUBDIR += simpleirc
     SUBDIR += smartirc4net
     SUBDIR += smuxi

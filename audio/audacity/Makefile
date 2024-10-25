@@ -1,7 +1,9 @@
 PORTNAME=	audacity
 DISTVERSIONPREFIX=	Audacity-
-DISTVERSION=	3.5.1
+DISTVERSION=	3.6.4
 CATEGORIES=	audio
+MASTER_SITES+=	https://github.com/${PORTNAME}/${PORTNAME}-manual/releases/download/v${DISTVERSION}/:manual
+DISTFILES+=	${PORTNAME}-manual-${DISTVERSION}.tar.gz:manual
 
 MAINTAINER=	xxjack12xx@gmail.com
 COMMENT=	GUI editor for digital audio waveforms
@@ -11,8 +13,12 @@ LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	conan:sysutils/conan \
-		rapidjson>0:devel/rapidjson
+		rapidjson>0:devel/rapidjson \
+		lv2>0:audio/lv2
+BUILD_DEPENDS_amd64=	nasm:devel/nasm
+BUILD_DEPENDS_i386=	nasm:devel/nasm
 LIB_DEPENDS=	libexpat.so:textproc/expat2 \
+		libharfbuzz.so:print/harfbuzz \
 		liblilv-0.so:audio/lilv \
 		libmp3lame.so:audio/lame \
 		libmpg123.so:audio/mpg123 \
@@ -27,11 +33,11 @@ LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libsratom-0.so:audio/sratom \
 		libsqlite3.so:databases/sqlite3 \
 		libsuil-0.so:audio/suil \
-		libwavpack.so:audio/wavpack \
-		libuuid.so:misc/e2fsprogs-libuuid
+		libuuid.so:misc/e2fsprogs-libuuid \
+		libwavpack.so:audio/wavpack
 
 USES=		cmake compiler:c++20-lang cpe desktop-file-utils gettext \
-		gnome libtool python:build pkgconfig shared-mime-info
+		gnome python:build pkgconfig shared-mime-info
 CPE_VENDOR=	audacityteam
 
 USE_GITHUB=	yes
@@ -72,8 +78,7 @@ PLIST_SUB+=	NLS=""
 PORTDOCS=	README.md
 
 OPTIONS_DEFINE=		DEBUG DOCS FFMPEG FLAC ID3TAG LADSPA MANUAL \
-			OGG SBSMS SOUNDTOUCH TWOLAME VAMP \
-			VORBIS VST
+			OGG SBSMS SOUNDTOUCH TWOLAME VAMP VORBIS VST
 OPTIONS_DEFAULT=	FFMPEG FLAC ID3TAG LADSPA OGG SBSMS \
 			SOUNDTOUCH TWOLAME VAMP VORBIS VST
 OPTIONS_EXCLUDE_i386=	SBSMS
@@ -88,12 +93,8 @@ VST_DESC=		VST plug-in support
 
 DEBUG_CMAKE_ON=		wxWidgets_USE_DEBUG
 
-DOCS_BUILD_DEPENDS=	docbook-to-man:textproc/docbook-to-man \
-			docbook2man:textproc/docbook-utils
-DOCS_LIB_DEPENDS=	libharfbuzz.so:print/harfbuzz
-
 FFMPEG_BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/libavcodec.pc:multimedia/ffmpeg
-FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
+FFMPEG_RUN_DEPENDS=	${LOCALBASE}/lib/libavformat.so:multimedia/ffmpeg
 FFMPEG_CMAKE_ON=	-Daudacity_use_ffmpeg:STRING=loaded
 FFMPEG_CMAKE_OFF=	-Daudacity_use_ffmpeg:STRING=off
 
@@ -144,12 +145,8 @@ CMAKE_ARGS+=	-DHAVE_MMX:BOOL=OFF \
 		-DHAVE_SSE2:BOOL=OFF
 .endif
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1302508
-# Workarounds for buggy libc++ std::conjunction
-EXTRA_PATCHES=	${PATCHDIR}/extra-libraries_lib-utility_TypeList.cpp \
-		${PATCHDIR}/extra-libraries_lib-utility_TypeList.h \
-		${PATCHDIR}/extra-libraries_lib-utility_TypeSwitch.h
-.endif
+post-configure-MANUAL-on:
+	@${MV} ${WRKDIR}/help/manual ${WRKDIR}/.build/help/
 
 post-install:
 	@${RM} ${STAGEDIR}${DOCSDIR}/LICENSE.txt

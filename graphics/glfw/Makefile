@@ -1,9 +1,10 @@
 PORTNAME=	glfw
 DISTVERSION=	3.4
+PORTREVISION=	2
 CATEGORIES=	graphics
 MASTER_SITES=	https://github.com/glfw/glfw/releases/download/${DISTVERSION}/
 
-MAINTAINER=	eduardo@FreeBSD.org
+MAINTAINER=	vvd@FreeBSD.org
 COMMENT=	Portable framework for OpenGL development
 WWW=		https://www.glfw.org/
 
@@ -24,7 +25,7 @@ PORTDOCS=	*
 PORTEXAMPLES=	*
 
 OPTIONS_DEFINE=		DOCS EXAMPLES PREEDIT
-OPTIONS_DEFAULT=	X11
+OPTIONS_DEFAULT=	PREEDIT WAYLAND X11
 OPTIONS_MULTI=		PLATFORM
 OPTIONS_MULTI_PLATFORM=	WAYLAND X11
 PLATFORM_DESC=		Window creation platform
@@ -54,7 +55,7 @@ WAYLAND_BUILD_DEPENDS=	evdev-proto>0:devel/evdev-proto \
 			wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_LIB_DEPENDS=	libepoll-shim.so:devel/libepoll-shim
 WAYLAND_USES=		kde:5 pkgconfig
-WAYLAND_USE=		KDE=ecm
+WAYLAND_USE=		KDE=ecm:build
 WAYLAND_CMAKE_BOOL=	GLFW_BUILD_WAYLAND
 
 X11_USES=	xorg
@@ -65,6 +66,7 @@ X11_CMAKE_BOOL=	GLFW_BUILD_X11
 
 .if ${PORT_OPTIONS:MEXAMPLES} && ${PORT_OPTIONS:MPREEDIT}
 LIB_DEPENDS+=	libfontconfig.so:x11-fonts/fontconfig
+TESTS_FILES=	input_text
 .endif
 
 do-install-DOCS-on:
@@ -83,8 +85,9 @@ do-install-EXAMPLES-on:
 		${STAGEDIR}${EXAMPLESDIR}
 	cd ${WRKSRC}/tests && ${INSTALL_PROGRAM} \
 		allocator clipboard cursor empty events gamma glfwinfo icon \
-		iconify input_text inputlag joysticks monitors msaa reopen \
+		iconify inputlag joysticks monitors msaa reopen \
 		tearing threads timeout title triangle-vulkan window \
+		${TESTS_FILES} \
 		${STAGEDIR}${EXAMPLESDIR}/tests
 
 .include <bsd.port.mk>

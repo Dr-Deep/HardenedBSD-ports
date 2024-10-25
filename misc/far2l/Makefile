@@ -1,5 +1,5 @@
 PORTNAME=	far2l
-PORTVERSION=	2.6.0
+PORTVERSION=	2.6.3
 DISTVERSIONPREFIX=	v_
 CATEGORIES=	misc
 
@@ -17,7 +17,8 @@ RUN_DEPENDS=	bash:shells/bash
 USE_GITHUB=	yes
 GH_ACCOUNT=	elfmz
 
-USES=		cmake compiler:c++11-lang perl5 pkgconfig shebangfix ssl
+USES=		cmake compiler:c++11-lang libarchive perl5 pkgconfig \
+		shebangfix ssl
 USE_PERL5=	build
 SHEBANG_FILES=	far2l/bootstrap/view.sh
 
@@ -32,7 +33,7 @@ NFS_LIB_DEPENDS=	libnfs.so:net/libnfs
 SFTP_DESC=	SFTP file transfer support
 SFTP_LIB_DEPENDS=	libssh.so:security/libssh
 
-SMB_USES=	libarchive samba:lib
+SMB_USES=	samba:lib
 
 WEBDAV_DESC=	WebDav protocol support via libneon
 WEBDAV_LIB_DEPENDS=	libneon.so:www/neon
@@ -48,7 +49,7 @@ X11_USE=	XORG=ice,sm,x11,xext,xi
 
 post-patch:
 	@${REINPLACE_CMD} -e \
-		's,pkg_search_module\((LibArchive\)[^)]*,find_package\1,' \
+		's,pkg_search_module\(([[:alpha:]]*\)[^)]*,find_package\1,' \
 			${WRKSRC}/CMakeLists.txt
 	@${REINPLACE_CMD} -e 's,^if (fmt_FOUND,& AND FALSE,' \
 		${WRKSRC}/colorer/CMakeLists.txt

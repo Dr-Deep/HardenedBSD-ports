@@ -1,12 +1,12 @@
 PORTNAME=	deadbeef
 PORTVERSION=	0.7.2
-PORTREVISION=	27
+PORTREVISION=	28
 CATEGORIES=	audio
-MASTER_SITES=	SF/${PORTNAME}/
+MASTER_SITES=	SF/${PORTNAME}/Archive
 
 MAINTAINER=	danfe@FreeBSD.org
 COMMENT=	Ultimate music player for Unix-like systems
-WWW=		http://deadbeef.sourceforge.net/
+WWW=		https://deadbeef.sourceforge.io/
 
 LICENSE=	GPLv2 LGPL21
 LICENSE_COMB=	dual
@@ -33,7 +33,7 @@ OPTIONS_DEFINE=	PULSEAUDIO GUI VFS LASTFM ART SUPEREQ SID FFAP VTX \
 		PSF ADPLUG DSP MONO2STEREO CONVERTER VFS_ZIP ALAC PLTBROWSER \
 		WMA SC68
 OPTIONS_DEFAULT=MAD GTK2 VFS LASTFM ART SUPEREQ SID FFAP VTX HOSTKEYS \
-		OGG FLAC SNDFILE WAVPACK CDDA GME DUMB NOTIFY MUSEPACK \
+		OGG FLAC SNDFILE WAVPACK GME DUMB NOTIFY MUSEPACK \
 		WILDMIDI TTA DCA AAC MMS SHN SHELLEXEC M3U PSF ADPLUG DSP \
 		MONO2STEREO CONVERTER VFS_ZIP HOTKEYS ALAC PLTBROWSER WMA SC68
 
@@ -125,6 +125,7 @@ HOTKEYS_CONFIGURE_OFF=	--disable-hotkeys
 OGG_LIB_DEPENDS=	libvorbis.so:audio/libvorbis
 OGG_CONFIGURE_OFF=	--disable-vorbis
 
+FFMPEG_BROKEN=		fails to compile
 FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg \
 		libavformat.so:multimedia/ffmpeg \
 		libavutil.so:multimedia/ffmpeg
@@ -196,7 +197,7 @@ WMA_CONFIGURE_OFF=		--disable-wma
 .include <bsd.port.options.mk>
 
 .if !${PORT_OPTIONS:MGTK2} && !${PORT_OPTIONS:MGTK3}
-PORT_OPTIONS:=          ${PORT_OPTIONS:NGUI}
+PORT_OPTIONS:=		${PORT_OPTIONS:NGUI}
 .endif
 
 .if !${PORT_OPTIONS:MMAD} && !${PORT_OPTIONS:MMPG123}
@@ -204,6 +205,10 @@ CONFIGURE_ARGS+=	--disable-mp3
 PLIST_SUB+=		MP3="@comment "
 .else
 PLIST_SUB+=		MP3=""
+.endif
+
+.if ${PORT_OPTIONS:MCDDA}
+DEPRECATED=	CDDA depends on expired audio/libcddb
 .endif
 
 post-patch:

@@ -1,7 +1,7 @@
 PORTNAME=	warzone2100
-PORTVERSION=	4.4.2
+DISTVERSION=	4.5.3
 CATEGORIES=	games
-MASTER_SITES=	SF/${PORTNAME}/releases/${PORTVERSION}/
+MASTER_SITES=	https://github.com/Warzone2100/warzone2100/releases/download/${DISTVERSION}/
 DISTNAME=	${PORTNAME}_src
 DIST_SUBDIR=	${PORTNAME}-${PORTVERSION}
 
@@ -23,14 +23,13 @@ LIB_DEPENDS=	libphysfs.so:devel/physfs \
 		libharfbuzz.so:print/harfbuzz \
 		libsodium.so:security/libsodium \
 		libcurl.so:ftp/curl \
-		libsqlite3.so:databases/sqlite3 \
 		libminiupnpc.so:net/miniupnpc \
 		libopusfile.so:audio/opusfile \
 		libopus.so:audio/opus
 RUN_DEPENDS=	${LOCALBASE}/share/fonts/dejavu/DejaVuSans.ttf:x11-fonts/dejavu
 
 USES=		cmake bison compiler:c++11-lib gl openal:al pkgconfig \
-		sdl tar:xz
+		sdl sqlite tar:xz
 USE_GL=		gl
 USE_SDL=	sdl2
 CMAKE_ARGS=	-DWZ_DISTRIBUTOR="FreeBSD ports" \

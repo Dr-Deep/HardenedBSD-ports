@@ -1,6 +1,6 @@
 PORTNAME=	sq
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.33.0
+DISTVERSION=	0.36.0
 PORTREVISION=	3
 CATEGORIES=	security
 PKGNAMEPREFIX=	sequoia-
@@ -12,6 +12,7 @@ WWW=		https://sequoia-pgp.org/
 LICENSE=	LGPL20+
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+BUILD_DEPENDS=	capnp:devel/capnproto
 LIB_DEPENDS=	libnettle.so:security/nettle \
 		libgmp.so:math/gmp
 
@@ -28,9 +29,6 @@ OPTIONS_DEFAULT=	BASH ELVISH FISH MANPAGES ZSH
 OPTIONS_SUB=	yes
 
 ELVISH_DESC=	Install Elvish module
-
-post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 post-install-BASH-on:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/bash-completion/completions

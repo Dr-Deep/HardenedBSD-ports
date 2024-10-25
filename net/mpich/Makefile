@@ -1,5 +1,5 @@
 PORTNAME=	mpich
-DISTVERSION=	4.2.1
+DISTVERSION=	4.2.3
 CATEGORIES=	net parallel
 MASTER_SITES=	https://www.mpich.org/static/downloads/${DISTVERSION}/
 
@@ -15,7 +15,6 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LIB_DEPENDS=	libhwloc.so:devel/hwloc2	\
 		libjson-c.so:devel/json-c	\
 		libfabric.so:net/libfabric	\
-		libslurm.so:sysutils/slurm-wlm	\
 		libepoll-shim.so:devel/libepoll-shim
 
 CONFLICTS=	mpd
@@ -27,12 +26,12 @@ TEST_TARGET=	check
 
 BINARY_ALIAS=	python3=${PYTHON_CMD}
 
-OPTIONS_DEFINE=		DOCS FORTRAN L0
+OPTIONS_DEFINE=		DOCS FORTRAN SLURM L0
 OPTIONS_GROUP=		PM
 OPTIONS_GROUP_PM=	GFORKER HYDRA
 OPTIONS_RADIO=		DEFAULTPM
 OPTIONS_RADIO_DEFAULTPM=DGFORKER DHYDRA
-OPTIONS_DEFAULT=	FORTRAN GFORKER HYDRA DHYDRA L0
+OPTIONS_DEFAULT=	FORTRAN GFORKER HYDRA DHYDRA
 OPTIONS_SUB=		yes
 
 FORTRAN_USES=			fortran
@@ -52,11 +51,14 @@ DEFAULTPM_DESC=	Default process manager
 DGFORKER_DESC=	Make gforker the default process manager
 DHYDRA_DESC=	Make hydra the default process manager
 
-HYDRA_LIB_DEPENDS=	libtorque.so:sysutils/torque
+SLURM_DESC=		Extra Slurm support
+SLURM_LIB_DEPENDS=	libslurm.so:sysutils/slurm-wlm
+SLURM_CONFIGURE_WITH=	slurm
+SLURM_IMPLIES=		HYDRA
 
 L0_DESC=		oneAPI Level Zero support
 L0_LIB_DEPENDS=		libze_loader.so:devel/level-zero
-L0_CONFIGURE_OFF=	--without-ze
+L0_CONFIGURE_WITH=	ze
 
 CONFIGURE_ARGS=	--enable-fast=""	\
 		--with-libfabric=${LOCALBASE} \
@@ -78,9 +80,15 @@ PORTDOCS=	*
 
 .include <bsd.port.pre.mk>
 
-.if ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} == 170
+.if ${PORT_OPTIONS:ML0}
+# PR 278869 - level-zero is broken
+IGNORE=	is currently not working with the L0 option. Unset L0
+.endif
+
+.if ${COMPILER_TYPE} == clang && (${COMPILER_VERSION} == 170 || ${COMPILER_VERSION} >= 181 && ${ARCH} == "i386")
 # linker error when compiling with llvm 17.0.6 on CURRENT - PR 276035
-# To be removed with llvm-18
+# To be removed when all RELEASE and CURRENT no longer need it
+# Error remains for i386 and llvm-181 on CURRENT
 CONFIGURE_ENV+=	ac_cv_sizeof___float128=0
 .endif
 

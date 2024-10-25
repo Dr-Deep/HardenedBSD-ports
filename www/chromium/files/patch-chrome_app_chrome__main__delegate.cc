@@ -1,6 +1,6 @@
---- chrome/app/chrome_main_delegate.cc.orig	2024-04-19 13:02:56 UTC
+--- chrome/app/chrome_main_delegate.cc.orig	2024-09-30 07:45:04 UTC
 +++ chrome/app/chrome_main_delegate.cc
-@@ -146,7 +146,7 @@
+@@ -144,7 +144,7 @@
  #include "components/about_ui/credit_utils.h"
  #endif
  
@@ -9,7 +9,7 @@
  #include "components/nacl/common/nacl_paths.h"
  #include "components/nacl/zygote/nacl_fork_delegate_linux.h"
  #endif
-@@ -189,20 +189,20 @@
+@@ -188,21 +188,21 @@
  #include "v8/include/v8.h"
  #endif
  
@@ -21,6 +21,7 @@
 -#if BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
  #include "base/nix/scoped_xdg_activation_token_injector.h"
+ #include "ui/linux/display_server_utils.h"
  #endif
  
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID)
@@ -45,7 +46,7 @@
  #endif
 @@ -431,7 +431,7 @@ bool HandleVersionSwitches(const base::CommandLine& co
  
- // TODO(crbug.com/1052397): Revisit the macro expression once build flag switch
+ // TODO(crbug.com/40118868): Revisit the macro expression once build flag switch
  // of lacros-chrome is complete.
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || BUILDFLAG(IS_BSD)
@@ -79,7 +80,7 @@
    // On Linux, Chrome does not support running multiple copies under different
    // DISPLAYs, so the profile directory can be specified in the environment to
    // support the virtual desktop use-case.
-@@ -770,7 +770,7 @@ void RecordMainStartupMetrics(base::TimeTicks applicat
+@@ -773,7 +773,7 @@ void RecordMainStartupMetrics(const StartupTimestamps&
  #endif
  
  #if BUILDFLAG(IS_MAC) || BUILDFLAG(IS_WIN) || BUILDFLAG(IS_LINUX) || \
@@ -88,8 +89,17 @@
    // Record the startup process creation time on supported platforms. On Android
    // this is recorded in ChromeMainDelegateAndroid.
    startup_metric_utils::GetCommon().RecordStartupProcessCreationTime(
-@@ -1155,7 +1155,7 @@ void ChromeMainDelegate::CommonEarlyInitialization(Inv
-       chrome::GetChannel() == version_info::Channel::DEV;
+@@ -967,7 +967,7 @@ std::optional<int> ChromeMainDelegate::PostEarlyInitia
+ #if BUILDFLAG(IS_OZONE)
+   // Initialize Ozone platform and add required feature flags as per platform's
+   // properties.
+-#if BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   ui::SetOzonePlatformForLinuxIfNeeded(*base::CommandLine::ForCurrentProcess());
+ #endif
+   ui::OzonePlatform::PreEarlyInitialization();
+@@ -1165,7 +1165,7 @@ void ChromeMainDelegate::CommonEarlyInitialization(Inv
+   const bool is_canary_dev = IsCanaryDev();
    const bool emit_crashes =
  #if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_MAC) || \
 -    BUILDFLAG(IS_WIN)
@@ -97,25 +107,16 @@
        is_canary_dev;
  #else
        false;
-@@ -1174,7 +1174,7 @@ void ChromeMainDelegate::CommonEarlyInitialization(Inv
-   // for more context.
-   base::sequence_manager::internal::ThreadController::InitializeFeatures(
-       /*record_sample_metadata=*/is_canary_dev);
--#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID)
-+#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_BSD)
-   base::MessagePumpLibevent::InitializeFeatures();
- #elif BUILDFLAG(IS_MAC)
-   base::PlatformThread::InitFeaturesPostFieldTrial();
-@@ -1323,7 +1323,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
+@@ -1320,7 +1320,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
  
-   // TODO(crbug.com/1052397): Revisit the macro expression once build flag
+   // TODO(crbug.com/40118868): Revisit the macro expression once build flag
    // switch of lacros-chrome is complete.
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS)
 +#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS_LACROS) || BUILDFLAG(IS_BSD)
    // This will directly exit if the user asked for help.
    HandleHelpSwitches(command_line);
  #endif
-@@ -1353,7 +1353,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
+@@ -1350,7 +1350,7 @@ std::optional<int> ChromeMainDelegate::BasicStartupCom
  #if BUILDFLAG(IS_CHROMEOS)
    chromeos::dbus_paths::RegisterPathProvider();
  #endif
@@ -124,21 +125,28 @@
    nacl::RegisterPathProvider();
  #endif
  
-@@ -1750,7 +1750,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
+@@ -1737,7 +1737,7 @@ void ChromeMainDelegate::PreSandboxStartup() {
      CHECK(!loaded_locale.empty()) << "Locale could not be found for " << locale;
    }
  
 -#if BUILDFLAG(IS_POSIX) && !BUILDFLAG(IS_MAC)
 +#if BUILDFLAG(IS_POSIX) && !BUILDFLAG(IS_MAC) && !BUILDFLAG(IS_BSD)
    // Zygote needs to call InitCrashReporter() in RunZygote().
-   if (process_type != switches::kZygoteProcess) {
-     if (command_line.HasSwitch(switches::kPreCrashpadCrashTest)) {
-@@ -1851,7 +1851,7 @@ absl::variant<int, content::MainFunctionParams> Chrome
- 
-   // This entry is not needed on Linux, where the NaCl loader
-   // process is launched via nacl_helper instead.
--#if BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && !BUILDFLAG(IS_CHROMEOS)
-+#if BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && !BUILDFLAG(IS_CHROMEOS) && !BUILDFLAG(IS_BSD)
-     {switches::kNaClLoaderProcess, NaClMain},
+   if (process_type != switches::kZygoteProcess &&
+       !command_line.HasSwitch(switches::kDisableCrashpadForTesting)) {
+@@ -1833,13 +1833,13 @@ absl::variant<int, content::MainFunctionParams> Chrome
  #else
-     {"<invalid>", nullptr},  // To avoid constant array of size 0
+ 
+ #if BUILDFLAG(IS_MAC) || (BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && \
+-                          !BUILDFLAG(IS_CHROMEOS))
++                          !BUILDFLAG(IS_CHROMEOS) && !BUILDFLAG(IS_BSD))
+   static const MainFunction kMainFunctions[] = {
+ #if BUILDFLAG(IS_MAC)
+       {switches::kRelauncherProcess, mac_relauncher::internal::RelauncherMain},
+       {switches::kCodeSignCloneCleanupProcess,
+        code_sign_clone_manager::internal::ChromeCodeSignCloneCleanupMain},
+-#elif BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && !BUILDFLAG(IS_CHROMEOS)
++#elif BUILDFLAG(ENABLE_NACL) && !BUILDFLAG(IS_LINUX) && !BUILDFLAG(IS_CHROMEOS) && !BUILDFLAG(IS_BSD)
+       // This entry is not needed on Linux, where the NaCl loader
+       // process is launched via nacl_helper instead.
+       {switches::kNaClLoaderProcess, NaClMain},

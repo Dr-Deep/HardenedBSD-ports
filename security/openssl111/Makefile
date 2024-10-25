@@ -15,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 DEPRECATED=	End-of-life since 2023-09-11, see https://www.openssl.org/blog/blog/2023/09/11/eol-111/ \
 		port will be removed when FreeBSD 13 is EoL
-EXPIRATION_DATE=	2026-01-31
+EXPIRATION_DATE=	2026-04-30
 
 CONFLICTS_INSTALL=	boringssl libressl libressl-devel openssl openssl3[12] openssl-quictls
 
@@ -120,7 +120,7 @@ SHARED_USE=		ldconfig=yes
 SSL3_CONFIGURE_ON+=	enable-ssl3-method
 ZLIB_CONFIGURE_ON=	zlib-dynamic
 
-PORTSCOUT=		limit=^1\.1\.1
+PORTSCOUT=		limit:^1\.1\.1
 
 .include <bsd.port.pre.mk>
 .if ${PREFIX} == /usr

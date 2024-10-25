@@ -34,8 +34,10 @@
     SUBDIR += cmrtlib
     SUBDIR += cx88
     SUBDIR += dav1d
+    SUBDIR += decord
     SUBDIR += deforaos-player
     SUBDIR += dirac
+    SUBDIR += dovi_tool
     SUBDIR += dragon
     SUBDIR += droidcam
     SUBDIR += dtv-scan-tables
@@ -51,7 +53,6 @@
     SUBDIR += dvdstyler
     SUBDIR += elementary-videos
     SUBDIR += emby-server
-    SUBDIR += emby-server-devel
     SUBDIR += emovix
     SUBDIR += ffaudioconverter
     SUBDIR += ffdec
@@ -89,7 +90,6 @@
     SUBDIR += gstreamer1-plugins-dts
     SUBDIR += gstreamer1-plugins-dv
     SUBDIR += gstreamer1-plugins-dvdread
-    SUBDIR += gstreamer1-plugins-gnonlin
     SUBDIR += gstreamer1-plugins-good
     SUBDIR += gstreamer1-plugins-hls
     SUBDIR += gstreamer1-plugins-libde265
@@ -109,9 +109,9 @@
     SUBDIR += gstreamer1-plugins-ugly
     SUBDIR += gstreamer1-plugins-v4l2
     SUBDIR += gstreamer1-plugins-vpx
+    SUBDIR += gstreamer1-plugins-webrtc
     SUBDIR += gstreamer1-plugins-x264
     SUBDIR += gstreamer1-plugins-x265
-    SUBDIR += gstreamer1-qt
     SUBDIR += gstreamer1-rtsp-server
     SUBDIR += gstreamer1-vaapi
     SUBDIR += gstreamer1-validate
@@ -122,10 +122,10 @@
     SUBDIR += haruna
     SUBDIR += harvid
     SUBDIR += helvum
-    SUBDIR += hypnotix
     SUBDIR += intel-media-sdk
     SUBDIR += iso2mkv
     SUBDIR += jellyfin
+    SUBDIR += jellyfin-media-player
     SUBDIR += jmref
     SUBDIR += kaffeine
     SUBDIR += kamoso
@@ -145,6 +145,7 @@
     SUBDIR += kodi-addon-screensaver.matrixtrails
     SUBDIR += kodi-addon-screensaver.stars
     SUBDIR += kodi-addon-visualization.fishbmc
+    SUBDIR += kodi-addon-visualization.projectm
     SUBDIR += kodi-addon-visualization.shadertoy
     SUBDIR += kodi-addon-visualization.spectrum
     SUBDIR += kooha
@@ -180,7 +181,6 @@
     SUBDIR += librav1e
     SUBDIR += librespot
     SUBDIR += librist
-    SUBDIR += librtmp
     SUBDIR += libtheora
     SUBDIR += libtuner
     SUBDIR += libudfread
@@ -204,6 +204,14 @@
     SUBDIR += libzen
     SUBDIR += linux-c7-libtheora
     SUBDIR += linux-c7-libv4l
+    SUBDIR += linux-rl9-ffmpeg
+    SUBDIR += linux-rl9-gstreamer1
+    SUBDIR += linux-rl9-gstreamer1-libav
+    SUBDIR += linux-rl9-libtheora
+    SUBDIR += linux-rl9-libv4l
+    SUBDIR += linux-rl9-libva
+    SUBDIR += linux-rl9-libvdpau
+    SUBDIR += linux-rl9-libvpx
     SUBDIR += linux-tsmuxer
     SUBDIR += linux_dvbwrapper-kmod
     SUBDIR += livego
@@ -295,11 +303,11 @@
     SUBDIR += py-PySceneDetect
     SUBDIR += py-av
     SUBDIR += py-cec
+    SUBDIR += py-decord
     SUBDIR += py-enzyme
     SUBDIR += py-ffmpeg-python
     SUBDIR += py-gstreamer1
     SUBDIR += py-guessit
-    SUBDIR += py-librtmp
     SUBDIR += py-mat2
     SUBDIR += py-metadata-cleaner
     SUBDIR += py-mido
@@ -310,11 +318,13 @@
     SUBDIR += py-pymediainfo
     SUBDIR += py-pysubs2
     SUBDIR += py-python-mpv
+    SUBDIR += py-pytube
     SUBDIR += py-soco
     SUBDIR += py-srt
     SUBDIR += py-subliminal
     SUBDIR += py-tartube
     SUBDIR += py-tvnamer
+    SUBDIR += py-ustreamer
     SUBDIR += qmmp-plugin-pack-qt5
     SUBDIR += qmmp-plugin-pack-qt6
     SUBDIR += qmmp-qt5
@@ -330,13 +340,10 @@
     SUBDIR += recordmydesktop
     SUBDIR += replex
     SUBDIR += ringrtc
-    SUBDIR += rtmpdump
     SUBDIR += rubygem-av
     SUBDIR += rubygem-clutter-gstreamer
     SUBDIR += rubygem-flvtool2
     SUBDIR += rubygem-gstreamer
-    SUBDIR += rubygem-paperclip-av-transcoder
-    SUBDIR += rubygem-paperclip-av-transcoder-rails50
     SUBDIR += rubygem-streamio-ffmpeg
     SUBDIR += scte35dump
     SUBDIR += shotcut
@@ -353,6 +360,7 @@
     SUBDIR += subtitleoffsetmodifier
     SUBDIR += subtools
     SUBDIR += svt-av1
+    SUBDIR += svt-av1-psy
     SUBDIR += svt-hevc
     SUBDIR += svt-vp9
     SUBDIR += syncplay
@@ -401,6 +409,7 @@
     SUBDIR += xporthdmv
     SUBDIR += xvid
     SUBDIR += yamdi
+    SUBDIR += youtui
     SUBDIR += ytfzf
     SUBDIR += zart
     SUBDIR += zoneminder

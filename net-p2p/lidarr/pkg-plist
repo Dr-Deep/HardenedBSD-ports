@@ -26,9 +26,9 @@
 %%DATADIR%%/bin/FluentMigrator.dll
 %%DATADIR%%/bin/FluentValidation.dll
 %%DATADIR%%/bin/ICSharpCode.SharpZipLib.dll
+%%DATADIR%%/bin/IPAddressRange.dll
 %%DATADIR%%/bin/Ical.Net.dll
 %%DATADIR%%/bin/ImpromptuInterface.dll
-%%DATADIR%%/bin/Kveer.XmlRPC.dll
 %%DATADIR%%/bin/LICENSE.md
 %%DATADIR%%/bin/Lidarr
 %%DATADIR%%/bin/Lidarr.Api.V1.deps.json
@@ -257,6 +257,7 @@
 %%DATADIR%%/bin/Mono.Posix.NETStandard.dll
 %%DATADIR%%/bin/MonoTorrent.dll
 %%DATADIR%%/bin/NLog.Extensions.Logging.dll
+%%DATADIR%%/bin/NLog.Layouts.ClefJsonLayout.dll
 %%DATADIR%%/bin/NLog.Targets.Syslog.dll
 %%DATADIR%%/bin/NLog.dll
 %%DATADIR%%/bin/Newtonsoft.Json.dll
@@ -271,6 +272,7 @@
 %%DATADIR%%/bin/ServiceUninstall
 %%DATADIR%%/bin/SixLabors.ImageSharp.dll
 %%DATADIR%%/bin/SpotifyAPI.Web.dll
+%%DATADIR%%/bin/Swashbuckle.AspNetCore.Annotations.dll
 %%DATADIR%%/bin/Swashbuckle.AspNetCore.Swagger.dll
 %%DATADIR%%/bin/Swashbuckle.AspNetCore.SwaggerGen.dll
 %%DATADIR%%/bin/System.AppContext.dll
@@ -446,13 +448,13 @@
 %%DATADIR%%/bin/System.Xml.dll
 %%DATADIR%%/bin/System.dll
 %%DATADIR%%/bin/TagLibSharp.dll
-%%DATADIR%%/bin/UI/705-250cdae69bf2df1e95f6.js
-%%DATADIR%%/bin/UI/705-250cdae69bf2df1e95f6.js.map
-%%DATADIR%%/bin/UI/727-3e408ec6f7dc0e60ccfb.js
-%%DATADIR%%/bin/UI/727-3e408ec6f7dc0e60ccfb.js.LICENSE.txt
-%%DATADIR%%/bin/UI/727-3e408ec6f7dc0e60ccfb.js.map
-%%DATADIR%%/bin/UI/Content/705-1e51d04ce38ca689dab6.css
-%%DATADIR%%/bin/UI/Content/705-1e51d04ce38ca689dab6.css.map
+%%DATADIR%%/bin/UI/102-adb2c966a83ec3167f98.js
+%%DATADIR%%/bin/UI/102-adb2c966a83ec3167f98.js.map
+%%DATADIR%%/bin/UI/727-d4f1d82f1f0d9a652dc7.js
+%%DATADIR%%/bin/UI/727-d4f1d82f1f0d9a652dc7.js.LICENSE.txt
+%%DATADIR%%/bin/UI/727-d4f1d82f1f0d9a652dc7.js.map
+%%DATADIR%%/bin/UI/Content/102-02d01870d91ba55f8843.css
+%%DATADIR%%/bin/UI/Content/102-02d01870d91ba55f8843.css.map
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.ttf
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.woff
 %%DATADIR%%/bin/UI/Content/Fonts/Roboto-Light.woff2
@@ -463,8 +465,6 @@
 %%DATADIR%%/bin/UI/Content/Fonts/UbuntuMono-Regular.ttf
 %%DATADIR%%/bin/UI/Content/Fonts/UbuntuMono-Regular.woff
 %%DATADIR%%/bin/UI/Content/Fonts/fonts.css
-%%DATADIR%%/bin/UI/Content/Fonts/text-security-disc.ttf
-%%DATADIR%%/bin/UI/Content/Fonts/text-security-disc.woff
 %%DATADIR%%/bin/UI/Content/Images/404.png
 %%DATADIR%%/bin/UI/Content/Images/Icons/android-chrome-192x192.png
 %%DATADIR%%/bin/UI/Content/Images/Icons/android-chrome-512x512.png
@@ -495,8 +495,8 @@
 %%DATADIR%%/bin/UI/Content/robots.txt
 %%DATADIR%%/bin/UI/Content/styles.css
 %%DATADIR%%/bin/UI/Content/styles.css.map
-%%DATADIR%%/bin/UI/index-4e5ad49900ce5404b03d.js
-%%DATADIR%%/bin/UI/index-4e5ad49900ce5404b03d.js.map
+%%DATADIR%%/bin/UI/index-028c0ca0d551dcdcf4de.js
+%%DATADIR%%/bin/UI/index-028c0ca0d551dcdcf4de.js.map
 %%DATADIR%%/bin/UI/index.html
 %%DATADIR%%/bin/UI/login.html
 %%DATADIR%%/bin/UI/oauth.html

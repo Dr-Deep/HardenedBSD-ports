@@ -1,11 +1,11 @@
 PORTNAME=	freenit
-DISTVERSION=	0.3.2
+DISTVERSION=	0.3.5
 CATEGORIES=	www devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	meka@tilda.center
-COMMENT=	REST API framework based on Flask-Smorest
+COMMENT=	REST API framework based on FastAPI
 WWW=		https://github.com/freenit-framework/backend
 
 LICENSE=	BSD2CLAUSE
@@ -25,8 +25,9 @@ USES=		python
 USE_PYTHON=	autoplist concurrent pep517 pytest
 USE_RC_SUBR=	freenit
 
-TEST_ENV=	PYTHONPATH=${WRKSRC}/src
 TEST_ARGS=	--ignore=${PORTNAME}/project
+TEST_ENV=	PYTHONPATH=${WRKSRC}/src
+
 NO_ARCH=	yes
 SUB_LIST=	PYTHON_VER=${PYTHON_VER}
 

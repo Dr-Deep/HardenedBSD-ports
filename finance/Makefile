@@ -28,7 +28,6 @@
     SUBDIR += fixc
     SUBDIR += freqtrade
     SUBDIR += frontaccounting
-    SUBDIR += frontaccounting24
     SUBDIR += gnucash
     SUBDIR += gnucash-docs
     SUBDIR += grisbi
@@ -46,6 +45,7 @@
     SUBDIR += libbtc
     SUBDIR += libofx
     SUBDIR += libstocks
+    SUBDIR += linux-tradingview
     SUBDIR += lnd
     SUBDIR += moneymanagerex
     SUBDIR += myphpmoney
@@ -54,6 +54,7 @@
     SUBDIR += odoo14
     SUBDIR += odoo15
     SUBDIR += odoo16
+    SUBDIR += ord
     SUBDIR += p5-Business-CreditCard
     SUBDIR += p5-Business-MaxMind-CreditCardFraudDetection
     SUBDIR += p5-Business-OCV
@@ -143,6 +144,7 @@
     SUBDIR += py-ystockquote
     SUBDIR += qtbitcointrader
     SUBDIR += quantlib
+    SUBDIR += quba-viewer
     SUBDIR += quickfix
     SUBDIR += rubygem-money
     SUBDIR += skrooge

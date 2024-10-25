@@ -4,6 +4,7 @@
     SUBDIR += Xaw3d
     SUBDIR += Xmt
     SUBDIR += amtk
+    SUBDIR += aquamarine
     SUBDIR += blt
     SUBDIR += bwidget
     SUBDIR += color-widgets-qt5
@@ -23,6 +24,8 @@
     SUBDIR += granite7
     SUBDIR += gstreamer1-plugins-gtk
     SUBDIR += gstreamer1-plugins-pango
+    SUBDIR += gstreamer1-plugins-qt5
+    SUBDIR += gstreamer1-plugins-qt6
     SUBDIR += gtk-layer-shell
     SUBDIR += gtk-session-lock
     SUBDIR += gtk-sharp-beans
@@ -87,6 +90,7 @@
     SUBDIR += libhandy
     SUBDIR += libhandy0
     SUBDIR += libshumate
+    SUBDIR += libspelling
     SUBDIR += libunique3
     SUBDIR += libwnck
     SUBDIR += libwnck3
@@ -97,6 +101,9 @@
     SUBDIR += linux-c7-pango
     SUBDIR += linux-c7-qt-x11
     SUBDIR += linux-c7-tk85
+    SUBDIR += linux-rl9-gtk2
+    SUBDIR += linux-rl9-gtk3
+    SUBDIR += linux-rl9-pango
     SUBDIR += movingmotif
     SUBDIR += mowitz
     SUBDIR += mygui
@@ -140,7 +147,6 @@
     SUBDIR += p5-Tk-Date
     SUBDIR += p5-Tk-DynaTabFrame
     SUBDIR += p5-Tk-Enscript
-    SUBDIR += p5-Tk-FileDialog
     SUBDIR += p5-Tk-FontDialog
     SUBDIR += p5-Tk-GBARR
     SUBDIR += p5-Tk-Getopt
@@ -164,13 +170,17 @@
     SUBDIR += py-AnyQt
     SUBDIR += py-Pmw
     SUBDIR += py-awesometkinter
+    SUBDIR += py-customtkinter
     SUBDIR += py-easygui
     SUBDIR += py-fltk
     SUBDIR += py-guietta
+    SUBDIR += py-kivy
     SUBDIR += py-python-xlib
     SUBDIR += py-qt5-chart
+    SUBDIR += py-qt5-datavis3d
     SUBDIR += py-qt6-chart
     SUBDIR += py-qt6-datavis3d
+    SUBDIR += py-superqt
     SUBDIR += py-tkinter
     SUBDIR += py-tktreectrl
     SUBDIR += py-wxPython4
@@ -201,6 +211,7 @@
     SUBDIR += qt6-virtualkeyboard
     SUBDIR += qt6pas
     SUBDIR += qtermwidget
+    SUBDIR += qtermwidget-qt5
     SUBDIR += qwt5-qt5
     SUBDIR += qwt6
     SUBDIR += redkite
@@ -218,7 +229,9 @@
     SUBDIR += rubygem-uh
     SUBDIR += rubygem-vte3
     SUBDIR += rubygem-vte4
+    SUBDIR += scenefx
     SUBDIR += scintilla
+    SUBDIR += sdl2_pango
     SUBDIR += sdl_pango
     SUBDIR += shared-desktop-ontologies
     SUBDIR += skinlf
@@ -230,6 +243,7 @@
     SUBDIR += tk-wrapper
     SUBDIR += tk86
     SUBDIR += tk87
+    SUBDIR += tk90
     SUBDIR += tkdnd
     SUBDIR += tkshape
     SUBDIR += tktable
@@ -240,9 +254,8 @@
     SUBDIR += vte
     SUBDIR += vte3
     SUBDIR += wlroots
-    SUBDIR += wlroots-devel
     SUBDIR += wlroots015
-    SUBDIR += wlroots016
+    SUBDIR += wlroots017
     SUBDIR += wmapp
     SUBDIR += wxgtk30
     SUBDIR += wxgtk32

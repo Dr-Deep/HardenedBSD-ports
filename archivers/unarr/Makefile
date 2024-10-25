@@ -3,7 +3,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	1.1.1
 CATEGORIES=	archivers
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Decompression library for RAR, TAR, ZIP and 7z* archives
 WWW=		https://github.com/selmf/unarr
 
@@ -19,10 +19,5 @@ USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GH_ACCOUNT=	selmf
 CMAKE_TESTING_ON=	BUILD_INTEGRATION_TESTS BUILD_UNIT_TESTS
-
-post-patch:
-.if ${/usr/bin/ld:L:tA} != /usr/bin/ld.lld
-	@${REINPLACE_CMD} 's/ -flto//' ${WRKSRC}/CMakeLists.txt
-.endif
 
 .include <bsd.port.mk>

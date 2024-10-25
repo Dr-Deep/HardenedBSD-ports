@@ -70,6 +70,7 @@
     SUBDIR += portupgrade-devel
     SUBDIR += poudriere
     SUBDIR += poudriere-devel
+    SUBDIR += poudriere-dsh2dsh
     SUBDIR += poudriere-hbsd
     SUBDIR += psearch
     SUBDIR += py-FreeBSD-ports

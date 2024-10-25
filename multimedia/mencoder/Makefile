@@ -1,5 +1,6 @@
 PORTNAME=	mencoder
 PORTVERSION=	${MPLAYER_PORT_VERSION}.${MPLAYER_SNAPSHOT_DATE:S/-//g}
+PORTREVISION=	1
 CATEGORIES=	multimedia audio
 
 MAINTAINER=	riggs@FreeBSD.org
@@ -11,7 +12,7 @@ WWW=		http://www.mplayerhq.hu/
 OPTIONS_DEFINE=	AMR_NB AMR_WB ASS BLURAY CDIO DV DVDNAV FAAC FONTCONFIG \
 		FRIBIDI GIF GNUTLS GSM IPV6 JACK JPEG LADSPA LIBMNG LZO \
 		MAD NAS NLS OPENAL OPENJPEG OPUS PULSEAUDIO \
-		RTMP SMB SPEEX THEORA TWOLAME V4L VPX \
+		SMB SPEEX THEORA TWOLAME V4L VPX \
 		X264 XVID
 
 OPTIONS_DEFAULT=ASS DVDNAV FONTCONFIG GIF GNUTLS JPEG X264 XVID
@@ -71,7 +72,8 @@ CONFIGURE_ARGS+=	--disable-mplayer \
 			--disable-mpg123 \
 			--disable-enca \
 			--disable-musepack \
-			--disable-sndio
+			--disable-sndio \
+			--disable-librtmp
 
 LIB_DEPENDS+=	libmp3lame.so:audio/lame
 

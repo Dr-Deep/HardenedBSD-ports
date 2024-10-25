@@ -1,6 +1,6 @@
 PORTNAME=	hypre
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.31.0
+DISTVERSION=	2.32.0
 CATEGORIES=	science
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -12,7 +12,9 @@ LICENSE_COMB=	dual
 LICENSE_FILE_APACHE20=	${WRKSRC}/../LICENSE-APACHE
 LICENSE_FILE_MIT=	${WRKSRC}/../LICENSE-MIT
 
-USES=		blaslapack cmake:testing fortran localbase
+LIB_DEPENDS=	libsuperlu.so:math/superlu
+
+USES=		blaslapack:openblas cmake:testing fortran localbase
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
@@ -20,7 +22,11 @@ GH_ACCOUNT=	hypre-space
 
 WRKSRC_SUBDIR=	src
 
-CMAKE_ON=	HYPRE_ENABLE_SHARED HYPRE_WITH_OPENMP
+CMAKE_ON=	HYPRE_ENABLE_SHARED HYPRE_WITH_OPENMP HYPRE_WITH_SUPERLU
+CMAKE_OFF=	HYPRE_ENABLE_HYPRE_BLAS HYPRE_ENABLE_HYPRE_LAPACK
+CMAKE_ARGS=	-DTPL_BLAS_LIBRARIES="${_BLASLIB}"	\
+		-DTPL_SUPERLU_LIBRARIES="${LOCALBASE}/lib/libsuperlu.so"	\
+		-DTPL_SUPERLU_INCLUDE_DIRS="${LOCALBASE}/include/superlu"
 CMAKE_TESTING_ON=	HYPRE_BUILD_TESTS # tests are only built and not run, see https://github.com/hypre-space/hypre/issues/502
 
 OPTIONS_DEFINE=		DOCS
@@ -49,5 +55,14 @@ post-install:
 post-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 	cd ${WRKSRC}/docs && ${COPYTREE_SHARE} usr-manual ${STAGEDIR}${DOCSDIR}
+
+post-test: # run tests; unclear how to to run tests, see https://github.com/hypre-space/hypre/issues/502
+.for t in ij ij_assembly ij_mv maxwell_unscaled
+	@cd ${WRKSRC}/test && \
+		${ECHO} "==> running test ${t}" && \
+		${BUILD_WRKSRC}/test/${t}
+.endfor
+
+# the test ij_mv fails, see https://github.com/hypre-space/hypre/issues/1161
 
 .include <bsd.port.mk>

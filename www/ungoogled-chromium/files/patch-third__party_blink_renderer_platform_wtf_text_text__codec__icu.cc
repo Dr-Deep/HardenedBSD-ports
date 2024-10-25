@@ -1,4 +1,4 @@
---- third_party/blink/renderer/platform/wtf/text/text_codec_icu.cc.orig	2024-04-23 07:42:17 UTC
+--- third_party/blink/renderer/platform/wtf/text/text_codec_icu.cc.orig	2024-08-26 14:40:28 UTC
 +++ third_party/blink/renderer/platform/wtf/text/text_codec_icu.cc
 @@ -615,6 +615,7 @@ static void GbkUrlEscapedEntityCallack(
                                code_point, reason, err);

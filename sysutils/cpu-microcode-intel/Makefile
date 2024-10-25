@@ -1,6 +1,6 @@
 PORTNAME=	microcode
 DISTVERSIONPREFIX=	microcode-
-DISTVERSION=	20240312
+DISTVERSION=	20240910
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	cpu-
 PKGNAMESUFFIX=	-intel
@@ -49,7 +49,7 @@ post-extract:
 	  > ${WRKSRC}/intel-ucode.bin
 
 post-extract-SPLIT-on:
-	${CP} -p ${FILESDIR}/Makefile ${FILESDIR}/ucode-split.c ${WRKSRC}
+	${CP} ${FILESDIR}/Makefile ${FILESDIR}/ucode-split.c ${WRKSRC}
 	${REINPLACE_CMD} 's|%%GH_TAGNAME%%|${GH_TAGNAME}|g' ${WRKSRC}/Makefile
 
 do-install:

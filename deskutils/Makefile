@@ -1,5 +1,6 @@
     COMMENT = Things that used to be on the desktop before computers were invented
 
+    SUBDIR += R-cran-exams
     SUBDIR += affiche
     SUBDIR += akonadi-calendar-tools
     SUBDIR += akonadi-import-wizard
@@ -9,7 +10,6 @@
     SUBDIR += anydesk
     SUBDIR += appwrapper
     SUBDIR += arttime
-    SUBDIR += aspostit
     SUBDIR += ausweisapp2
     SUBDIR += autocutsel
     SUBDIR += baobab
@@ -43,6 +43,7 @@
     SUBDIR += coregarage
     SUBDIR += countdown
     SUBDIR += dailystrips
+    SUBDIR += deforaos-notes
     SUBDIR += deforaos-todo
     SUBDIR += dfshow
     SUBDIR += dmenu-wayland
@@ -61,6 +62,7 @@
     SUBDIR += freebsd-update-notify
     SUBDIR += freemind
     SUBDIR += freeplane
+    SUBDIR += fyi
     SUBDIR += ganttproject
     SUBDIR += gcal
     SUBDIR += gcalcli
@@ -106,7 +108,6 @@
     SUBDIR += gpicker
     SUBDIR += grantlee-editor
     SUBDIR += grantleetheme
-    SUBDIR += griffith
     SUBDIR += growl-for-linux
     SUBDIR += gsimplecal
     SUBDIR += gtimer
@@ -162,6 +163,7 @@
     SUBDIR += libportal-gtk3
     SUBDIR += libportal-gtk4
     SUBDIR += libportal-qt5
+    SUBDIR += libportal-qt6
     SUBDIR += ljclive
     SUBDIR += lumina-archiver
     SUBDIR += lumina-calculator
@@ -238,6 +240,7 @@
     SUBDIR += py-taskw
     SUBDIR += py-term-background
     SUBDIR += py-todoman
+    SUBDIR += py-trash-cli
     SUBDIR += py-vdirsyncer
     SUBDIR += py-vobject
     SUBDIR += py-vorta
@@ -251,6 +254,7 @@
     SUBDIR += rolo
     SUBDIR += rubygem-shellplay
     SUBDIR += rubygem-taskjuggler
+    SUBDIR += rwpspread
     SUBDIR += semantik
     SUBDIR += showdown
     SUBDIR += sigi
@@ -295,6 +299,7 @@
     SUBDIR += xcbautolock
     SUBDIR += xchm
     SUBDIR += xdg-desktop-portal
+    SUBDIR += xdg-desktop-portal-lxqt
     SUBDIR += xfce4-generic-slider
     SUBDIR += xfce4-notes-plugin
     SUBDIR += xfce4-notifyd

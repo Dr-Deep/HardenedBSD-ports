@@ -1,7 +1,7 @@
 PORTNAME=	openvdb
 DISTVERSIONPREFIX=	v
 DISTVERSION=	11.0.0
-PORTREVISION=	1
+PORTREVISION=	4
 CATEGORIES=	misc
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -10,8 +10,6 @@ WWW=		https://www.openvdb.org/
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
-
-BROKEN_armv7=	compilation fails: LLVM ERROR: out of memory
 
 LIB_DEPENDS=	libblosc.so:archivers/c-blosc \
 		libboost_system.so:devel/boost-libs \

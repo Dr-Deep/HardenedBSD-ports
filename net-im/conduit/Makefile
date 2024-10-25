@@ -1,7 +1,6 @@
 PORTNAME=	conduit
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.6.0
-PORTREVISION=	6
+DISTVERSION=	0.9.0
 CATEGORIES=	net-im
 PKGNAMEPREFIX=	matrix-
 
@@ -13,8 +12,10 @@ LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN_powerpc64le=	compilation failure: called `Option::unwrap()` on a `None` value in ring-0.16.20/build.rs: # see https://gitlab.com/famedly/conduit/-/issues/416
+BROKEN_i386=	fails to build
 
 BUILD_DEPENDS=	${LOCALBASE}/llvm${LLVM_DEFAULT}/lib/libclang.so:devel/llvm${LLVM_DEFAULT}
+RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
 
 USES=		cargo gmake
 USE_RC_SUBR=	${PORTNAME}
@@ -31,7 +32,7 @@ DBDIR=		/var/db/${PORTNAME}
 
 USE_GITLAB=	yes
 GL_ACCOUNT=	famedly
-GL_TAGNAME=	0c2cfda3ae923d9e922d5edf379e4d8976a52d4e
+GL_TAGNAME=	f8d7ef04e664580e882bac852877b68e7bd3ab1e
 
 post-patch:
 	@${REINPLACE_CMD} -e 's,/etc/conduit.toml,${PREFIX}/etc/conduit.toml,' \
@@ -40,6 +41,8 @@ post-patch:
 		${WRKSRC}/conduit-example.toml
 
 post-install:
+	${MKDIR} ${STAGEDIR}${DOCSDIR}
+	cd ${WRKSRC}/docs && ${COPYTREE_SHARE} . ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKSRC}/conduit-example.toml ${STAGEDIR}${PREFIX}/etc/${PORTNAME}.toml.sample
 	@${MKDIR} ${STAGEDIR}${DBDIR}
 

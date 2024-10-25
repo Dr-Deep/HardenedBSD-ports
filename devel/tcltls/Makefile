@@ -1,10 +1,11 @@
 PORTNAME=	tcltls
 PORTVERSION=	1.7.22
+PORTREVISION=	1
 CATEGORIES=	devel security tcl
 MASTER_SITES=	http://core.tcl.tk/tcltls/uv/ \
 		http://tcltls.rkeene.org/uv/
 
-MAINTAINER=	mi@aldan.algebra.com
+MAINTAINER=	ports@virtual-estates.net
 COMMENT=	Dynamically loadable SSL extensions for TCL
 WWW=		https://core.tcl.tk/tcltls
 
@@ -32,7 +33,7 @@ OPTIONS_DEFINE=	DOCS
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400079 || ( ${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=       -Wno-error=int-conversion
 .endif
 

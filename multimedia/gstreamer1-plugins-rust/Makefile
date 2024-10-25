@@ -1,10 +1,10 @@
 PORTNAME=	gstreamer1-plugins-rust
 DISTVERSION=	0.11.1
 DISTVERSIONSUFFIX=	+fixup
-PORTREVISION=	5
+PORTREVISION=	11
 CATEGORIES=	multimedia
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Various GStreamer plugins written in Rust
 WWW=		https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 
@@ -13,12 +13,13 @@ LICENSE_COMB=	multi
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
 LICENSE_FILE_LGPL21+ =	${WRKSRC}/LICENSE-LGPLv2
 
-BUILD_DEPENDS=	cargo-cbuild:devel/cargo-c
+BUILD_DEPENDS=	cargo-cbuild:devel/cargo-c \
+		${PY_TOMLI}
 
 USES=		cargo gnome gstreamer meson pkgconfig python:build shebangfix ssl
 USE_GITLAB=	yes
 USE_GNOME=	glib20
-USE_GSTREAMER=	bad # webrtc
+USE_GSTREAMER=	webrtc
 GL_SITE=	https://gitlab.freedesktop.org
 GL_ACCOUNT=	gstreamer
 GL_PROJECT=	gst-plugins-rs
@@ -78,13 +79,4 @@ post-patch:
 	@${REINPLACE_CMD} -Ee "/cargo.*'c?(build|test)'/s/]/, '--verbose', '--verbose'&/" \
 		${WRKSRC}/cargo_wrapper.py
 
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/gstreamer-1.0/*.so
-
-.include <bsd.port.pre.mk>
-
-.if ${PYTHON_REL} < 31100
-BUILD_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}tomli>0:textproc/py-tomli@${PY_FLAVOR}
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

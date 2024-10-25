@@ -1,6 +1,7 @@
 PORTNAME=	spglib
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.4.0
+DISTVERSION=	2.5.0
+PORTREVISION=	1
 CATEGORIES=	science python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -14,7 +15,9 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools-scm>0:devel/py-setuptools-scm@$
 		${PYTHON_PKGNAMEPREFIX}scikit-build-core>0:devel/py-scikit-build-core@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyproject-metadata>0:devel/py-pyproject-metadata@${PY_FLAVOR} \
 		cmake:devel/cmake-core \
-		${PYNUMPY}
+		${PYNUMPY} \
+		${PY_SETUPTOOLS}
+LIB_DEPENDS=	libsymspg.so:science/spglib
 RUN_DEPENDS=	${PYNUMPY}
 
 USES=		python
@@ -27,11 +30,5 @@ MAKE_ENV=	SETUPTOOLS_SCM_PRETEND_VERSION=${DISTVERSION}
 
 TEST_WRKSRC=	${WRKSRC}
 TEST_ENV=	${MAKE_ENV} PYTHONPATH=${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}
-
-post-patch:
-	##@cd ${WRKSRC} && ${RLN} ../test .
-	#@cd ${WRKSRC} && ${CP} -r ../test .
-	# workaround for https://github.com/spglib/spglib/issues/429
-	@${REINPLACE_CMD} -i '' -e 's|^from ._version import|#&|' ${WRKSRC}/python/spglib/__init__.py
 
 .include <bsd.port.mk>

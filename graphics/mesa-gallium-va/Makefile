@@ -1,6 +1,5 @@
 PORTNAME=	mesa-gallium-va
 PORTVERSION=	${MESAVERSION}
-PORTREVISION=	3
 CATEGORIES=	graphics
 
 COMMENT=	Mesa Gallium VAAPI drivers
@@ -38,6 +37,7 @@ MESON_ARGS+=	-Dvideo-codecs="vc1dec,h264dec,h264enc,h265dec,h265enc,av1dec,av1en
 		-Dgbm=disabled \
 		-Dgles1=disabled \
 		-Dgles2=disabled \
+		-Dglvnd=disabled \
 		-Dlmsensors=disabled \
 		-Dmicrosoft-clc=disabled \
 		-Dosmesa=false \
@@ -48,6 +48,10 @@ MESON_ARGS+=	-Dvideo-codecs="vc1dec,h264dec,h264enc,h265dec,h265enc,av1dec,av1en
 LDFLAGS_i386=	-Wl,-znotext
 
 MESON_ARGS+=	-Dgallium-va=enabled
+
+.if ${ARCH} != amd64
+MESON_ARGS+=	-Dintel-rt=disabled # https://gitlab.freedesktop.org/mesa/mesa/-/issues/10629
+.endif
 
 .if ${PORT_OPTIONS:MX11}
 MESON_ARGS+=	-Dplatforms="x11"
@@ -60,5 +64,4 @@ MESON_ARGS+=	-Dglx=disabled \
 		-Dplatforms=""
 .endif
 
-.include "${MASTERDIR}/Makefile.targets"
 .include <bsd.port.post.mk>

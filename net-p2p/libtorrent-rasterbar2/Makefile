@@ -1,6 +1,7 @@
 PORTNAME=	libtorrent-rasterbar
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.0.10
+PORTREVISION=	1
 CATEGORIES=	net-p2p
 #MASTER_SITES=	https://github.com/arvidn/libtorrent/releases/download/v${DISTVERSION}/
 PKGNAMESUFFIX=	2
@@ -16,7 +17,7 @@ LIB_DEPENDS=	libboost_chrono.so:devel/boost-libs \
 		libboost_random.so:devel/boost-libs \
 		libboost_system.so:devel/boost-libs
 
-USES=		cmake:testing compiler:c++11-lib iconv:wchar_t libtool \
+USES=		cmake:testing compiler:c++11-lib iconv:wchar_t \
 		localbase:ldflags pathfix pkgconfig python:test shebangfix ssl
 USE_LDCONFIG=	yes
 

@@ -1,6 +1,6 @@
 PORTNAME=	opentimelineio
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.16.0
+DISTVERSION=	0.17.0
 CATEGORIES=	multimedia
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -21,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	PixarAnimationStudios
 GH_PROJECT=	OpenTimelineIO
 
-GH_TUPLE=	pybind:pybind11:e7e2c79f3f520f78ffc39fcb34f7919003102733:pybind_pybind11/src/deps/pybind11 \
+GH_TUPLE=	pybind:pybind11:v2.13.5:pybind_pybind11/src/deps/pybind11 \
 		Tencent:rapidjson:06d58b9e848c650114556a23294d0b6440078c61:Tencent_rapidjson/src/deps/rapidjson
 
 PORTSCOUT=	limit:^.*[0-9]$$ # should end with a digit to prevent tags like last_pure_python

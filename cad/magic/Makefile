@@ -1,5 +1,5 @@
 PORTNAME=	magic
-DISTVERSION=	8.3.474
+DISTVERSION=	8.3.485
 CATEGORIES=	cad
 MASTER_SITES=	http://opencircuitdesign.com/magic/archive/
 
@@ -36,7 +36,7 @@ BINARY_ALIAS=	python3=${PYTHON_CMD} # this is needed, see https://github.com/RTi
 
 .include <bsd.port.pre.mk>
 
-.if ${OPSYS} == FreeBSD && ( ${OSVERSION} >= 1400079 || ( ${OSVERSION} >= 1302505 && ${OSVERSION} < 1400000 ))
+.if ${OPSYS} == FreeBSD
 CFLAGS+=	-Wno-error=int-conversion
 .endif
 

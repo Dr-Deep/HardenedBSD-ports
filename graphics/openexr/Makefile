@@ -1,5 +1,5 @@
 PORTNAME?=	openexr
-PORTVERSION=	3.2.4
+PORTVERSION=	3.3.1
 PORTREVISION?=	0
 CATEGORIES=	graphics devel
 .if !defined(MASTERDIR)
@@ -26,8 +26,7 @@ DISTFILES+=	v2/LeftView/Balls.exr:testimages
 DISTFILES+=	v2/Stereo/Trunks.exr:testimages
 .endif
 DIST_SUBDIR=	openexr # hardcode - not using ${PORTNAME} - so we can share the distdir with openexr-website-docs, avoiding double download of ...
-EXTRACT_ONLY=	openexr-v${PORTVERSION}${EXTRACT_SUFX}
-NO_WRKSUBDIR=	yes
+EXTRACT_ONLY=	openexr-${PORTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	mandree@FreeBSD.org
 COMMENT=	High dynamic-range (HDR) image file format
@@ -40,12 +39,22 @@ BUILD_DEPENDS?=	help2man:misc/help2man
 LIB_DEPENDS?=	libImath-3_1.so.29:math/Imath \
 		libdeflate.so:archivers/libdeflate
 
-USES?=		cmake compiler:c++14-lang cpe pathfix pkgconfig
+USES?=		cmake:testing compiler:c++14-lang cpe pathfix pkgconfig
 
 #USE_GITHUB=	yes
 #GH_TUPLE=	AcademySoftwareFoundation:openexr:v${PORTVERSION}
 
 USE_LDCONFIG=	yes
+
+CMAKE_TESTING_ON=	BUILD_TESTING \
+			OPENEXR_TEST_LIBRARIES \
+			OPENEXR_TEST_PYTHON \
+			OPENEXR_TEST_TOOLS
+
+CMAKE_OFF=	BUILD_TESTING \
+		OPENEXR_TEST_LIBRARIES \
+		OPENEXR_TEST_PYTHON \
+		OPENEXR_TEST_TOOLS
 
 CMAKE_ARGS?=	-DCMAKE_DEBUG_POSTFIX=
 
@@ -53,8 +62,8 @@ CPPFLAGS+=	-I.
 # must be linked with -l{thr|pthread} explicitly
 LDFLAGS+=	-lpthread
 
-_MAJORVER=	3_2
-_VER=		31
+_MAJORVER=	3_3
+_VER=		32
 _REL=		${PORTVERSION}
 PLIST_SUB+=	MAJORVER=${_MAJORVER} \
 		VER=${_VER} \
@@ -103,9 +112,6 @@ post-install-EXAMPLES-on:
 post-install-EXAMPLES-off:
 	${RM} -R ${STAGEDIR}${PREFIX}/share/doc/OpenEXR/examples/
 	@${RMDIR} ${STAGEDIR}${PREFIX}/share/doc/OpenEXR 2>/dev/null || :
-
-do-test:
-	cd ${BUILD_WRKSRC} && ctest -j ${MAKE_JOBS_NUMBER}
 
 .endif
 .include <bsd.port.mk>

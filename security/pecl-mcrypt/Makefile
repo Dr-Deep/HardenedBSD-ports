@@ -1,5 +1,5 @@
 PORTNAME=	mcrypt
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 PORTREVISION=	0
 CATEGORIES=	security pear
 
@@ -12,10 +12,6 @@ LICENSE=	PHP301
 LIB_DEPENDS=	libltdl.so:devel/libltdl \
 		libmcrypt.so:security/libmcrypt
 
-USES=	php:pecl
-
-post-patch:
-	${REINPLACE_CMD} -e 's/RETURN_FALSE$$/RETURN_FALSE;/g' ${WRKSRC}/mcrypt.c
-	${REINPLACE_CMD} -e 's/RETURN_TRUE$$/RETURN_TRUE;/g' ${WRKSRC}/mcrypt.c
+USES=		php:pecl
 
 .include <bsd.port.mk>

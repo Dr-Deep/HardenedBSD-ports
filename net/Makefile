@@ -52,14 +52,15 @@
     SUBDIR += beacon
     SUBDIR += beanstalkd
     SUBDIR += belle-sip
+    SUBDIR += benthos
     SUBDIR += bindtest
     SUBDIR += binkd
-    SUBDIR += bird
     SUBDIR += bird2
     SUBDIR += bittwist
     SUBDIR += bmon
     SUBDIR += boinc-client
     SUBDIR += boinc_curses
+    SUBDIR += boinctui
     SUBDIR += bosh-bootloader
     SUBDIR += bosh-cli
     SUBDIR += bounce
@@ -147,7 +148,6 @@
     SUBDIR += eventviews
     SUBDIR += exabgp4
     SUBDIR += fb303
-    SUBDIR += fbzmq
     SUBDIR += fiche
     SUBDIR += file2pcap
     SUBDIR += findmtu
@@ -169,6 +169,8 @@
     SUBDIR += freeswitch
     SUBDIR += freevrrpd
     SUBDIR += frp
+    SUBDIR += frr10
+    SUBDIR += frr10-pythontools
     SUBDIR += frr8
     SUBDIR += frr8-pythontools
     SUBDIR += frr9
@@ -207,6 +209,8 @@
     SUBDIR += gopher
     SUBDIR += goreplay
     SUBDIR += gorss
+    SUBDIR += gotify-cli
+    SUBDIR += gotify-server
     SUBDIR += gotthard
     SUBDIR += graphpath
     SUBDIR += grilo
@@ -222,6 +226,7 @@
     SUBDIR += gspoof
     SUBDIR += gssdp
     SUBDIR += gssdp14
+    SUBDIR += gstreamer1-plugins-sctp
     SUBDIR += gstreamer1-plugins-srtp
     SUBDIR += gtk-vnc
     SUBDIR += guacamole-server
@@ -235,19 +240,20 @@
     SUBDIR += hanstunnel
     SUBDIR += haproxy
     SUBDIR += haproxy-devel
-    SUBDIR += haproxy20
     SUBDIR += haproxy22
     SUBDIR += haproxy24
     SUBDIR += haproxy25
     SUBDIR += haproxy26
     SUBDIR += haproxy27
     SUBDIR += haproxy28
+    SUBDIR += haproxy29
     SUBDIR += hblock
     SUBDIR += hexinject
     SUBDIR += hlmaster
     SUBDIR += honeyd
     SUBDIR += hostapd
     SUBDIR += hostapd-devel
+    SUBDIR += hostapd210
     SUBDIR += hostapd29
     SUBDIR += hping3
     SUBDIR += hsflowd
@@ -255,7 +261,6 @@
     SUBDIR += http_ping
     SUBDIR += httping
     SUBDIR += httpry
-    SUBDIR += iaxmodem
     SUBDIR += icmpinfo
     SUBDIR += icpld
     SUBDIR += ifdepd
@@ -395,6 +400,7 @@
     SUBDIR += libnet
     SUBDIR += libnfs
     SUBDIR += libngtcp2
+    SUBDIR += libngtcp2-gnutls
     SUBDIR += libnids
     SUBDIR += libnpupnp
     SUBDIR += libnss-cache
@@ -444,10 +450,13 @@
     SUBDIR += linux-c7-avahi-libs
     SUBDIR += linux-c7-openldap
     SUBDIR += linux-c7-tcp_wrappers-libs
+    SUBDIR += linux-rl9-avahi-libs
+    SUBDIR += linux-rl9-libproxy
+    SUBDIR += linux-rl9-openldap
     SUBDIR += liveMedia
     SUBDIR += lla
+    SUBDIR += lua-luasocket
     SUBDIR += lualdap
-    SUBDIR += luasocket
     SUBDIR += mDNSResponder
     SUBDIR += macchanger
     SUBDIR += mad_fcl
@@ -491,7 +500,6 @@
     SUBDIR += msend
     SUBDIR += msoak
     SUBDIR += mtr
-    SUBDIR += mtr-nox11
     SUBDIR += multicat
     SUBDIR += mvfst
     SUBDIR += nanomsg
@@ -512,7 +520,6 @@
     SUBDIR += ndproxy
     SUBDIR += neatvnc
     SUBDIR += nemesis
-    SUBDIR += nepenthes
     SUBDIR += net6
     SUBDIR += netatalk3
     SUBDIR += netcat
@@ -538,7 +545,6 @@
     SUBDIR += nng
     SUBDIR += norm
     SUBDIR += nqptp
-    SUBDIR += ns3
     SUBDIR += nsq
     SUBDIR += nss-pam-ldapd
     SUBDIR += nss-pam-ldapd-sasl
@@ -896,6 +902,7 @@
     SUBDIR += p5-URI-Fast
     SUBDIR += p5-URI-FromHash
     SUBDIR += p5-URI-Match
+    SUBDIR += p5-URI-NamespaceMap
     SUBDIR += p5-URI-Nested
     SUBDIR += p5-URI-OpenURL
     SUBDIR += p5-URI-Query
@@ -943,7 +950,6 @@
     SUBDIR += pear-Horde_Scribe
     SUBDIR += pear-Horde_Socket_Client
     SUBDIR += pear-Horde_Url
-    SUBDIR += pear-Net_CDDB
     SUBDIR += pear-Net_CheckIP
     SUBDIR += pear-Net_DIME
     SUBDIR += pear-Net_DNSBL
@@ -998,6 +1004,9 @@
     SUBDIR += php83-ldap
     SUBDIR += php83-soap
     SUBDIR += php83-sockets
+    SUBDIR += php84-ldap
+    SUBDIR += php84-soap
+    SUBDIR += php84-sockets
     SUBDIR += phpldapadmin
     SUBDIR += pichi
     SUBDIR += pimcommon
@@ -1028,6 +1037,7 @@
     SUBDIR += py-DTLSSocket
     SUBDIR += py-GeoIP2
     SUBDIR += py-aiocoap
+    SUBDIR += py-aiohappyeyeballs
     SUBDIR += py-aiohttp-socks
     SUBDIR += py-amqp
     SUBDIR += py-amqplib
@@ -1084,6 +1094,7 @@
     SUBDIR += py-netaddr
     SUBDIR += py-netif
     SUBDIR += py-netifaces
+    SUBDIR += py-netifaces-plus
     SUBDIR += py-netsnmpagent
     SUBDIR += py-nnpy
     SUBDIR += py-ntplib
@@ -1105,11 +1116,13 @@
     SUBDIR += py-pynsq
     SUBDIR += py-pypacker
     SUBDIR += py-pypcap
+    SUBDIR += py-pyprowl
     SUBDIR += py-pyroute2
     SUBDIR += py-pyroute2.minimal
     SUBDIR += py-pyroute2.protocols
     SUBDIR += py-pysendfile
     SUBDIR += py-pyshark
+    SUBDIR += py-pysimplesoap
     SUBDIR += py-pysmb
     SUBDIR += py-pysocks
     SUBDIR += py-pystun
@@ -1150,7 +1163,6 @@
     SUBDIR += py-smart-open
     SUBDIR += py-smbpasswd
     SUBDIR += py-smbprotocol
-    SUBDIR += py-soap2py
     SUBDIR += py-socketio-client
     SUBDIR += py-socksio
     SUBDIR += py-softlayer
@@ -1218,6 +1230,7 @@
     SUBDIR += reaver
     SUBDIR += recvnet
     SUBDIR += redir
+    SUBDIR += redpanda-connect
     SUBDIR += relayd
     SUBDIR += remarkable-devd
     SUBDIR += remmina
@@ -1246,6 +1259,7 @@
     SUBDIR += rubygem-activestorage61
     SUBDIR += rubygem-activestorage70
     SUBDIR += rubygem-activestorage71
+    SUBDIR += rubygem-activestorage72
     SUBDIR += rubygem-amazon-ec2
     SUBDIR += rubygem-amq-protocol
     SUBDIR += rubygem-amqp
@@ -1306,6 +1320,7 @@
     SUBDIR += rubygem-gitaly
     SUBDIR += rubygem-gitaly-proto
     SUBDIR += rubygem-gitlab-fog-azure-rm
+    SUBDIR += rubygem-gitlab-kas-grpc
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-google-cloud-bigquery
     SUBDIR += rubygem-google-cloud-bigtable
@@ -1331,6 +1346,9 @@
     SUBDIR += rubygem-google-cloud-spanner-v1
     SUBDIR += rubygem-google-cloud-storage
     SUBDIR += rubygem-google-cloud-storage145
+    SUBDIR += rubygem-google-cloud-storage_transfer
+    SUBDIR += rubygem-google-cloud-storage_transfer-v1
+    SUBDIR += rubygem-google-cloud-storage_transfer12
     SUBDIR += rubygem-google-cloud-trace
     SUBDIR += rubygem-google-cloud-trace-v1
     SUBDIR += rubygem-google-cloud-trace-v2
@@ -1343,7 +1361,6 @@
     SUBDIR += rubygem-ipaddr
     SUBDIR += rubygem-ipaddress
     SUBDIR += rubygem-iproto
-    SUBDIR += rubygem-kas-grpc
     SUBDIR += rubygem-lita-gems
     SUBDIR += rubygem-macaddr
     SUBDIR += rubygem-maxmind-db
@@ -1361,10 +1378,13 @@
     SUBDIR += rubygem-nkf
     SUBDIR += rubygem-no_proxy_fix
     SUBDIR += rubygem-oauth
+    SUBDIR += rubygem-oauth-tty
+    SUBDIR += rubygem-oauth0
     SUBDIR += rubygem-oauth2
     SUBDIR += rubygem-oauth21
     SUBDIR += rubygem-octokit
     SUBDIR += rubygem-octokit4
+    SUBDIR += rubygem-octokit8
     SUBDIR += rubygem-octopress-deploy
     SUBDIR += rubygem-omniauth-auth0
     SUBDIR += rubygem-omniauth-authentiq
@@ -1493,6 +1513,7 @@
     SUBDIR += speedtest
     SUBDIR += speedtest-go
     SUBDIR += spiritvnc
+    SUBDIR += spoofdpi
     SUBDIR += spoofer
     SUBDIR += spread
     SUBDIR += spread-j
@@ -1606,6 +1627,7 @@
     SUBDIR += vncreflector
     SUBDIR += vnstat
     SUBDIR += vortex
+    SUBDIR += vpp
     SUBDIR += vtun
     SUBDIR += wackamole
     SUBDIR += wakeonlan
@@ -1617,6 +1639,8 @@
     SUBDIR += widentd
     SUBDIR += wifi-firmware-ath10k-kmod
     SUBDIR += wifi-firmware-ath11k-kmod
+    SUBDIR += wifi-firmware-ath12k-kmod
+    SUBDIR += wifi-firmware-iwlwifi-kmod
     SUBDIR += wifi-firmware-kmod
     SUBDIR += wifi-firmware-mt76-kmod
     SUBDIR += wifi-firmware-rtw88-kmod
@@ -1660,6 +1684,7 @@
     SUBDIR += yconalyzer
     SUBDIR += yggdrasil
     SUBDIR += yptransitd
+    SUBDIR += zapret
     SUBDIR += zebra-server
     SUBDIR += zerotier
     SUBDIR += zillion

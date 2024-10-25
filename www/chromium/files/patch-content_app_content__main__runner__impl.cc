@@ -1,6 +1,6 @@
---- content/app/content_main_runner_impl.cc.orig	2024-03-22 08:19:40 UTC
+--- content/app/content_main_runner_impl.cc.orig	2024-09-30 07:45:04 UTC
 +++ content/app/content_main_runner_impl.cc
-@@ -143,13 +143,13 @@
+@@ -147,18 +147,20 @@
  #include "content/browser/posix_file_descriptor_info_impl.h"
  #include "content/public/common/content_descriptors.h"
  
@@ -16,7 +16,14 @@
  #include "base/files/file_path_watcher_inotify.h"
  #include "base/native_library.h"
  #include "base/rand_util.h"
-@@ -187,6 +187,10 @@
+ #include "content/public/common/zygote/sandbox_support_linux.h"
++#if !BUILDFLAG(IS_BSD)
+ #include "sandbox/policy/linux/sandbox_linux.h"
++#endif
+ #include "third_party/boringssl/src/include/openssl/crypto.h"
+ #include "third_party/webrtc_overrides/init_webrtc.h"  // nogncheck
+ 
+@@ -192,6 +194,10 @@
  #include "media/base/media_switches.h"
  #endif
  
@@ -27,7 +34,7 @@
  #if BUILDFLAG(IS_ANDROID)
  #include "base/system/sys_info.h"
  #include "content/browser/android/battery_metrics.h"
-@@ -373,7 +377,7 @@ void InitializeZygoteSandboxForBrowserProcess(
+@@ -400,7 +406,7 @@ void InitializeZygoteSandboxForBrowserProcess(
  }
  #endif  // BUILDFLAG(USE_ZYGOTE)
  
@@ -36,7 +43,7 @@
  
  #if BUILDFLAG(ENABLE_PPAPI)
  // Loads the (native) libraries but does not initialize them (i.e., does not
-@@ -411,7 +415,10 @@ void PreloadLibraryCdms() {
+@@ -438,7 +444,10 @@ void PreloadLibraryCdms() {
  
  void PreSandboxInit() {
    // Ensure the /dev/urandom is opened.
@@ -47,7 +54,7 @@
  
    // May use sysinfo(), sched_getaffinity(), and open various /sys/ and /proc/
    // files.
-@@ -423,9 +430,16 @@ void PreSandboxInit() {
+@@ -450,9 +459,16 @@ void PreSandboxInit() {
    // https://boringssl.googlesource.com/boringssl/+/HEAD/SANDBOXING.md
    CRYPTO_pre_sandbox_init();
  
@@ -64,7 +71,16 @@
  
  #if BUILDFLAG(ENABLE_PPAPI)
    // Ensure access to the Pepper plugins before the sandbox is turned on.
-@@ -838,11 +852,10 @@ int ContentMainRunnerImpl::Initialize(ContentMainParam
+@@ -764,7 +780,7 @@ RunOtherNamedProcessTypeMain(const std::string& proces
+     unregister_thread_closure = base::HangWatcher::RegisterThread(
+         base::HangWatcher::ThreadType::kMainThread);
+     bool start_hang_watcher_now;
+-#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
++#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
+     // On Linux/ChromeOS, the HangWatcher can't start until after the sandbox is
+     // initialized, because the sandbox can't be started with multiple threads.
+     // TODO(mpdenton): start the HangWatcher after the sandbox is initialized.
+@@ -874,11 +890,10 @@ int ContentMainRunnerImpl::Initialize(ContentMainParam
                   base::GlobalDescriptors::kBaseDescriptor);
  #endif  // !BUILDFLAG(IS_ANDROID)
  
@@ -78,7 +94,7 @@
  
  #endif  // !BUILDFLAG(IS_WIN)
  
-@@ -1035,8 +1048,20 @@ int ContentMainRunnerImpl::Initialize(ContentMainParam
+@@ -1055,8 +1070,20 @@ int ContentMainRunnerImpl::Initialize(ContentMainParam
        process_type == switches::kZygoteProcess) {
      PreSandboxInit();
    }
@@ -99,16 +115,7 @@
    delegate_->SandboxInitialized(process_type);
  
  #if BUILDFLAG(USE_ZYGOTE)
-@@ -1104,7 +1129,7 @@ int NO_STACK_PROTECTOR ContentMainRunnerImpl::Run() {
-           ->ReconfigureAfterFeatureListInit(process_type);
-     }
- 
--#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
-+#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
-     // If dynamic Mojo Core is being used, ensure that it's loaded very early in
-     // the child/zygote process, before any sandbox is initialized. The library
-     // is not fully initialized with IPC support until a ChildProcess is later
-@@ -1139,6 +1164,11 @@ int NO_STACK_PROTECTOR ContentMainRunnerImpl::Run() {
+@@ -1153,6 +1180,11 @@ int NO_STACK_PROTECTOR ContentMainRunnerImpl::Run() {
    content_main_params_.reset();
  
    RegisterMainThreadFactories();

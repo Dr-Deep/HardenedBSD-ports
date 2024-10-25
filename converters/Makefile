@@ -36,7 +36,6 @@
     SUBDIR += hs-dhall-bash
     SUBDIR += hs-dhall-json
     SUBDIR += hs-dhall-yaml
-    SUBDIR += i18ntools
     SUBDIR += ical2html
     SUBDIR += iconv
     SUBDIR += iconv-extra
@@ -47,6 +46,7 @@
     SUBDIR += libticonv
     SUBDIR += libutf-8
     SUBDIR += linux-c7-fribidi
+    SUBDIR += linux-rl9-fribidi
     SUBDIR += lua-iconv
     SUBDIR += lua-json
     SUBDIR += mimelib
@@ -143,15 +143,19 @@
     SUBDIR += php82-mbstring
     SUBDIR += php83-iconv
     SUBDIR += php83-mbstring
+    SUBDIR += php84-iconv
+    SUBDIR += php84-mbstring
     SUBDIR += psiconv
     SUBDIR += py-bencode.py
     SUBDIR += py-bencoder
     SUBDIR += py-better-bencode
+    SUBDIR += py-bincopy
     SUBDIR += py-bsdconv
     SUBDIR += py-gotenberg-client
     SUBDIR += py-rencode
     SUBDIR += py-svglib
     SUBDIR += py-text-unidecode
+    SUBDIR += py-tlv8
     SUBDIR += py-unidecode
     SUBDIR += py-webencodings
     SUBDIR += py-zfec
@@ -171,7 +175,6 @@
     SUBDIR += ta2as
     SUBDIR += tnef
     SUBDIR += trans
-    SUBDIR += tuc
     SUBDIR += unix2dos
     SUBDIR += uudeview
     SUBDIR += uulib

@@ -1,36 +1,29 @@
 PORTNAME=	thanos
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.28.0
-PORTREVISION=	14
+DISTVERSION=	0.36.1
 CATEGORIES=	net-mgmt
 
-MAINTAINER=	ler@FreeBSD.org
+MAINTAINER=	alster@vinterdalen.se
 COMMENT=	Highly available Prometheus setup with long term storage capabilities
 WWW=		https://thanos.io/
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-# fails to build on armv7/i386: pkg/store/cache/cache.go:166:22: constant 9223372036854775807 overflows int
-ONLY_FOR_ARCHS=	aarch64 amd64
-
 USES=		go:modules
-
-BUILD_DATE=	$$(date +%d-%B-%Y)
 
 GO_MODULE=	github.com/thanos-io/thanos
 GO_TARGET=	./cmd/${PORTNAME}
 GO_BUILDFLAGS=	-ldflags "\
-                -s -w \
+		-s -w \
 		-X github.com/prometheus/common/version.Version=${DISTVERSION} \
-		-X github.com/prometheus/common/version.Revision="31cacc4" \
+		-X github.com/prometheus/common/version.Revision="cfff551" \
 		-X github.com/prometheus/common/version.Branch="master" \
 		-X github.com/prometheus/common/version.BuildUser=${USER} \
 		-X github.com/prometheus/common/version.BuildDate=${BUILD_DATE}"
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	thanos-io
-
 PLIST_FILES=	bin/${PORTNAME}
+
+BUILD_DATE=	$$(date +%d-%B-%Y)
 
 .include <bsd.port.mk>

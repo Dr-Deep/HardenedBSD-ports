@@ -1,6 +1,5 @@
 PORTNAME=	cabal2tuple
-PORTVERSION=	2.0.0.1
-PORTREVISION=	1
+PORTVERSION=	2.0.2.0
 CATEGORIES=	ports-mgmt haskell
 
 MAINTAINER=	arrowd@FreeBSD.org
@@ -14,10 +13,10 @@ USES=		cabal
 USE_GITLAB=	yes
 GL_SITE=	https://foss.heptapod.net
 GL_ACCOUNT=	bsdutils
-GL_TAGNAME=	7adf07b805d83040e7b164c69636c9b67a6a5fc6
+GL_TAGNAME=	6c4f13ce36297c5bcd44260ec3f0e51fa47bb691
 
 # Version of the 'hashable' package should be the same as in devel/hs-cabal-install
-USE_CABAL=	hashable-1.4.2.0_1
+USE_CABAL=	hashable-1.4.6.0
 USE_CABAL+=	OneTuple-0.4.1.1_1 \
 		QuickCheck-2.14.3 \
 		StateVar-1.2.2 \
@@ -42,6 +41,7 @@ USE_CABAL+=	OneTuple-0.4.1.1_1 \
 		integer-logarithms-1.0.3.1_5 \
 		network-uri-2.6.4.2_1 \
 		optparse-applicative-0.18.1.0 \
+		os-string-2.0.3 \
 		prettyprinter-1.7.1 \
 		prettyprinter-ansi-terminal-1.1.3 \
 		primitive-0.9.0.0 \

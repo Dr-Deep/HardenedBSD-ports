@@ -7,6 +7,7 @@
     SUBDIR += atuin
     SUBDIR += bash
     SUBDIR += bash-completion
+    SUBDIR += bash-completion-freebsd
     SUBDIR += bash-static
     SUBDIR += bashc
     SUBDIR += bicon
@@ -34,6 +35,11 @@
     SUBDIR += murex
     SUBDIR += nologinmsg
     SUBDIR += nsh
+    SUBDIR += nu_plugin_formats
+    SUBDIR += nu_plugin_gstat
+    SUBDIR += nu_plugin_inc
+    SUBDIR += nu_plugin_polars
+    SUBDIR += nu_plugin_query
     SUBDIR += nushell
     SUBDIR += ohmyzsh
     SUBDIR += oksh

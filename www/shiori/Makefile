@@ -1,7 +1,6 @@
 PORTNAME=	shiori
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.6.2
-PORTREVISION=	1
+DISTVERSION=	1.7.1
 CATEGORIES=	www
 
 MAINTAINER=	nivit@FreeBSD.org
@@ -11,7 +10,7 @@ WWW=		https://github.com/go-shiori/shiori
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.21,modules
+USES=		go:1.22,modules
 
 GO_MODULE=	github.com/go-shiori/shiori
 

@@ -1,5 +1,6 @@
 PORTNAME=	giacxcas
 DISTVERSION=	1.9.0-85
+PORTREVISION=	1
 CATEGORIES=	math
 MASTER_SITES=	http://www-fourier.ujf-grenoble.fr/~parisse/debian/dists/stable/main/source/:giac \
 		http://cocoa.dima.unige.it/cocoa/cocoalib/tgz/:cocoa \
@@ -21,6 +22,7 @@ LICENSE_FILE_GPLv3=	${WRKSRC}/COPYING
 LICENSE_PERMS_DOC=	dist-mirror pkg-mirror auto-accept
 LICENSE_DISTFILES_DOC=	giac_${DISTVERSION}${EXTRACT_SUFX}
 
+BROKEN_armv7=	compilation fails: constant expression evaluates to 61171872541 which cannot be narrowed to type 'long' [-Wc++11-narrowing]
 BROKEN_i386=	compilation fails: constant expression evaluates to 61171872541 which cannot be narrowed to type 'long' [-Wc++11-narrowing]
 BROKEN_powerpc=	compilation fails: constant expression evaluates to 61171872541 which cannot be narrowed to type 'long' [-Wc++11-narrowing]
 

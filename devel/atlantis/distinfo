@@ -1,5 +1,5 @@
-TIMESTAMP = 1711344353
-SHA256 (go/devel_atlantis/atlantis-v0.27.2/v0.27.2.mod) = 5cc32cbd08ad292fe08b700313916a50af7721cf2978afa0490da171a214b97d
-SIZE (go/devel_atlantis/atlantis-v0.27.2/v0.27.2.mod) = 5902
-SHA256 (go/devel_atlantis/atlantis-v0.27.2/v0.27.2.zip) = 3523fd1b1e968eed2be826dfacf17616a73a5aa5df1176bb60643932a9b2da78
-SIZE (go/devel_atlantis/atlantis-v0.27.2/v0.27.2.zip) = 5633652
+TIMESTAMP = 1725745255
+SHA256 (go/devel_atlantis/atlantis-v0.29.0/v0.29.0.mod) = fb21afc598685293afb45921f1b16ecbe4975ec1b4131aa13ff762f1c3d2c01f
+SIZE (go/devel_atlantis/atlantis-v0.29.0/v0.29.0.mod) = 6239
+SHA256 (go/devel_atlantis/atlantis-v0.29.0/v0.29.0.zip) = 229b1b7089629c73e641b9b95b1b8c4a8f461a1e62fe8ab2cb5aeb78ee1b845d
+SIZE (go/devel_atlantis/atlantis-v0.29.0/v0.29.0.zip) = 13859295

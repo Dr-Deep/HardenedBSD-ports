@@ -1,6 +1,6 @@
 PORTNAME=	gitea
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.21.10
+DISTVERSION=	1.22.3
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://github.com/go-gitea/gitea/releases/download/${DISTVERSIONPREFIX}${DISTVERSION}/ \
@@ -16,7 +16,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	git:devel/git
 
-USES=		cpe gmake go:1.21,no_targets
+USES=		cpe gmake go:1.22,no_targets
 USE_RC_SUBR=	gitea
 
 USE_HARDENING=	pie:golang relro:off retpoline:off
@@ -56,9 +56,9 @@ DAEMONARGS=	-f
 SUB_LIST+=	DAEMONARGS="${DAEMONARGS}"
 
 SSP_UNSAFE=	true
-# Default LDFLAGS are incompatible with build
-MAKE_ENV=	LDFLAGS="${LDFLAGS} ${EXTRA_LDFLAGS}"
-MAKE_ARGS=	GOPATH=${WRKDIR} TAGS="${GO_TAGS}"
+LDFLAGS+=	"'-X "code.gitea.io/gitea/modules/setting.CustomPath=${PREFIX}/etc/gitea"'"
+LDFLAGS+=	"'-X "code.gitea.io/gitea/modules/setting.AppWorkPath=${PREFIX}/share/gitea"'"
+MAKE_ARGS=	GOPATH=${WRKDIR} TAGS="${GO_TAGS}" GOFLAGS="-buildvcs=false"
 ALL_TARGET=	backend
 MAKE_JOBS_UNSAFE=	yes
 

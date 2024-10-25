@@ -1,6 +1,6 @@
 PORTNAME=	thrift
 PORTVERSION=	${THRIFT_PORTVERSION} # to keep in sync with thrift
-PORTREVISION=	2
+PORTREVISION=	3
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	APACHE/thrift/${PORTVERSION}
@@ -19,7 +19,7 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 DISTINFO_FILE=		${.CURDIR}/../thrift/distinfo
 
 USES=			bison cmake pkgconfig compiler:c++11-lang cpe \
-			libtool pathfix ssl
+			pathfix ssl
 CPE_VENDOR=		apache
 USE_LDCONFIG=		yes
 MAKE_JOBS_UNSAFE=	yes

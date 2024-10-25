@@ -1,6 +1,6 @@
 PORTNAME=	flightgear
 PORTVERSION=	2020.3.19
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	games
 MASTER_SITES=	SF/flightgear/release-${PORTVERSION:R}
 
@@ -59,7 +59,7 @@ post-patch:
 
 .include <bsd.port.pre.mk>
 
-.if ${COMPILER_TYPE} == "clang" && ${COMPILER_VERSION} >= 150
+.if ${COMPILER_TYPE} == "clang"
 LDFLAGS_i386+=	-Wl,--no-check-dynamic-relocations
 .endif
 

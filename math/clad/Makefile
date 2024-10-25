@@ -1,6 +1,6 @@
 PORTNAME=	clad
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4
+DISTVERSION=	1.7
 PORTREVISION=	1
 CATEGORIES=	math
 
@@ -36,6 +36,6 @@ post-patch:
 		' \
 		${WRKSRC}/test/lit.cfg
 
-# tests fail to compile: https://github.com/vgvassilev/clad/issues/798
+# tests fail to compile: https://github.com/vgvassilev/clad/issues/993
 
 .include <bsd.port.mk>

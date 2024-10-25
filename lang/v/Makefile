@@ -1,5 +1,5 @@
 PORTNAME=	v
-PORTVERSION=	0.4.5
+PORTVERSION=	0.4.7
 CATEGORIES=	lang
 
 MAINTAINER=	sunpoet@FreeBSD.org
@@ -18,7 +18,7 @@ TEST_TARGET=	check
 
 USE_GITHUB=	yes
 GH_TUPLE=	vlang:v:${PORTVERSION} \
-		vlang:vc:65b8dbe:vc/vc
+		vlang:vc:8c681ed:vc/vc
 
 PORTSCOUT=	limit:^[0-9\.]*$$
 

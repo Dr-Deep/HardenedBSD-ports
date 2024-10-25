@@ -1,6 +1,6 @@
 PORTNAME=	poudriere
-DISTVERSION=	3.4
-PORTREVISION=	2
+DISTVERSION=	3.4.1
+PORTREVISION=	1
 CATEGORIES=	ports-mgmt
 PKGNAMESUFFIX=	-hbsd
 
@@ -22,7 +22,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	hardenedbsd
 GL_PROJECT=	poudriere
-GL_COMMIT=	9d44cd9f0c4e032fab2d58f5cbe3460f94aca8a8
+GL_COMMIT=	a54ad072b7e5621c994b611b00455a33ecd4bc8e
 
 GNU_CONFIGURE=	yes
 ETCDIR=		${PREFIX}/etc/poudriere.d

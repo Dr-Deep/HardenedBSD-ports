@@ -1,6 +1,6 @@
 PORTNAME=	amule
 PORTVERSION=	2.3.3
-PORTREVISION=	11
+PORTREVISION=	12
 CATEGORIES=	net-p2p
 MASTER_SITES=	SF/${PORTNAME}/aMule/${PORTVERSION}
 DISTNAME=	aMule-${PORTVERSION}
@@ -125,7 +125,7 @@ post-install-FILEVIEW-on:
 # amule 2.3.3 does not work with C++17 which is the default since clang
 # 16. Change the defaults and allow the `register' keyword to be used without
 # triggering a compiler error to allow the build to work.
-.if ${COMPILER_TYPE} == clang && ${COMPILER_VERSION} >= 160
+.if ${COMPILER_TYPE} == clang
 CXXFLAGS+=	-Wno-register
 .endif
 

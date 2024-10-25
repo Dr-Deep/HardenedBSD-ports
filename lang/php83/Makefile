@@ -1,5 +1,5 @@
 PORTNAME=	php83
-DISTVERSION=	8.3.6
+DISTVERSION=	8.3.12
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -76,7 +76,7 @@ FPM_CONFIGURE_ON=	--enable-fpm \
 			--with-fpm-group=${WWWGRP} \
 			--with-fpm-user=${WWWOWN}
 FPM_VARS=		PHP_SAPI+=fpm \
-			USE_RC_SUBR+=php-fpm
+			USE_RC_SUBR+=php_fpm
 IPV6_CONFIGURE_OFF=	--disable-ipv6
 LINKTHR_LIBS=		-lpthread
 NOASLR_USES=	elfctl
@@ -195,7 +195,7 @@ COMMENT=	The ${PHP_MODNAME} shared extension for php
 USES+=		php:ext,noflavors
 PHP_MODNAME=	${PKGNAMESUFFIX:S/-//}
 PHP_VER=	83
-IGNORE_WITH_PHP=	81 82
+IGNORE_WITH_PHP=	81 82 84
 
 EXTSUBDIR=	${DISTNAME}/ext/${PHP_MODNAME}
 WRKSRC=		${WRKDIR}/${EXTSUBDIR}
@@ -369,11 +369,6 @@ USES+=		ssl
 LIB_DEPENDS=	libicui18n.so:devel/icu
 USES+=		pkgconfig
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
-.endif
-
-.if ${PHP_MODNAME} == "json"
-CONFIGURE_ARGS+=	--enable-json
-BUILD_DEPENDS=		re2c:devel/re2c
 .endif
 
 .if ${PHP_MODNAME} == "ldap"
@@ -583,18 +578,6 @@ CONFIGURE_ARGS+=	--enable-xmlreader
 USE_GNOME=	libxml2
 
 USE_PHP=	dom:build
-.endif
-
-.if ${PHP_MODNAME} == "xmlrpc"
-CONFIGURE_ARGS+=	--with-iconv-dir=${LOCALBASE} \
-			--with-xmlrpc
-
-USES+=		iconv:translit
-USE_GNOME=	libxml2
-
-PHP_HEADER_DIRS=	libxmlrpc
-
-USE_PHP=	xml:build
 .endif
 
 .if ${PHP_MODNAME} == "xmlwriter"

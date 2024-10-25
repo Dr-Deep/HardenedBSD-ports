@@ -159,6 +159,7 @@
     SUBDIR += libmsym
     SUBDIR += libnegf
     SUBDIR += liboglappth
+    SUBDIR += libpsml
     SUBDIR += libquantum
     SUBDIR += libssm
     SUBDIR += libsvm
@@ -166,6 +167,7 @@
     SUBDIR += libvdwxc
     SUBDIR += libxc
     SUBDIR += liggghts
+    SUBDIR += linearelasticity
     SUBDIR += linux-zotero
     SUBDIR += luscus
     SUBDIR += m-aneos
@@ -182,10 +184,10 @@
     SUBDIR += mdynamix
     SUBDIR += medit
     SUBDIR += meep
-    SUBDIR += mercantile
     SUBDIR += metaphysicl
     SUBDIR += minc2
     SUBDIR += mmdb2
+    SUBDIR += mmg
     SUBDIR += mmtf-cpp
     SUBDIR += mol2ps
     SUBDIR += molgif
@@ -265,6 +267,7 @@
     SUBDIR += pagmo2
     SUBDIR += paje
     SUBDIR += paraview
+    SUBDIR += parthenon
     SUBDIR += pastix
     SUBDIR += pcmsolver
     SUBDIR += phonopy
@@ -326,6 +329,7 @@
     SUBDIR += py-dwave-neal
     SUBDIR += py-dwave-networkx
     SUBDIR += py-dwave-ocean-sdk
+    SUBDIR += py-dwave-optimization
     SUBDIR += py-dwave-preprocessing
     SUBDIR += py-dwave-samplers
     SUBDIR += py-dwave-system
@@ -361,6 +365,7 @@
     SUBDIR += py-libpysal
     SUBDIR += py-lifelines
     SUBDIR += py-mdp
+    SUBDIR += py-mercantile
     SUBDIR += py-meshio
     SUBDIR += py-mmcif
     SUBDIR += py-mmtf-python
@@ -368,6 +373,8 @@
     SUBDIR += py-moltemplate
     SUBDIR += py-mp-api
     SUBDIR += py-mpcontribs-client
+    SUBDIR += py-mplhep
+    SUBDIR += py-mplhep-data
     SUBDIR += py-mrchem
     SUBDIR += py-ncrystal
     SUBDIR += py-netCDF4
@@ -377,12 +384,14 @@
     SUBDIR += py-nilearn
     SUBDIR += py-obspy
     SUBDIR += py-oddt
+    SUBDIR += py-openEMS
     SUBDIR += py-openbabel
     SUBDIR += py-openpiv
     SUBDIR += py-optking
     SUBDIR += py-paida
     SUBDIR += py-paramz
     SUBDIR += py-penaltymodel
+    SUBDIR += py-periodictable
     SUBDIR += py-phono3py
     SUBDIR += py-phonopy
     SUBDIR += py-pupynere
@@ -400,6 +409,7 @@
     SUBDIR += py-pymbd
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
+    SUBDIR += py-pyphot
     SUBDIR += py-pyprecice
     SUBDIR += py-pyqubo
     SUBDIR += py-pysal
@@ -412,6 +422,7 @@
     SUBDIR += py-rmf
     SUBDIR += py-rmsd
     SUBDIR += py-ruffus
+    SUBDIR += py-sarpy
     SUBDIR += py-scikit-fuzzy
     SUBDIR += py-scikit-learn
     SUBDIR += py-scikit-optimize

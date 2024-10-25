@@ -2,7 +2,7 @@
 
 PORTNAME?=	libv4l
 PORTVERSION=	1.23.0
-PORTREVISION?=	4
+PORTREVISION?=	5
 DISTVERSIONPREFIX=	v4l-utils-
 CATEGORIES=	multimedia
 
@@ -14,6 +14,8 @@ LICENSE=	GPLv2 LGPL21
 LICENSE_COMB=	dual
 
 USES=		compiler:c11 tar:bzip2
+
+USE_HARDENING=	fortifysource:off
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hselasky

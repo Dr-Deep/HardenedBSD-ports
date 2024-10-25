@@ -151,8 +151,13 @@ MASTER_SITE_EXIM+= \
 
 .if !defined(IGNORE_MASTER_SITE_CENTOS_LINUX)
 MASTER_SITE_CENTOS_LINUX+= \
-	http://mirror.centos.org/%SUBDIR%/:DEFAULT,aarch64,amd64,i386 \
 	http://vault.centos.org/%SUBDIR%/:DEFAULT,aarch64,amd64,i386,SOURCE
+.endif
+
+.if !defined(IGNORE_MASTER_SITE_ROCKY_LINUX)
+MASTER_SITE_ROCKY_LINUX+= \
+	https://dl.rockylinux.org/pub/rocky/%SUBDIR%/:DEFAULT,aarch64,amd64,SOURCE \
+	https://dl.rockylinux.org/vault/rocky/%SUBDIR%/:DEFAULT,aarch64,amd64,SOURCE
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_EPEL7)
@@ -163,6 +168,13 @@ MASTER_SITE_EPEL7+= \
 	http://dl.fedoraproject.org/pub/epel/7/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
 	http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
 	http://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/%SUBDIR%/:SOURCE
+.endif
+
+.if !defined(IGNORE_MASTER_SITE_RPMFUSION9)
+MASTER_SITE_RPMFUSION9+= \
+	https://ftp.icm.edu.pl/pub/Linux/dist/rpmfusion/free/el/updates/9/aarch64/%SUBDIR%/:DEFAULT,aarch64 \
+	https://ftp.icm.edu.pl/pub/Linux/dist/rpmfusion/free/el/updates/9/x86_64/%SUBDIR%/:DEFAULT,amd64 \
+	https://ftp.icm.edu.pl/pub/Linux/dist/rpmfusion/free/el/updates/9/SRPMS/%SUBDIR%/:DEFAULT,SOURCE
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_FARSIGHT)
@@ -281,7 +293,7 @@ GH_SUBDIR+=	${GH_TUPLE:C@^([^:]*):([^:]*):([^:]*)((:[^:/]*)?)((/.*)?)@\6\4@:M/*:
 MASTER_SITE_GITHUB+=		https://codeload.github.com/%SUBDIR%
 MASTER_SITE_GITHUB_CLOUD+=	https://cloud.github.com/downloads/%SUBDIR%
 
-.    if !defined(MASTER_SITES) || !${MASTER_SITES:MGH} && !${MASTER_SITES:MGHC} && !${USE_GITHUB:Mnodefault}
+.    if ( !defined(MASTER_SITES) || !${MASTER_SITES:MGH} && !${MASTER_SITES:MGHC} ) && !${USE_GITHUB:Mnodefault}
 MASTER_SITES+=	GH
 .    endif
 GH_ACCOUNT_DEFAULT=	${PORTNAME}
@@ -601,7 +613,6 @@ MASTER_SITE_GNU+= \
 .if !defined(IGNORE_MASTER_SITE_GNUPG)
 MASTER_SITE_GNUPG+= \
 	https://mirrors.dotsrc.org/gcrypt/%SUBDIR%/ \
-	https://ftp.heanet.ie/mirrors/ftp.gnupg.org/gcrypt/%SUBDIR%/ \
 	https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/%SUBDIR%/ \
 	http://www.ring.gr.jp/pub/net/gnupg/%SUBDIR%/ \
 	https://gnupg.org/ftp/gcrypt/%SUBDIR%/
@@ -637,16 +648,10 @@ MASTER_SITE_HACKAGE+= \
 
 .if !defined(IGNORE_MASTER_SITE_IDSOFTWARE)
 MASTER_SITE_IDSOFTWARE+= \
-	ftp://ftp.gwdg.de/pub/misc2/ftp.idsoftware.com/idstuff/%SUBDIR%/ \
-	http://ftp4.de.freesbie.org/pub/misc/ftp.idsoftware.com/idstuff/%SUBDIR%/ \
-	ftp://ftp.fu-berlin.de/pc/games/idgames/idstuff/%SUBDIR%/ \
-	ftp://ftp.gamers.org/pub/idgames/idstuff/%SUBDIR%/ \
-	http://ftp.iinet.net.au/games/idstuff/%SUBDIR%/ \
-	ftp://ftp.mirror.nl/disk2/idsoftware/idstuff/%SUBDIR%/ \
-	ftp://freebsd.nsu.ru/mirrors/ftp.idsoftware.com/idstuff/%SUBDIR%/ \
-	ftp://ftp.ntua.gr/pub/vendors/idgames/idstuff/%SUBDIR%/ \
-	ftp://ftp.omen.net.au/games/idstuff/%SUBDIR%/ \
-	ftp://ftp.idsoftware.com/idstuff/%SUBDIR%/
+	https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/%SUBDIR%/ \
+	https://ftp.fu-berlin.de/pc/games/idgames/idstuff/%SUBDIR%/ \
+	https://ftp.gamers.org/pub/idgames/idstuff/%SUBDIR%/ \
+	ftp://ftp.omen.net.au/games/idstuff/%SUBDIR%/
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_ISC)
@@ -894,8 +899,8 @@ MASTER_SITE_SAVANNAH+= \
 MASTER_SITE_SOURCEFORGE+= ${p}://downloads.sourceforge.net/project/%SUBDIR%/
 .    for m in cfhcable cytranet deac-ams deac-fra deac-riga excellmedia \
 	freefr gigenet ixpeering jaist kumisystems liquidtelecom \
-	nchc netactuate netcologne netix onboardcloud phoenixnap \
-	razaoinfo sinalbr sitsa tenet udomain ufpr versaweb
+	nchc netactuate netcologne onboardcloud phoenixnap \
+	razaoinfo sinalbr sitsa tenet ufpr versaweb
 MASTER_SITE_SOURCEFORGE+= ${p}://${m}.dl.sourceforge.net/project/%SUBDIR%/
 .    endfor
 .  endfor
@@ -916,8 +921,6 @@ MASTER_SITE_SUDO+= \
 	http://sudo.p8ra.de/sudo/dist/ \
 	http://sudo.cybermirror.org/ \
 	http://sudo-ftp.basemirror.de/ \
-	http://core.ring.gr.jp/archives/misc/sudo/ \
-	http://www.ring.gr.jp/archives/misc/sudo/ \
 	http://ftp.twaren.net/Unix/Security/Sudo/ \
 	ftp://ftp.sudo.ws/pub/sudo/ \
 	ftp://plier.ucar.edu/pub/sudo/ \
@@ -933,8 +936,6 @@ MASTER_SITE_SUDO+= \
 	ftp://ftp.informatik.uni-hamburg.de/pub/os/unix/utils/sudo/ \
 	ftp://ftp.st.ryukoku.ac.jp/pub/security/tool/sudo/ \
 	ftp://ftp.cin.nihon-u.ac.jp/pub/misc/sudo/ \
-	ftp://core.ring.gr.jp/pub/misc/sudo/ \
-	ftp://ftp.ring.gr.jp/pub/misc/sudo/ \
 	ftp://sunsite.icm.edu.pl/packages/sudo/ \
 	ftp://mirror.cdmon.com/pub/sudo/ \
 	ftp://ftp.twaren.net/Unix/Security/Sudo/
@@ -1046,7 +1047,6 @@ MASTER_SITE_KERNEL_ORG+= \
 	https://mirrors.mit.edu/kernel/%SUBDIR%/ \
 	http://ftp.nara.wide.ad.jp/pub/kernel.org/%SUBDIR%/ \
 	http://ftp.yandex.ru/pub/%SUBDIR%/ \
-	http://ftp.heanet.ie/pub/kernel.org/pub/%SUBDIR%/ \
 	ftp://ftp.ntu.edu.tw/%SUBDIR%/ \
 	ftp://ftp.riken.jp/Linux/kernel.org/%SUBDIR%/
 .endif

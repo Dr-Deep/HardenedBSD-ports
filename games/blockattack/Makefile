@@ -1,10 +1,9 @@
 PORTNAME=	blockattack
-DISTVERSIONPREFIX=	v
-DISTVERSION=	2.8.0
-PORTREVISION=	2
+DISTVERSIONPREFIX=	v.
+DISTVERSION=	2.9.0
 CATEGORIES=	games
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Puzzle game inspired by Tetris
 WWW=		https://blockattack.net/
 

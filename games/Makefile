@@ -3,7 +3,6 @@
     SUBDIR += 0ad
     SUBDIR += 0verkill
     SUBDIR += 2048
-    SUBDIR += 2048-qt
     SUBDIR += 3dc
     SUBDIR += 3dpong
     SUBDIR += 3omns
@@ -30,8 +29,6 @@
     SUBDIR += abuse_sdl
     SUBDIR += ace-of-penguins
     SUBDIR += adom
-    SUBDIR += adonthell
-    SUBDIR += adonthell-wastesedge
     SUBDIR += aestats
     SUBDIR += affenspiel
     SUBDIR += afternoonstalker
@@ -316,6 +313,7 @@
     SUBDIR += galaxis
     SUBDIR += galaxyhack
     SUBDIR += garden-of-coloured-lights
+    SUBDIR += gargoyle
     SUBDIR += gbrainy
     SUBDIR += gcompris-qt
     SUBDIR += gemdropx
@@ -356,6 +354,7 @@
     SUBDIR += gnushogi
     SUBDIR += gnustep-ladder
     SUBDIR += gnustep-sudoku
+    SUBDIR += gobang
     SUBDIR += gogrepo
     SUBDIR += gogui
     SUBDIR += golddig
@@ -609,7 +608,6 @@
     SUBDIR += magiccube4d
     SUBDIR += mahjong
     SUBDIR += maitretarot
-    SUBDIR += manaplus
     SUBDIR += mancala
     SUBDIR += mangband
     SUBDIR += marblemarcher
@@ -640,6 +638,7 @@
     SUBDIR += moon-buggy
     SUBDIR += moonlander
     SUBDIR += moonlight-embedded
+    SUBDIR += moonlight-embedded-devel
     SUBDIR += moonlight-qt
     SUBDIR += moria
     SUBDIR += motogt
@@ -791,6 +790,7 @@
     SUBDIR += prboom
     SUBDIR += prboom-plus
     SUBDIR += primateplunge
+    SUBDIR += prismlauncher
     SUBDIR += puckman
     SUBDIR += punchy
     SUBDIR += pvpgn
@@ -859,7 +859,6 @@
     SUBDIR += reminiscence
     SUBDIR += renpy
     SUBDIR += rescue
-    SUBDIR += residualvm
     SUBDIR += retroarch
     SUBDIR += retroarch-assets
     SUBDIR += rezerwar
@@ -935,6 +934,7 @@
     SUBDIR += species
     SUBDIR += spellcast
     SUBDIR += spicetrade
+    SUBDIR += star_traders
     SUBDIR += starfighter
     SUBDIR += starlanes
     SUBDIR += steelstorm

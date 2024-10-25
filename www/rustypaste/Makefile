@@ -1,6 +1,6 @@
 PORTNAME=	rustypaste
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.14.4
+DISTVERSION=	0.15.1
 PORTREVISION=	2
 CATEGORIES=	www
 
@@ -10,6 +10,8 @@ WWW=		https://blog.orhun.dev/blazingly-fast-file-sharing
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BROKEN_i386=	compilation fails: error[E0080]: evaluation of constant value failed
 
 LIB_DEPENDS=	libzstd.so:archivers/zstd
 
@@ -57,6 +59,5 @@ post-install:
 	${MKDIR} ${STAGEDIR}/${UPLOAD_PATH}
 	${ECHO_CMD} 'CONFIG="${ETCDIR}/${PORTNAME}.toml"' > ${STAGEDIR}${ETCDIR}/${PORTNAME}.env.sample
 	${CP} ${WRKSRC}/config.toml ${STAGEDIR}${ETCDIR}/${PORTNAME}.toml.sample
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>

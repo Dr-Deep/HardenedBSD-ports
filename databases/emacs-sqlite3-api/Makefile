@@ -1,7 +1,7 @@
 PORTNAME=	emacs-sqlite3-api
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.18
-PORTREVISION=	1
+PORTREVISION=	3
 CATEGORIES=	databases elisp
 PKGNAMESUFFIX=	${EMACS_PKGNAMESUFFIX}
 
@@ -11,6 +11,9 @@ WWW=		https://github.com/pekingduck/emacs-sqlite3-api
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+DEPRECATED=	Emacs 29 and later support sqlite3 natively
+EXPIRATION_DATE=	2024-10-31
 
 LIB_DEPENDS=	libsqlite3.so:databases/sqlite3
 

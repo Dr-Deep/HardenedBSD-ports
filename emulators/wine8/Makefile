@@ -1,11 +1,11 @@
 PORTNAME=	wine
 DISTVERSION=	8.0.2
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	emulators
 MASTER_SITES=	https://dl.winehq.org/wine/source/8.0/
 PKGNAMESUFFIX=	8
 
-MAINTAINER=	gerald@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Microsoft Windows compatibility environment
 WWW=		https://www.winehq.org
 
@@ -14,6 +14,8 @@ LICENSE_COMB=	dual
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 ONLY_FOR_ARCHS=	amd64 i386
+DEPRECATED=	The transition to Wine 9.0 should be mostly done now
+EXPIRATION_DATE=2024-10-30
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex llvm${_LLVM_VERSION}>=0:devel/llvm${_LLVM_VERSION}
 
@@ -27,7 +29,6 @@ CPE_VENDOR=	winehq
 CONFLICTS_INSTALL=	wine-devel
 
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 CONFIGURE_ARGS+=--verbose \
 		--disable-kerberos \
 		--disable-tests \
@@ -139,7 +140,7 @@ PLIST_SUB+=		WINE32="" WINE64="@comment " WINEARCH="i386"
 .endif
 
 pre-build:
-	cd ${WRKSRC} && ${MAKE_CMD} depend
+	cd ${WRKSRC} && ${SETENVI} ${WRK_ENV} ${MAKE_CMD} depend
 
 post-install:
 .if ${ARCH} == i386

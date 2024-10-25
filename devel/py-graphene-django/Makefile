@@ -1,13 +1,13 @@
 PORTNAME=	graphene-django
-PORTVERSION=	3.0.2
-PORTREVISION=	2
+PORTVERSION=	3.2.2
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Graphene Django integration
-WWW=		https://github.com/graphql-python/graphene-django
+WWW=		https://docs.graphene-python.org/projects/django/en/latest/ \
+		https://github.com/graphql-python/graphene-django
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -32,6 +32,6 @@ OPTIONS_DEFINE=	REST_FRAMEWORK
 OPTIONS_DEFAULT=REST_FRAMEWORK
 REST_FRAMEWORK_DESC=	REST framework support
 
-REST_FRAMEWORK_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}djangorestframework>=3.6.3:www/py-djangorestframework@${PY_FLAVOR}
+REST_FRAMEWORK_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}djangorestframework>=3.6.3,1:www/py-djangorestframework@${PY_FLAVOR}
 
 .include <bsd.port.mk>

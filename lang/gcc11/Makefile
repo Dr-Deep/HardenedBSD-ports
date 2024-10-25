@@ -1,6 +1,5 @@
 PORTNAME=	gcc
-PORTVERSION=	11.4.0
-PORTREVISION=	1
+PORTVERSION=	11.5.0
 CATEGORIES=	lang
 MASTER_SITES=	GCC
 PKGNAMESUFFIX=	${SUFFIX}
@@ -12,11 +11,11 @@ WWW=		https://gcc.gnu.org
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-USE_HARDENING=  pie:off relro:off retpoline:off
+USE_HARDENING=  pie:off relro:off retpoline:off fortifysource:off
 
 USE_GCC=	10:build
 
-ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le
+ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le riscv64
 
 LIB_DEPENDS=	libgmp.so:math/gmp \
 		libmpfr.so:math/mpfr \

@@ -1,5 +1,6 @@
 PORTNAME=	virtualenv
-PORTVERSION=	20.26.0
+# Check XXX below before updating to see if that condition is still valid
+PORTVERSION=	20.26.5
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -15,7 +16,7 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}distlib>=0.3.7:devel/py-distlib@${PY_FLAVO
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}distlib>=0.3.7:devel/py-distlib@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}filelock>=3.12.2:sysutils/py-filelock@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}platformdirs>=3.9.1:devel/py-platformdirs@${PY_FLAVOR}
-# tests: 299 passed, 27 skipped
+# tests: 306 passed, 26 skipped
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}covdefaults>=2.3:devel/py-covdefaults@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}coverage>=7.3.2:devel/py-coverage@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}coverage_enable_subprocess>=1.0:devel/py-coverage_enable_subprocess@${PY_FLAVOR} \
@@ -25,9 +26,10 @@ TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}covdefaults>=2.3:devel/py-covdefaults@${PY_
 		${PYTHON_PKGNAMEPREFIX}pytest-mock>=3.10:devel/py-pytest-mock@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pytest-randomly>=3.12:devel/py-pytest-randomly@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pytest-timeout>=2.1.0:devel/py-pytest-timeout@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}setuptools>=63:devel/py-setuptools@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}setuptools-scm>=8.0.4:devel/py-setuptools-scm@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}time-machine>=2.10.0:devel/py-time-machine@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}setuptools>=63:devel/py-setuptools@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}time-machine>=2.10.0:devel/py-time-machine@${PY_FLAVOR} \
+		nu:shells/nushell
 
 USES=		cpe python
 USE_GITHUB=	yes
@@ -44,8 +46,12 @@ TEST_ENV=	PYTHONIOENCODING=utf-8 \
 
 NO_ARCH=	yes
 
-OPTIONS_DEFINE=	DOCS
+# XXX: Temporarly disable DOCS option due to the issue reported at
+# https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=280687
+# https://github.com/sphinx-contrib/sphinxcontrib-towncrier/issues/92
+#OPTIONS_DEFINE=	DOCS
 
+DOCS_BINARY_ALIAS=	towncrier=towncrier-${PYTHON_VER}
 DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}click-default-group>=1.2.4:devel/py-click-default-group@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}filelock>=3.12.2:sysutils/py-filelock@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}furo>=2023.7.26:textproc/py-furo@${PY_FLAVOR} \
@@ -55,7 +61,6 @@ DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}click-default-group>=1.2.4:devel/py-c
 			${PYTHON_PKGNAMEPREFIX}sphinx>=5.3.0:textproc/py-sphinx@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}sphinxcontrib-towncrier>=0.3.2a0:textproc/py-sphinxcontrib-towncrier@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}towncrier>=22.12.0:textproc/py-towncrier@${PY_FLAVOR}
-DOCS_BINARY_ALIAS=	towncrier=towncrier-${PYTHON_VER}
 DOCS_PLIST_FILES=	share/man/man1/virtualenv.1.gz
 DOCS_PORTDOCS=		* .buildinfo
 
@@ -73,19 +78,8 @@ post-patch:
 	-e 's,%%PYTHON_VER%%,${PYTHON_VER},1' \
 	${WRKSRC}/docs/conf.py
 
-# Fix a few tests that fail with the error:
-#
-# E       AssertionError: assert  ... nerrn == errn
-# E         +                     WARNING  pyproject.toml does not contain a setuptools.py:119
-# E         +                              tool.setuptools_scm section
-#
-# See https://github.com/pypa/setuptools_scm/issues/1011
-pre-test:
-	@${PRINTF} "\n[tool.setuptools_scm]\nfallback_version = \"${PORTVERSION}\"" >> ${WRKSRC}/pyproject.toml
-
 post-install-DOCS-on:
 	${LOCALBASE}/bin/sphinx-build-${PYTHON_VER} -d ${WRKDIR} -b html -n ${WRKSRC}/docs ${STAGEDIR}${DOCSDIR}
 	${LOCALBASE}/bin/sphinx-build-${PYTHON_VER} -d ${WRKDIR} -b man -n ${WRKSRC}/docs ${STAGEDIR}${PREFIX}/share/man/man1
-
 
 .include <bsd.port.mk>

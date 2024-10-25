@@ -12,6 +12,9 @@ WWW=		https://software.frodo.looijaard.name/getopt/
 LICENSE=	GPLv2 GPLv3
 LICENSE_COMB=	dual
 
+DEPRECATED=	Use getopt from devel/util-linux instead
+EXPIRATION_DATE=2024-10-31
+
 OPTIONS_DEFINE=	DOCS NLS
 OPTIONS_SUB=	yes
 
@@ -24,9 +27,6 @@ NLS_MAKE_ARGS=		WITHOUT_GETTEXT=0
 NLS_MAKE_ARGS_OFF=	WITHOUT_GETTEXT=1
 NLS_LDFLAGS=		-lintl
 NLS_USES=		gettext localbase:ldflags
-
-post-patch:
-	@${RM} ${WRKSRC}/gnu/*.o
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/getopt

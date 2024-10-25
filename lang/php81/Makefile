@@ -1,5 +1,5 @@
 PORTNAME=	php81
-DISTVERSION=	8.1.28
+DISTVERSION=	8.1.30
 PORTREVISION?=	0
 CATEGORIES?=	lang devel www
 MASTER_SITES=	PHP/distributions
@@ -11,8 +11,8 @@ WWW=		https://www.php.net/
 
 LICENSE=	PHP301
 
-DEPRECATED=	Upstream EOL reaches on 2024-11-25
-EXPIRATION_DATE=	2024-11-26
+DEPRECATED=	Upstream EOL reaches on 2025-12-31
+EXPIRATION_DATE=	2025-12-31
 
 USES+=		compiler:c11 cpe gnome localbase pkgconfig tar:xz
 CPE_PRODUCT=	php
@@ -21,6 +21,12 @@ PHP_VER=	81
 CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
 
 .if !defined(PKGNAMESUFFIX)
+# For now disable the exra patches for libxml2 until libxml2 is updated
+# Uncomment the following lines when libxml2 is updated
+#PATCH_SITES=	https://github.com/php/php-src/commit/
+#PATCHFILES=	0a39890c967aa57225bb6bdf4821aff7a3a3c082.patch:-p1 \
+#			061058a9b1bbd90d27d97d79aebcf2b5029767b0.patch:-p1
+
 LIB_DEPENDS=	libargon2.so:security/libargon2 \
 		libpcre2-8.so:devel/pcre2
 
@@ -79,7 +85,7 @@ FPM_CONFIGURE_ON=	--enable-fpm \
 			--with-fpm-group=${WWWGRP} \
 			--with-fpm-user=${WWWOWN}
 FPM_VARS=		PHP_SAPI+=fpm \
-			USE_RC_SUBR+=php-fpm
+			USE_RC_SUBR+=php_fpm
 IPV6_CONFIGURE_OFF=	--disable-ipv6
 LINKTHR_LIBS=		-lpthread
 MYSQLND_CONFIGURE_ON=	--enable-mysqlnd
@@ -180,7 +186,7 @@ COMMENT=	The ${PHP_MODNAME} shared extension for php
 USES+=		php:ext,noflavors
 PHP_MODNAME=	${PKGNAMESUFFIX:S/-//}
 PHP_VER=	81
-IGNORE_WITH_PHP=	82 83
+IGNORE_WITH_PHP=	82 83 84
 
 EXTSUBDIR=	${DISTNAME}/ext/${PHP_MODNAME}
 WRKSRC=		${WRKDIR}/${EXTSUBDIR}
@@ -354,11 +360,6 @@ USES+=		ssl
 LIB_DEPENDS=	libicui18n.so:devel/icu
 USES+=		pkgconfig
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
-.endif
-
-.if ${PHP_MODNAME} == "json"
-CONFIGURE_ARGS+=	--enable-json
-BUILD_DEPENDS=		re2c:devel/re2c
 .endif
 
 .if ${PHP_MODNAME} == "ldap"
@@ -572,18 +573,6 @@ CONFIGURE_ARGS+=	--enable-xmlreader
 USE_GNOME=	libxml2
 
 USE_PHP=	dom:build
-.endif
-
-.if ${PHP_MODNAME} == "xmlrpc"
-CONFIGURE_ARGS+=	--with-iconv-dir=${LOCALBASE} \
-			--with-xmlrpc
-
-USES+=		iconv:translit
-USE_GNOME=	libxml2
-
-PHP_HEADER_DIRS=	libxmlrpc
-
-USE_PHP=	xml:build
 .endif
 
 .if ${PHP_MODNAME} == "xmlwriter"

@@ -1,8 +1,8 @@
 We reference the pid file as being run/named/pid everywere else.
 
---- bin/named/include/named/globals.h.orig	2021-09-17 07:10:48 UTC
+--- bin/named/include/named/globals.h.orig	2024-09-09 13:09:11 UTC
 +++ bin/named/include/named/globals.h
-@@ -133,7 +133,7 @@ EXTERN bool named_g_forcelock		   INIT(false);
+@@ -119,7 +119,7 @@ EXTERN const char *named_g_defaultsessionkeyfile INIT(
  
  #if NAMED_RUN_PID_DIR
  EXTERN const char *named_g_defaultpidfile INIT(NAMED_LOCALSTATEDIR "/run/named/"

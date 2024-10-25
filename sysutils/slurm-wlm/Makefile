@@ -1,6 +1,6 @@
 PORTNAME=	slurm
-DISTVERSION=	23.11.1
-PORTREVISION=	2
+DISTVERSION=	23.11.7
+PORTREVISION=	3
 CATEGORIES=	sysutils
 MASTER_SITES=	https://download.schedmd.com/slurm/
 PKGNAMESUFFIX=	-wlm
@@ -45,6 +45,7 @@ INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
 PLIST_SUB=	PORTVERSION="${DISTVERSION}" VER="${DISTVERSION:R}"
 SHEBANG_FILES=	doc/html/shtml2html.py doc/man/man2html.py
+PORTDOCS=	*
 
 OPTIONS_DEFINE=		CURL DOCS GUI HDF5 HWLOC IPMI RRD
 OPTIONS_DEFAULT=	HDF5 HWLOC
@@ -150,6 +151,9 @@ pre-configure:
 .elif ${ARCH} == powerpc64
 	${FIND} ${LLD2FIX:C|^|${WRKSRC}/src/|} -name Makefile.in | ${XARGS}	\
 		${REINPLACE_CMD} -e 's|-r -o|-r -m elf64ppc -o|'
+.elif ${ARCH} == aarch64
+	${FIND} ${LLD2FIX:C|^|${WRKSRC}/src/|} -name Makefile.in | ${XARGS}	\
+		${REINPLACE_CMD} -e 's|-r -o|-r -m aarch64elf -o|'
 .else
 	${FIND} ${LLD2FIX:C|^|${WRKSRC}/src/|} -name Makefile.in | ${XARGS}	\
 		${REINPLACE_CMD} -e 's|-r -o|-r -m elf_${ARCH} -o|'

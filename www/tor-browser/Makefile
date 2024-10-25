@@ -1,11 +1,12 @@
 PORTNAME=	tor-browser
-DISTVERSION=	13.0.14
+DISTVERSION=	13.5a9
+PORTREVISION=	4
 CATEGORIES=	www net security wayland
 MASTER_SITES=	TOR \
 		https://build-sources.tbb.torproject.org/:source1 \
 		LOCAL/jsm:source2
 MASTER_SITE_SUBDIR=	torbrowser/${DISTVERSION}
-DISTNAME=	src-firefox-tor-browser-115.10.0esr-13.0-1-build1
+DISTNAME=	src-firefox-tor-browser-115.12.0esr-13.5-1-build2
 DISTFILES=	${DISTNAME}.tar.xz \
 		manual_112141.zip:source1 \
 		firefox-tor-browser-13.0.1-build2-firefox-1l0n-out.tar:source2
@@ -91,7 +92,7 @@ MOZ_OPTIONS+=	--enable-rust-simd
 MOZ_OPTIONS+=	--without-wasm-sandboxed-libraries
 .else
 BUILD_DEPENDS+=	${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc++abi.a:devel/wasi-libcxx${LLVM_VERSION} \
-		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc \
+		${LOCALBASE}/share/wasi-sysroot/lib/wasm32-wasi/libc.a:devel/wasi-libc@${LLVM_VERSION} \
 		wasi-compiler-rt${LLVM_VERSION}>0:devel/wasi-compiler-rt${LLVM_VERSION}
 MOZILLA_PLIST_DIRS=	bin lib share/pixmaps share/applications share/tor-browser
 MOZ_OPTIONS+=	--with-wasi-sysroot=${LOCALBASE}/share/wasi-sysroot

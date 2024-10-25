@@ -74,6 +74,7 @@
     SUBDIR += flowd
     SUBDIR += flowviewer
     SUBDIR += fprobe
+    SUBDIR += geom-exporter
     SUBDIR += gnu-ipcalc
     SUBDIR += gping
     SUBDIR += grepcidr
@@ -115,6 +116,7 @@
     SUBDIR += ipaudit
     SUBDIR += ipcad
     SUBDIR += ipcalc
+    SUBDIR += ipfixcol2
     SUBDIR += iprange
     SUBDIR += ipv6calc
     SUBDIR += ipv6gen
@@ -126,6 +128,7 @@
     SUBDIR += kismet
     SUBDIR += klg
     SUBDIR += lg
+    SUBDIR += libfds
     SUBDIR += librenms
     SUBDIR += libsmi
     SUBDIR += lldpd
@@ -146,10 +149,8 @@
     SUBDIR += nagcon
     SUBDIR += nagios
     SUBDIR += nagios-certexp-plugin
-    SUBDIR += nagios-check_bacula11
     SUBDIR += nagios-check_bacula13
     SUBDIR += nagios-check_bacula15
-    SUBDIR += nagios-check_bacula9
     SUBDIR += nagios-check_clamav
     SUBDIR += nagios-check_cpu_usage
     SUBDIR += nagios-check_dhcp.pl
@@ -183,6 +184,7 @@
     SUBDIR += ndpmon
     SUBDIR += net-snmp
     SUBDIR += netbox
+    SUBDIR += netbox-agent
     SUBDIR += netdata
     SUBDIR += netdata-go
     SUBDIR += netdisco
@@ -266,6 +268,7 @@
     SUBDIR += p5-NetAddr-IP
     SUBDIR += p5-NetAddr-IP-Lite
     SUBDIR += p5-NetApp
+    SUBDIR += p5-OSLV-Monitor
     SUBDIR += p5-POE-Component-SNMP
     SUBDIR += p5-Prometheus-Tiny
     SUBDIR += p5-Prometheus-Tiny-Shared
@@ -294,6 +297,7 @@
     SUBDIR += php81-snmp
     SUBDIR += php82-snmp
     SUBDIR += php83-snmp
+    SUBDIR += php84-snmp
     SUBDIR += phpfpm_exporter
     SUBDIR += phpipam
     SUBDIR += ping_exporter
@@ -306,6 +310,7 @@
     SUBDIR += prometheus1
     SUBDIR += prometheus2
     SUBDIR += promscale
+    SUBDIR += promxy
     SUBDIR += pushgateway
     SUBDIR += py-adal
     SUBDIR += py-aggregate6
@@ -344,6 +349,7 @@
     SUBDIR += rancid3
     SUBDIR += rate
     SUBDIR += rcpd
+    SUBDIR += realmd
     SUBDIR += remarp
     SUBDIR += resource-agents
     SUBDIR += riemann
@@ -395,6 +401,7 @@
     SUBDIR += triton-guesttools
     SUBDIR += unbound_exporter
     SUBDIR += unifi8
+    SUBDIR += victoria-logs
     SUBDIR += victoria-metrics
     SUBDIR += virt-viewer
     SUBDIR += vmutils
@@ -419,5 +426,10 @@
     SUBDIR += zabbix64-java
     SUBDIR += zabbix64-proxy
     SUBDIR += zabbix64-server
+    SUBDIR += zabbix7-agent
+    SUBDIR += zabbix7-frontend
+    SUBDIR += zabbix7-java
+    SUBDIR += zabbix7-proxy
+    SUBDIR += zabbix7-server
 
 .include <bsd.port.subdir.mk>

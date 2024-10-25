@@ -1,6 +1,7 @@
 PORTNAME=	lms
 DISTVERSIONPREFIX=	v
-DISTVERSION=	3.52.0
+DISTVERSION=	3.58.0
+PORTREVISION=	1
 CATEGORIES=	multimedia
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -20,7 +21,7 @@ LIB_DEPENDS=	libavformat.so:multimedia/ffmpeg \
 		libwthttp.so:www/wt
 RUN_DEPENDS=	ffmpeg:multimedia/ffmpeg
 
-USES=		cmake cpe libarchive pkgconfig
+USES=		cmake compiler:c++20-lang cpe libarchive pkgconfig
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	epoupon
@@ -38,11 +39,11 @@ OPTIONS_DEFAULT=		STB # STB is prefered by the upstream
 
 STB_DESC=			Use STB as image library (uses less memory)
 STB_BUILD_DEPENDS=		${LOCALBASE}/include/stb/stb_image.h:devel/stb
-STB_CMAKE_BOOL=			FREEBSD_USE_STB
+STB_CMAKE_CMAKE_ON=		-DLMS_IMAGE_BACKEND:STRING=stb
 
 MAGICK_DESC=			Use GraphicsMagick++ as image library
 MAGICK_LIB_DEPENDS=		libGraphicsMagick.so:graphics/GraphicsMagick
-MAGICK_CMAKE_BOOL=		FREEBSD_USE_MAGICK
+MAGICK_CMAKE_ON=		-DLMS_IMAGE_BACKEND:STRING=graphicsmagick
 
 .include <bsd.port.options.mk>
 .if ${OPSYS} == FreeBSD && ${OSVERSION} < 1400000

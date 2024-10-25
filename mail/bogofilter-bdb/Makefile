@@ -1,6 +1,6 @@
 PORTNAME=	bogofilter
 DISTVERSION=	1.2.5
-PORTREVISION?=	4
+PORTREVISION?=	5
 CATEGORIES?=	mail
 MASTER_SITES=	SF/bogofilter/bogofilter-stable/
 PKGNAMESUFFIX?=	-bdb
@@ -14,6 +14,8 @@ LICENSE=	GPLv2
 .if !defined(MASTERDIR) || ${MASTERDIR} == ${.CURDIR}
 # building master port
 USES+=		bdb:5+
+DEPRECATED=	The Berkeley DB database interface is obsolescent.
+EXPIRATION_DATE=2025-06-30
 .endif
 
 OPTIONS_DEFINE=		GSL UNICODE DOCS
@@ -59,7 +61,7 @@ post-patch:
 		${WRKSRC}/src/tests/Makefile.in
 
 post-build:
-	cd ${WRKSRC}/src && ${SETENV} SHELL=${SH} ${MAKE_CMD} ${TEST_TARGET} ${_MAKE_JOBS} SHELL=${SH} \
+	cd ${WRKSRC}/src && ${SETENVI} SHELL=${SH} ${MAKE_CMD} ${TEST_TARGET} ${_MAKE_JOBS} SHELL=${SH} \
 		|| { r=$$? ; head -n30000 ${WRKSRC}/src/tests/test-suite.log ; exit $$r ; }
 
 post-install:

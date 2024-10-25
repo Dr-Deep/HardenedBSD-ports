@@ -1,7 +1,7 @@
 PORTNAME=	air
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.6.9
-PORTREVISION=	2
+PORTREVISION=	6
 CATEGORIES=	misc
 PKGNAMESUFFIX=	-ai-chat-client
 
@@ -211,13 +211,17 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		winreg-0.50.0
 
 CFLAGS_powerpc64le=	-DNO_WARN_X86_INTRINSICS
+CFLAGS_powerpc64=	-DNO_WARN_X86_INTRINSICS
 
 OPENSSLINC=	/usr/include
 OPENSSLLIB=	/usr/lib
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc64 && !defined(CPUTYPE)
+CFLAGS+=	-mcpu=power7
+.endif
 
 .include <bsd.port.mk>

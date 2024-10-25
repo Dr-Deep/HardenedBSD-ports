@@ -1,6 +1,6 @@
---- content/browser/utility_process_host.cc.orig	2024-04-19 13:02:56 UTC
+--- content/browser/utility_process_host.cc.orig	2024-09-30 07:45:04 UTC
 +++ content/browser/utility_process_host.cc
-@@ -61,7 +61,7 @@
+@@ -62,7 +62,7 @@
  #include "content/browser/v8_snapshot_files.h"
  #endif
  
@@ -27,7 +27,7 @@
  base::ScopedFD PassNetworkContextParentDirs(
      std::vector<base::FilePath> network_context_parent_dirs) {
    base::Pickle pickle;
-@@ -150,7 +150,7 @@ UtilityProcessHost::UtilityProcessHost(std::unique_ptr
+@@ -151,7 +151,7 @@ UtilityProcessHost::UtilityProcessHost(std::unique_ptr
        started_(false),
        name_(u"utility process"),
        file_data_(std::make_unique<ChildProcessLauncherFileData>()),
@@ -36,7 +36,7 @@
        allowed_gpu_(false),
        gpu_client_(nullptr, base::OnTaskRunnerDeleter(nullptr)),
  #endif
-@@ -234,7 +234,7 @@ void UtilityProcessHost::SetPinUser32() {
+@@ -210,7 +210,7 @@ void UtilityProcessHost::SetPreloadLibraries(
  #endif  // BUILDFLAG(IS_WIN)
  
  void UtilityProcessHost::SetAllowGpuClient() {
@@ -45,8 +45,8 @@
    allowed_gpu_ = true;
  #endif
  }
-@@ -434,7 +434,7 @@ bool UtilityProcessHost::StartProcess() {
-     file_data_->files_to_preload.merge(GetV8SnapshotFilesToPreload());
+@@ -408,7 +408,7 @@ bool UtilityProcessHost::StartProcess() {
+     file_data_->files_to_preload.merge(GetV8SnapshotFilesToPreload(*cmd_line));
  #endif  // BUILDFLAG(IS_POSIX)
  
 -#if BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_CHROMEOS)
@@ -54,7 +54,7 @@
      // The network service should have access to the parent directories
      // necessary for its usage.
      if (sandbox_type_ == sandbox::mojom::Sandbox::kNetwork) {
-@@ -445,13 +445,13 @@ bool UtilityProcessHost::StartProcess() {
+@@ -419,13 +419,13 @@ bool UtilityProcessHost::StartProcess() {
      }
  #endif  // BUILDFLAG(IS_LINUX)
  

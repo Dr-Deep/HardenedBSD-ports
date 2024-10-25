@@ -1,7 +1,7 @@
 # for committer: bump PORTREVISION for math/facile whenever ocaml gets updated
 
 PORTNAME=	ocaml
-PORTVERSION=	4.14.1
+PORTVERSION=	4.14.2
 CATEGORIES=	lang
 MASTER_SITES=	http://caml.inria.fr/pub/distrib/${DISTNAME:R}/ \
 		GENTOO \
@@ -10,7 +10,7 @@ DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 EXTRACT_ONLY=	${_DISTFILES:M*.tar.*}
 PKGNAMESUFFIX=	${SFX}
 
-MAINTAINER=	michipili@gmail.com
+MAINTAINER=	freebsd@dev.thsi.be
 COMMENT=	Objective Caml compiler and programming environment
 WWW=		https://ocaml.org/
 
@@ -19,7 +19,7 @@ LICENSE=	LGPL21
 BROKEN_riscv64=	fails to build: hasgot.c:3:12: use of undeclared identifier 'secure_getenv'
 
 RUN_DEPENDS=	${RUN_DEPENDS_${ARCH}}
-RUN_DEPENDS_armv7=	as:devel/binutils
+RUN_DEPENDS_armv7=	${LOCALBASE}/bin/as:devel/binutils
 
 USES=		compiler:c11 cpe gmake tar:xz
 ARCH!=		uname -p
@@ -57,6 +57,12 @@ OPTIONS_SUB=	yes
 DOCS_DISTFILES=			${DISTNAME:R}-refman-html.tar.gz:docs \
 				${DISTNAME:R}-refman.pdf:docs
 THREADS_CONFIGURE_ENABLE=	systhreads
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == powerpc
+LLD_UNSAFE=	yes
+.endif
 
 post-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}

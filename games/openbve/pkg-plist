@@ -1,9 +1,12 @@
 bin/openbve
 bin/openbve-objectviewer
 bin/openbve-routeviewer
+%%DATADIR%%/Antlr4.Runtime.dll
+%%DATADIR%%/Antlr4.Runtime.xml
 %%DATADIR%%/AssimpParser.dll
 %%DATADIR%%/AssimpParser.dll.config
 %%DATADIR%%/AssimpParser.pdb
+%%DATADIR%%/Bve5_Parsing.dll
 %%DATADIR%%/CSScriptLibrary.dll
 %%DATADIR%%/CSScriptLibrary.xml
 %%DATADIR%%/CarXmlConvertor.exe
@@ -55,6 +58,7 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Compatibility/RoutePatches/Holland.xml
 %%DATADIR%%/Data/Compatibility/RoutePatches/HongKong.xml
 %%DATADIR%%/Data/Compatibility/RoutePatches/Hungary.xml
+%%DATADIR%%/Data/Compatibility/RoutePatches/Indonesia.xml
 %%DATADIR%%/Data/Compatibility/RoutePatches/Italy.xml
 %%DATADIR%%/Data/Compatibility/RoutePatches/Japan.xml
 %%DATADIR%%/Data/Compatibility/RoutePatches/Misc.xml
@@ -651,6 +655,7 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Menu/arrow_up.png
 %%DATADIR%%/Data/Menu/banner.png
 %%DATADIR%%/Data/Menu/gamepad.png
+%%DATADIR%%/Data/Menu/icon_bve5.png
 %%DATADIR%%/Data/Menu/icon_critical.png
 %%DATADIR%%/Data/Menu/icon_disk.png
 %%DATADIR%%/Data/Menu/icon_error.png
@@ -666,6 +671,7 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Menu/icon_library_protected.png
 %%DATADIR%%/Data/Menu/icon_mechanik.png
 %%DATADIR%%/Data/Menu/icon_mouse.png
+%%DATADIR%%/Data/Menu/icon_object.png
 %%DATADIR%%/Data/Menu/icon_parent.png
 %%DATADIR%%/Data/Menu/icon_route.png
 %%DATADIR%%/Data/Menu/icon_route_latestversion.png
@@ -678,6 +684,8 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Menu/icon_train_outdatedversion.png
 %%DATADIR%%/Data/Menu/icon_train_protected.png
 %%DATADIR%%/Data/Menu/icon_warning.png
+%%DATADIR%%/Data/Menu/icon_wavefront.png
+%%DATADIR%%/Data/Menu/icon_xobject.png
 %%DATADIR%%/Data/Menu/joystick.png
 %%DATADIR%%/Data/Menu/keyboard.png
 %%DATADIR%%/Data/Menu/loading.png
@@ -689,6 +697,7 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Menu/route_error.png
 %%DATADIR%%/Data/Menu/route_unknown.png
 %%DATADIR%%/Data/Menu/train_error.png
+%%DATADIR%%/Data/Menu/train_link.png
 %%DATADIR%%/Data/Menu/train_unknown.png
 %%DATADIR%%/Data/Menu/xbox.png
 %%DATADIR%%/Data/Menu/zuki.png
@@ -713,6 +722,9 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/Plugins/OpenBveAts.dll
 %%DATADIR%%/Data/Plugins/OpenBveAts.dll.config
 %%DEBUG%%%%DATADIR%%/Data/Plugins/OpenBveAts.pdb
+%%DATADIR%%/Data/Plugins/Route.Bve5.dll
+%%DATADIR%%/Data/Plugins/Route.Bve5.dll.config
+%%DATADIR%%/Data/Plugins/Route.Bve5.pdb
 %%DATADIR%%/Data/Plugins/Route.CsvRw.dll
 %%DATADIR%%/Data/Plugins/Route.CsvRw.dll.config
 %%DATADIR%%/Data/Plugins/Route.CsvRw.pdb
@@ -757,6 +769,7 @@ bin/openbve-routeviewer
 %%DATADIR%%/Data/RouteViewer/station_end.png
 %%DATADIR%%/Data/RouteViewer/station_start.png
 %%DATADIR%%/Data/RouteViewer/stop.png
+%%DATADIR%%/Data/RouteViewer/switchevent.png
 %%DATADIR%%/Data/RouteViewer/switchsound.png
 %%DATADIR%%/Data/RouteViewer/transponder.png
 %%DATADIR%%/Data/RouteViewer/weather.png

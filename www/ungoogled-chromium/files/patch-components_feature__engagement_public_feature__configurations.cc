@@ -1,4 +1,4 @@
---- components/feature_engagement/public/feature_configurations.cc.orig	2024-04-23 07:42:17 UTC
+--- components/feature_engagement/public/feature_configurations.cc.orig	2024-10-01 07:26:23 UTC
 +++ components/feature_engagement/public/feature_configurations.cc
 @@ -94,7 +94,7 @@ std::optional<FeatureConfig> CreateNewUserGestureInPro
  
@@ -15,10 +15,10 @@
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
 -    BUILDFLAG(IS_CHROMEOS)
 +    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_BSD)
-   if (kIPHPasswordsAccountStorageFeature.name == feature->name) {
+   if (kIPHPasswordsManagementBubbleAfterSaveFeature.name == feature->name) {
      std::optional<FeatureConfig> config = FeatureConfig();
      config->valid = true;
-@@ -1393,7 +1393,8 @@ std::optional<FeatureConfig> GetClientSideFeatureConfi
+@@ -1643,7 +1643,8 @@ std::optional<FeatureConfig> GetClientSideFeatureConfi
  #endif  // BUILDFLAG(IS_ANDROID)
  
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
@@ -26,14 +26,5 @@
 +    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_FUCHSIA) || \
 +    BUILDFLAG(IS_BSD)
  
-   if (kIPHAutofillExternalAccountProfileSuggestionFeature.name ==
-       feature->name) {
-@@ -1965,7 +1966,7 @@ std::optional<FeatureConfig> GetClientSideFeatureConfi
-   }
- 
- #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
--    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_FUCHSIA)
-+    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_FUCHSIA) || BUILDFLAG(IS_BSD)
-   if (kIPHDeepScanPromptRemovalFeature.name == feature->name) {
-     std::optional<FeatureConfig> config = FeatureConfig();
-     config->valid = true;
+   if (kIPHAutofillCreditCardBenefitFeature.name == feature->name) {
+     // Credit card benefit IPH is shown:

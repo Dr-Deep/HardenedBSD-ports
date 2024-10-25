@@ -1,5 +1,6 @@
 PORTNAME?=	nginx
-PORTVERSION=	1.26.0
+PORTVERSION=	1.27.2
+PORTREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	https://nginx.org/download/ \
 		LOCAL/osa
@@ -15,7 +16,7 @@ LICENSE_FILE?=	${WRKSRC}/LICENSE
 
 CONFLICTS_INSTALL=	nginx
 
-PORTSCOUT=	limit:^1\.2[4-5]\.[0-9]*
+PORTSCOUT=	limit:^1\.2[7-8]\.[0-9]*
 
 USES=		cpe
 
@@ -77,7 +78,8 @@ OPTIONS_GROUP_MAILGRP=	MAIL MAIL_IMAP MAIL_POP3 MAIL_SMTP MAIL_SSL
 OPTIONS_GROUP_STREAMGRP=	STREAM STREAM_REALIP STREAM_SSL \
 	STREAM_SSL_PREREAD
 
-OPTIONS_DEFINE=		DEBUG DEBUGLOG DSO FILE_AIO IPV6 NJS NJS_XML OTEL THREADS WWW
+OPTIONS_DEFINE=		DEBUG DEBUGLOG DSO FILE_AIO IPV6 NJS NJS_QJS NJS_XML \
+		OTEL THREADS WWW
 OPTIONS_DEFAULT?=	DSO FILE_AIO HTTP HTTP_ADDITION HTTP_AUTH_REQ HTTP_CACHE \
 		HTTP_DAV HTTP_FLV HTTP_GUNZIP_FILTER HTTP_GZIP_STATIC HTTP_MP4 \
 		HTTP_RANDOM_INDEX HTTP_REALIP HTTP_SECURE_LINK HTTP_SLICE HTTP_SSL \
@@ -173,7 +175,7 @@ HTTPV3_BORING_RUN_DEPENDS=	${LOCALBASE}/bin/bssl:security/boringssl
 HTTPV3_BORING_IMPLIES=		HTTPV3
 HTTPV3_BORING_PREVENTS=		HTTPV3_LSSL HTTPV3_QTLS
 HTTPV3_LSSL_BUILD_DEPENDS=	${LOCALBASE}/include/tls.h:security/libressl-devel
-HTTPV3_LSSL_BUILD_DEPENDS=	${LOCALBASE}/include/tls.h:security/libressl-devel
+HTTPV3_LSSL_RUN_DEPENDS=	${LOCALBASE}/include/tls.h:security/libressl-devel
 HTTPV3_LSSL_IMPLIES=		HTTPV3
 HTTPV3_LSSL_PREVENTS=		HTTPV3_BORING HTTPV3_QTLS
 HTTPV3_QTLS_BUILD_DEPENDS=	${LOCALBASE}/include/openssl/quic.h:security/openssl-quictls
@@ -187,6 +189,7 @@ MAIL_SMTP_CONFIGURE_OFF=	--without-mail_smtp_module
 MAIL_SSL_USES=			ssl
 MAIL_SSL_CONFIGURE_ON=		--with-mail_ssl_module
 STREAM_VARS=			DSO_BASEMODS+=stream
+STREAM_CONFIGURE_ON=		--with-stream
 STREAM_REALIP_CONFIGURE_ON=	--with-stream_realip_module
 STREAM_SSL_USES=		ssl
 STREAM_SSL_CONFIGURE_ON=	--with-stream_ssl_module
@@ -242,16 +245,25 @@ CFLAGS+=	-DNDEBUG
 CONFIGURE_ENV+=	EXTRA_PRE_CXXFLAGS="-std=c++14"
 .endif
 
-.if empty(PORT_OPTIONS:MMODSECURITY3) && empty(PORT_OPTIONS:MPASSENGER)
+.if empty(PORT_OPTIONS:MMODSECURITY3)
 CONFIGURE_ARGS+=	--with-ld-opt="-L ${LOCALBASE}/lib"
 .else
 CONFIGURE_ARGS+=	--with-ld-opt="-L ${LOCALBASE}/lib -lpcre"
 LIB_DEPENDS+=		libpcre.so:devel/pcre
 .endif
 
-.if ${PORT_OPTIONS:MNJS} && empty(PORT_OPTIONS:MNJS_XML)
+.if ${PORT_OPTIONS:MNJS}
+. if empty(PORT_OPTIONS:MNJS_QJS)
+NJS_CONFIGURE_ARGS+=	--no-quickjs
+. endif
+. if empty(PORT_OPTIONS:MNJS_XML)
 CONFIGURE_ENV+=		NJS_LIBXSLT=NO
-NJS_CONFIGURE_ARGS=	--no-libxml2
+NJS_CONFIGURE_ARGS+=	--no-libxml2
+. endif
+.endif
+
+.if ${PORT_OPTIONS:MCT}
+IGNORE=	patching is required for the CT third-party module
 .endif
 
 pre-everything::
@@ -267,9 +279,6 @@ pre-everything::
 post-extract-NAXSI-on:
 	@${RMDIR} ${WRKSRC_naxsi}/naxsi_src/libinjection
 	@${LN} -s ${WRKSRC_libinjection} ${WRKSRC_naxsi}/naxsi_src/libinjection
-
-pre-patch-HTTPV3-on:
-	@${MV} ${WRKSRC}/README ${WRKSRC}/README.1st
 
 post-patch:
 	@${REINPLACE_CMD} 's!%%HTTP_PORT%%!${HTTP_PORT}!; \
@@ -302,6 +311,9 @@ post-patch-HTTP_TARANTOOL-on:
 
 post-patch-ICONV-on:
 	@${REINPLACE_CMD} 's!%%PREFIX%%!${LOCALBASE}!g' ${WRKSRC_iconv}/config
+
+post-patch-NJS_QJS-on:
+	@${REINPLACE_CMD} 's!%%PREFIX%%!${LOCALBASE}!g' ${WRKSRC_njs}/auto/quickjs
 
 post-patch-PASSENGER-on:
 	@${REINPLACE_CMD} \

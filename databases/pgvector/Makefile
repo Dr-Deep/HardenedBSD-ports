@@ -1,5 +1,5 @@
 PORTNAME=	pgvector
-PORTVERSION=	0.6.2
+PORTVERSION=	0.7.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	databases
 PKGNAMEPREFIX=	postgresql${PGSQL_VER:S/.//}-
@@ -8,6 +8,8 @@ MAINTAINER=	tz@FreeBSD.org
 COMMENT=	PostgreSQL extension for vector similarity search
 
 LICENSE=	PostgreSQL
+
+NOT_FOR_ARCHS=		i386
 
 USES=		gmake pgsql:12+
 WANT_PGSQL=	server

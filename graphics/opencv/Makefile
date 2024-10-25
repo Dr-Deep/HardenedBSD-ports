@@ -1,10 +1,7 @@
 PORTNAME=	opencv
-DISTVERSION=	4.6.0
-PORTREVISION=	18
+DISTVERSION=	4.9.0
+PORTREVISION=	5
 CATEGORIES=	graphics
-
-PATCH_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/commit/
-PATCHFILES=	496eed950f6d0e7fd92619d47e3cec8f06e96ace.patch:-p1
 
 MAINTAINER=	desktop@FreeBSD.org
 COMMENT=	Open Source Computer Vision library
@@ -14,12 +11,10 @@ LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
-		libgflags.so:devel/gflags \
-		libglog.so:devel/glog \
 		libharfbuzz.so:print/harfbuzz \
 		libhdf5.so:science/hdf5
 
-USES=		cmake compiler:c++14-lang cpe localbase:ldflags pkgconfig
+USES=		cmake compiler:c++14-lang cpe gnome localbase:ldflags pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	WeChatCV:wechat
 GH_PROJECT=	opencv_contrib:contrib \
@@ -36,10 +31,12 @@ GH_TAGNAME=	v0.1.1f:ade \
 		8afa57abc8229d611c4937165d20e2a2d9fc5a12:face \
 		a56b6ac6f030c312b2dce17430eef13aed9af274:ippicv
 
-CMAKE_ON=	OPENCV_GENERATE_PKGCONFIG
+CMAKE_ON=	OPENCV_GENERATE_PKGCONFIG \
+		OPENCV_SKIP_CMAKE_CXX_STANDARD
 CMAKE_OFF=	OPENCV_GENERATE_SETUPVARS \
 		BUILD_opencv_python2 \
 		BUILD_TESTS
+CMAKE_OFF+=	WITH_OBSENSOR # linux/uvcvideo.h is included when WITH_OBSENSOR is enabled
 CMAKE_ARGS=	-DOPENCV_EXTRA_MODULES_PATH="${WRKSRC}/contrib/modules"
 
 DATADIR=	${PREFIX}/share/${PORTNAME}4
@@ -51,7 +48,7 @@ OPTIONS_DEFINE=		EIGEN GDAL GDCM HARDENING JAVA LTO OPENCL \
 
 OPTIONS_GROUP=		GUI IMAGE VIDEO
 OPTIONS_GROUP_GUI=	GTK3 VTK
-OPTIONS_GROUP_IMAGE=	GPHOTO2 JPEG OPENEXR PNG TIFF
+OPTIONS_GROUP_IMAGE=	GPHOTO2 JPEG OGRE3D OPENEXR PNG TIFF
 OPTIONS_GROUP_VIDEO=	DC1394 FFMPEG GSTREAMER V4L VULKAN WEBP XINE
 
 OPTIONS_SINGLE=		BLAS
@@ -70,6 +67,9 @@ OPTIONS_SUB=		yes
 # Normal options (EIGEN GDAL GDCM HARDENING JAVA LTO OPENCL PATENTED PROTOBUF PYTHON TBB)
 EIGEN_DESC=		Add Eigen v3 Support, builds sfm modules
 EIGEN_CMAKE_BOOL=	WITH_EIGEN
+EIGEN_LIB_DEPENDS=	libgflags.so:devel/gflags \
+			libglog.so:devel/glog \
+			libceres.so:math/ceres-solver
 EIGEN_USES=		eigen:3
 
 GDAL_DESC=		Add Geospatial Data Abstraction Library Support
@@ -101,8 +101,7 @@ PATENTED_DESC=		Enable patented 2d feature detection USE AT OWN RISK
 PATENTED_CMAKE_BOOL=	OPENCV_ENABLE_NONFREE
 
 PROTOBUF_DESC=		Enable protobuf support, builds dnn modules
-PROTOBUF_CMAKE_BOOL=	WITH_PROTOBUF
-PROTOBUF_LIB_DEPENDS=	libprotobuf.so:devel/protobuf
+PROTOBUF_CMAKE_BOOL=	WITH_PROTOBUF # by default the bundled protobuf is built
 
 PYTHON_DESC=		Enable Python Support 3.6 or greater
 PYTHON_BUILD_DEPENDS=	${PYNUMPY}
@@ -121,7 +120,6 @@ TESSERACT_CMAKE_BOOL=	WITH_TESSERACT
 ###
 
 # GUI group options (GTK3 VTK)
-GTK3_USES=		gnome
 GTK3_USE=		gnome=gtk30,cairo,gdkpixbuf2
 GTK3_CMAKE_BOOL=	WITH_GTK
 
@@ -140,6 +138,10 @@ GPHOTO2_LIB_DEPENDS=	libgphoto2.so:graphics/libgphoto2
 JPEG_DESC=		Add LibJpeg Support
 JPEG_CMAKE_BOOL=	WITH_JPEG
 JPEG_USES=		jpeg
+
+OGRE3D_DESC=		Add OGRE support
+OGRE3D_LIB_DEPENDS=	libOgreMain.so:graphics/ogre3d
+OGRE3D_CMAKE_BOOL=	BUILD_opencv_ovis
 
 OPENEXR_DESC=		Add OpenEXR Support
 OPENEXR_CMAKE_BOOL=	WITH_OPENEXR

@@ -1,10 +1,9 @@
 PORTNAME=	nerdctl
 DISTVERSIONPREFIX=v
-DISTVERSION=	1.7.3
-PORTREVISION=	2
+DISTVERSION=	1.7.7
 CATEGORIES=	sysutils
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	laurent.chardon@gmail.com
 COMMENT=	Docker-compatible CLI for containerd
 WWW=		https://github.com/containerd/nerdctl
 

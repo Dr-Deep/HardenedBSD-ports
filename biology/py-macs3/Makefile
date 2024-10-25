@@ -1,6 +1,6 @@
 PORTNAME=		MACS3
 DISTVERSIONPREFIX=	v
-DISTVERSION=		3.0.1
+DISTVERSION=		3.0.2
 CATEGORIES=		biology python
 PKGNAMEPREFIX=		${PYTHON_PKGNAMEPREFIX}
 
@@ -18,10 +18,10 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}wheel>0:devel/py-wheel@${PY_FLAVOR} \
 		${PYNUMPY} \
 		simde>0:devel/simde \
 		${PYTHON_PKGNAMEPREFIX}cykhash>0:devel/py-cykhash@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}hmmlearn>0:math/py-hmmlearn@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}hmmlearn>=0.3.2:math/py-hmmlearn@${PY_FLAVOR}
 RUN_DEPENDS=	${PYNUMPY} \
 		${PYTHON_PKGNAMEPREFIX}cykhash>0:devel/py-cykhash@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}hmmlearn>0:math/py-hmmlearn@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}hmmlearn>=0.3.2:math/py-hmmlearn@${PY_FLAVOR}
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest>0:devel/py-pytest@${PY_FLAVOR} \
 		bash:shells/bash
 
@@ -33,12 +33,6 @@ USE_PYTHON=	autoplist concurrent cython pep517
 GH_ACCOUNT=	macs3-project
 GH_PROJECT=	MACS
 SHEBANG_FILES=	test/cmdlinetest* test/prockreport test/*.py test/pyprofile*
-
-.include <bsd.port.options.mk>
-
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1302509
-IGNORE=		does not run properly on FreeBSD 13.2 and earlier due to use of dynamically loaded libc by py-threadpoolctl.  Please upgrade to a newer FreeBSD or use py-macs2 instead.  See PR 276231
-.endif
 
 post-stage:
 	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/MACS3/*/*.so

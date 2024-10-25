@@ -1,6 +1,6 @@
 PORTNAME=	mizuma
-DISTVERSION=	2024.01
-CATEGORIES=	games emulators 
+DISTVERSION=	2024.10
+CATEGORIES=	games emulators
 MASTER_SITES=	https://codeberg.org/Alexander88207/Mizutamari/archive/${PORTVERSION}${EXTRACT_SUFX}?dummy=/
 
 MAINTAINER=	Alexander88207@protonmail.com
@@ -22,23 +22,24 @@ RUN_DEPENDS=	7zz:archivers/7-zip \
 		xdg-open:devel/xdg-utils \
 		zenity:x11/zenity
 
+NO_ARCH=	yes
 NO_BUILD=	yes
-
-OPTIONS_SUB=	yes
-OPTIONS_DEFAULT=	GLX-UTILS
-OPTIONS_RADIO=		GLXINFO
-OPTIONS_RADIO_GLXINFO=	GLX-UTILS MESA-DEMOS
-
-GLX-UTILS_DESC=		Use glxinfo from glx-utils
-MESA-DEMOS_DESC=	Use glxinfo from mesa-demos
-
-GLX-UTILS_RUN_DEPENDS=	glxinfo:graphics/glx-utils
-MESA-DEMOS_RUN_DEPENDS=	glxinfo:graphics/mesa-demos
 
 WRKSRC=		${WRKDIR}/mizutamari
 
 PLIST_FILES=	bin/Mizuma \
 		share/Mizutamari/Tools/Framework
+
+OPTIONS_DEFAULT=	GLX_UTILS
+OPTIONS_RADIO=		GLXINFO
+OPTIONS_RADIO_GLXINFO=	GLX_UTILS MESA_DEMOS
+OPTIONS_SUB=		yes
+
+GLX_UTILS_DESC=		Use glxinfo from glx-utils
+MESA_DEMOS_DESC=	Use glxinfo from mesa-demos
+
+GLX_UTILS_RUN_DEPENDS=	glxinfo:graphics/glx-utils
+MESA_DEMOS_RUN_DEPENDS=	glxinfo:graphics/mesa-demos
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/Mizutamari/Tools

@@ -1,10 +1,10 @@
 PORTNAME=	icinga2
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.14.2
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	net-mgmt
 
-MAINTAINER=	joneum@FreeBSD.org
+MAINTAINER=	flo@FreeBSD.org
 COMMENT=	Monitoring and management system for hosts, services and networks
 WWW=		https://www.icinga.org/icinga2/
 

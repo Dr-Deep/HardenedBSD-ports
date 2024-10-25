@@ -1,7 +1,7 @@
 PORTNAME=	multiwfn
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.8
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	science
 MASTER_SITES=	http://sobereva.com/multiwfn/misc/:main \
 		https://www.dislin.de/downloads/unix/:dislin
@@ -38,8 +38,6 @@ LDFLAGS+=	-lblas -llapack
 ALL_TARGET=	default
 
 DISLIN_VERSION=	11.5
-
-MAKE_JOBS_UNSAFE=	yes # fix build on quarterly (not latest) when mod_2f2.mod isn't found due to commands mis-order
 
 BINARY_ALIAS=	ifort=gfortran${GCC_DEFAULT} \
 		gcc=${CC}

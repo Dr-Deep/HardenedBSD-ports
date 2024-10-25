@@ -1,6 +1,6 @@
 PORTNAME=	vvdec
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.2.0
+DISTVERSION=	2.3.0
 CATEGORIES=	multimedia python
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -9,8 +9,6 @@ WWW=		https://github.com/fraunhoferhhi/vvdec
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
-
-ONLY_FOR_ARCHS=		aarch64 armv6 armv7 amd64 powerpc powerpc64 powerpc64le riscv64
 
 USES=		cmake:noninja,testing compiler:c++14-lang
 USE_LDCONFIG=	yes

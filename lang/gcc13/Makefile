@@ -1,6 +1,5 @@
 PORTNAME=	gcc
-PORTVERSION=	13.2.0
-PORTREVISION=	4
+PORTVERSION=	13.3.0
 CATEGORIES=	lang
 MASTER_SITES=	GCC
 PKGNAMESUFFIX=	${SUFFIX}
@@ -12,7 +11,7 @@ WWW=		https://gcc.gnu.org
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le
+ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le riscv64
 
 LIB_DEPENDS=	libgmp.so:math/gmp \
 		libmpfr.so:math/mpfr \
@@ -24,7 +23,7 @@ BUILD_DEPENDS+=	runtest:misc/dejagnu
 .endif
 
 NO_UNUSED_ARGUMENTS_CHECK=	yes
-USE_HARDENING=			pie:off retpoline:off
+USE_HARDENING=			pie:off retpoline:off fortifysource:off
 
 USES=		compiler:c++11-lang cpe gmake iconv libtool makeinfo perl5 tar:xz
 USE_BINUTILS=	yes

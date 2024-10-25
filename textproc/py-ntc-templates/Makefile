@@ -1,6 +1,6 @@
 PORTNAME=	ntc-templates
 DISTVERSIONPREFIX=	v
-DISTVERSION=	5.0.0
+DISTVERSION=	7.2.0
 CATEGORIES=	textproc net-mgmt python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -16,7 +16,7 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}textfsm>=1.1.0<2.0.0:textproc/py-textfsm@${P
 TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}invoke>0:devel/py-invoke@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}ruamel.yaml>0:devel/py-ruamel.yaml@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}toml>0:textproc/py-toml@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}yaml>0:devel/py-yaml@${PY_FLAVOR}
+		${PYTHON_PKGNAMEPREFIX}pyyaml>=0:devel/py-pyyaml@${PY_FLAVOR}
 
 USES=		python
 USE_GITHUB=	yes
@@ -26,5 +26,8 @@ USE_PYTHON=	autoplist pep517 pytest
 TEST_ENV=	PYTHONPATH=${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}
 
 NO_ARCH=	yes
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|%%DISTVERSION%%|${DISTVERSION}|' ${WRKSRC}/pyproject.toml
 
 .include <bsd.port.mk>

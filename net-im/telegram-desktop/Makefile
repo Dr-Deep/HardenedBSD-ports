@@ -1,5 +1,5 @@
 PORTNAME=	telegram-desktop
-DISTVERSION=	4.16.8
+DISTVERSION=	5.6.3
 CATEGORIES=	net-im
 MASTER_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/releases/download/v${DISTVERSION}/
 DISTNAME=	tdesktop-${DISTVERSION}-full
@@ -19,14 +19,15 @@ NOT_FOR_ARCHS=		powerpc powerpc64 powerpcspe
 NOT_FOR_ARCHS_REASON=	Only little endian is supported
 
 BUILD_DEPENDS=	boost-libs>0:devel/boost-libs \
-		microsoft-gsl>0:devel/microsoft-gsl \
 		range-v3>0:devel/range-v3 \
 		tl-expected>0:devel/tl-expected \
 		v4l_compat>0:multimedia/v4l_compat \
 		yasm:devel/yasm \
 		${LOCALBASE}/lib/libtg_owt.a:net-im/tg_owt
 LIB_DEPENDS=	libabsl_base.so:devel/abseil \
+		libada.so:devel/libada \
 		libavformat.so:multimedia/ffmpeg \
+		libcrc32c.so:devel/crc32c \
 		libdbus-1.so:devel/dbus \
 		libdispatch.so:devel/libdispatch \
 		libfmt.so:devel/libfmt \
@@ -35,9 +36,10 @@ LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 		libopenh264.so:multimedia/openh264 \
 		libopus.so:audio/opus \
 		libpipewire-0.3.so:multimedia/pipewire \
-		libprotobuf.so:devel/protobuf \
+		libprotobuf-lite.so:devel/protobuf \
 		libqrcodegencpp.so:graphics/qr-code-generator \
 		librnnoise.so:audio/rnnoise \
+		libsrtp2.so:net/libsrtp2 \
 		libxcb-keysyms.so:x11/xcb-util-keysyms \
 		libxkbcommon.so:x11/libxkbcommon \
 		libxxhash.so:devel/xxhash \
@@ -63,16 +65,19 @@ USE_QT=		buildtools:build core dbus declarative gui imageformats network qmake:b
 		svg wayland widgets
 USE_KDE=	coreaddons kimageformats
 .else
-USES+=		qt:6
+USES+=		kde:6 qt:6
 USE_QT=		5compat base declarative imageformats lottie shadertools svg tools:build wayland
+USE_KDE=	coreaddons kimageformats
 .endif
 
 USE_GL=		gl
 USE_GNOME=	glib20 glibmm26 introspection
 USE_XORG=	x11 xcb xcomposite xdamage xext xfixes xrandr xrender xtst
 
-CMAKE_ARGS=	-DTDESKTOP_API_ID=${TELEGRAM_API_ID} -DTDESKTOP_API_HASH=${TELEGRAM_API_HASH}
+CMAKE_ARGS=	-DTDESKTOP_API_ID=${TELEGRAM_API_ID} -DTDESKTOP_API_HASH=${TELEGRAM_API_HASH} \
+		-DQT_VERSION_MAJOR=${FLAVOR:S/qt//}
 CMAKE_ON=	DESKTOP_APP_USE_PACKAGED DESKTOP_APP_DISABLE_CRASH_REPORTS \
+		DESKTOP_APP_DISABLE_JEMALLOC \
 		DESKTOP_APP_DISABLE_SCUDO \
 		DESKTOP_APP_DISABLE_WAYLAND_INTEGRATION
 
@@ -105,17 +110,10 @@ TELEGRAM_API_ID=	601761
 
 .include <bsd.port.options.mk>
 
-.if ${OPSYS} == FreeBSD && ((${OSVERSION} >= 1400000 && ${OSVERSION} < 1400091) || ${OSVERSION} < 1302507)
-#EXTRA_PATCHES=	${PATCHDIR}/extra-patch-CMakeLists.txt
-USES+=	llvm:min=16,build
-USES:=	${USES:Ncompiler\:*} # XXX avoid warnings
-.if defined(WITH_CCACHE_BUILD) && !defined(NO_CCACHE)
+.if ${OPSYS} == FreeBSD && defined(WITH_CCACHE_BUILD) && !defined(NO_CCACHE)
 CMAKE_ARGS+=	-DCMAKE_CC_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache" \
 		-DCMAKE_CPP_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache" \
 		-DCMAKE_CXX_COMPILER_LAUNCHER="${LOCALBASE}/bin/ccache"
-.endif
-#.else
-#USES+=	compiler:c++20-lang
 .endif
 
 post-extract:
@@ -129,20 +127,16 @@ post-extract:
 		${WRKSRC}/Telegram/ThirdParty/hime \
 		${WRKSRC}/Telegram/ThirdParty/hunspell \
 		${WRKSRC}/Telegram/ThirdParty/jemalloc \
+		${WRKSRC}/Telegram/ThirdParty/jimf \
+		${WRKSRC}/Telegram/ThirdParty/kcoreaddons \
+		${WRKSRC}/Telegram/ThirdParty/kimageformats \
 		${WRKSRC}/Telegram/ThirdParty/lz4 \
 		${WRKSRC}/Telegram/ThirdParty/minizip \
-		${WRKSRC}/Telegram/ThirdParty/jimf \
 		${WRKSRC}/Telegram/ThirdParty/plasma-wayland-protocols \
 		${WRKSRC}/Telegram/ThirdParty/range-v3 \
 		${WRKSRC}/Telegram/ThirdParty/wayland \
 		${WRKSRC}/Telegram/ThirdParty/wayland-protocols \
 		${WRKSRC}/Telegram/ThirdParty/xxHash
-
-.if ${FLAVOR} == qt5
-	${RM} -rf \
-		${WRKSRC}/Telegram/ThirdParty/kcoreaddons \
-		${WRKSRC}/Telegram/ThirdParty/kimageformats
-.endif
 
 post-patch:
 	# XXX fix the following on every source file

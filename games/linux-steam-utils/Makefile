@@ -1,9 +1,9 @@
 PORTNAME=	steam-utils
-DISTVERSION=	20240323
+DISTVERSION=	20240625
 CATEGORIES=	games linux
 PKGNAMEPREFIX=	linux-
 
-MAINTAINER=	iwtcex@gmail.com
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Steam launcher for FreeBSD
 WWW=		https://github.com/shkhln/linuxulator-steam-utils
 

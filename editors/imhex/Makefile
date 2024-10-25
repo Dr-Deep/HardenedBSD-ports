@@ -1,7 +1,7 @@
 PORTNAME=	imhex
 PORTVERSION=	1.30.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	editors
 MASTER_SITES=	https://git.sr.ht/~danyspin97/xdgpp/blob/f01f810714443d0f10c333d4d1d9c0383be41375/:xdg
 DISTFILES=	xdg.hpp:xdg
@@ -91,7 +91,6 @@ NLS_USES=	gettext
 
 # Before LLVM 18 import into the base system
 .if ((${OSREL:R} == 15 && ${OSVERSION} < 1500018) \
-    || (${OSREL:R} == 14 && ${OSVERSION} < 1400511) \
     || (${OSREL:R} == 13 && ${OSVERSION} < 1303503))
 EXTRA_PATCHES=	${PATCHDIR}/extra-patch-lib_external_libwolv_libs_io_include_wolv_io_file.hpp \
 		${PATCHDIR}/extra-patch-plugins_windows_include_views_view__tty__console.hpp \
@@ -114,7 +113,6 @@ post-extract:
 	${MKDIR} ${WRKDIR}/.build/_deps/imhex_patterns_src
 	${CP} -R ${WRKSRC_imhex_patterns}/* ${WRKDIR}/.build/_deps/imhex_patterns_src
 .if ((${OSREL:R} == 15 && ${OSVERSION} < 1500018) \
-    || (${OSREL:R} == 14 && ${OSVERSION} < 1400511) \
     || (${OSREL:R} == 13 && ${OSVERSION} < 1303503))
 	${CP} -R ${WRKSRC_jthread}/source/*.hpp ${WRKSRC}/lib/libimhex/include
 	${CP} -R ${WRKSRC_jthread}/source/*.hpp ${WRKSRC}/lib/external/libwolv/libs/io/include/wolv/io

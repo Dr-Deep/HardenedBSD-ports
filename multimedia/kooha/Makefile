@@ -1,10 +1,10 @@
 PORTNAME=	kooha
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2.3.0
-PORTREVISION=	1
+PORTREVISION=	6
 CATEGORIES=	multimedia wayland
 
-MAINTAINER=	jbeich@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Elegantly record your screen
 WWW=		https://github.com/SeaDve/Kooha
 
@@ -32,7 +32,6 @@ post-patch:
 # Make each cargo subcommand very verbose
 # Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
-		-e "/cp/s,'src',& / '${CARGO_BUILD_TARGET}'," \
 		${WRKSRC}/src/meson.build
 
 .include <bsd.port.mk>

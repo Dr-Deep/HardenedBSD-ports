@@ -1,5 +1,6 @@
 PORTNAME=	aqualung
 DISTVERSION=	1.2
+PORTREVISION=	2
 CATEGORIES=	audio
 
 MAINTAINER=	portmaster@BSDforge.com
@@ -11,7 +12,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libmp3lame.so:audio/lame \
-		libcddb.so:audio/libcddb \
 		libmad.so:audio/libmad \
 		libmodplug.so:audio/libmodplug \
 		libogg.so:audio/libogg \
@@ -20,7 +20,6 @@ LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libsndfile.so:audio/libsndfile \
 		libvorbis.so:audio/libvorbis \
 		libmac.so:audio/mac \
-		libmpcdec.so:audio/musepack \
 		libspeex.so:audio/speex \
 		libwavpack.so:audio/wavpack \
 		libavcodec.so:multimedia/ffmpeg \
@@ -32,12 +31,16 @@ LIB_DEPENDS=	libFLAC.so:audio/flac \
 		libfontconfig.so:x11-fonts/fontconfig
 
 USES=		autoreconf compiler:c++11-lang cpe gettext gnome localbase lua:52 pkgconfig
+USE_GNOME=	cairo gdkpixbuf2 gtk20 libxml2 libxslt
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	jeremyevans
-USE_GNOME=	cairo gdkpixbuf2 gtk20 libxml2 libxslt
+
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
-CONFIGURE_ARGS=	--with-ifp=no
+
+CONFIGURE_ARGS=	--with-cddb=no \
+		--with-ifp=no \
+		--with-mpc=no
 
 DESKTOP_ENTRIES="Aqualung" "" "${DATADIR}/general.png" "aqualung" \
 		"Audio;AudioVideo;GTK;" ""

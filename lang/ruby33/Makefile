@@ -1,6 +1,5 @@
 PORTNAME=	ruby
-DISTVERSION=	${RUBY_DISTVERSION}
-PORTREVISION=	${RUBY_PORTREVISION}
+PORTVERSION=	${RUBY_DISTVERSION}
 PORTEPOCH=	${RUBY_PORTEPOCH}
 CATEGORIES=	lang ruby
 MASTER_SITES=	RUBY/${MASTER_SITE_SUBDIR_RUBY}
@@ -20,47 +19,63 @@ BUILD_DEPENDS=	libffi>=0:devel/libffi
 LIB_DEPENDS=	libyaml.so:textproc/libyaml
 RUN_DEPENDS=	libffi>=0:devel/libffi
 
-USES=		autoreconf cpe ruby:none ssl tar:xz
+USES=		autoreconf cpe localbase ruby:none ssl tar:xz
 CPE_VENDOR=	ruby-lang
 CPE_VERSION=	${RUBY_RELVERSION}
 CPE_UPDATE=	p${RUBY_PATCHLEVEL}
 USE_LDCONFIG=	yes
 
-GNU_CONFIGURE=	yes
+# We get these from other ports
+EXTRACT_AFTER_ARGS=	--exclude ${DISTNAME}/bin/gem \
+			--exclude ${DISTNAME}/ext/win32* \
+			--exclude ${DISTNAME}/lib/bundler* \
+			--exclude ${DISTNAME}/libexec/bundler \
+			--exclude ${DISTNAME}/man/erb.1 \
+			--exclude ${DISTNAME}/man/irb.1 \
+			--exclude ${DISTNAME}/man/ri.1 \
+			--no-same-owner --no-same-permissions
+
 CONFIGURE_ARGS=	${RUBY_CONFIGURE_ARGS} \
 		--disable-rpath \
 		--enable-install-static-library \
 		--enable-pthread \
 		--enable-shared \
-		--with-ruby-version="${RUBY_VER}" \
+		--with-ruby-version=minor \
 		--with-sitedir="${PREFIX}/lib/ruby/site_ruby" \
 		--with-vendordir="${PREFIX}/lib/ruby/vendor_ruby"
 CONFIGURE_ENV=	debugflags=
-
-CPPFLAGS+=	-I${LOCALBASE}/include
+GNU_CONFIGURE=	yes
 # Keep this, else ruby will fail to load libraries dependent of libpthread.
-LIBS+=		-lpthread -L${LOCALBASE}/lib
+LIBS+=		-lpthread
 WRKSRC=		${RUBY_WRKSRC}
 
 RUBY_VER=	3.3
 
-OPTIONS_DEFINE=		CAPIDOCS DEBUG DOCS EXAMPLES GMP RDOC YJIT
-OPTIONS_DEFAULT=	RDOC
-OPTIONS_SUB=		yes
+EXTDOCS=	ripper/README stringio/README.md syslog/syslog.txt
+EXTSAMPLES=	bigdecimal/sample/*.rb
+INSTALLED_MANUALS=	ruby
+INSTALLED_SCRIPTS=	ruby
+# Macros to change variables in rbconfig.rb
+RB_SET_CONF_VAR=	${SH} -c \
+			'${REINPLACE_CMD} -E -e "s,(CONFIG\[\"$$0\"\][[:space:]]*=[[:space:]]*)(\(?)(.*)(\)?),\1\2$$1\4," ${WRKSRC}/rbconfig.rb' \
+			--
 
+OPTIONS_DEFINE=	CAPIDOCS DEBUG DOCS EXAMPLES GMP RDOC YJIT
+OPTIONS_DEFAULT=RDOC
+OPTIONS_SUB=	yes
 CAPIDOCS_DESC=	Build and install C API documents
 GMP_DESC=	Use GMP to accelerate Bignum operations
 RDOC_DESC=	Build and install Rdoc indexes
 YJIT_DESC=	Enable YJIT (Yet Another Ruby JIT)
 
-CAPIDOCS_BUILD_DEPENDS=		dot:graphics/graphviz \
-				doxygen>=1.8.13,2:devel/doxygen
+CAPIDOCS_BUILD_DEPENDS=	dot:graphics/graphviz \
+			doxygen>=1.8.13,2:devel/doxygen
 CAPIDOCS_CONFIGURE_ENABLE=	install-capi
-GMP_LIB_DEPENDS=		libgmp.so:math/gmp
-GMP_CONFIGURE_WITH=		gmp
-RDOC_CONFIGURE_ENABLE=		install-rdoc
-YJIT_BUILD_DEPENDS=		${RUST_DEFAULT}>=1.58.0:lang/${RUST_DEFAULT}
-YJIT_CONFIGURE_ENABLE=		yjit
+GMP_CONFIGURE_WITH=	gmp
+GMP_LIB_DEPENDS=	libgmp.so:math/gmp
+RDOC_CONFIGURE_ENABLE=	install-rdoc
+YJIT_BUILD_DEPENDS=	${RUST_DEFAULT}>=1.58.0:lang/${RUST_DEFAULT}
+YJIT_CONFIGURE_ENABLE=	yjit
 
 .include <bsd.port.pre.mk>
 
@@ -89,8 +104,8 @@ LIB_DEPENDS+=	libunwind.so:devel/libunwind
 .endif
 
 .if ${ARCH} == armv6 || ${ARCH} == armv7 || ${ARCH} == powerpc
-CONFIGURE_ARGS+=	--with-setjmp-type=_setjmp
-CONFIGURE_ENV+=		ac_cv_func__setjmp=yes
+CONFIGURE_ARGS+=--with-setjmp-type=_setjmp
+CONFIGURE_ENV+=	ac_cv_func__setjmp=yes
 .endif
 
 .if ${RUBY_VER} == ${RUBY_DEFAULT_VER}
@@ -100,27 +115,8 @@ PKGNAMESUFFIX=	${RUBY_SUFFIX}
 PLIST_SUB+=	IF_DEFAULT="@comment "
 .endif
 
-INSTALLED_SCRIPTS=	ruby
-INSTALLED_MANUALS=	ruby
-
-EXTSAMPLES=	bigdecimal/sample/*.rb
-
-EXTDOCS=	ripper/README stringio/README.md syslog/syslog.txt
-
-# Macros to change variables in rbconfig.rb
-RB_SET_CONF_VAR=	${SH} -c \
-			'${REINPLACE_CMD} -E -e "s,(CONFIG\[\"$$0\"\][[:space:]]*=[[:space:]]*)(\(?)(.*)(\)?),\1\2$$1\4," ${WRKSRC}/rbconfig.rb' \
-			--
-
 post-extract-DOCS-on:
 	${MV} ${WRKSRC}/ChangeLog ${WRKSRC}/doc/ChangeLog
-
-post-patch:
-# We get these from other ports
-.for d in bin/* ext/dbm ext/gdbm ext/win32* lib/bundler* libexec/bundler* \
-	man/bundle* man/erb.1 man/gemfile* man/irb.1 man/ri.1
-	@${RM} -r ${BUILD_WRKSRC}/${d}
-.endfor
 
 post-build:
 #
@@ -153,7 +149,7 @@ pre-install-RDOC-on:
 post-install:
 .if ${RUBY_VER} == ${RUBY_DEFAULT_VER}
 #
-# Link just installed "ruby" to "ruby31", etc.
+# Link just installed "ruby" to "rubyXX", etc.
 #
 . for FILE in ${INSTALLED_SCRIPTS}
 	${LN} -fs ${FILE}${RUBY_SUFFIX} ${STAGEDIR}${PREFIX}/bin/${FILE}
@@ -189,10 +185,7 @@ post-install-DOCS-on:
 		${STAGEDIR}${RUBY_DOCDIR}/${FILE:C|^([^/]+)/.*|\1|}/
 .endfor
 	@(cd ${WRKSRC}/doc/ && ${COPYTREE_SHARE} \* ${STAGEDIR}${RUBY_DOCDIR}/)
-	${INSTALL_DATA} ${WRKSRC}/COPYING*	\
-			${WRKSRC}/LEGAL		\
-			${WRKSRC}/README*	\
-			${STAGEDIR}${RUBY_DOCDIR}/
+	${INSTALL_DATA} ${WRKSRC}/COPYING* ${WRKSRC}/LEGAL ${WRKSRC}/README* ${STAGEDIR}${RUBY_DOCDIR}/
 
 post-install-EXAMPLES-on:
 # Create all dirs required (":u" isn't available in STABLE yet :-()

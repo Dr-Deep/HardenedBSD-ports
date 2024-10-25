@@ -1,6 +1,5 @@
 PORTNAME=	doas
-PORTVERSION=	6.3p9
-PORTREVISION=	1
+PORTVERSION=	6.3p12
 CATEGORIES=	security
 
 MAINTAINER=	jsmith@resonatingmedia.com
@@ -22,6 +21,8 @@ GH_ACCOUNT=	slicer69
 MAKE_ENV+=	TARGETPATH=-DGLOBAL_PATH='\"${_GLOBAL_PATH}\"'
 
 USE_HARDENING=	safestack
+
+CONFLICTS=	opendoas
 
 BINMODE=	4755
 

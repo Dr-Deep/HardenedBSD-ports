@@ -1,5 +1,5 @@
 PORTNAME=	kfr
-DISTVERSION=	6.0.2
+DISTVERSION=	6.0.3
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -24,6 +24,21 @@ CMAKE_TESTING_TARGET=	${ALL_TARGET}
 
 #CXXFLAGS_armv6=	-march=native # to fix: ARM builds require NEON support. Add -march=native for native build or skip the check with CMT_FORCE_GENERIC_CPU=1
 CMAKE_ARGS_armv6=	-DCMT_FORCE_GENERIC_CPU=1 # to fix: ARM builds require NEON support. Add -march=native for native build or skip the check with CMT_FORCE_GENERIC_CPU=1
+
+.include <bsd.port.options.mk>
+
+.if ${ARCH} == amd64 || ${ARCH} == i386
+PLIST_FILES=	lib/libkfr_dft_avx.so \
+		lib/libkfr_dft_avx2.so \
+		lib/libkfr_dft_avx512.so \
+		lib/libkfr_dft_sse2.so \
+		lib/libkfr_dft_sse41.so \
+		lib/libkfr_dsp_avx.so \
+		lib/libkfr_dsp_avx2.so \
+		lib/libkfr_dsp_avx512.so \
+		lib/libkfr_dsp_sse2.so \
+		lib/libkfr_dsp_sse41.so
+.endif
 
 post-test: # see https://github.com/kfrlib/kfr/issues/164
 	@cd ${BUILD_WRKSRC} && \

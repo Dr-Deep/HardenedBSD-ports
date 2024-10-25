@@ -711,6 +711,7 @@
 %%WWWDIR%%/front/item_device.common.form.php
 %%WWWDIR%%/front/item_device.php
 %%WWWDIR%%/front/item_devicebattery.form.php
+%%WWWDIR%%/front/item_devicecamera.form.php
 %%WWWDIR%%/front/item_devicecase.form.php
 %%WWWDIR%%/front/item_devicecontrol.form.php
 %%WWWDIR%%/front/item_devicedrive.form.php
@@ -1187,6 +1188,15 @@
 %%WWWDIR%%/install/migrations/update_10.0.12_to_10.0.13.php
 %%WWWDIR%%/install/migrations/update_10.0.12_to_10.0.13/configs.php
 %%WWWDIR%%/install/migrations/update_10.0.12_to_10.0.13/location.php
+%%WWWDIR%%/install/migrations/update_10.0.14_to_10.0.15.php
+%%WWWDIR%%/install/migrations/update_10.0.14_to_10.0.15/items_disks.php
+%%WWWDIR%%/install/migrations/update_10.0.14_to_10.0.15/user.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16/config.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16/configs.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16/entities.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16/items_disks.php
+%%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16/queuednotifications.php
 %%WWWDIR%%/install/migrations/update_10.0.1_to_10.0.2.php
 %%WWWDIR%%/install/migrations/update_10.0.1_to_10.0.2/agent.php
 %%WWWDIR%%/install/migrations/update_10.0.1_to_10.0.2/configs.php
@@ -1360,6 +1370,8 @@
 %%WWWDIR%%/install/mysql/glpi-10.0.11-empty.sql
 %%WWWDIR%%/install/mysql/glpi-10.0.12-empty.sql
 %%WWWDIR%%/install/mysql/glpi-10.0.13-empty.sql
+%%WWWDIR%%/install/mysql/glpi-10.0.14-empty.sql
+%%WWWDIR%%/install/mysql/glpi-10.0.15-empty.sql
 %%WWWDIR%%/install/mysql/glpi-10.0.2-empty.sql
 %%WWWDIR%%/install/mysql/glpi-10.0.3-empty.sql
 %%WWWDIR%%/install/mysql/glpi-10.0.4-empty.sql
@@ -2544,49 +2556,93 @@
 %%WWWDIR%%/public/lib/tinymce.js.map
 %%WWWDIR%%/public/lib/tinymce.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/dark/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/dark/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/dark/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/dark/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/default/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/default/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/default/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/default/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/document/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/document/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/document/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/document/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5-dark/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5-dark/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5-dark/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5-dark/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/tinymce-5/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/writer/content.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/writer/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/content/writer/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/content/writer/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.css
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.inline.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.inline.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.inline.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.inline.min.js
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.shadowdom.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.shadowdom.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.css
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.inline.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.inline.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.inline.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.inline.min.js
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.shadowdom.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.shadowdom.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.shadowdom.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/oxide/skin.shadowdom.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.css
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.inline.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.inline.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.inline.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.inline.min.js
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.shadowdom.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.shadowdom.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.shadowdom.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5-dark/skin.shadowdom.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.css
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.inline.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.inline.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.inline.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.inline.min.js
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/content.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.min.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.shadowdom.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.shadowdom.js
 %%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.shadowdom.min.css
+%%WWWDIR%%/public/lib/tinymce/skins/ui/tinymce-5/skin.shadowdom.min.js
 %%WWWDIR%%/resources/.htaccess
 %%WWWDIR%%/resources/Rules/RuleAsset.xml
 %%WWWDIR%%/resources/Rules/RuleDictionnaryOperatingSystem.xml
@@ -3099,6 +3155,7 @@
 %%WWWDIR%%/src/Lockedfield.php
 %%WWWDIR%%/src/Log.php
 %%WWWDIR%%/src/Mail/Protocol/ProtocolInterface.php
+%%WWWDIR%%/src/Mail/SMTP/OAuthTokenProvider.php
 %%WWWDIR%%/src/Mail/SMTP/OauthConfig.php
 %%WWWDIR%%/src/Mail/SMTP/OauthProvider/Azure.php
 %%WWWDIR%%/src/Mail/SMTP/OauthProvider/Google.php
@@ -6090,6 +6147,7 @@
 %%WWWDIR%%/vendor/symfony/service-contracts/ServiceSubscriberInterface.php
 %%WWWDIR%%/vendor/symfony/service-contracts/ServiceSubscriberTrait.php
 %%WWWDIR%%/vendor/symfony/service-contracts/Test/ServiceLocatorTest.php
+%%WWWDIR%%/vendor/symfony/service-contracts/Test/ServiceLocatorTestCase.php
 %%WWWDIR%%/vendor/symfony/service-contracts/composer.json
 %%WWWDIR%%/vendor/symfony/string/AbstractString.php
 %%WWWDIR%%/vendor/symfony/string/AbstractUnicodeString.php
@@ -6617,7 +6675,7 @@
 %%WWWDIR%%/vendor/webmozart/assert/src/Assert.php
 %%WWWDIR%%/vendor/webmozart/assert/src/InvalidArgumentException.php
 %%WWWDIR%%/vendor/webmozart/assert/src/Mixin.php
-%%WWWDIR%%/version/10.0.14
+%%WWWDIR%%/version/10.0.16
 @dir %%WWWDIR%%/ajax
 @dir %%WWWDIR%%/bin
 @dir %%WWWDIR%%/config
@@ -6694,6 +6752,8 @@
 @dir %%WWWDIR%%/install/migrations/update_10.0.10_to_10.0.11
 @dir %%WWWDIR%%/install/migrations/update_10.0.11_to_10.0.12
 @dir %%WWWDIR%%/install/migrations/update_10.0.12_to_10.0.13
+@dir %%WWWDIR%%/install/migrations/update_10.0.14_to_10.0.15
+@dir %%WWWDIR%%/install/migrations/update_10.0.15_to_10.0.16
 @dir %%WWWDIR%%/install/migrations/update_10.0.1_to_10.0.2
 @dir %%WWWDIR%%/install/migrations/update_10.0.2_to_10.0.3
 @dir %%WWWDIR%%/install/migrations/update_10.0.3_to_10.0.4

@@ -1,6 +1,5 @@
 PORTNAME=	tio
-DISTVERSION=	2.0
-PORTREVISION=	1
+DISTVERSION=	3.7
 CATEGORIES=	comms
 MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/v${DISTVERSION}/
 
@@ -11,12 +10,11 @@ WWW=		https://tio.github.io
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-LIB_DEPENDS=	libinih.so:devel/inih
-
-USES=		meson pkgconfig tar:xz
+USES=		gnome lua:54 meson pkgconfig tar:xz
+USE_GNOME=	glib20
 
 OPTIONS_DEFINE=	BASH DOCS
-OPTIONS_DEFAULT=	BASH
+OPTIONS_DEFAULT=BASH
 OPTIONS_SUB=	yes
 
 BASH_MESON_ON=	-Dbashcompletiondir=${PREFIX}/etc/bash_completion.d

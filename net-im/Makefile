@@ -3,8 +3,8 @@
     SUBDIR += beebeep
     SUBDIR += biboumi
     SUBDIR += chatterino2
-    SUBDIR += climm
     SUBDIR += coccinella
+    SUBDIR += concord
     SUBDIR += conduit
     SUBDIR += convey
     SUBDIR += coyim
@@ -26,9 +26,9 @@
     SUBDIR += gotktrix
     SUBDIR += gotosocial
     SUBDIR += gurk-rs
+    SUBDIR += iamb
     SUBDIR += icmpchat
     SUBDIR += icqlib
-    SUBDIR += jabberd
     SUBDIR += jarl
     SUBDIR += jicofo
     SUBDIR += jitsi-meet-full
@@ -52,6 +52,8 @@
     SUBDIR += libsignal-node
     SUBDIR += libsignon-glib
     SUBDIR += libstrophe
+    SUBDIR += linux-discord
+    SUBDIR += linux-whatsdesk
     SUBDIR += loudmouth
     SUBDIR += lurch
     SUBDIR += mastodon
@@ -88,7 +90,6 @@
     SUBDIR += pidgin-bot-sentry
     SUBDIR += pidgin-fetion
     SUBDIR += pidgin-hotkeys
-    SUBDIR += pidgin-icyque
     SUBDIR += pidgin-latex
     SUBDIR += pidgin-libnotify
     SUBDIR += pidgin-manualsize
@@ -108,6 +109,8 @@
     SUBDIR += purple-plugin-pack
     SUBDIR += purple-rocketchat
     SUBDIR += purple-slack
+    SUBDIR += purple-teams
+    SUBDIR += py-apprise
     SUBDIR += py-fbmq
     SUBDIR += py-matrix-synapse
     SUBDIR += py-mattermostdriver
@@ -157,7 +160,6 @@
     SUBDIR += telepathy-logger-qt5
     SUBDIR += telepathy-mission-control
     SUBDIR += telepathy-qt
-    SUBDIR += telepathy-salut
     SUBDIR += telepathy-sofiasip
     SUBDIR += tg_owt
     SUBDIR += tkabber

@@ -12,6 +12,7 @@ libexec/appjail/appjail-config/appjail-config
 libexec/appjail/appjail-config/tok
 libexec/appjail/find-number-from-start/find-number-from-start
 libexec/appjail/find-smallest-missing-number/find-smallest-missing-number
+libexec/appjail/get_assigned_rulesets/get_assigned_rulesets
 libexec/appjail/getservbyname/getservbyname
 libexec/appjail/ipcheck/ipcheck
 libexec/appjail/network/network
@@ -32,6 +33,7 @@ libexec/appjail/network/network
 %%DATADIR%%/cmd/help
 %%DATADIR%%/cmd/image
 %%DATADIR%%/cmd/jail
+%%DATADIR%%/cmd/label
 %%DATADIR%%/cmd/limits
 %%DATADIR%%/cmd/login
 %%DATADIR%%/cmd/logs
@@ -101,6 +103,7 @@ libexec/appjail/network/network
 %%DATADIR%%/makejail/cmd/all/ENV
 %%DATADIR%%/makejail/cmd/all/EXEC
 %%DATADIR%%/makejail/cmd/all/GLOBAL
+%%DATADIR%%/makejail/cmd/all/LABEL
 %%DATADIR%%/makejail/cmd/all/MOUNT
 %%DATADIR%%/makejail/cmd/all/PKG
 %%DATADIR%%/makejail/cmd/all/RAW
@@ -128,6 +131,7 @@ libexec/appjail/network/network
 %%DATADIR%%/makejail/write/all/DEVICE
 %%DATADIR%%/makejail/write/all/EXEC
 %%DATADIR%%/makejail/write/all/GLOBAL
+%%DATADIR%%/makejail/write/all/LABEL
 %%DATADIR%%/makejail/write/all/MOUNT
 %%DATADIR%%/makejail/write/all/PKG
 %%DATADIR%%/makejail/write/all/RAW
@@ -151,11 +155,13 @@ libexec/appjail/network/network
 %%DATADIR%%/scripts/ajdns.sh
 %%DATADIR%%/scripts/ajuser.sh
 %%DATADIR%%/scripts/ascii2oct.sh
+%%DATADIR%%/scripts/bind-ddns-hook.sh
 %%DATADIR%%/scripts/create-bridge.sh
 %%DATADIR%%/scripts/dns.sh
 %%DATADIR%%/scripts/dnsmasq-hook.sh
 %%DATADIR%%/scripts/escape-env-val.sh
 %%DATADIR%%/scripts/get_depends.sh
+%%DATADIR%%/scripts/git.sh
 %%DATADIR%%/scripts/kill_child.sh
 %%DATADIR%%/scripts/kill_tree.sh
 %%DATADIR%%/scripts/load-devfs-rules.sh
@@ -186,6 +192,7 @@ share/man/man1/appjail-healthcheck.1.gz
 share/man/man1/appjail-help.1.gz
 share/man/man1/appjail-image.1.gz
 share/man/man1/appjail-jail.1.gz
+share/man/man1/appjail-label.1.gz
 share/man/man1/appjail-limits.1.gz
 share/man/man1/appjail-login.1.gz
 share/man/man1/appjail-logs.1.gz
