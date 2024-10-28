@@ -1,6 +1,6 @@
 PORTNAME=	portmon
 PORTVERSION=	2.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	net-mgmt
 MASTER_SITES=	http://voodoo.bawue.com/download/ \
 		http://www.aboleo.net/software/portmon/downloads/ \
@@ -16,6 +16,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USE_HARDENING=	pie:off relro:off
 
 GNU_CONFIGURE=	yes
+LIBS+=		-lutil
 
 PLIST_FILES=	bin/portmon etc/portmon.hosts.sample share/man/man8/portmon.8.gz
 PORTDOCS=	README

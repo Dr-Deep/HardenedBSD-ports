@@ -1,6 +1,6 @@
 PORTNAME=	tsito
 PORTVERSION=	0.8.4
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	games
 MASTER_SITES=	SF/xiangqi-engine/xiangqi-engine/${PORTNAME}-${PORTVERSION}
 
@@ -15,6 +15,6 @@ USE_HARDENING=	pie:off
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
-LIBS+=		-lcompat
+LIBS+=		-lcompat -lutil
 
 .include <bsd.port.mk>
