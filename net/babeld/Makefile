@@ -10,11 +10,8 @@ WWW=		https://www.irif.fr/~jch/software/babel/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENCE
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-MAKE_ARGS=	CDEBUGFLAGS="-O2 -g -Wall"
-=======
 USE_GITHUB=	yes
 GH_ACCOUNT=	jech
 GH_TUPLE=	BLAKE2:BLAKE2:320c325:BLAKE2/BLAKE2 \
@@ -22,7 +19,6 @@ GH_TUPLE=	BLAKE2:BLAKE2:320c325:BLAKE2/BLAKE2 \
 USE_RC_SUBR=	babeld
 
 MAKE_ARGS=	CFLAGS+="${CFLAGS}"
->>>>>>> freebsd/main
 
 PLIST_FILES=	bin/babeld \
 		share/man/man8/babeld.8.gz \
