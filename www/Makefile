@@ -390,7 +390,6 @@
     SUBDIR += mod_authnz_external24
     SUBDIR += mod_authz_unixgroup24
     SUBDIR += mod_cfg_ldap
-    SUBDIR += mod_cloudflare
     SUBDIR += mod_dav_svn
     SUBDIR += mod_defensible
     SUBDIR += mod_dnssd
@@ -435,7 +434,6 @@
     SUBDIR += mongoose
     SUBDIR += monolith
     SUBDIR += moodle41
-    SUBDIR += moodle42
     SUBDIR += moodle43
     SUBDIR += moodle44
     SUBDIR += moodle45
@@ -1695,7 +1693,6 @@
     SUBDIR += py-frappe-bench
     SUBDIR += py-freenit
     SUBDIR += py-frozen-flask
-    SUBDIR += py-gandi.cli
     SUBDIR += py-gevent-websocket
     SUBDIR += py-ghp-import
     SUBDIR += py-google
