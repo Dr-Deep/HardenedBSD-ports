@@ -171,6 +171,7 @@
     SUBDIR += fwknop
     SUBDIR += fwlogwatch
     SUBDIR += gcr
+    SUBDIR += gcr3
     SUBDIR += gef
     SUBDIR += gibson
     SUBDIR += git-credential-azure
