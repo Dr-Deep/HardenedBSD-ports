@@ -807,6 +807,7 @@
     SUBDIR += py-pickleshare
     SUBDIR += py-pony
     SUBDIR += py-postgresql
+    SUBDIR += py-powa-collector
     SUBDIR += py-psycogreen
     SUBDIR += py-psycopg
     SUBDIR += py-psycopg-c
