@@ -321,10 +321,13 @@
     SUBDIR += linklint
     SUBDIR += links
     SUBDIR += links1
+    SUBDIR += linux-brave
     SUBDIR += linux-c7-qtwebkit
     SUBDIR += linux-chrome
     SUBDIR += linux-freetube
     SUBDIR += linux-rl9-libnghttp2
+    SUBDIR += linux-rl9-qt5-qtwebchannel
+    SUBDIR += linux-rl9-qt5-qtwebsockets
     SUBDIR += linux-vieb
     SUBDIR += linux-widevine-cdm
     SUBDIR += litmus
