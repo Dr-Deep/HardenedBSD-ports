@@ -1,5 +1,5 @@
 PORTNAME=	R
-DISTVERSION=	4.4.1
+DISTVERSION=	4.4.2
 CATEGORIES=	math lang
 MASTER_SITES=	CRAN/src/base/R-${PORTVERSION:C|\..*||}
 
@@ -34,7 +34,6 @@ USE_PERL5=	build
 USE_HARDENING=	pie:off relro:off
 
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--disable-java \
 		--enable-R-shlib \
 		--with-readline \
@@ -108,7 +107,7 @@ RBLAS_EXTRA_PATCHES=		${PATCHDIR}/extra-patch-src_extra_blas_Makefile.in \
 RPROF_CONFIGURE_ENABLE=		R-profiling
 TCLTK_IMPLIES=			X11
 TCLTK_USES=			tcl tk
-TCLTK_CONFIGURE_WITH=		tcltk tcl_config=${TCL_LIBDIR}/tclConfig.sh \
+TCLTK_CONFIGURE_WITH=		tcl_config=${TCL_LIBDIR}/tclConfig.sh tcltk \
 				tk_config=${TK_LIBDIR}/tkConfig.sh
 TEXDOCS_USES=			tex
 TEXDOCS_USE=			TEX=dvipsk:build,kpathsea:build,pdftex:build
