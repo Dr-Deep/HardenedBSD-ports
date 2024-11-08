@@ -1768,6 +1768,9 @@
     SUBDIR += py-mwoauth
     SUBDIR += py-nevow
     SUBDIR += py-nh3
+    SUBDIR += py-nicegui
+    SUBDIR += py-nicegui-highcharts
+    SUBDIR += py-nicegui-nogui
     SUBDIR += py-notebook
     SUBDIR += py-onetimepass
     SUBDIR += py-openbrokerapi
@@ -1800,6 +1803,8 @@
     SUBDIR += py-python-dotenv
     SUBDIR += py-python-multipart
     SUBDIR += py-pyweblib
+    SUBDIR += py-pywebview-gtk
+    SUBDIR += py-pywebview-qt
     SUBDIR += py-pywikibot
     SUBDIR += py-pywry
     SUBDIR += py-qh3
