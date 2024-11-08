@@ -44,7 +44,7 @@ USES=		tar:xz
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
 
 MPROTECT_DISABLE=	lib/firefox/firefox
-MPROTECT_DISABLE+=	lib/firefox/plugin-container
+PAGEEXEC_DISABLE=	lib/firefox/firefox
 
 FIREFOX_ICON=		${MOZILLA}.png
 FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default48.png
