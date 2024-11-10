@@ -1,7 +1,8 @@
 PORTNAME=	ssrf_filter
-PORTVERSION=	1.2.0
+PORTVERSION=	1.0.8
 CATEGORIES=	security rubygems
 MASTER_SITES=	RG
+PKGNAMESUFFIX=	10
 
 MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Gem to prevent SSRF attacks
