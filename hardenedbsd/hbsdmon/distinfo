@@ -1,3 +1,3 @@
-TIMESTAMP = 1720878748
-SHA256 (hardenedbsd-hbsdmon-dc52b74c5873bf45991500e305e5c61d6125a2d4_GL0.tar.gz) = 621d4dc2dbce5bd89b051f9fc0dca1d48ff047efb85cbd447ace74d7d61e9096
-SIZE (hardenedbsd-hbsdmon-dc52b74c5873bf45991500e305e5c61d6125a2d4_GL0.tar.gz) = 15633
+TIMESTAMP = 1731535199
+SHA256 (hardenedbsd-hbsdmon-c064ea9702b60a0f848bee7358815035ae84d8df_GL0.tar.gz) = bb2c54ec0d3a9b27f48f9ee27ffe5c8a828e5474b8d2ce02d7d08405155f3b1c
+SIZE (hardenedbsd-hbsdmon-c064ea9702b60a0f848bee7358815035ae84d8df_GL0.tar.gz) = 15606
