@@ -482,7 +482,6 @@
     SUBDIR += gstat-rs
     SUBDIR += gstopd
     SUBDIR += gstreamer1-plugins-cdio
-    SUBDIR += hammer2
     SUBDIR += handlr
     SUBDIR += hardlink
     SUBDIR += hare
@@ -779,7 +778,6 @@
     SUBDIR += oc
     SUBDIR += ocijail
     SUBDIR += odo
-    SUBDIR += ods2
     SUBDIR += ohmu
     SUBDIR += omnibackup
     SUBDIR += onefetch
@@ -1613,6 +1611,5 @@
     SUBDIR += zrep
     SUBDIR += zsd
     SUBDIR += zsm
-    SUBDIR += ztop
 
 .include <bsd.port.subdir.mk>
