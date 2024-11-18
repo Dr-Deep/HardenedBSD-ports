@@ -27,7 +27,7 @@ USE_GNOME=	cairo pango
 USE_XORG=	pixman
 GH_ACCOUNT=	swaywm
 MESON_ARGS=	-Dsd-bus-provider=basu
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack fortifysource:off
 
 CONFLICTS_INSTALL=	${PORTNAME}-devel ${PORTNAME}fx
 
