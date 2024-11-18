@@ -29,7 +29,7 @@ PLIST_FILES=	bin/${PORTNAME} \
 		share/fish/vendor_completions.d/${PORTNAME}.fish \
 		share/zsh/site-functions/_${PORTNAME}
 
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack fortifysource:off
 
 OPTIONS_DEFINE=	MANPAGES PIXBUF
 OPTIONS_DEFAULT=MANPAGES PIXBUF
