@@ -1,6 +1,6 @@
 PORTNAME=	waypipe
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.9.1
+DISTVERSION=	0.9.2
 CATEGORIES=	net wayland
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -10,7 +10,11 @@ WWW=		https://gitlab.freedesktop.org/mstoeckl/waypipe
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 USE_GCC=	10
+=======
+LIB_DEPENDS=	libwayland-client.so:graphics/wayland
+>>>>>>> internal/freebsd/main
 
 USES=		compiler:c11 localbase:ldflags meson pkgconfig
 USE_GITLAB=	yes

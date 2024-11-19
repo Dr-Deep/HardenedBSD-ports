@@ -1683,6 +1683,7 @@
     SUBDIR += py-flask-script
     SUBDIR += py-flask-security
     SUBDIR += py-flask-session
+    SUBDIR += py-flask-simpleldap
     SUBDIR += py-flask-smorest
     SUBDIR += py-flask-socketio
     SUBDIR += py-flask-sockets
