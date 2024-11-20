@@ -466,6 +466,7 @@
     SUBDIR += mailimporter
     SUBDIR += malo-firmware-kmod
     SUBDIR += mcjoin
+    SUBDIR += mdns-bridge
     SUBDIR += mdns-repeater
     SUBDIR += measurement-kit
     SUBDIR += mediastreamer

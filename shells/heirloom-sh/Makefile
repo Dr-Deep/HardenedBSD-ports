@@ -10,12 +10,16 @@ WWW=		https://heirloom.sourceforge.net/sh.html
 
 LICENSE=	CDDL
 
+<<<<<<< HEAD
 BROKEN_aarch64=	fails to link: missing sbrk
 BROKEN_riscv64=	fails to link: missing sbrk
 
 USE_HARDENING=	pie:off
 
 USES=		tar:bzip2
+=======
+USES=		sbrk tar:bzip2
+>>>>>>> freebsd/main
 
 MAKEFILE=	makefile
 MAKE_ARGS=	ROOT=${STAGEDIR} \
