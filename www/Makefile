@@ -1498,6 +1498,7 @@
     SUBDIR += py-cssselect
     SUBDIR += py-cssutils
     SUBDIR += py-daphne
+    SUBDIR += py-dash
     SUBDIR += py-dj-database-url
     SUBDIR += py-dj50-django-auth-ldap
     SUBDIR += py-dj50-django-choices-field
@@ -2186,6 +2187,7 @@
     SUBDIR += rubygem-net-http-persistent
     SUBDIR += rubygem-net-http-persistent2
     SUBDIR += rubygem-net-http-pipeline
+    SUBDIR += rubygem-net-http041
     SUBDIR += rubygem-nicovideo
     SUBDIR += rubygem-ntlm-http
     SUBDIR += rubygem-octopress
@@ -2278,6 +2280,7 @@
     SUBDIR += rubygem-responders-rails61
     SUBDIR += rubygem-responders-rails70
     SUBDIR += rubygem-responders-rails71
+    SUBDIR += rubygem-responders-rails72
     SUBDIR += rubygem-rest-client
     SUBDIR += rubygem-rfacebook
     SUBDIR += rubygem-rfeedfinder
