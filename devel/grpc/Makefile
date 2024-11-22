@@ -54,16 +54,14 @@ PLIST_SUB=	PORTVERSION=${PORTVERSION} \
 
 CONFLICTS_INSTALL=	grpc[0-9][0-9][0-9]
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
-=======
+
 USE_GITHUB=	yes
 GH_TUPLE=	envoyproxy:data-plane-api:f8b75d1:envoyproxy_data_plane_api/third_party/envoy-api \
 		googleapis:googleapis:fe8ba05:googleapis_googleapis/third_party/googleapis \
 		census-instrumentation:opencensus-proto:4aa53e1:census_instrumentation_opencensus_proto/third_party/opencensus-proto \
 		bufbuild:protoc-gen-validate:32c2415:bufbuild_protoc_gen_validate/third_party/protoc-gen-validate \
 		cncf:xds:3a472e5:cncf_xds/third_party/xds
->>>>>>> internal/freebsd/main
 
 # Clean up bundled libraries
 .if !defined(MAINTAINER_MODE)
