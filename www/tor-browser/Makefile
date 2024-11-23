@@ -42,17 +42,10 @@ RUN_DEPENDS=	tor:security/tor \
 USES=		compiler:c++11-lib libtool localbase:ldflags perl5 pkgconfig \
 		python:3.8+ shebangfix tar:xz
 USE_GECKO=	gecko
-<<<<<<< HEAD
 
 MPROTECT_DISABLE=	lib/tor-browser/tor-browser
 MPROTECT_DISABLE+=	lib/tor-browser/plugin-container
 
-SSP_UNSAFE=	yes
-
-SUB_FILES=	torrc-defaults tor-browser.desktop fonts.conf
-BUNDLE_LIBS=	yes
-
-=======
 USE_GITHUB=	nodefault
 TAG_L10N=	878fe6f256d52c7e5b0205b07b061829ccde4f17
 GH_TUPLE=	mozilla-l10n:firefox-l10n:${TAG_L10N}:ffl10n
@@ -63,7 +56,6 @@ GL_PROJECT=	translation:basebrowser translation:torbrowser
 TAG_BASE=	5a074e0814015db3c2edbf63ff8e9d1f552900aa
 TAG_TOR=	7276d3d2ad0319c3d3762047226da7ee104d1d42
 GL_TAGNAME=	${TAG_BASE}:basebrowser ${TAG_TOR}:torbrowser
->>>>>>> internal/freebsd/main
 USE_MOZILLA=	-sqlite
 
 LOCALES=	ar ca cs da de el es-ES fa fi fr ga-IE he hu id is it ja ka ko \

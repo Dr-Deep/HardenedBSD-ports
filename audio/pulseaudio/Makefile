@@ -3,12 +3,7 @@
 # PORTREVISION bumps of depending ports.
 
 PORTNAME=	pulseaudio
-<<<<<<< HEAD
-DISTVERSION=	16.1
-PORTREVISION=	6
-=======
 DISTVERSION=	17.0
->>>>>>> internal/freebsd/main
 CATEGORIES=	audio
 MASTER_SITES=	https://freedesktop.org/software/pulseaudio/releases/
 

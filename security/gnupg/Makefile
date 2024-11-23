@@ -19,15 +19,11 @@ LIB_DEPENDS=	libassuan.so:security/libassuan \
 		libnpth.so:devel/npth
 RUN_DEPENDS=	pinentry:security/pinentry
 
-<<<<<<< HEAD
 USE_HARDENING=	cfi safestack
 CPPFLAGS=	-fPIC
 
-USES=		compiler:c11 cpe gmake iconv makeinfo pkgconfig readline sqlite tar:bzip2
-=======
 USES=		autoreconf compiler:c11 cpe gettext-tools gmake iconv makeinfo pkgconfig \
 		readline sqlite tar:bzip2
->>>>>>> internal/freebsd/main
 
 CPE_VENDOR=	gnupg
 
