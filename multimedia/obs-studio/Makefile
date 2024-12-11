@@ -70,10 +70,14 @@ CMAKE_ARGS=	-DOBS_VERSION_OVERRIDE:STRING="${PORTVERSION}" \
 		-DQT_VERSION=6 \
 		-DPython_EXECUTABLE="${PYTHON_CMD}"
 
+<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/obs
 PAGEEXEC_DISABLE=	bin/obs
 CMAKE_ARGS+=	-DDISABLE_V4L2=yes
 
+=======
+CFLAGS_powerpc64le=	-Wno-error=deprecated-altivec-src-compat
+>>>>>>> internal/freebsd/main
 LDFLAGS+=	-fPIC # pending https://github.com/obsproject/obs-studio/issues/3436
 
 OPTIONS_DEFINE=		BROWSER PIPEWIRE VLC VST WAYLAND
