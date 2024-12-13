@@ -25,7 +25,11 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	ksh93
 GH_PROJECT=	ksh
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+PIE_UNSAFE=	yes
+>>>>>>> origin/freebsd/main
 
 # IMPORTANT:	Disabling conflicts, i.e. -DDISABLE_CONFLICTS will result in
 #		arcane build failures due to already installed ksh/ksh93 in

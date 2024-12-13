@@ -19,7 +19,11 @@ USES=		desktop-file-utils gnome pkgconfig tar:xz xorg
 USE_GNOME=	cairo gdkpixbuf2
 USE_XORG=	x11
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+PIE_UNSAFE=	yes
+>>>>>>> origin/freebsd/main
 
 MAKE_ENV=	MANDIR="${STAGEDIR}${PREFIX}/share/man"
 
