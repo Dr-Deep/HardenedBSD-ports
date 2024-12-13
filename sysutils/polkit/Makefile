@@ -32,7 +32,6 @@ MESON_ARGS=	-Dpam_include=system \
 		-Dsession_tracking=ConsoleKit \
 		-Dtests=false \
 		-Dintrospection=true \
-		-Dlocalstatedir=/var \
 		-Dgtk_doc=false
 
 PAGEEXEC_DISABLE=	lib/polkit-1/polkitd
