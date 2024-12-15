@@ -33,13 +33,10 @@ OPTIONS_DEFAULT=		${OPTIONS_MULTI_PROVIDERS}
 OPTIONS_SUB=			yes
 PROVIDERS_DESC=			Providers to build:
 
-<<<<<<< HEAD
 # HBSD: Fix me
 #OPTIONS_MULTI_PROVIDERS+=	VERBS
 #VERBS_PLIST_FILES=		share/man/man7/fi_verbs.7.gz
 
-=======
->>>>>>> origin/freebsd/main
 .for p in ${OPTIONS_MULTI_PROVIDERS}
 ${p}_DESC=			'${p:tl}' provider
 ${p}_CONFIGURE_ENABLE=		${p:tl}
