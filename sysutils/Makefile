@@ -414,6 +414,7 @@
     SUBDIR += freebsd-bsdlabel
     SUBDIR += freebsd-fdisk
     SUBDIR += freebsd-rustdate
+    SUBDIR += freebsd-shar
     SUBDIR += freebsd-snapshot
     SUBDIR += freecolor
     SUBDIR += freedt
