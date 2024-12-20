@@ -28,13 +28,9 @@ RUN_DEPENDS=	cl-freebsd-asdf-init>=0:devel/cl-freebsd-asdf-init
 
 USES=		gmake makeinfo tar:bzip2
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-SUB_FILES=	pkg-message sbclrc
-=======
 SUB_FILES=	sbclrc
->>>>>>> origin/freebsd/main
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 
