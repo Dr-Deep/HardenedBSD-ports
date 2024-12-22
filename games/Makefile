@@ -949,6 +949,7 @@
     SUBDIR += stratagus
     SUBDIR += stuntrally
     SUBDIR += sudsol
+    SUBDIR += sulis
     SUBDIR += supertux
     SUBDIR += supertux2
     SUBDIR += supertuxkart
