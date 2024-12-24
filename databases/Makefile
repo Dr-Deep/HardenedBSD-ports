@@ -554,6 +554,7 @@
     SUBDIR += pg_ed25519
     SUBDIR += pg_filedump
     SUBDIR += pg_hashids
+    SUBDIR += pg_incremental
     SUBDIR += pg_partman
     SUBDIR += pg_qualstats
     SUBDIR += pg_repack
