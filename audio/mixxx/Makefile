@@ -70,16 +70,12 @@ USE_QT=		buildtools concurrent core dbus declarative gui linguisttools:build \
 		widgets x11extras xml
 CMAKE_ARGS+=	-DQT6=OFF
 
-<<<<<<< HEAD
 CXXFLAGS+=	-Wno-unused-but-set-variable
 
-CONFLICTS=	mixxx22*
-=======
 QTKEYCHAIN_LIB_DEPENDS=	libqt5keychain.so:security/qtkeychain@qt5
 
 PLIST_SUB+=	QT6="@comment "
 .endif
->>>>>>> origin/freebsd/main
 
 CMAKE_ARGS+=	-DINSTALL_USER_UDEV_RULES:BOOL=OFF \
 		-DOPTIMIZE:STRING=portable \
