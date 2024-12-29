@@ -21,12 +21,9 @@ WWW=		https://www.squid-cache.org/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 
 USE_HARDENING=	safestack
 
-USES=		compiler:c++11-lib cpe gmake localbase:ldflags perl5 shebangfix tar:xz
-=======
 USES=		compiler:c++11-lib cpe gmake localbase:ldflags perl5 \
 		shebangfix tar:xz
 CPE_VENDOR=	squid-cache
@@ -55,7 +52,6 @@ CONFIGURE_ARGS=	--bindir=${PREFIX}/sbin \
 		--without-gnutls \
 		--without-netfilter-conntrack \
 		--without-systemd
->>>>>>> origin/freebsd/main
 
 CONFLICTS=	squid-devel
 
