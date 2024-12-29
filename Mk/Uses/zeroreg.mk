@@ -15,6 +15,5 @@ ZERO_REG_FLAG?=	-fzero-call-used-regs=${ZERO_REG_TYPE}
 
 CFLAGS+=	${ZERO_REG_FLAG}
 CXXFLAGS+=	${ZERO_REG_FLAG}
-LDFLAGS+=	${ZERO_REG_FLAG}
 
 .endif
