@@ -396,6 +396,10 @@ OPTIONS_GROUP_HARDENING+=SLH
 .if !defined(USE_GCC)
 zeroreg_ARGS?=	auto
 
+.if ${_USE_HARDENING:Mkmod}
+zeroreg_ARGS:=	off
+.endif
+
 .if ${zeroreg_ARGS:Mauto}
 USE_HARDENING+=	zeroreg
 .endif
