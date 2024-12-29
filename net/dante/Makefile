@@ -12,14 +12,17 @@ WWW=		https://www.inet.no/dante/
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+<<<<<<< HEAD
 LIB_DEPENDS=	libminiupnpc.so:net/miniupnpc \
 		libsasl2.so:security/cyrus-sasl2
 
 USE_HARDENING=	pie:off
 
 USES=		libtool localbase
+=======
+USES=		libtool localbase ssl
+>>>>>>> origin/freebsd/main
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 CONFIGURE_ARGS=	--with-socks-conf=${PREFIX}/etc/socks.conf \
 		--with-sockd-conf=${PREFIX}/etc/sockd.conf
 INSTALL_TARGET=	install-strip
@@ -27,7 +30,15 @@ USE_LDCONFIG=	yes
 
 USE_RC_SUBR=	sockd
 
-OPTIONS_DEFINE=	DOCS EXAMPLES
+OPTIONS_DEFINE=	DOCS EXAMPLES UPNP
+OPTIONS_DEFAULT=	UPNP
+
+UPNP_LIB_DEPENDS=	libminiupnpc.so:net/miniupnpc
+UPNP_CONFIGURE_OFF=	--without-upnp
+
+post-patch:
+	@${REINPLACE_CMD} -e '/FORTIFY_SOURCE gives error/,+28d' \
+		${WRKSRC}/configure
 
 post-install:
 .for x in s d
