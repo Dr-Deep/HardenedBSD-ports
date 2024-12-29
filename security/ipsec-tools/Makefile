@@ -15,7 +15,12 @@ WWW=		https://ipsec-tools.sourceforge.net/
 
 LICENSE=	BSD3CLAUSE
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
+=======
+DEPRECATED=	Deprecated by upstream in 2014, contains security issues
+EXPIRATION_DATE=2025-01-31
+>>>>>>> origin/freebsd/main
 
 USES=		cpe libtool tar:bzip2 ssl
 
