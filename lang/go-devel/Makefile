@@ -31,6 +31,8 @@ TEST_DEPENDS_aarch64=	binutils>0:devel/binutils
 
 USES=		cpe shebangfix
 
+USE_HARDENING=	zeroreg:off
+
 CPE_VENDOR=	golang
 
 .ifndef MASTERDIR
