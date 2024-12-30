@@ -57,6 +57,8 @@ CMAKE_OFF+=	FEATURE_sql_mysql \
 		FEATURE_sql_psql \
 		FEATURE_sql_sqlite
 
+USE_HARDENING=	zeroreg:off
+
 SHEBANG_FILES=	${WRKSRC}/mkspecs/features/uikit/device_destinations.sh \
 		${WRKSRC}/mkspecs/features/uikit/devices.py \
 		${WRKSRC}/mkspecs/features/data/mac/objc_namespace.sh \
