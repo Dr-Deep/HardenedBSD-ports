@@ -1,5 +1,6 @@
 PORTNAME=	thunderbird
 DISTVERSION=	128.6.0
+PORTREVISION=	1
 CATEGORIES=	mail news net-im wayland
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}esr/source \
 		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}esr-candidates/build1/source
@@ -23,8 +24,7 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 		nasm:devel/nasm \
 		yasm:devel/yasm \
 		zip:archivers/zip
-LIB_DEPENDS=	libjson-c.so:devel/json-c \
-		libbotan-2.so:security/botan2
+LIB_DEPENDS=	libjson-c.so:devel/json-c
 
 USE_GECKO=	gecko
 # cannot use system icu: calendar is completely broken by
@@ -38,7 +38,7 @@ MPROTECT_DISABLE=	lib/thunderbird/thunderbird
 MPROTECT_DISABLE+=	lib/thunderbird/plugin-container
 
 MOZ_OPTIONS=	--enable-application=comm/mail --enable-official-branding
-MOZ_OPTIONS+=	--with-system-bz2 --with-system-jsonc --with-system-botan
+MOZ_OPTIONS+=	--with-system-bz2 --with-system-jsonc
 MOZ_MK_OPTIONS=	MOZ_THUNDERBIRD=1 MAIL_PKG_SHARED=1
 MOZ_EXPORT=		MOZ_THUNDERBIRD=1 MAIL_PKG_SHARED=1
 
