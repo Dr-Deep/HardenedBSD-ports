@@ -20,7 +20,8 @@ BUILD_DEPENDS=	git:devel/git \
 LIB_DEPENDS=	libsecret-1.so:security/libsecret \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3
 
-USES=		compiler:c++17-lang gl gmake pkgconfig gnome
+USES=		compiler:c++17-lang gl gmake java pkgconfig gnome
+JAVA_VERSION=	17+
 
 USE_HARDENING=	pie:off
 
@@ -43,7 +44,6 @@ GH_TUPLE=	chirontt:eclipse.platform.releng.aggregator:${ECLIPSE_TAG}_maintenance
 		NorbertXYZ:eclipse_maven:${DISTVERSION}:n
 USE_GL=		gl glu
 USE_GNOME=	gtk30
-USE_JAVA=	17+
 
 DESKTOP_ENTRIES=	"Eclipse" \
 			"${COMMENT}" \

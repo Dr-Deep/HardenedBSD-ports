@@ -13,15 +13,15 @@ USE_HARDENING=	pie:off
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	${JAVALIBDIR}/commons-lang3.jar:java/apache-commons-lang3 \
-	${JAVALIBDIR}/bcprov.jar:java/bouncycastle15
+	${JAVALIBDIR}/bcprov.jar:java/bouncycastle
 RUN_DEPENDS=	${JAVALIBDIR}/commons-lang3.jar:java/apache-commons-lang3 \
-	${JAVALIBDIR}/bcprov.jar:java/bouncycastle15
+	${JAVALIBDIR}/bcprov.jar:java/bouncycastle
 
-USE_ANT=	yes
+USES=		java:ant
 USE_GITLAB=	yes
 GL_ACCOUNT=	pdftk-java
 GL_TAGNAME=	e4292c8f1bd2580a44d3cbf3570a4505bd3a74b6
-USE_JAVA=	yes
+
 ALL_TARGET=	jar
 NO_ARCH=	yes
 SUB_FILES=	pdftk
