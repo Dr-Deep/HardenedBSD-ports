@@ -1035,7 +1035,6 @@
     SUBDIR += py-pyotp
     SUBDIR += py-pyotp2289
     SUBDIR += py-pysaml2
-    SUBDIR += py-pysaml26
     SUBDIR += py-pyscard
     SUBDIR += py-pysodium
     SUBDIR += py-pyspnego
@@ -1092,6 +1091,7 @@
     SUBDIR += py-volatility3
     SUBDIR += py-vpn-slice
     SUBDIR += py-vulndb
+    SUBDIR += py-wassima
     SUBDIR += py-webauthn
     SUBDIR += py-xkcdpass
     SUBDIR += py-xmlsec
