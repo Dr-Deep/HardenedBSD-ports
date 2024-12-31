@@ -10,7 +10,7 @@
 .if !defined(_INCLUDE_USES_ZEROREG_MK)
 _INCLUDE_USES_ZEROREG_MK=    yes
 
-ZERO_REG_TYPE?=	all
+ZERO_REG_TYPE?=	used
 ZERO_REG_FLAG?=	-fzero-call-used-regs=${ZERO_REG_TYPE}
 
 CFLAGS+=	${ZERO_REG_FLAG}
