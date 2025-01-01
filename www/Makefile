@@ -20,7 +20,6 @@
     SUBDIR += R-cran-shiny
     SUBDIR += R-cran-shinyjs
     SUBDIR += R-cran-webshot
-    SUBDIR += Stikked
     SUBDIR += UniversalFeedCreator
     SUBDIR += adguardhome
     SUBDIR += adjuster
@@ -233,7 +232,6 @@
     SUBDIR += gotty
     SUBDIR += gpx2map
     SUBDIR += grafana
-    SUBDIR += grafana9
     SUBDIR += grails
     SUBDIR += gregarius
     SUBDIR += groupoffice
@@ -2563,7 +2561,6 @@
     SUBDIR += websocat
     SUBDIR += websocketd
     SUBDIR += webstone
-    SUBDIR += webtrees20
     SUBDIR += webtrees21
     SUBDIR += wget2
     SUBDIR += wgetpaste
