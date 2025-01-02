@@ -1,6 +1,7 @@
 PORTNAME=	inspircd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	4.4.0
+PORTREVISION=	1
 CATEGORIES=	irc
 
 MAINTAINER=	driesm@FreeBSD.org
@@ -81,7 +82,7 @@ LDAP_USES=		ldap
 LDAP_VARS=		EXTRAS+=m_ldap.cpp
 MAXMIND_LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb
 MAXMIND_VARS=		EXTRAS+=m_geo_maxmind.cpp
-MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls
+MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls2
 MBEDTLS_VARS=		EXTRAS+=m_ssl_mbedtls.cpp
 MYSQL_USES=		mysql
 MYSQL_VARS=		EXTRAS+=m_mysql.cpp
