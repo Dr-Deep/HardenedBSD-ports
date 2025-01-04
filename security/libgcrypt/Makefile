@@ -15,6 +15,8 @@ RUN_DEPENDS=	libgpg-error>=1.32:security/libgpg-error
 
 USES=		cpe libtool pathfix tar:bzip2
 
+USE_HARDENING=	zeroreg:off
+
 CPE_VENDOR=	gnupg
 USE_LDCONFIG=	yes
 
