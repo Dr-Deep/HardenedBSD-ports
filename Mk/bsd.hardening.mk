@@ -85,6 +85,12 @@ _USE_HARDENING+=	kmod
 .endif
 .endif
 
+.if defined(USES)
+.if ${USES:Mpython}
+_USE_HARDENING+=	python
+.endif
+.endif
+
 .if defined(PKGNAMEPREFIX)
 .if ${PKGNAMEPREFIX:Mlib}
 _USE_HARDENING+=	lib
@@ -396,7 +402,7 @@ OPTIONS_GROUP_HARDENING+=SLH
 .if !defined(USE_GCC)
 zeroreg_ARGS?=	auto
 
-.if ${_USE_HARDENING:Mkmod}
+.if ${_USE_HARDENING:Mkmod} || ${_USE_HARDENING:Mpython}
 zeroreg_ARGS:=	off
 .endif
 
