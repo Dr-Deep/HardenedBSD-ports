@@ -402,6 +402,10 @@ OPTIONS_GROUP_HARDENING+=SLH
 .if !defined(USE_GCC)
 zeroreg_ARGS?=	auto
 
+.if ${zeroreg_ARGS:Mauto}
+zeroreg_ARGS:=	off
+.endif
+
 .if ${_USE_HARDENING:Mkmod} || ${_USE_HARDENING:Mpython}
 zeroreg_ARGS:=	off
 .endif
