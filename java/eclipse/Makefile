@@ -22,13 +22,9 @@ LIB_DEPENDS=	libsecret-1.so:security/libsecret \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3
 
 USES=		compiler:c++17-lang gl gmake java pkgconfig gnome
-<<<<<<< HEAD
-JAVA_VERSION=	17+
 
 USE_HARDENING=	pie:off
 
-=======
->>>>>>> origin/freebsd/main
 # The github repositories.  The repository under NorbertXYZ is for a predefined maven
 # download, so the build does not need to download while do-build is running
 USE_GITHUB=	yes
