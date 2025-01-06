@@ -154,6 +154,7 @@
     SUBDIR += dpp
     SUBDIR += drill
     SUBDIR += drupal10
+    SUBDIR += drupal11
     SUBDIR += drupal7
     SUBDIR += drupal7-wysiwyg
     SUBDIR += drush
