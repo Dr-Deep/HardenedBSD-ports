@@ -19,12 +19,9 @@ USES=		compiler gettext ghostscript iconv localbase:ldflags ncurses \
 		pkgconfig
 USE_GCC=	yes
 USE_GITLAB=	yes
-<<<<<<< HEAD
 
 USE_HARDENING=  pie:off
 
-=======
->>>>>>> internal/freebsd/main
 GL_ACCOUNT=	gnu-clisp
 GL_PROJECT=	clisp
 GL_TAGNAME=	c3ec11bab87cfdbeba01523ed88ac2a16b22304d
