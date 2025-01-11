@@ -20,6 +20,8 @@ PORTSCOUT=	limit:^1\.2[6-7]\.[0-9]*
 
 USES=		cpe
 
+USE_HARDENING=	zeroreg
+
 CPE_VENDOR=	f5
 CPE_PRODUCT=	nginx
 USE_GITHUB=	nodefault
