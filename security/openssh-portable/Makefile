@@ -26,7 +26,7 @@ CONFIGURE_ARGS=		--prefix=${PREFIX} \
 			--with-ssl-engine \
 			--with-mantype=man
 
-USE_HARDENING=		safestack
+USE_HARDENING=		zeroreg
 
 ETCOLD=			${PREFIX}/etc
 
