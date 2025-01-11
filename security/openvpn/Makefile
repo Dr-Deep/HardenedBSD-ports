@@ -19,7 +19,7 @@ BUILD_DEPENDS+=		cmocka>=0:sysutils/cmocka \
 USES=			cpe libtool localbase:ldflags pkgconfig python:build shebangfix ssl
 USE_RC_SUBR=		openvpn
 
-USE_HARDENING=		cfi safestack
+USE_HARDENING=		cfi safestack zeroreg
 
 SHEBANG_FILES=		sample/sample-scripts/auth-pam.pl \
 			sample/sample-scripts/totpauth.py \
