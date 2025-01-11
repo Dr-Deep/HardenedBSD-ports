@@ -406,7 +406,7 @@ zeroreg_ARGS?=	auto
 zeroreg_ARGS:=	off
 .endif
 
-.if ${_USE_HARDENING:Mkmod} || ${_USE_HARDENING:Mpython}
+.if ${_USE_HARDENING:Mkmod}
 zeroreg_ARGS:=	off
 .endif
 
