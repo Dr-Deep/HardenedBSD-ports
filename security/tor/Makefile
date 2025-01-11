@@ -21,7 +21,7 @@ CONFIGURE_ENV=	TOR_CPPFLAGS_libevent="-I${LOCALBASE}/include" \
 		TOR_LDFLAGS_libevent="-L${LOCALBASE}/lib/" \
 		TOR_LIBEVENT_LIBS="${TOR_LIBEVENT_LIBS}"
 
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack zeroreg
 
 USES+=		stack_autoinit:uninitialized
 
