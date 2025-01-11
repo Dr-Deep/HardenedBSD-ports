@@ -11,7 +11,7 @@ WWW=		https://www.openntpd.org/
 
 LICENSE=	ISCL
 
-USE_HARDENING=	safestack
+USE_HARDENING=	safestack zeroreg
 
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
