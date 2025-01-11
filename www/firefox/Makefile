@@ -42,6 +42,7 @@ USES=		tar:xz
 # helpful when testing beta
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
 
+USE_HARDENING=		zeroreg
 MPROTECT_DISABLE=	lib/firefox/firefox
 PAGEEXEC_DISABLE=	lib/firefox/firefox
 
