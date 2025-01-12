@@ -64,8 +64,6 @@ CMAKE_OFF+=	FEATURE_sql_mysql \
 		FEATURE_sql_psql \
 		FEATURE_sql_sqlite
 
-USE_HARDENING=	zeroreg:off
-
 # zstd from base fails to compress files during the build (error 11: unsupported argument)
 BINARY_ALIAS=	zstd=${LOCALBASE}/bin/zstd
 

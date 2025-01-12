@@ -20,8 +20,6 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 USES=		cmake tar:xz
 
-USE_HARDENING=	zeroreg:off
-
 .if ${DISTVERSION} == 0
 IGNORE=		is a meta-port; there is nothing to build
 PKGNAMESUFFIX=	-master

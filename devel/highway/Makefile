@@ -16,6 +16,4 @@ GH_ACCOUNT=	google
 CMAKE_ON=	BUILD_SHARED_LIBS HWY_SYSTEM_GTEST
 CMAKE_OFF+=	${CMAKE_TESTING_ON}
 
-USE_HARDENING=	zeroreg:off
-
 .include <bsd.port.mk>
