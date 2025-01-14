@@ -14,7 +14,7 @@ WWW=		https://rsync.samba.org/
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USE_HARDENING=	safestack zeroreg
+USE_HARDENING=	cfi safestack zeroreg
 
 LIB_DEPENDS=	liblz4.so:archivers/liblz4 \
 		libxxhash.so:devel/xxhash \
