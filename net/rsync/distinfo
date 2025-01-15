@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-TIMESTAMP = 1736883369
-=======
 TIMESTAMP = 1736887703
->>>>>>> origin/freebsd/main
 SHA256 (rsync-3.4.0.tar.gz) = 8e942f95a44226a012fe822faffa6c7fc38c34047add3a0c941e9bc8b8b93aa4
 SIZE (rsync-3.4.0.tar.gz) = 1167983
 SHA256 (rsync-patches-3.4.0.tar.gz) = 51533dc5b9b4293d3499b673df185c93484f3e6fcf2de52f9bf1f07fa3d7cbc1
