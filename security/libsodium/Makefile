@@ -19,8 +19,6 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		libtool pathfix pkgconfig
 USE_LDCONFIG=	yes
 
-USE_HARDENING=	zeroreg:off
-
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check

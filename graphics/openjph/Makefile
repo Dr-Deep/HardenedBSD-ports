@@ -13,8 +13,6 @@ LIB_DEPENDS=	libtiff.so:graphics/tiff
 
 USES=		cmake compiler:c++11-lang pathfix
 
-USE_HARDENING=	zeroreg:off
-
 CMAKE_OFF=	OJPH_BUILD_STREAM_EXPAND \
 		OJPH_BUILD_TESTS
 CMAKE_ON=	BUILD_SHARED_LIBS \

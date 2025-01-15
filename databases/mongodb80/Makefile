@@ -48,8 +48,6 @@ USES=		compiler:c++20-lang cpe python:build scons shebangfix ssl
 # gmake is used while running ${WRKSRC}/src/third_party/mozjs/gen-config.sh
 USES+=		gmake pkgconfig
 
-USE_HARDENING=	zeroreg:off
-
 # mozjs tag comes from ${WRKSRC}/src/third_party/mozjs/get-sources.sh
 MOZJS_TAG=	bb6edb4fcd43607c87de81df8c58db11a663634a
 

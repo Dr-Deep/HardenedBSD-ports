@@ -24,8 +24,6 @@ USE_LDCONFIG=	yes
 GH_ACCOUNT=	Netflix
 WRKSRC_SUBDIR=	lib${PORTNAME}
 
-USE_HARDENING=	zeroreg:off
-
 post-install:
 # For legacy API consumers e.g., aom, x265
 	(cd ${WRKSRC:H} && ${COPYTREE_SHARE} "model" \
