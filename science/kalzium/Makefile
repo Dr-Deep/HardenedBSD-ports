@@ -32,7 +32,11 @@ USE_QT=		concurrent core dbus declarative gui network opengl printsupport script
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+PIE_UNSAFE=	yes
+>>>>>>> origin/freebsd/main
 
 OPTIONS_DEFINE=	DOCS
 
