@@ -18,7 +18,7 @@ LIB_DEPENDS+=	libcurl.so:ftp/curl \
 USES=		cmake cpe ncurses pkgconfig tar:xz
 USE_LDCONFIG=	yes
 
-USE_HARDENING=	safestack
+USE_HARDENING=	safestack zeroreg
 
 CMAKE_ARGS=	-DLIBDATADIR=${LOCALBASE}/libdata
 
