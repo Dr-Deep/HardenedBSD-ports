@@ -42,6 +42,7 @@ OPTIONS_SUB=		yes
 
 # Additional defaults for HardenedBSD
 OPTIONS_DEFAULT+=	DNSCRYPT PYTHON
+USE_HARDENING=	zeroreg
 
 DEP-RSA1024_DESC=	Deprecate the use of RSA 1024 keys
 DNSCRYPT_DESC=		Enable dnscrypt support
