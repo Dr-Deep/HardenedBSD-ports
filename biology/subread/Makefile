@@ -15,12 +15,8 @@ LIB_DEPENDS=	libsysinfo.so:devel/libsysinfo
 
 USES=		gmake localbase:ldflags
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-MAKEFILE=	${FILESDIR}/Makefile.pkg
-=======
->>>>>>> origin/freebsd/main
 WRKSRC_SUBDIR=	src
 
 MAKEFILE=	${FILESDIR}/Makefile.pkg

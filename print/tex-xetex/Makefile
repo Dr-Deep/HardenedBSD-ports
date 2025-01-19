@@ -21,13 +21,9 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libpng.so:graphics/png \
 		libTECkit.so:textproc/teckit
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-USES=		compiler:c++11-lib localbase gnome perl5 pkgconfig \
-=======
 USES=		compiler:c++17-lang localbase gnome perl5 pkgconfig \
->>>>>>> origin/freebsd/main
 		python:build tar:xz tex xorg
 USE_CXXSTD=	c++17
 USE_GNOME=	cairo
