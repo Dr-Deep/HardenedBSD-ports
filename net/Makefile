@@ -418,17 +418,7 @@
     SUBDIR += libpcapnav
     SUBDIR += libpfctl
     SUBDIR += libproxy
-<<<<<<< HEAD
-    SUBDIR += libproxy-duktape
-    SUBDIR += libproxy-gnome3
-    SUBDIR += libproxy-kde
-    SUBDIR += libproxy-pacrunner
-    SUBDIR += libproxy-perl
-    SUBDIR += libproxy-python
-    SUBDIR += libproxy-webkit3
     SUBDIR += libpushover
-=======
->>>>>>> origin/freebsd/main
     SUBDIR += librdkafka
     SUBDIR += librespeed-cli
     SUBDIR += librespeed-go
