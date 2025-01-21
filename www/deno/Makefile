@@ -21,6 +21,8 @@ LIB_DEPENDS=	libzstd.so:archivers/zstd \
 
 USES=		cargo cpe gmake gnome llvm:min=16,build ninja:build pkgconfig:build python:3.9+,build
 
+MPROTECT_DISABLE=	bin/deno
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	denoland
 
