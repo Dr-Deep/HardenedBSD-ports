@@ -35,8 +35,7 @@ OPTIONS_SUB=			yes
 PROVIDERS_DESC=			Providers to build:
 
 # HBSD: Fix me
-#OPTIONS_MULTI_PROVIDERS+=	VERBS
-#VERBS_PLIST_FILES=		share/man/man7/fi_verbs.7.gz
+OPTIONS_EXCLUDE+=		VERBS
 
 .for p in ${OPTIONS_MULTI_PROVIDERS}
 ${p}_DESC=			'${p:tl}' provider
