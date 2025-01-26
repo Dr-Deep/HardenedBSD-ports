@@ -718,6 +718,7 @@
     SUBDIR += modman
     SUBDIR += modules
     SUBDIR += mog
+    SUBDIR += mongodb_exporter
     SUBDIR += monit
     SUBDIR += monitord
     SUBDIR += monitorix
