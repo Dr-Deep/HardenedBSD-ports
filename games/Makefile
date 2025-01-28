@@ -907,7 +907,6 @@
     SUBDIR += seabattle
     SUBDIR += searchandrescue
     SUBDIR += searchandrescue-data
-    SUBDIR += senken
     SUBDIR += sets
     SUBDIR += sex
     SUBDIR += sgt-puzzles
