@@ -118,6 +118,7 @@
     SUBDIR += kyototycoon
     SUBDIR += ldb25
     SUBDIR += ldb28
+    SUBDIR += ldb29
     SUBDIR += leo_center
     SUBDIR += leofs
     SUBDIR += leveldb
@@ -1085,6 +1086,7 @@
     SUBDIR += tcl-lmdb
     SUBDIR += tcl-sqlite3
     SUBDIR += tdb
+    SUBDIR += tdb1410
     SUBDIR += tdbc
     SUBDIR += tile38
     SUBDIR += tiledb
