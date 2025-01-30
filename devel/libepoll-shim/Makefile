@@ -23,9 +23,8 @@ GH_PROJECT=	epoll-shim
 PLIST_SUB=	SHIM_EVENTFD="${exists(/usr/include/sys/eventfd.h):?@comment :}" \
 	SHIM_TIMERFD="${exists(/usr/include/sys/timerfd.h):?@comment :}"
 
-<<<<<<< HEAD
 USE_HARDENING=	fortifysource:off
-=======
+
 .include <bsd.port.pre.mk>
 
 .if ${ARCH} != amd64 && ${FLAVOR:U} == i386
@@ -39,7 +38,6 @@ CMAKE_ARGS+=	-DCMAKE_INSTALL_LIBDIR=lib32
 post-stage:
 	${RM} -r ${STAGEDIR}${PREFIX}/include ${STAGEDIR}${PREFIX}/libdata
 .endif
->>>>>>> internal/freebsd/main
 
 do-test:
 	# Exclude certain tests in resource restricted environments
