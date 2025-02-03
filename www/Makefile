@@ -294,6 +294,7 @@
     SUBDIR += katana
     SUBDIR += kcgi
     SUBDIR += kdsoap
+    SUBDIR += kdsoap-ws-discovery-client
     SUBDIR += kf5-khtml
     SUBDIR += kf5-kjs
     SUBDIR += kf5-kjsembed
@@ -1438,7 +1439,6 @@
     SUBDIR += phpvirtualbox
     SUBDIR += phpvirtualbox-legacy
     SUBDIR += piwigo
-    SUBDIR += plasma5-plasma-browser-integration
     SUBDIR += plasma6-plasma-browser-integration
     SUBDIR += pmwiki
     SUBDIR += pnews
@@ -1778,6 +1778,7 @@
     SUBDIR += py-jsonfield
     SUBDIR += py-kiss-headers
     SUBDIR += py-laces
+    SUBDIR += py-legacy-cgi
     SUBDIR += py-lektor
     SUBDIR += py-lesscpy
     SUBDIR += py-libsass
