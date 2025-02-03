@@ -19,14 +19,11 @@ USE_KDE=	config coreaddons crash dbusaddons \
 USE_QT=		concurrent core dbus declarative gui network \
 		buildtools:build qmake:build testlib:build
 
-<<<<<<< HEAD
+# KF6 coinstallability
+CMAKE_OFF=	BUILD_INDEXER_SERVICE
 
 MPROTECT_DISABLE=	lib/libexec/baloo_file
 MPROTECT_DISABLE=	lib/libexec/baloo_file_extractor
 SEGVGUARD_DISABLE=	lib/libexec/baloo_file_extractor
-=======
-# KF6 coinstallability
-CMAKE_OFF=	BUILD_INDEXER_SERVICE
->>>>>>> origin/freebsd/main
 
 .include <bsd.port.mk>

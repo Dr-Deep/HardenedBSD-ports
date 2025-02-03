@@ -26,11 +26,6 @@ CONFIGURE_ENV=	FORCE_UNSAFE_CONFIGURE=1
 USE_HARDENING=	pie:off relro:off
 
 TEST_TARGET=	check
-<<<<<<< HEAD
-=======
-
-PIE_UNSAFE=	yes
->>>>>>> origin/freebsd/main
 
 CONFLICTS_INSTALL=	gdu geneweb gexpr rubygem-god # bin/gdu bin/gexpr bin/god bin/gwc
 
