@@ -39,13 +39,9 @@ USE_SDL=	sdl2
 USE_XORG=	x11 xcursor
 USE_PERL5=	build
 
-<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/pyrogenesis
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}-alpha
-=======
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
->>>>>>> origin/freebsd/main
 BUILD_WRKSRC=	${WRKSRC}/build/workspaces/gcc
 MAKE_ARGS=	config=release verbose=1
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
