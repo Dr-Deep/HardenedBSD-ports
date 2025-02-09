@@ -10,13 +10,9 @@ WWW=		http://cvsweb.netbsd.org/bsdweb.cgi/src/crypto/dist/ipsec-tools/src/racoon
 
 LICENSE=	BSD3CLAUSE
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
 
-USES=		cpe libtool tar:bzip2 ssl
-=======
 USES=		compiler cpe libtool tar:bzip2 ssl
->>>>>>> internal/freebsd/main
 
 CONFLICTS=	racoon
 INSTALL_TARGET=	install-strip
