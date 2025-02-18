@@ -1,7 +1,7 @@
 PORTNAME=	pftop
-PORTVERSION=	0.10
-PORTREVISION=	1
+PORTVERSION=	0.11
 CATEGORIES=	sysutils net
+MASTER_SITES=	https://github.com/grembo/pftop/releases/download/${DISTVERSION}/
 
 MAINTAINER=	grembo@FreeBSD.org
 COMMENT=	Utility for real-time display of statistics for pf
@@ -14,8 +14,6 @@ USE_HARDENING=	safestack
 LIB_DEPENDS=	libpfctl.so:net/libpfctl
 
 USES=		localbase uidfix
-USE_GITHUB=	yes
-GH_ACCOUNT=	grembo
 
 OPTIONS_DEFINE=	ALTQ
 

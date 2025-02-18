@@ -588,6 +588,7 @@
     SUBDIR += kiconvtool
     SUBDIR += kldfind
     SUBDIR += kldpatch
+    SUBDIR += kleene-daemon
     SUBDIR += kopia
     SUBDIR += kops
     SUBDIR += kpmcore
