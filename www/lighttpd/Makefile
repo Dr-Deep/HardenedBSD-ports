@@ -14,6 +14,8 @@ LIB_DEPENDS=	libpcre2-8.so:devel/pcre2
 
 USES=		compiler:c11 cmake cpe localbase:ldflags pkgconfig tar:xz
 
+USE_HARDENING=	safestack zeroreg
+
 GNU_CONFIGURE=	yes
 
 CONFIGURE_ARGS=	--libdir=${PREFIX}/lib/lighttpd
