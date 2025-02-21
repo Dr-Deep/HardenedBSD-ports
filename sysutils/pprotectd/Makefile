@@ -8,7 +8,12 @@ MAINTAINER=	zont@FreeBSD.org
 COMMENT=	Daemon that protects processes from killing when memory is exhausted
 WWW=		http://www.zonov.org/
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+DEPRECATED=	Obsolete utility, superseded by protect in base
+EXPIRATION_DATE=2025-03-23
+>>>>>>> internal/freebsd/main
 
 USE_RC_SUBR=	${PORTNAME}
 
