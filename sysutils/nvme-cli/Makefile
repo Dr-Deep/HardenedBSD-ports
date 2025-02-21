@@ -21,13 +21,8 @@ MESON_ARGS=	-Ddocs=man -Djson-c=disabled
 CXXFLAGS+=	-I${LOCALBASE}/include/freebsd-nvme-shim
 CFLAGS+=	-I${LOCALBASE}/include/freebsd-nvme-shim
 
-<<<<<<< HEAD
-USES=		gmake
-
 USE_HARDENING=	pie:off
 
-=======
->>>>>>> origin/freebsd/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	bsdimp
 GH_TAGNAME=	freebsd-${PORTVERSION}
