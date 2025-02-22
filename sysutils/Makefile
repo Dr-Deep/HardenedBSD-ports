@@ -1278,7 +1278,6 @@
     SUBDIR += setcdboot
     SUBDIR += setsid
     SUBDIR += sg3_utils
-    SUBDIR += shim
     SUBDIR += shlock
     SUBDIR += shmcat
     SUBDIR += shuf
