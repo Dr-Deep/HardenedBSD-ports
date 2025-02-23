@@ -32,9 +32,8 @@ USE_QT=		base declarative \
 USE_RC_SUBR=	sddm
 USE_XORG=	xau xcb
 
-<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/sddm-greeter
-=======
+
 CMAKE_ARGS=	-DACCOUNTSSERVICE_DATA_DIR:PATH=/var/db/AccountsService \
 		-DCMAKE_INSTALL_SYSCONFDIR:PATH=${LOCALBASE}/etc \
 		-DRST2MAN_EXECUTABLE=${LOCALBASE}/bin/rst2man \
@@ -43,7 +42,6 @@ CMAKE_ARGS=	-DACCOUNTSSERVICE_DATA_DIR:PATH=/var/db/AccountsService \
 		-DUID_MAX=65000
 CMAKE_ON=	BUILD_MAN_PAGES \
 		BUILD_WITH_QT6
->>>>>>> internal/freebsd/main
 
 CONFLICTS_INSTALL=	lightdm
 
