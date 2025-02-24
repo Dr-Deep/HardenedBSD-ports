@@ -169,6 +169,7 @@
     SUBDIR += fwanalog
     SUBDIR += fwknop
     SUBDIR += fwlogwatch
+    SUBDIR += gauth
     SUBDIR += gcr
     SUBDIR += gcr3
     SUBDIR += gef
