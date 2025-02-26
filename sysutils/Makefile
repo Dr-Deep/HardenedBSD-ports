@@ -1516,6 +1516,7 @@
     SUBDIR += vivid
     SUBDIR += vm-bhyve
     SUBDIR += vm-bhyve-devel
+    SUBDIR += vm-bhyve-zcomp
     SUBDIR += vmdktool
     SUBDIR += vmstated
     SUBDIR += vmtouch
