@@ -238,6 +238,7 @@
     SUBDIR += coreos-ct
     SUBDIR += coreutils
     SUBDIR += cpdup
+    SUBDIR += cpdup-FreeBSD
     SUBDIR += cpu-microcode
     SUBDIR += cpu-microcode-amd
     SUBDIR += cpu-microcode-intel
