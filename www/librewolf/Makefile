@@ -54,7 +54,9 @@ MOZ_EXPORT+=	MOZ_TELEMETRY_REPORTING="" \
 		MOZ_APP_NAME="${MOZILLA}"
 
 MPROTECT_DISABLE=	lib/librewolf/librewolf
-MPROTECT_DISABLE+=	lib/librewolf/plugin-container
+PAGEEXEC_DISABLE=	lib/librewolf/librewolf
+
+USE_HARDENING=		zeroreg
 
 MOZ_OPTIONS=	--enable-application=browser \
 		--allow-addon-sideload \
