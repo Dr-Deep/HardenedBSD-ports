@@ -1059,7 +1059,6 @@
     SUBDIR += py-pyinfra
     SUBDIR += py-python-bareos
     SUBDIR += py-python-consul
-    SUBDIR += py-python-consul2
     SUBDIR += py-python-crontab
     SUBDIR += py-python-nomad
     SUBDIR += py-pytsk
