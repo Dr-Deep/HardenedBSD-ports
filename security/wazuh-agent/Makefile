@@ -20,6 +20,8 @@ LIB_DEPENDS=	libnghttp2.so:www/libnghttp2
 
 USES=		cmake:indirect cpe gmake perl5 readline shebangfix sqlite:3 uidfix
 
+USE_HARDENING=	pie:off
+
 USE_GITHUB=	yes
 GH_TUPLE=	alonsobsd:wazuh-freebsd:${WAZUH_EXTRAFILE_TAGNAME}:wazuh
 
