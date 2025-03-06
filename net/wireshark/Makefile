@@ -28,7 +28,7 @@ LIB_DEPENDS=	libpcre2-8.so:devel/pcre2 \
 		libzstd.so:archivers/zstd \
 		libspeexdsp.so:audio/speexdsp
 
-USE_HARDENING=	safestack
+USE_HARDENING=	safestack zeroreg
 
 FLAVORS=	default nox11
 FLAVOR?=	${FLAVORS:[1]}
