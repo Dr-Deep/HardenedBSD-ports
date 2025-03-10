@@ -1437,6 +1437,7 @@
     SUBDIR += phprecipebook
     SUBDIR += phpsysinfo
     SUBDIR += phpvirtualbox
+    SUBDIR += phpvirtualbox-70
     SUBDIR += phpvirtualbox-legacy
     SUBDIR += piwigo
     SUBDIR += plasma6-plasma-browser-integration
