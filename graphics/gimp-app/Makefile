@@ -16,9 +16,9 @@ LICENSE_COMB=	multi
 USE_HARDENING=	relro:off
 
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
+		gtkdocize:textproc/gtk-doc \
 		glib-networking>=0:net/glib-networking \
 		mypaint-brushes>0:graphics/mypaint-brushes
-
 LIB_DEPENDS=	libasound.so:audio/alsa-lib \
 		libbabl-0.1.so:x11/babl \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -46,8 +46,8 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
 		glib-networking>=0:net/glib-networking \
 		mypaint-brushes>0:graphics/mypaint-brushes
 
-USES=		cpe compiler:c++14-lang desktop-file-utils gettext gmake gnome \
-		jpeg libtool localbase pkgconfig shebangfix tar:bzip2 xorg
+USES=		autoreconf:2.69 cpe compiler:c++14-lang desktop-file-utils gettext gmake \
+		gnome jpeg libtool localbase pkgconfig shebangfix tar:bzip2 xorg
 CPE_VENDOR=	gimp
 CPE_PRODUCT=	gimp
 USE_GNOME+=	cairo gtk20 intltool librsvg2
@@ -134,6 +134,6 @@ post-patch:
 			${WRKSRC}/plug-ins/pygimp/Makefile.in
 	@${REINPLACE_CMD} \
 		-e 's|x86_64|amd64|g' \
-		${WRKSRC}/configure
+		${WRKSRC}/configure.ac
 
 .include <bsd.port.mk>
