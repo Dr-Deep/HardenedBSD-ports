@@ -117,6 +117,7 @@
     SUBDIR += closure-compiler
     SUBDIR += cntlm
     SUBDIR += cobalt
+    SUBDIR += codeberg-pages-server
     SUBDIR += codeigniter
     SUBDIR += colly
     SUBDIR += coppermine
