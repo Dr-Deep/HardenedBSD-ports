@@ -66,7 +66,7 @@ GUI=		gtk2
 CONFIGURE_ARGS+=--enable-xim --enable-fontset
 PLIST_SUB+=	GUI="" DESKTOP=""
 USES+=		desktop-file-utils gnome xorg
-USE_GNOME=	gdkpixbuf2 gtk20
+USE_GNOME=	gdkpixbuf gtk20
 USE_XORG=	ice sm x11 xpm xt
 
 .elif ${FLAVOR:U} == gtk3
@@ -74,7 +74,7 @@ GUI=		gtk3
 CONFIGURE_ARGS+=--enable-xim --enable-fontset
 PLIST_SUB+=	GUI="" DESKTOP=""
 USES+=		desktop-file-utils gnome xorg
-USE_GNOME=	cairo gdkpixbuf2 gtk30
+USE_GNOME=	cairo gdkpixbuf gtk30
 USE_XORG=	ice sm x11 xpm xt
 
 .elif ${FLAVOR:U} == motif
