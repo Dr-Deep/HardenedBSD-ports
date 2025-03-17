@@ -219,6 +219,7 @@
     SUBDIR += gitlab
     SUBDIR += gitlab-pages
     SUBDIR += gitlab-workhorse
+    SUBDIR += glance
     SUBDIR += glassfish
     SUBDIR += glassfish4
     SUBDIR += glpi
