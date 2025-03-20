@@ -1305,6 +1305,7 @@
     SUBDIR += snapraid
     SUBDIR += sndy
     SUBDIR += snmp_exporter
+    SUBDIR += snmp_exporter20
     SUBDIR += snooze
     SUBDIR += sockaddr
     SUBDIR += socklog
