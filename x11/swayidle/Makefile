@@ -1,6 +1,6 @@
 PORTNAME=	swayidle
 DISTVERSION=	1.8.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	x11 wayland
 
 PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
@@ -31,7 +31,7 @@ USE_HARDENING=	cfi safestack
 OPTIONS_DEFINE=	BASU MANPAGES
 OPTIONS_DEFAULT=BASU MANPAGES
 
-BASU_DESC=		Login manager support via basu
+BASU_DESC=		ConsoleKit2 support via basu (experimental)
 BASU_LIB_DEPENDS=	libbasu.so:devel/basu
 BASU_MESON_ENABLED=	logind
 
@@ -44,5 +44,8 @@ post-patch:
 	@${REINPLACE_CMD} -e 's,/login1,/ConsoleKit/Manager,' \
 		-e 's,login1,ConsoleKit,' \
 		${WRKSRC}/main.c
+	@${REINPLACE_CMD} -e 's,systemd,ConsoleKit2,g' \
+		-Ee '/conf/!s,logind(/elogind)?,ConsoleKit2,g' \
+		${WRKSRC}/${PORTNAME}.1.scd
 
 .include <bsd.port.mk>
