@@ -2638,6 +2638,7 @@
     SUBDIR += yaws
     SUBDIR += you-get
     SUBDIR += yourls
+    SUBDIR += youtube
     SUBDIR += yt-dlp
     SUBDIR += ytdl
     SUBDIR += yuicompressor
