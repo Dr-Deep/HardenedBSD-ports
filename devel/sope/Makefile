@@ -50,9 +50,8 @@ LDAP_USES=		ldap
 MYSQL_USES=		mysql
 PGSQL_USES=		pgsql
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
-=======
+
 .if ${FLAVOR:U} == pgsql
 OPTIONS_DEFAULT+=	PGSQL
 .endif
@@ -60,7 +59,6 @@ OPTIONS_DEFAULT+=	PGSQL
 .if ${FLAVOR:U} == mysql
 OPTIONS_DEFAULT+=	MYSQL
 .endif
->>>>>>> internal/freebsd/main
 
 .include <bsd.port.options.mk>
 
