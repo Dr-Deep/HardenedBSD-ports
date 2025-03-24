@@ -1,5 +1,5 @@
 PORTNAME=	libc6-shim
-DISTVERSION=	20250212
+DISTVERSION=	20250323
 CATEGORIES=	emulators
 
 MAINTAINER=	iwtcex@gmail.com
@@ -23,16 +23,22 @@ PORTSCOUT=	ignore:1
 
 post-patch:
 	${REINPLACE_CMD} -e 's|../icds|../${DATADIR_REL}/icds|' ${WRKSRC}/bin/nv-sglrun
+<<<<<<< HEAD
 	${REINPLACE_CMD} -e 's|../lib64|../lib/${PORTNAME}|' ${WRKSRC}/bin/with-glibc-shim
+=======
+	${REINPLACE_CMD} -e 's|../lib64|../lib/${PORTNAME}|' -e 's|../lib32|../lib32/${PORTNAME}|' ${WRKSRC}/bin/c6-shim-env
+>>>>>>> origin/freebsd/main
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/${PORTNAME}
 	${MKDIR} ${STAGEDIR}${DATADIR}/icds/ocl
 	${MKDIR} ${STAGEDIR}${DATADIR}/icds/vk
 	${INSTALL_SCRIPT} \
+		${WRKSRC}/bin/c6-shim-env \
+		${WRKSRC}/bin/c6-shim-run-exe \
 		${WRKSRC}/bin/nv-sglrun \
-		${WRKSRC}/bin/with-glibc-shim \
 		${STAGEDIR}${PREFIX}/bin
+	${LN} -s c6-shim-env ${STAGEDIR}${PREFIX}/bin/with-glibc-shim
 	${INSTALL_LIB} \
 		${WRKSRC}/build/lib64/libc6*.so \
 		${STAGEDIR}${PREFIX}/lib/${PORTNAME}
