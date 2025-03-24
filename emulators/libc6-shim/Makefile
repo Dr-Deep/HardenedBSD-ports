@@ -23,11 +23,7 @@ PORTSCOUT=	ignore:1
 
 post-patch:
 	${REINPLACE_CMD} -e 's|../icds|../${DATADIR_REL}/icds|' ${WRKSRC}/bin/nv-sglrun
-<<<<<<< HEAD
-	${REINPLACE_CMD} -e 's|../lib64|../lib/${PORTNAME}|' ${WRKSRC}/bin/with-glibc-shim
-=======
 	${REINPLACE_CMD} -e 's|../lib64|../lib/${PORTNAME}|' -e 's|../lib32|../lib32/${PORTNAME}|' ${WRKSRC}/bin/c6-shim-env
->>>>>>> origin/freebsd/main
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/${PORTNAME}
