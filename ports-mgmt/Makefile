@@ -75,6 +75,7 @@
     SUBDIR += poudriere-hbsd
     SUBDIR += psearch
     SUBDIR += py-FreeBSD-ports
+    SUBDIR += py-nvchecker
     SUBDIR += py-pnu-portstreelint
     SUBDIR += py-pytoport
     SUBDIR += py-skog
