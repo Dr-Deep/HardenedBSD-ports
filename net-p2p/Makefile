@@ -35,12 +35,16 @@
     SUBDIR += ethash
     SUBDIR += go-ethereum
     SUBDIR += gtk-gnutella
+<<<<<<< HEAD
     SUBDIR += heartwood
     SUBDIR += heartwood-cli
     SUBDIR += heartwood-httpd
     SUBDIR += heartwood-node
     SUBDIR += heartwood-remote-helper
     SUBDIR += heartwood-tools
+=======
+    SUBDIR += hostd
+>>>>>>> origin/freebsd/main
     SUBDIR += intermodal
     SUBDIR += jackett
     SUBDIR += jigdo
@@ -94,6 +98,7 @@
     SUBDIR += qbittorrent
     SUBDIR += radarr
     SUBDIR += readarr
+    SUBDIR += renterd
     SUBDIR += reticulum
     SUBDIR += retroshare
     SUBDIR += rslsync
@@ -111,6 +116,7 @@
     SUBDIR += udpt
     SUBDIR += uhub
     SUBDIR += vuze
+    SUBDIR += walletd
     SUBDIR += warpinator
     SUBDIR += xbt
     SUBDIR += xmrig
