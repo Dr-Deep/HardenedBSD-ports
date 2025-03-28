@@ -1218,6 +1218,7 @@
     SUBDIR += rabbiteer
     SUBDIR += rabbitmq
     SUBDIR += rabbitmq-c
+    SUBDIR += rabbitmqadmin
     SUBDIR += radcli
     SUBDIR += raddump
     SUBDIR += radiator

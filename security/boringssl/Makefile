@@ -1,5 +1,6 @@
 PORTNAME=	boringssl
 PORTVERSION=	0.0.0.0.2025.03.18.01
+PORTREVISION=	1
 CATEGORIES=	security
 EXTRACT_ONLY=	${GH_ACCOUNT}-${PORTNAME}-${PORTVERSION}-${GH_TAGNAME}_GH0.tar.gz
 
@@ -15,7 +16,7 @@ USES=		cmake:insource cpe go:no_targets,1.24 localbase perl5
 USE_HARDENING=	pie:off
 
 CONFLICTS_INSTALL=	libressl libressl-devel openssl openssl111 \
-			openssl3[1234] openssl-quictls openssl31-quictls
+			openssl3[12345] openssl-quictls openssl31-quictls
 
 CPE_VENDOR=	google
 
