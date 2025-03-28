@@ -19,13 +19,11 @@ USES=		compiler:c11 localbase:ldflags perl5 shebangfix xorg
 USE_PERL5=	build
 USE_XORG=	x11 xext xt
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
-=======
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	9fans
 GH_TAGNAME=	13582b1
->>>>>>> internal/freebsd/main
 
 SHEBANG_GLOB=	*
 SHEBANG_LANG=	rc

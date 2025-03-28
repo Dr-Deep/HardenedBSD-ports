@@ -13,7 +13,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	HardenedBSD
 GL_PROJECT=	pkg
-GL_COMMIT=	5cc4b9b6541a9b2755b5c55a4b1c80e1ae141718
+GL_COMMIT=	0a2e4ab53d724b67bd5264355ebce8a58bb22be2
 
 USE_LDCONFIG=	${PREFIX}/lib/compat/pkg
 HAS_CONFIGURE=	yes
