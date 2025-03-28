@@ -1399,6 +1399,7 @@
     SUBDIR += tuckr
     SUBDIR += tuptime
     SUBDIR += turbostat
+    SUBDIR += tvterm
     SUBDIR += tw_cli
     SUBDIR += twa-kmod
     SUBDIR += twmn
