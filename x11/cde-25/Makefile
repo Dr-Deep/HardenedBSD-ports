@@ -1,6 +1,6 @@
 PORTNAME=	cde
 DISTVERSION=	2.5.2
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	x11
 MASTER_SITES=	SF/cdesktopenv/src/
 .if !defined(MASTERDIR)
@@ -68,6 +68,9 @@ CFLAGS+=	-Wno-register -Wno-incompatible-function-pointer-types \
 LDFLAGS+=	-z muldefs #--allow-multiple-definition
 LDFLAGS+=	-lutil
 
+CFFILES=	Xaccess Xconfig Xfailsafe Xreset Xservers Xsetup Xstartup \
+		sys.dtprofile
+
 pre-configure:
 	@cd ${WRKSRC} && ./autogen.sh
 
@@ -126,5 +129,8 @@ post-install:
 	@cd ${STAGEDIR}/${DT_PREFIX}; ${LN} -s share/examples
 	# Only a problem on armv7 so far
 	${FIND} ${STAGEDIR}/${DT_PREFIX} -type f -name 'ecp.*' -delete
+.for f in ${CFFILES}
+	@${MV} ${STAGEDIR}${PREFIX}/dt/config/${f} ${STAGEDIR}${PREFIX}/dt/config/${f}.sample
+.endfor
 
 .include <bsd.port.mk>
