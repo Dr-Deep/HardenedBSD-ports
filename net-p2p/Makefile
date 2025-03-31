@@ -112,7 +112,6 @@
     SUBDIR += twitch-tui
     SUBDIR += udpt
     SUBDIR += uhub
-    SUBDIR += vuze
     SUBDIR += walletd
     SUBDIR += warpinator
     SUBDIR += xbt

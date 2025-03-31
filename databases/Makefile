@@ -90,7 +90,6 @@
     SUBDIR += gom
     SUBDIR += goose
     SUBDIR += gqlplus
-    SUBDIR += grass7
     SUBDIR += grass8
     SUBDIR += greptimedb
     SUBDIR += hashtypes
@@ -568,7 +567,6 @@
     SUBDIR += pgbarman
     SUBDIR += pgbouncer
     SUBDIR += pgdbf
-    SUBDIR += pgfouine
     SUBDIR += pgloader3
     SUBDIR += pglogical
     SUBDIR += pgmetrics
@@ -793,7 +791,6 @@
     SUBDIR += py-pglite
     SUBDIR += py-pgmigrate
     SUBDIR += py-pgspecial
-    SUBDIR += py-pgxnclient
     SUBDIR += py-pickledb
     SUBDIR += py-pickleshare
     SUBDIR += py-pony

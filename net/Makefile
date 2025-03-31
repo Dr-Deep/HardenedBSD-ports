@@ -397,7 +397,6 @@
     SUBDIR += libmateweather
     SUBDIR += libmaxminddb
     SUBDIR += libmdf
-    SUBDIR += libmediawiki
     SUBDIR += libnatpmp
     SUBDIR += libndp
     SUBDIR += libnet
@@ -553,7 +552,6 @@
     SUBDIR += nss-pam-ldapd
     SUBDIR += nss-pam-ldapd-sasl
     SUBDIR += nss_ldap
-    SUBDIR += nsscache
     SUBDIR += ntimed
     SUBDIR += ntopng
     SUBDIR += ntp
@@ -591,7 +589,6 @@
     SUBDIR += openpgm
     SUBDIR += openradius
     SUBDIR += openrsync
-    SUBDIR += opensips31
     SUBDIR += openslp
     SUBDIR += openvswitch
     SUBDIR += ortp
@@ -1060,7 +1057,6 @@
     SUBDIR += py-dpkt
     SUBDIR += py-duet
     SUBDIR += py-dugong
-    SUBDIR += py-ec2-cli-tools
     SUBDIR += py-ephemeral-port-reserve
     SUBDIR += py-err-backend-discord
     SUBDIR += py-err-backend-mattermost
@@ -1178,7 +1174,6 @@
     SUBDIR += py-sshuttle
     SUBDIR += py-stomp.py
     SUBDIR += py-suds
-    SUBDIR += py-tacacs_plus
     SUBDIR += py-terminado
     SUBDIR += py-tiny-proxy
     SUBDIR += py-tofu
