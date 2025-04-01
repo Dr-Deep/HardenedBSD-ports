@@ -44,7 +44,7 @@ RUN_DEPENDS=	tor:security/tor \
 		snowflake-client:security/snowflake-tor
 
 USES=		compiler:c++11-lib libtool localbase:ldflags perl5 pkgconfig \
-		python:3.8+ shebangfix tar:xz
+		python shebangfix tar:xz
 USE_GECKO=	gecko
 
 MPROTECT_DISABLE=	lib/tor-browser/tor-browser
