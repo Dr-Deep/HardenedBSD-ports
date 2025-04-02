@@ -19,21 +19,10 @@ BUILD_DEPENDS=	bash:shells/bash	\
 		gfind:misc/findutils	\
 		getopt>=0:misc/getopt
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
 
-OPTIONS_DEFINE=	APROFILE PURE PYGDB EXAMPLES HTML PDF DOCS SYMLINK
-OPTIONS_DEFAULT=PURE PYGDB SYMLINK
-APROFILE_DESC=	Add support for Cortex-A profiles
-PURE_DESC=	Use all libraries from bundle, do not depend on anything
-HTML_DESC=	Install HTML documentation
-PDF_DESC=	Install PDF documentation (requires TeX, it is huge)
-PYGDB_DESC=	Build and install python-enabled gdb in addition to standard one
-SYMLINK_DESC=	Make version-independent symlink ${LOCALBASE}/${PORTNAME}
-=======
 FLAVORS=		default aarch64
 FLAVOR?=		${FLAVORS:[1]}
->>>>>>> origin/freebsd/main
 
 aarch64_PKGNAMESUFFIX=	-aarch64
 aarch64_PLIST=		${PKGDIR}/pkg-plist.aarch64
