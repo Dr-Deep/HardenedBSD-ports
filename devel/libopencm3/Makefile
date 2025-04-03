@@ -17,15 +17,10 @@ USE_GITHUB=	yes
 SHEBANG_FILES=	scripts/irq2nvic_h \
 		scripts/lpcvtcksum
 
-<<<<<<< HEAD
 USE_HARDENING=	retpoline:off
 NO_UNUSED_ARGUMENTS_CHECK=	yes
 
-TOOLCHAIN_FULL_VERSION?=10.3-2021.10
-TOOLCHAIN_PORT_VERSION?=10.3.20210921
-=======
 TOOLCHAIN_FULL_VERSION?=14.2.rel1
->>>>>>> internal/freebsd/main
 TOOLCHAIN_TARGET?=arm-none-eabi
 
 DESTDIRNAME=	STAGEDIR
