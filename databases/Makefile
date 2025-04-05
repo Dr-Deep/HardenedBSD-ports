@@ -1027,7 +1027,6 @@
     SUBDIR += rubygem-redis-namespace
     SUBDIR += rubygem-redis-namespace110
     SUBDIR += rubygem-ruby-mysql
-    SUBDIR += rubygem-scenic61
     SUBDIR += rubygem-sdbm
     SUBDIR += rubygem-seed-fu
     SUBDIR += rubygem-solid_cable

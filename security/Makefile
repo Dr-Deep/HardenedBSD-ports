@@ -1205,7 +1205,6 @@
     SUBDIR += rubygem-origami
     SUBDIR += rubygem-pbkdf2-ruby
     SUBDIR += rubygem-pundit
-    SUBDIR += rubygem-pundit61
     SUBDIR += rubygem-pwned
     SUBDIR += rubygem-pyu-ruby-sasl
     SUBDIR += rubygem-rack-oauth2
