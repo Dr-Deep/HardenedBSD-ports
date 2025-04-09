@@ -13,14 +13,9 @@ WWW=		https://www.pureftpd.org/ \
 LICENSE=	ISCL
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		cpe perl5 tar:bzip2
-USE_PERL5=	run
-=======
 USES=		cpe tar:bzip2
->>>>>>> internal/freebsd/main
 
 CONFIGURE_ARGS=	--sysconfdir=${PREFIX}/etc \
 		--with-altlog --with-cookie --with-diraliases \
