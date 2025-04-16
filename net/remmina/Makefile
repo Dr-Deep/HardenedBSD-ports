@@ -10,13 +10,9 @@ WWW=		https://www.remmina.org/
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-LIB_DEPENDS=	libappindicator3.so:devel/libappindicator \
-=======
 LIB_DEPENDS=	libayatana-appindicator3.so:devel/libayatana-appindicator \
->>>>>>> internal/freebsd/main
 		libcurl.so:ftp/curl \
 		libjson-glib-1.0.so:devel/json-glib \
 		libsodium.so:security/libsodium \
