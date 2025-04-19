@@ -21,6 +21,7 @@
     SUBDIR += aespipe
     SUBDIR += afl++
     SUBDIR += afterglow
+    SUBDIR += agave
     SUBDIR += age
     SUBDIR += aide
     SUBDIR += amavisd-milter
@@ -1306,7 +1307,6 @@
     SUBDIR += softether-devel
     SUBDIR += softether5
     SUBDIR += softhsm2
-    SUBDIR += solana
     SUBDIR += sops
     SUBDIR += spass
     SUBDIR += spass-qt5
