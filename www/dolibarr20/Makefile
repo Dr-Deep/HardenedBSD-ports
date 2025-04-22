@@ -1,5 +1,5 @@
-PORTNAME=	dolibarr
-DISTVERSION=	21.0.1
+PORTNAME=	dolibarr20
+DISTVERSION=	20.0.4
 CATEGORIES=	www finance
 
 MAINTAINER=	acm@FreeBSD.org
@@ -9,7 +9,9 @@ WWW=		https://www.dolibarr.org/
 LICENSE=	GPLv3
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	${PORTNAME:S/d/D/}
+GH_ACCOUNT=	${PORTNAME:S/d/D/:S/20//}
+GH_PROJECT=	dolibarr
+
 USES=		cpe php:web
 USE_PHP=	calendar curl gd intl session
 NO_BUILD=	yes
