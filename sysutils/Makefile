@@ -1440,7 +1440,6 @@
     SUBDIR += u-boot-orangepi-r1
     SUBDIR += u-boot-orangepi-zero
     SUBDIR += u-boot-orangepi-zero-plus
-    SUBDIR += u-boot-pandaboard
     SUBDIR += u-boot-pcduino3
     SUBDIR += u-boot-pine-h64
     SUBDIR += u-boot-pine64
