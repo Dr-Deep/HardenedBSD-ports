@@ -1321,6 +1321,7 @@
     SUBDIR += ssh-multiadd
     SUBDIR += ssh-tools
     SUBDIR += ssh-vault
+    SUBDIR += sshesame
     SUBDIR += sshguard
     SUBDIR += sshpass
     SUBDIR += ssl-admin
