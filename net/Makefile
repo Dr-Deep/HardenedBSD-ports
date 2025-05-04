@@ -1043,6 +1043,7 @@
     SUBDIR += py-aiocoap
     SUBDIR += py-aiohappyeyeballs
     SUBDIR += py-aiohttp-socks
+    SUBDIR += py-aiostalk
     SUBDIR += py-amqp
     SUBDIR += py-amqplib
     SUBDIR += py-avahi
@@ -1068,6 +1069,7 @@
     SUBDIR += py-gdown
     SUBDIR += py-geopy
     SUBDIR += py-gntp
+    SUBDIR += py-greenstalk
     SUBDIR += py-gspread
     SUBDIR += py-h11
     SUBDIR += py-haproxy-cli
