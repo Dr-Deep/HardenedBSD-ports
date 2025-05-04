@@ -948,7 +948,6 @@
     SUBDIR += stonesoup
     SUBDIR += stormbaancoureur
     SUBDIR += stratagus
-    SUBDIR += stuntrally
     SUBDIR += sudsol
     SUBDIR += sulis
     SUBDIR += supertux
@@ -1104,7 +1103,6 @@
     SUBDIR += xinvaders
     SUBDIR += xinvaders3d
     SUBDIR += xisola
-    SUBDIR += xjewel
     SUBDIR += xjig
     SUBDIR += xjump
     SUBDIR += xjumpx

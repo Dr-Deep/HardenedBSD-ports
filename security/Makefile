@@ -231,7 +231,6 @@
     SUBDIR += hs-cryptol
     SUBDIR += hydra
     SUBDIR += hyperhotp
-    SUBDIR += i2p
     SUBDIR += i2pd
     SUBDIR += iaikpkcs11wrapper
     SUBDIR += iddawc
@@ -329,7 +328,6 @@
     SUBDIR += libtatsu
     SUBDIR += libtomcrypt
     SUBDIR += libu2f-host
-    SUBDIR += libuecc
     SUBDIR += libwhisker
     SUBDIR += libxcrypt
     SUBDIR += libyubikey

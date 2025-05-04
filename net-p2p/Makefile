@@ -47,7 +47,6 @@
     SUBDIR += jigdo
     SUBDIR += ktorrent
     SUBDIR += libktorrent
-    SUBDIR += libswift
     SUBDIR += libtorrent
     SUBDIR += libtorrent-rasterbar
     SUBDIR += libtorrent-rasterbar2
@@ -74,12 +73,8 @@
     SUBDIR += ogmios
     SUBDIR += opendchub
     SUBDIR += oura
-    SUBDIR += p5-Net-BitTorrent
-    SUBDIR += p5-Net-BitTorrent-File
-    SUBDIR += p5-Net-BitTorrent-PeerPacket
     SUBDIR += p5-Net-DirectConnect
     SUBDIR += p5-WWW-BitTorrent
-    SUBDIR += phex
     SUBDIR += prowlarr
     SUBDIR += pulsar-client-cpp
     SUBDIR += py-ed2k-tools
@@ -100,7 +95,6 @@
     SUBDIR += retroshare
     SUBDIR += rslsync
     SUBDIR += rtorrent
-    SUBDIR += shx
     SUBDIR += sonarr
     SUBDIR += torrent-file-editor
     SUBDIR += torrentcheck
