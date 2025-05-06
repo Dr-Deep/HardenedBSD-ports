@@ -1,10 +1,10 @@
 PORTNAME=	afl
 DISTVERSIONPREFIX=	v
-DISTVERSION=	4.30c
+DISTVERSION=	4.32c
 CATEGORIES=	security
 PKGNAMESUFFIX=	++-${FLAVOR}
 
-MAINTAINER=	salvadore@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Fast instrumented fuzzer
 WWW=		https://aflplus.plus/
 
@@ -19,6 +19,7 @@ BUILD_DEPENDS=	ginstall:sysutils/coreutils
 FLAVORS=	llvm # gcc
 FLAVOR?=	${FLAVORS:[1]}
 
+<<<<<<< HEAD
 _LLVM_VER=		16
 llvm_BUILD_DEPENDS=	clang${_LLVM_VER}:devel/llvm${_LLVM_VER}
 llvm_RUN_DEPENDS=	clang${_LLVM_VER}:devel/llvm${_LLVM_VER}
@@ -26,7 +27,13 @@ llvm_RUN_DEPENDS=	clang${_LLVM_VER}:devel/llvm${_LLVM_VER}
 USE_HARDENING=	pie:off retpoline:off
 NO_UNUSED_ARGUMENTS_CHECK=  yes
 
+=======
+>>>>>>> internal/freebsd/main
 USES=		gmake shebangfix tar:tgz
+.if ${FLAVOR} == llvm
+USES+=		llvm:build,run
+.endif
+
 .if ${FLAVOR} == gcc
 USE_GCC=	yes
 .endif
@@ -40,9 +47,9 @@ MAKE_ARGS=	${${ARCH} != amd64 && ${ARCH} != i386:?AFL_NO_X86=1:} \
 		PREFIX="${PREFIX}/${PKGBASE}"
 .if ${FLAVOR} == llvm
 CFLAGS_riscv64=	-mno-relax
-MAKE_ARGS+=	CC=clang${_LLVM_VER} \
-		CXX=clang++${_LLVM_VER} \
-		LLVM_CONFIG=llvm-config${_LLVM_VER}
+MAKE_ARGS+=	CC=clang${LLVM_VERSION} \
+		CXX=clang++${LLVM_VERSION} \
+		LLVM_CONFIG=llvm-config${LLVM_VERSION}
 .endif
 ALL_TARGET=	distrib
 QA_ENV=		IGNORE_QA_stripped=1 # unstripped to keep it functional
