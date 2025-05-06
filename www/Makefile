@@ -152,7 +152,6 @@
     SUBDIR += domoticz
     SUBDIR += domoticz-devel
     SUBDIR += dooble
-    SUBDIR += dot-http
     SUBDIR += dothttp
     SUBDIR += dpp
     SUBDIR += drill
