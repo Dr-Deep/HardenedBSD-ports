@@ -19,16 +19,9 @@ BUILD_DEPENDS=	ginstall:sysutils/coreutils
 FLAVORS=	llvm # gcc
 FLAVOR?=	${FLAVORS:[1]}
 
-<<<<<<< HEAD
-_LLVM_VER=		16
-llvm_BUILD_DEPENDS=	clang${_LLVM_VER}:devel/llvm${_LLVM_VER}
-llvm_RUN_DEPENDS=	clang${_LLVM_VER}:devel/llvm${_LLVM_VER}
-
 USE_HARDENING=	pie:off retpoline:off
 NO_UNUSED_ARGUMENTS_CHECK=  yes
 
-=======
->>>>>>> internal/freebsd/main
 USES=		gmake shebangfix tar:tgz
 .if ${FLAVOR} == llvm
 USES+=		llvm:build,run
