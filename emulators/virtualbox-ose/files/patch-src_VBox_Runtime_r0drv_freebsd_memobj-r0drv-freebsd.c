@@ -315,7 +315,7 @@
      /*
       * Check for unsupported stuff.
       */
-@@ -775,47 +833,53 @@ DECLHIDDEN(int) rtR0MemObjNativeMapUser(PPRTR0MEMOBJIN
+@@ -775,47 +833,55 @@ DECLHIDDEN(int) rtR0MemObjNativeMapUser(PPRTR0MEMOBJIN
                       0);                    /* copy-on-write and similar flags */
  
      if (rc == KERN_SUCCESS)
@@ -366,6 +366,8 @@
      vm_offset_t        AddrStart       = (uintptr_t)pMem->pv + offSub;
      vm_offset_t        AddrEnd         = AddrStart + cbSub;
      vm_map_t           pVmMap          = rtR0MemObjFreeBSDGetMap(pMem);
++    PRTR0MEMOBJFREEBSD pMemFreeBSD     = (PRTR0MEMOBJFREEBSD)pMem;
++    struct proc        *pProc          = (struct proc *)pMemFreeBSD->Core.u.Mapping.R0Process;
  
      if (!pVmMap)
 +    {
@@ -375,14 +377,17 @@
  
      if ((fProt & RTMEM_PROT_NONE) == RTMEM_PROT_NONE)
          ProtectionFlags = VM_PROT_NONE;
-@@ -826,7 +890,12 @@ DECLHIDDEN(int) rtR0MemObjNativeProtect(PRTR0MEMOBJINT
+@@ -826,7 +892,14 @@ DECLHIDDEN(int) rtR0MemObjNativeProtect(PRTR0MEMOBJINT
      if ((fProt & RTMEM_PROT_EXEC) == RTMEM_PROT_EXEC)
          ProtectionFlags |= VM_PROT_EXECUTE;
  
-+#if __FreeBSD_version >= 1300135
-+    int krc = vm_map_protect(pVmMap, AddrStart, AddrEnd, ProtectionFlags, 0, VM_MAP_PROTECT_SET_PROT);
+-    int krc = vm_map_protect(pVmMap, AddrStart, AddrEnd, ProtectionFlags, FALSE);
++#if __FreeBSD_version >= 1400001
++    int krc = vm_map_protect(pProc, pVmMap, AddrStart, AddrEnd, ProtectionFlags, 0, FALSE);
++#elif __FreeBSD_version >= 1300135
++    int krc = vm_map_protect(pProc, pVmMap, AddrStart, AddrEnd, ProtectionFlags, 0, VM_MAP_PROTECT_SET_PROT);
 +#else
-     int krc = vm_map_protect(pVmMap, AddrStart, AddrEnd, ProtectionFlags, FALSE);
++    int krc = vm_map_protect(pProc, pVmMap, AddrStart, AddrEnd, ProtectionFlags, FALSE);
 +#endif
 +    IPRT_FREEBSD_RESTORE_EFL_AC();
      if (krc == KERN_SUCCESS)
