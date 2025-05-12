@@ -10,14 +10,10 @@ WWW=		https://www.smartmontools.org
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		compiler:c++11-lib cpe shebangfix
-=======
 USES=		compiler:c++11-lib cpe
 
->>>>>>> internal/freebsd/main
 USE_RC_SUBR=	smartd
 
 GNU_CONFIGURE=	yes
