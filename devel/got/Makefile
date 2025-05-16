@@ -13,6 +13,8 @@ LICENSE_FILE=	${WRKSRC}/LICENCE
 
 USES=		localbase pkgconfig ssl
 
+USE_HARDENING=	fortifysource:off
+
 CONFLICTS_INSTALL=	p5-App-GitGot
 
 GNU_CONFIGURE=	Yes
