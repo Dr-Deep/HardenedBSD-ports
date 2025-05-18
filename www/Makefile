@@ -490,6 +490,7 @@
     SUBDIR += node20
     SUBDIR += node22
     SUBDIR += node23
+    SUBDIR += node24
     SUBDIR += nostromo
     SUBDIR += novnc
     SUBDIR += novnc-websockify
@@ -499,6 +500,7 @@
     SUBDIR += npm-node20
     SUBDIR += npm-node22
     SUBDIR += npm-node23
+    SUBDIR += npm-node24
     SUBDIR += nyxt
     SUBDIR += oauth2-proxy
     SUBDIR += obhttpd
@@ -2656,6 +2658,7 @@
     SUBDIR += yarn-node20
     SUBDIR += yarn-node22
     SUBDIR += yarn-node23
+    SUBDIR += yarn-node24
     SUBDIR += yarr
     SUBDIR += yaws
     SUBDIR += you-get
