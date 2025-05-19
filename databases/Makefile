@@ -891,6 +891,7 @@
     SUBDIR += ruby-xapian
     SUBDIR += rubygem-active_model_serializers
     SUBDIR += rubygem-active_record_query_trace
+    SUBDIR += rubygem-activemodel-gitlab
     SUBDIR += rubygem-activemodel-serializers-xml
     SUBDIR += rubygem-activemodel4
     SUBDIR += rubygem-activemodel5
@@ -903,6 +904,7 @@
     SUBDIR += rubygem-activemodel72
     SUBDIR += rubygem-activemodel80
     SUBDIR += rubygem-activerecord-explain-analyze
+    SUBDIR += rubygem-activerecord-gitlab
     SUBDIR += rubygem-activerecord-import
     SUBDIR += rubygem-activerecord-jdbc-adapter
     SUBDIR += rubygem-activerecord-jdbcmysql-adapter
@@ -964,9 +966,11 @@
     SUBDIR += rubygem-fabrication
     SUBDIR += rubygem-familia
     SUBDIR += rubygem-flipper-active_record
+    SUBDIR += rubygem-flipper-active_record-rails-gitlab
     SUBDIR += rubygem-flipper-active_record-rails70
     SUBDIR += rubygem-gdbm
     SUBDIR += rubygem-globalid
+    SUBDIR += rubygem-globalid-rails-gitlab
     SUBDIR += rubygem-globalid-rails5
     SUBDIR += rubygem-globalid-rails50
     SUBDIR += rubygem-globalid-rails52
@@ -1012,6 +1016,7 @@
     SUBDIR += rubygem-red-parquet
     SUBDIR += rubygem-redis
     SUBDIR += rubygem-redis-actionpack
+    SUBDIR += rubygem-redis-actionpack-rails-gitlab
     SUBDIR += rubygem-redis-actionpack-rails5
     SUBDIR += rubygem-redis-actionpack-rails50
     SUBDIR += rubygem-redis-actionpack-rails52
