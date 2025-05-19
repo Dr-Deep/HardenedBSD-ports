@@ -13,16 +13,10 @@ USES=		autoreconf gmake pkgconfig python:test
 USE_GITHUB=	yes
 GH_PROJECT=	ctags
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-GNU_CONFIGURE=			yes
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
-CONFIGURE_ARGS=			--program-prefix=u
-=======
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--program-prefix=u
->>>>>>> internal/freebsd/main
 
 TEST_TARGET=	check
 
