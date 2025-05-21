@@ -1,0 +1,11 @@
+--- deps/fast_float/Makefile.orig	2025-05-21 22:48:51 UTC
++++ deps/fast_float/Makefile
+@@ -2,7 +2,7 @@ CXX ?= g++
+ CC ?= gcc
+ CXX ?= g++
+ 
+-CFLAGS=-Wall -O3
++CFLAGS=-Wall -O3 -fPIC -fPIE
+ # This avoids loosing the fastfloat specific compile flags when we override the CFLAGS via the main project
+ FASTFLOAT_CFLAGS=-std=c++11 -DFASTFLOAT_ALLOWS_LEADING_PLUS
+ LDFLAGS=
