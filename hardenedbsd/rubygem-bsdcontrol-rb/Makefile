@@ -1,5 +1,5 @@
 PORTNAME=       bsdcontrol-rb
-PORTVERSION=    0.2.1
+PORTVERSION=    0.3.0
 CATEGORIES=     hardenedbsd rubygems
 MASTER_SITES=   RG
 DISTNAME=	bsdcontrol.rb-${PORTVERSION}
