@@ -14,6 +14,8 @@ LICENSE_COMB=	multi
 
 USES=		autoreconf:build gmake makeinfo tar:xz
 
+USE_HARDENING=	fortifysource:off
+
 CONFLICTS_INSTALL=	kBuild-devel
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
