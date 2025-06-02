@@ -1299,7 +1299,6 @@
     SUBDIR += py-CommonMark
     SUBDIR += py-Morfessor
     SUBDIR += py-QDarkStyle
-    SUBDIR += py-RTFDE
     SUBDIR += py-TatSu
     SUBDIR += py-Tempita
     SUBDIR += py-accessible-pygments
@@ -1369,7 +1368,6 @@
     SUBDIR += py-epy-reader
     SUBDIR += py-et_xmlfile
     SUBDIR += py-evtx2splunk
-    SUBDIR += py-extract-msg
     SUBDIR += py-fastavro
     SUBDIR += py-fasttext-predict
     SUBDIR += py-faust-cchardet
@@ -1652,7 +1650,6 @@
     SUBDIR += py-text2digits
     SUBDIR += py-textdistance
     SUBDIR += py-textfsm
-    SUBDIR += py-textract
     SUBDIR += py-texttable
     SUBDIR += py-textual
     SUBDIR += py-textual-autocomplete

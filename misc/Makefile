@@ -283,7 +283,6 @@
     SUBDIR += mnn
     SUBDIR += molequeue
     SUBDIR += mtx
-    SUBDIR += mxnet
     SUBDIR += najitool
     SUBDIR += navi
     SUBDIR += ncnn
@@ -444,8 +443,6 @@
     SUBDIR += py-fleep
     SUBDIR += py-fuzzy
     SUBDIR += py-gguf
-    SUBDIR += py-gluoncv
-    SUBDIR += py-gluonnlp
     SUBDIR += py-gpiozero
     SUBDIR += py-halo
     SUBDIR += py-hf-xet
@@ -475,7 +472,6 @@
     SUBDIR += py-mmengine
     SUBDIR += py-mmsegmentation
     SUBDIR += py-molequeue
-    SUBDIR += py-mxnet
     SUBDIR += py-natten
     SUBDIR += py-npTDMS
     SUBDIR += py-numcodecs

@@ -4455,3 +4455,27 @@ www/py-dj50-django-htmx|www/py-dj51-django-htmx|2025-06-01|Has expired: Extended
 www/py-django50|www/py-django51|2025-06-01|Has expired: Extended support of Django 5.0 ends April 2024, upgrade to a newer version of Django. See https://www.djangoproject.com/download/
 devel/linux-c7-libgfortran|devel/linux-c7-devtools|2025-06-02|Merged into devel/linux-c7-devtools
 devel/linux-rl9-libgfortran|devel/linux-rl9-devtools|2025-06-02|Merged into devel/linux-rl9-devtools
+textproc/py-textract||2025-06-02|Has expired: Depends on expiring textproc/py-extract-msg
+databases/py-fastapi-users-db-ormar||2025-06-02|Has expired: Depends on expiring www/py-fastapi-users
+www/py-fastapi-users||2025-06-02|Has expired: Depends on expired devel/py-makefun
+multimedia/ffsubsync||2025-06-02|Has expired: Depends on expired multimedia/py-ffmpeg-python
+biology/checkm||2025-06-02|Has expired: Depends on expired science/py-DendroPy
+net/pichi||2025-06-02|Has expired: Depends on expired security/mbedtls2
+science/dvc||2025-06-02|Has expired: Depends on expired math/py-grandalf
+textproc/py-extract-msg||2025-06-02|Has expired: Depends on expiring textproc/py-RTFDE
+devel/py-pcodedmp||2025-06-02|Has expired: Depends on expired devel/py-oletools
+deskutils/gcalcli||2025-06-02|Has expired: Depends on expired security/py-oauth2client
+textproc/py-RTFDE||2025-06-02|Has expired: Depends on expired devel/py-oletools
+sysutils/py-upt-cpan||2025-06-02|Has expired: Depends on expired sysutils/py-upt
+sysutils/py-upt-freebsd||2025-06-02|Has expired: Depends on expired sysutils/py-upt
+sysutils/py-upt-rubygems||2025-06-02|Has expired: Depends on expired sysutils/py-upt
+sysutils/py-upt-pypi||2025-06-02|Has expired: Depends on expired sysutils/py-upt
+devel/py-pytest-cases||2025-06-02|Has expired: Depends on expired devel/py-makefun
+devel/py-decopatch||2025-06-02|Has expired: Depends on expired devel/py-makefun
+graphics/rubygem-ezprint||2025-06-02|Has expired: Depends on expired graphics/rubygem-pdfkit
+databases/datasette||2025-06-02|Has expired: Depends on expired devel/py-pytest-runner
+www/py-pydrive2||2025-06-02|Has expired: Depends on expired security/py-oauth2client
+misc/py-gluoncv||2025-06-02|Has expired: Depends on expiring misc/py-mxnet
+misc/py-gluonnlp||2025-06-02|Has expired: Depends on expiring misc/py-mxnet
+misc/py-mxnet||2025-06-02|Has expired: Depends on expired misc/mxnet
+misc/mxnet||2025-06-02|Has expired: Project has been retired by Apache, see https://attic.apache.org/projects/mxnet.html

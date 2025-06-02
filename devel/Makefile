@@ -4788,7 +4788,6 @@
     SUBDIR += py-debugpy
     SUBDIR += py-debugtools
     SUBDIR += py-decli
-    SUBDIR += py-decopatch
     SUBDIR += py-decorator
     SUBDIR += py-decoratortools
     SUBDIR += py-deepdiff
@@ -5412,7 +5411,6 @@
     SUBDIR += py-paver
     SUBDIR += py-pbr
     SUBDIR += py-pbs-installer
-    SUBDIR += py-pcodedmp
     SUBDIR += py-pcpp
     SUBDIR += py-pdm
     SUBDIR += py-pdm-autoexport
@@ -5662,7 +5660,6 @@
     SUBDIR += py-pytest-cache
     SUBDIR += py-pytest-canonical-data
     SUBDIR += py-pytest-capturelog
-    SUBDIR += py-pytest-cases
     SUBDIR += py-pytest-checkdocs
     SUBDIR += py-pytest-codspeed
     SUBDIR += py-pytest-console-scripts

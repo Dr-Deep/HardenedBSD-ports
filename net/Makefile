@@ -1009,7 +1009,6 @@
     SUBDIR += php84-soap
     SUBDIR += php84-sockets
     SUBDIR += phpldapadmin
-    SUBDIR += pichi
     SUBDIR += pimcommon
     SUBDIR += pimd
     SUBDIR += pimdd

@@ -45,7 +45,6 @@
     SUBDIR += credis
     SUBDIR += cutelyst-asql
     SUBDIR += dalmp
-    SUBDIR += datasette
     SUBDIR += db
     SUBDIR += db18
     SUBDIR += db5
@@ -754,7 +753,6 @@
     SUBDIR += py-duckdb
     SUBDIR += py-duckdb_engine
     SUBDIR += py-fakeredis
-    SUBDIR += py-fastapi-users-db-ormar
     SUBDIR += py-fastparquet
     SUBDIR += py-fdb
     SUBDIR += py-firebirdsql
