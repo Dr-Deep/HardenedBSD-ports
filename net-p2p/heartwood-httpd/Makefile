@@ -1,6 +1,5 @@
 PORTNAME=	heartwood-httpd
-DISTVERSION=	0.18.1
-PORTEPOCH=	1.0.0
+DISTVERSION=	0.18.2
 CATEGORIES=	net-p2p devel
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -19,7 +18,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	shawn.webb
 GL_PROJECT=	radicle-explorer
-GL_TAGNAME=	0d7a96e3b051e787c0c600f3f781de79b98c89c1
+GL_TAGNAME=	c0b913f3925bfedb11e6afb4c10570ddd30db882
 
 CARGO_CRATES=	addr2line-0.22.0 \
 		adler-1.0.2 \
