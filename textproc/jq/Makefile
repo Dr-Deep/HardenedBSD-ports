@@ -1,10 +1,5 @@
 PORTNAME=	jq
-<<<<<<< HEAD
-DISTVERSION=	1.7.1
-PORTREVISION=	2
-=======
 DISTVERSION=	1.8.0
->>>>>>> internal/freebsd/main
 CATEGORIES=	textproc
 MASTER_SITES=	https://github.com/jqlang/${PORTNAME}/releases/download/${PORTNAME}-${DISTVERSION}/
 
@@ -18,8 +13,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USES=		cpe gmake libtool pathfix
 CPE_VENDOR=	${PORTNAME}_project
 USE_LDCONFIG=	yes
-
-USE_HARDENING=	cfi safestack
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-maintainer-mode \
