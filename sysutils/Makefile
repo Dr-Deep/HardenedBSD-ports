@@ -554,6 +554,7 @@
     SUBDIR += jail_exporter
     SUBDIR += jailadmin
     SUBDIR += jaildaemon
+    SUBDIR += jailmanager
     SUBDIR += jailme
     SUBDIR += jailrc
     SUBDIR += jailutils
