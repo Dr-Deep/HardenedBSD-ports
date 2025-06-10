@@ -11,20 +11,13 @@ WWW=		https://gitlab.gnome.org/GNOME/gnome-shell
 LICENSE=	GPLv2+ LGPL21+
 LICENSE_COMB=	multi
 
-<<<<<<< HEAD
 MPROTECT_DISABLE+=	bin/gnome-shell
 PAGEEXEC_DISABLE+=	bin/gnome-shell
 
-BUILD_DEPENDS=	${LOCALBASE}/share/bash-completion/bash_completion.sh:shells/bash-completion \
-		a2x:textproc/asciidoc \
-		docbook-xsl>=0:textproc/docbook-xsl \
-		gnome-control-center:sysutils/gnome-control-center \
-=======
 PORTSCOUT=	limit:^47\.
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}docutils>0:textproc/py-docutils@${PY_FLAVOR} \
 		gsettings-desktop-schemas>0:devel/gsettings-desktop-schemas \
->>>>>>> internal/freebsd/main
 		sassc:textproc/sassc
 
 LIB_DEPENDS=	libdrm.so:graphics/libdrm \
