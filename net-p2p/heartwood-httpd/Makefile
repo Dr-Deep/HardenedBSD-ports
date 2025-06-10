@@ -1,5 +1,5 @@
 PORTNAME=	heartwood-httpd
-DISTVERSION=	0.18.2
+DISTVERSION=	0.19.1
 CATEGORIES=	net-p2p devel
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -18,7 +18,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	shawn.webb
 GL_PROJECT=	radicle-explorer
-GL_TAGNAME=	c0b913f3925bfedb11e6afb4c10570ddd30db882
+GL_TAGNAME=	f54222326a18fa5202ecdc57b1c326c8657f60e4
 
 CARGO_CRATES=	addr2line-0.22.0 \
 		adler-1.0.2 \
@@ -58,6 +58,7 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		bumpalo-3.16.0 \
 		byteorder-1.5.0 \
 		bytes-1.7.1 \
+		bytesize-2.0.1 \
 		cbc-0.1.2 \
 		cc-1.1.15 \
 		cfb-0.7.3 \
@@ -190,16 +191,16 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		proc-macro2-1.0.86 \
 		qcheck-1.0.0 \
 		quote-1.0.37 \
-		radicle-0.14.0 \
-		radicle-cob-0.13.0 \
-		radicle-crypto-0.11.0 \
+		radicle-0.15.0 \
+		radicle-cob-0.14.0 \
+		radicle-crypto-0.12.0 \
 		radicle-dag-0.10.0 \
 		radicle-git-ext-0.8.1 \
 		radicle-signals-0.10.0 \
 		radicle-ssh-0.9.0 \
 		radicle-std-ext-0.1.0 \
 		radicle-surf-0.22.1 \
-		radicle-term-0.11.0 \
+		radicle-term-0.12.0 \
 		rand-0.8.5 \
 		rand_chacha-0.3.1 \
 		rand_core-0.6.4 \
