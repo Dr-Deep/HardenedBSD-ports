@@ -682,6 +682,7 @@
     SUBDIR += yeahconsole
     SUBDIR += yelp
     SUBDIR += zenity
+    SUBDIR += zenity4
     SUBDIR += zutty
 
 .include <bsd.port.subdir.mk>
