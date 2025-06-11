@@ -1286,6 +1286,7 @@
     SUBDIR += secure_delete
     SUBDIR += sedutil
     SUBDIR += sequoia
+    SUBDIR += sequoia-chameleon-gnupg
     SUBDIR += sequoia-sq
     SUBDIR += setaudit
     SUBDIR += sha1collisiondetection
