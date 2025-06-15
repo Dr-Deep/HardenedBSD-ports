@@ -1,18 +1,17 @@
-PORTNAME=	pycharm-ce
-DISTVERSION=	2024.3.5
+PORTNAME=	pycharm
+DISTVERSION=	2025.1.2
 CATEGORIES=	devel java python
-MASTER_SITES=	https://download.jetbrains.com/python/ \
-		http://download.jetbrains.com/python/
-DISTNAME=	pycharm-community-${PORTVERSION}
+MASTER_SITES=	https://download.jetbrains.com/python/
+DIST_SUBDIR=	jetbrains
 
-MAINTAINER=	jonc@chen.org.nz
-COMMENT=	JetBrains PyCharm Community Edition IDE
+MAINTAINER=	rm@FreeBSD.org
+COMMENT=	JetBrains PyCharm IDE
 WWW=		https://www.jetbrains.com/pycharm/
 
-LICENSE=	APACHE20
-
-DEPRECATED=	Pycharm is now unified product. Please switch to devel/pycharm
-EXPIRATION_DATE=	2025-07-15
+LICENSE=	PyCharm-Professional
+LICENSE_NAME=	Subscription license agreement for business and organizations
+LICENSE_TEXT=	See: https://www.jetbrains.com/store/license.html
+LICENSE_PERMS=	no-dist-mirror no-dist-sell pkg-mirror no-pkg-sell auto-accept
 
 BUILD_DEPENDS=	jna>0:devel/jna
 RUN_DEPENDS=	intellij-fsnotifier>0:java/intellij-fsnotifier \
@@ -20,15 +19,21 @@ RUN_DEPENDS=	intellij-fsnotifier>0:java/intellij-fsnotifier \
 		jetbrains-restarter>=233.11799.241:devel/jetbrains-restarter \
 		jetbrains-sqlite>=232.8660.185:devel/jetbrains-sqlite
 
-USES=		desktop-file-utils java python:run shebangfix
-JAVA_VERSION=	17+
-SHEBANG_FILES=	plugins/python-ce/helpers/pycodestyle-2.10.0.py \
-		plugins/python-ce/helpers/pycodestyle.py \
+USES=		cpe desktop-file-utils java python:run shebangfix
+SHEBANG_FILES=	plugins/python-ce/helpers/pycodestyle.py \
+		plugins/python-ce/helpers/pycodestyle-2.10.0.py \
 		plugins/python-ce/helpers/py3only/docutils/utils/math/math2html.py \
 		plugins/python-ce/helpers/py3only/docutils/utils/smartquotes.py \
 		plugins/python-ce/helpers/py3only/docutils/writers/odf_odt/prepstyles.py \
-		plugins/python-ce/helpers/typeshed/scripts/sync_tensorflow_protobuf_stubs.sh \
-		plugins/python-ce/helpers/typeshed/scripts/sync_s2clientprotocol_protobuf_stubs.sh
+		plugins/python-ce/helpers/typeshed/scripts/generate_proto_stubs.sh \
+		plugins/python-ce/helpers/typeshed/scripts/sync_s2clientprotocol_protobuf_stubs.sh \
+		plugins/python-ce/helpers/typeshed/scripts/sync_tensorflow_protobuf_stubs.sh
+
+ONLY_FOR_ARCH=	amd64
+CPE_VENDOR=	jetbrains
+JAVA_VERSION=	17+
+
+DATADIR=	${PREFIX}/share/jetbrains/${PORTNAME}
 
 # Ignore:
 # - non-native binaries
@@ -36,9 +41,9 @@ SHEBANG_FILES=	plugins/python-ce/helpers/pycodestyle-2.10.0.py \
 # - bundled linux-only JRE
 EXTRACT_AFTER_ARGS=	--exclude ${DISTNAME}/bin/*fsnotifier* \
 			--exclude ${DISTNAME}/bin/*.so \
-			--exclude ${DISTNAME}/bin/pycharm \
 			--exclude ${DISTNAME}/bin/repair \
 			--exclude ${DISTNAME}/bin/restarter \
+			--exclude ${DISTNAME}/bin/pycharm \
 			--exclude ${DISTNAME}/lib/*.so \
 			--exclude ${DISTNAME}/plugins/*.so \
 			--exclude ${DISTNAME}/plugins/cwm-plugin/quiche-native \
@@ -51,9 +56,10 @@ NO_BUILD=	yes
 
 .include "${.CURDIR}/../../java/intellij/common.mk"
 
-SUB_FILES+=	${PORTNAME}.desktop pkg-message pycharm
+SUB_FILES+=	pkg-message pycharm ${PORTNAME}.desktop
 SUB_LIST+=	IDEA_HOME=${IDEA_HOME}
 
+# Remove non-native binaries
 post-extract:
 	@${FIND} ${WRKSRC}/lib ${WRKSRC}/plugins -type d -empty -delete
 # TODO: Remove and enable fsnotifier when devel/libinotify is fixed
@@ -74,11 +80,16 @@ do-install:
 	${INSTALL_LIB} ${WRKDIR}/jna/com/sun/jna/freebsd-x86-64/libjnidispatch.so ${STAGEDIR}${DATADIR}/lib/jna/amd64/
 # Use pty4j replacement provided by devel/jetbrains-pty4j
 	${MKDIR} ${STAGEDIR}${DATADIR}/lib/pty4j/freebsd/x86-64
-	${LN} -sf ../../../../../jetbrains/pty4j/amd64/libpty.so ${STAGEDIR}${DATADIR}/lib/pty4j/freebsd/x86-64/libpty.so
+	${LN} -sf ../../../../../pty4j/amd64/libpty.so ${STAGEDIR}${DATADIR}/lib/pty4j/freebsd/x86-64/libpty.so
 # Use restarter provided by devel/jetbrains-restarter
-	${LN} -sf ../../jetbrains/restarter/restarter ${STAGEDIR}${DATADIR}/bin/restarter
+	${LN} -sf ../../restarter/restarter ${STAGEDIR}${DATADIR}/bin/restarter
 # Use sqlite replacement provided by devel/jetbrains-sqlite
 	${MKDIR} ${STAGEDIR}${DATADIR}/lib/native/linux-x86_64
-	${LN} -sf ../../../../jetbrains/sqlite/amd64/libsqliteij.so ${STAGEDIR}${DATADIR}/lib/native/linux-x86_64/libsqliteij.so
+	${LN} -sf ../../../../sqlite/amd64/libsqliteij.so ${STAGEDIR}${DATADIR}/lib/native/linux-x86_64/libsqliteij.so
+# Fix "Typeahead timeout is exceeded" error
+	${ECHO} "action.aware.typeAhead=false" >> ${STAGEDIR}${DATADIR}/bin/idea.properties
+# Fix slow render
+	${ECHO} "-Dsun.java2d.xrender=false" >> ${STAGEDIR}${DATADIR}/bin/idea.vmoptions
+	${ECHO} "-Dsun.java2d.xrender=false" >> ${STAGEDIR}${DATADIR}/bin/idea64.vmoptions
 
 .include <bsd.port.mk>
