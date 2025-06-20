@@ -1033,6 +1033,7 @@
     SUBDIR += rubygem-ruby-mysql
     SUBDIR += rubygem-sdbm
     SUBDIR += rubygem-seed-fu
+    SUBDIR += rubygem-seed-fu-gitlab
     SUBDIR += rubygem-solid_cable
     SUBDIR += rubygem-solid_cable-rails72
     SUBDIR += rubygem-solid_cache
@@ -1043,7 +1044,9 @@
     SUBDIR += rubygem-sqlite3-ruby
     SUBDIR += rubygem-sqlite31
     SUBDIR += rubygem-state_machines-activemodel
+    SUBDIR += rubygem-state_machines-activemodel-gitlab
     SUBDIR += rubygem-state_machines-activerecord
+    SUBDIR += rubygem-state_machines-activerecord-gitlab
     SUBDIR += rubygem-state_machines-activerecord08
     SUBDIR += rubygem-tarantool
     SUBDIR += rubygem-trilogy
