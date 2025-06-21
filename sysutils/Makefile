@@ -720,6 +720,7 @@
     SUBDIR += mkfwimage
     SUBDIR += mkjail
     SUBDIR += mkntpwd
+    SUBDIR += mkr
     SUBDIR += mmc-utils
     SUBDIR += mmve
     SUBDIR += modman
