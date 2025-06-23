@@ -1454,6 +1454,7 @@
     SUBDIR += plasma6-plasma-browser-integration
     SUBDIR += pmwiki
     SUBDIR += pnews
+    SUBDIR += pocket-id
     SUBDIR += podcastamatic
     SUBDIR += pomerium
     SUBDIR += pound
@@ -2522,6 +2523,7 @@
     SUBDIR += tidy
     SUBDIR += tidy-html5
     SUBDIR += tikiwiki
+    SUBDIR += tinyauth
     SUBDIR += tinymce
     SUBDIR += tinyproxy
     SUBDIR += tivoka
