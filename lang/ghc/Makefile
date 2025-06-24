@@ -13,7 +13,7 @@ WWW=		https://www.haskell.org/ghc/
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-ONLY_FOR_ARCHS=		aarch64 amd64 i386
+ONLY_FOR_ARCHS=		aarch64 amd64
 
 USE_HARDENING=		pie:off
 CONFIGURE_ARGS+=	--enable-dtrace=0
@@ -114,15 +114,12 @@ BUILD_MK=		DYNAMIC_GHC_PROGRAMS=${ENABLE_DYNAMIC} \
 
 .include <bsd.port.pre.mk>
 
-.if ${GHC_VERSION:C/\..*//g} >= 9 && ${ARCH} != i386
-# hadrian build on i386 fails due to https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=269570
-# relocation R_386_TLS_LE cannot be used with -shared
+.if ${GHC_VERSION:C/\..*//g} >= 9
 USE_HADRIAN=		yes
 .endif
 
 .if ${GHC_VERSION:C/\..*//g} >= 9 && ${GHC_VERSION:C/[^\.]*\.//:C/\..*//g} >= 4
 BOOT_SCRIPT=	./boot.source
-IGNORE_i386=	requires Hadrian build which doesn't work on i386
 .else
 BOOT_SCRIPT=	./boot
 .endif
@@ -183,19 +180,9 @@ DISTFILES+=		ghc-${BOOT_GHC_VERSION}-boot-${ARCH}-freebsd${EXTRACT_SUFX}:boot
 DISTFILES+=		hadrian-${GHC_VERSION}-boot.tar.gz:boot
 .endif
 
-.if ${ARCH} == aarch64 || ${ARCH:Marmv*}
-# ghc-8.10.x on arm requires devel/llvm10
-# CONFIGURE_TARGET must to be the same as the llvm triple
+.if ${ARCH} == aarch64
 CONFIGURE_TARGET=	${ARCH}-unknown-freebsd${"${ARCH:Maarch64}" != "":?:-gnueabihf}
 CONFIGURE_ARGS+=	--host=${CONFIGURE_TARGET}
-BUILD_DEPENDS+=		llc${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
-RUN_DEPENDS+=		llc${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
-
-# When GHC being compiled and GHC used for bootstrapping support different
-# LLVM versions, we have to pull in both. Luckily, this is relatively rare.
-.  if ${BOOT_LLVM_VERSION} != ${LLVM_VERSION}
-BUILD_DEPENDS+=		llc${BOOT_LLVM_VERSION}:devel/llvm${BOOT_LLVM_VERSION}
-.  endif
 .endif
 
 post-patch:
