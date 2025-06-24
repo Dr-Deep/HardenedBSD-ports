@@ -268,7 +268,6 @@
     SUBDIR += daemonize
     SUBDIR += daemontools
     SUBDIR += daemontools-encore
-    SUBDIR += daggy
     SUBDIR += damager
     SUBDIR += dar
     SUBDIR += data-prepper
