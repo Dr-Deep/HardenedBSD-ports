@@ -1009,6 +1009,7 @@
     SUBDIR += twind
     SUBDIR += tycho
     SUBDIR += typespeed
+    SUBDIR += typtea
     SUBDIR += tyrian-data
     SUBDIR += ufoai
     SUBDIR += ufoai-data
