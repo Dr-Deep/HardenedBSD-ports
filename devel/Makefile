@@ -4818,6 +4818,7 @@
     SUBDIR += py-django-rq
     SUBDIR += py-dm-tree
     SUBDIR += py-docformatter
+    SUBDIR += py-dockerfile-parse
     SUBDIR += py-dockerpty
     SUBDIR += py-docopt
     SUBDIR += py-doctest-ignore-unicode
@@ -5719,6 +5720,7 @@
     SUBDIR += py-pytest-recording
     SUBDIR += py-pytest-regressions
     SUBDIR += py-pytest-regtest
+    SUBDIR += py-pytest-relaxed
     SUBDIR += py-pytest-remotedata
     SUBDIR += py-pytest-repeat
     SUBDIR += py-pytest-rerunfailures
