@@ -12,31 +12,18 @@ WWW=		https://bogofilter.sourceforge.io/
 
 LICENSE=	GPLv2
 
-<<<<<<< HEAD
-BUILD_DEPENDS=	aclocal-1.16:devel/automake \
-		pkg-config:devel/pkgconf
-
-CONFLICTS_INSTALL=	bogofilter-bdb bogofilter-kc bogofilter-sqlite
-=======
 OPTIONS_DEFINE=		GSL UNICODE DOCS
 OPTIONS_DEFAULT=	GSL UNICODE
 GSL_DESC=		Link with system-wide GSL dynamically (recommended)
 UNICODE_DESC=		Normalize tokens to Unicode (UTF-8) (recommended)
->>>>>>> internal/freebsd/main
 
 CONFLICTS_INSTALL?=	bogofilter-bdb bogofilter-kc bogofilter-lmdb bogofilter-sqlite  # bogofilter-bdb and -lmdb are historic, but let's keep them for a while
 
-<<<<<<< HEAD
-EXTRA_PATCHES=	${.CURDIR}/files/
-
-MASTERDIR=	${.CURDIR}/../bogofilter-bdb
-=======
 USES+=		cpe perl5 shebangfix tar:xz
 SHEBANG_FILES=	contrib/randomtrain.sh contrib/scramble.sh \
 		src/tests/unsort.pl contrib/*.pl
 USE_PERL5=	run
 GNU_CONFIGURE=	yes
->>>>>>> internal/freebsd/main
 
 CPE_VENDOR=	bogofilter_project
 
