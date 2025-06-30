@@ -7,18 +7,13 @@ MAINTAINER=	jessekempf@gmail.com
 COMMENT=	Minimal perfect hashes for C
 WWW=		https://cmph.sourceforge.net/
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
-=======
 LICENSE=	LGPL21 MPL11
 LICENSE_COMB=	dual
 LICENSE_FILE_LGPL21=	${WRKSRC}/LGPL-2
 LICENSE_FILE_MPL11=	${WRKSRC}/MPL-1.1
 
->>>>>>> internal/freebsd/main
 USES=		libtool pathfix
 USE_LDCONFIG=	yes
 
