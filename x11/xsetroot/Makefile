@@ -12,13 +12,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USES=		tar:xz xorg xorg-cat:app
 USE_XORG=	x11 xbitmaps xcursor xmuu xorgproto
 
-<<<<<<< HEAD
 USE_HARDENING=	cfi safestack
 
-USES=		xorg xorg-cat:app
-USE_XORG=	xmuu x11 xbitmaps xcursor
-=======
->>>>>>> internal/freebsd/main
 PLIST_FILES=	bin/xsetroot share/man/man1/xsetroot.1.gz
 
 .include <bsd.port.mk>

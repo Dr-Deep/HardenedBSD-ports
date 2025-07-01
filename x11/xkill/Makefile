@@ -6,18 +6,13 @@ MAINTAINER=	x11@FreeBSD.org
 COMMENT=	Utility for killing a client by its X resource
 WWW=		https://gitlab.freedesktop.org/xorg/app/xkill
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		xorg xorg-cat:app
-USE_XORG=	x11 xmuu
-=======
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		tar:xz xorg xorg-cat:app
 USE_XORG=	x11 xmuu xorgproto
->>>>>>> internal/freebsd/main
 
 PLIST_FILES=	bin/xkill share/man/man1/xkill.1.gz
 

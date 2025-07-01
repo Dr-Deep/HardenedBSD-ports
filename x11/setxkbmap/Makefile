@@ -9,15 +9,10 @@ WWW=		https://gitlab.freedesktop.org/xorg/app/setxkbmap
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		xorg xorg-cat:app
-USE_XORG=	xkbfile x11
-=======
 USES=		tar:xz xorg xorg-cat:app
 USE_XORG=	x11 xkbfile xorgproto xrandr
->>>>>>> internal/freebsd/main
 
 CONFIGURE_ARGS=	--with-xkb-config-root=${LOCALBASE}/share/X11/xkb
 
