@@ -1613,6 +1613,7 @@
     SUBDIR += traff
     SUBDIR += trafshow
     SUBDIR += trafshow3
+    SUBDIR += trantor
     SUBDIR += trickle
     SUBDIR += trippy
     SUBDIR += ts-warp

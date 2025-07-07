@@ -155,6 +155,7 @@
     SUBDIR += dothttp
     SUBDIR += dpp
     SUBDIR += drill
+    SUBDIR += drogon
     SUBDIR += drupal10
     SUBDIR += drupal11
     SUBDIR += drupal7
