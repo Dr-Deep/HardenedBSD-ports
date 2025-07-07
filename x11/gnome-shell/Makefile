@@ -11,14 +11,9 @@ WWW=		https://gitlab.gnome.org/GNOME/gnome-shell
 LICENSE=	GPLv2+ LGPL21+
 LICENSE_COMB=	multi
 
-<<<<<<< HEAD
 MPROTECT_DISABLE+=	bin/gnome-shell
 PAGEEXEC_DISABLE+=	bin/gnome-shell
 
-PORTSCOUT=	limit:^47\.
-
-=======
->>>>>>> internal/freebsd/main
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}docutils>0:textproc/py-docutils@${PY_FLAVOR} \
 		gsettings-desktop-schemas>0:devel/gsettings-desktop-schemas \
 		sassc:textproc/sassc
