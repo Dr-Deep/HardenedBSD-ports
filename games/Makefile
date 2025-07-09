@@ -1168,6 +1168,7 @@
     SUBDIR += xtron
     SUBDIR += xtruco
     SUBDIR += xtux
+    SUBDIR += xtxf
     SUBDIR += xvier
     SUBDIR += xworm
     SUBDIR += xye
