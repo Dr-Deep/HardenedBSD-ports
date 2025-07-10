@@ -40,6 +40,7 @@ CONFIGURE_ARGS+=--verbose \
 		--without-capi \
 		--without-coreaudio \
 		--without-dbus \
+		--without-ffmpeg \
 		--without-gettext --without-gettextpo \
 		--without-gphoto \
 		--without-gssapi \
