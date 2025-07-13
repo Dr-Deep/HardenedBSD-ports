@@ -880,6 +880,7 @@
     SUBDIR += putty-nogtk
     SUBDIR += pvk
     SUBDIR += pwauth
+    SUBDIR += pwdsafety
     SUBDIR += pwman
     SUBDIR += pwned-check
     SUBDIR += py-SecretStorage
