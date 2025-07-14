@@ -22,13 +22,7 @@ LIB_DEPENDS=	libbrotlidec.so:archivers/brotli \
 		libjbig2dec.so:graphics/jbig2dec \
 		libopenjp2.so:graphics/openjpeg
 
-<<<<<<< HEAD
-USE_HARDENING=	safestack
-
-USES=		compiler:c++11-lang cpe gl gmake jpeg pkgconfig xorg
-=======
 USES=		compiler:c++20-lang cpe gl gmake jpeg pkgconfig ssl xorg
->>>>>>> internal/freebsd/main
 CPE_VENDOR=	artifex
 USE_GL=		gl glut
 USE_LDCONFIG=	yes
@@ -47,14 +41,12 @@ MAKE_ARGS=	AR=${LOCALBASE}/bin/ar \
 		XLIB_LDFLAGS="-Wl,-soname,libmupdf.so.${_VERSION_MAJOR}" \
 		XLIBS="-L${LOCALBASE}/lib -L${WRKSRC}/build/release ${LDFLAGS}"
 ALL_TARGET=	all extra-libs
-<<<<<<< HEAD
 
 # pkg-config to avoid the conflict with openjpeg15
 CFLAGS+=	`pkg-config --cflags libopenjp2` -fPIC
 LDFLAGS+=	`pkg-config --libs libjpeg libopenjp2` -ljbig2dec
-=======
+
 INSTALL_TARGET=	install install-extra-apps
->>>>>>> internal/freebsd/main
 
 BINARY_ALIAS=	bash=/bin/sh
 
