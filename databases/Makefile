@@ -749,6 +749,7 @@
     SUBDIR += py-Pyrseas
     SUBDIR += py-aesqlapius
     SUBDIR += py-agate-sql
+    SUBDIR += py-aiodataloader
     SUBDIR += py-aiomcache
     SUBDIR += py-aiomysql
     SUBDIR += py-aiopg
