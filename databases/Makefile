@@ -144,6 +144,7 @@
     SUBDIR += libpbl
     SUBDIR += libpg_query
     SUBDIR += libsdb
+    SUBDIR += libvalkey
     SUBDIR += libzdb
     SUBDIR += linux-c7-sqlite3
     SUBDIR += linux-c7-unixODBC
@@ -869,6 +870,7 @@
     SUBDIR += py-tiledb
     SUBDIR += py-txredisapi
     SUBDIR += py-unqlite
+    SUBDIR += py-valkey
     SUBDIR += py-varstack
     SUBDIR += py-whisper
     SUBDIR += py-xapian
