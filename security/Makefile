@@ -941,6 +941,7 @@
     SUBDIR += py-dfdatetime
     SUBDIR += py-dfwinreg
     SUBDIR += py-dirhash
+    SUBDIR += py-distro2sbom
     SUBDIR += py-django-auth-kerberos
     SUBDIR += py-docker-pycreds
     SUBDIR += py-ecdsa
@@ -983,6 +984,7 @@
     SUBDIR += py-keyring
     SUBDIR += py-keyrings.alt
     SUBDIR += py-krb5
+    SUBDIR += py-lib4sbom
     SUBDIR += py-libnacl
     SUBDIR += py-liboqs-python
     SUBDIR += py-m2crypto
