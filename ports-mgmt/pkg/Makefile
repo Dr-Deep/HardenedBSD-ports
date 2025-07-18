@@ -22,12 +22,8 @@ PORTSCOUT=	ignore:1
 CONFIGURE_ARGS=	--prefix="${PREFIX}"
 CONFIGURE_ENV=	CC_FOR_BUILD="${CC}"
 
-<<<<<<< HEAD
-USE_HARDENING=	pie:off
-LTO_UNSAFE=	yes
-=======
 USE_HARDENING=	pie:off zeroreg
->>>>>>> origin/hardenedbsd/main
+LTO_UNSAFE=	yes
 
 # Use a submake as 'deinstall install' needs to reevaluate PKG_REGISTER
 # so that pkg-static is used from the wrkdir
