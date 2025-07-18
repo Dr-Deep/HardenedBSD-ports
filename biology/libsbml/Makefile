@@ -1,5 +1,6 @@
 PORTNAME=	libsbml
-PORTVERSION=	5.20.4
+PORTVERSION=	5.20.5
+PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	biology devel
 
@@ -73,7 +74,6 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|g' ${WRKSRC}/CMakeLists.txt
 
 post-install-EXAMPLES-on:
-	${MV} ${STAGEDIR}${DATADIR}/examples ${STAGEDIR}${EXAMPLESDIR}
-	${RMDIR} ${STAGEDIR}${DATADIR}
+	${MV} ${STAGEDIR}${DATADIR}examples ${STAGEDIR}${EXAMPLESDIR}
 
 .include <bsd.port.mk>

@@ -36,8 +36,8 @@ LLVM_COMMANDS=	\
 		llvm-lipo \
 		llvm-mc \
 		llvm-ml \
+		llvm-ml64 \
 		llvm-modextract \
-		llvm-mt \
 		llvm-nm \
 		llvm-objcopy \
 		llvm-objdump \
@@ -90,6 +90,7 @@ CLANG_COMMANDS=	\
 		hmaptool \
 		intercept-build \
 		nvptx-arch \
+		offload-arch \
 		scan-build \
 		scan-build-py \
 		scan-view
@@ -106,6 +107,7 @@ EXTRAS_COMMANDS= \
 		clang-nvlink-wrapper \
 		clang-query \
 		clang-reorder-fields \
+		clang-sycl-linker \
 		clang-tidy \
 		find-all-symbols \
 		modularize \
@@ -114,6 +116,7 @@ EXTRAS_COMMANDS= \
 FLANG_COMMANDS=	\
 		bbc \
 		f18-parse-demo \
+		fir-lsp-server \
 		fir-opt \
 		flang \
 		flang-new \
@@ -140,7 +143,6 @@ LLDB_COMMANDS=	\
 
 MLIR_COMMANDS=	\
 		mlir-cat \
-		mlir-cpu-runner \
 		mlir-lsp-server \
 		mlir-minimal-opt \
 		mlir-minimal-opt-canonicalize \
@@ -150,6 +152,7 @@ MLIR_COMMANDS=	\
 		mlir-query \
 		mlir-reduce \
 		mlir-rewrite \
+		mlir-runner \
 		mlir-tblgen \
 		mlir-transform-opt \
 		mlir-translate \

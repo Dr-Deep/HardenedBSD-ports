@@ -1,5 +1,5 @@
 PORTNAME=		openvpn
-DISTVERSION=		2.6.12
+DISTVERSION=		2.6.14
 PORTREVISION?=		0
 CATEGORIES=		security net net-vpn
 MASTER_SITES=		https://swupdate.openvpn.org/community/releases/ \
@@ -19,7 +19,7 @@ BUILD_DEPENDS+=		cmocka>=0:sysutils/cmocka \
 USES=			cpe libtool localbase:ldflags pkgconfig python:build shebangfix ssl
 USE_RC_SUBR=		openvpn
 
-USE_HARDENING=		cfi safestack
+USE_HARDENING=		cfi safestack zeroreg
 
 SHEBANG_FILES=		sample/sample-scripts/auth-pam.pl \
 			sample/sample-scripts/totpauth.py \
@@ -32,7 +32,7 @@ CONFIGURE_ARGS+=	--enable-strict --with-crypto-library=openssl
 # set PLUGIN_LIBDIR so that unqualified plugin paths are found:
 CONFIGURE_ENV+=		PLUGINDIR="${PREFIX}/lib/openvpn/plugins"
 
-CONFLICTS_INSTALL?=	openvpn-2* openvpn-devel openvpn-mbedtls
+CONFLICTS_INSTALL?=	openvpn-devel
 
 SUB_FILES=		pkg-message openvpn-client
 

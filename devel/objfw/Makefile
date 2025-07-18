@@ -1,5 +1,6 @@
 PORTNAME=	objfw
-DISTVERSION=	1.1.6
+DISTVERSION=	1.2.1
+PORTREVISION=	1
 CATEGORIES=	devel lang
 MASTER_SITES=	https://objfw.nil.im/downloads/
 
@@ -30,7 +31,7 @@ GNUTLS_USES=		pkgconfig
 GNUTLS_CONFIGURE_ON=	--with-tls=gnutls
 GNUTLS_PLIST_SUB=	TLS=""
 
-MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls
+MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls2
 MBEDTLS_CONFIGURE_ON=	--with-tls=mbedtls
 MBEDTLS_CPPFLAGS=	-I${PREFIX}/include
 MBEDTLS_LDFLAGS=	-L${PREFIX}/lib
@@ -56,7 +57,7 @@ post-install:
 .for i in objfw-new ofarc ofdns ofhash ofhttp
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${i}
 .endfor
-.for i in libobjfw.so.1 libobjfwrt.so.1
+.for i in libobjfw.so.1 libobjfwrt.so.1 libobjfwhid.so.1
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/${i}
 .endfor
 

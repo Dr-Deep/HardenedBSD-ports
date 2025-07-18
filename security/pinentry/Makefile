@@ -1,6 +1,6 @@
 PORTNAME=	pinentry
 PORTVERSION=	1.3.1
-PORTREVISION?=	0
+PORTREVISION?=	2
 CATEGORIES=	security
 MASTER_SITES=	GNUPG/pinentry
 
@@ -36,7 +36,7 @@ NCURSES_RUN_DEPENDS=	${PINENTRY_NCURSES}:security/pinentry-curses
 EFL_DESC=	EFL frontend
 PINENTRY_EFL=	pinentry-efl
 # Due to a dependency loop that exists between security/pinentry-efl,
-# devel/elf, graphics/poppler, security/gpgme-cpp, security/gpgme,
+# devel/elf, graphics/poppler, security/gpgmepp, security/gpgme,
 # security/gnupg and security/pinentry, the user must install
 # pinentry-efl manually. See pkg-message.dep-loop for more details.
 #EFL_RUN_DEPENDS=	${PINENTRY_EFL}:security/pinentry-efl
@@ -102,7 +102,7 @@ LIBSECRET_USE=		GNOME=glib20
 
 .if ${PINENTRY_GUI} == "gnome"
 OPTIONS_SLAVE=	LIBSECRET
-LIB_DEPENDS+=	libgcr-base-3.so:security/gcr
+LIB_DEPENDS+=	libgcr-base-3.so:security/gcr3
 PLIST_FILES=	bin/pinentry-gnome3
 .else
 CONFIGURE_ARGS+=--disable-pinentry-gnome3

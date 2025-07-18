@@ -1,3 +1,5 @@
-TIMESTAMP = 1723822896
-SHA256 (labwc-labwc-0.8.0_GH0.tar.gz) = 1bfe5791c6002c1355821046623fa64231afd42e4d2ec1f6a9af44ef3b24f780
-SIZE (labwc-labwc-0.8.0_GH0.tar.gz) = 412274
+TIMESTAMP = 1752267138
+SHA256 (labwc-labwc-0.9.0_GH0.tar.gz) = d06f89fb2bbd4be73e7bba9fb57017054d61868fe24db361d1ded87470329e63
+SIZE (labwc-labwc-0.9.0_GH0.tar.gz) = 508194
+SHA256 (libsfdo-v0.1.4.tar.bz2) = 155702f21c282693ead7818198fde194ab7c76e0cf1a21bc7b404e5f9ec2c369
+SIZE (libsfdo-v0.1.4.tar.bz2) = 43519

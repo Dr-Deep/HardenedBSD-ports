@@ -1,10 +1,11 @@
 PORTNAME=	gpaint
 DISTVERSIONPREFIX=	2-
 DISTVERSION=	0.3.4
+PORTREVISION=	1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNU_ALPHA
 
-MAINTAINER=	Clockwork6400@protonmail.com
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Small-scale painting program for GNOME
 WWW=		https://www.gnu.org/software/gpaint/
 

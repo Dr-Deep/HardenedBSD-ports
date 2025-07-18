@@ -1,7 +1,7 @@
---- ui/base/ui_base_features.h.orig	2024-08-27 06:28:16 UTC
+--- ui/base/ui_base_features.h.orig	2025-05-07 06:48:23 UTC
 +++ ui/base/ui_base_features.h
-@@ -138,7 +138,7 @@ COMPONENT_EXPORT(UI_BASE_FEATURES)
- BASE_DECLARE_FEATURE(kWaylandPerSurfaceScale);
+@@ -126,7 +126,7 @@ COMPONENT_EXPORT(UI_BASE_FEATURES)
+ BASE_DECLARE_FEATURE(kWaylandSessionManagement);
  #endif  // BUILDFLAG(IS_OZONE)
  
 -#if BUILDFLAG(IS_LINUX)

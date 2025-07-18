@@ -1,7 +1,7 @@
 PORTNAME=	minecraft-server
-DISTVERSION=	1.21.1
+DISTVERSION=	1.21.7
 CATEGORIES=	games java
-MASTER_SITES=	https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/
+MASTER_SITES=	https://piston-data.mojang.com/v1/objects/05e4b48fbc01f0385adb74bcff9751d34552486c/
 DISTNAME=	server
 EXTRACT_SUFX=	.jar
 DIST_SUBDIR=	${PORTNAME}-${DISTVERSION}
@@ -16,7 +16,7 @@ LICENSE_NAME=	Minecraft End User License Agreement
 LICENSE_TEXT=	The license can be viewed at: https://account.mojang.com/documents/minecraft_eula
 LICENSE_PERMS=	no-dist-mirror no-dist-sell no-pkg-mirror no-pkg-sell
 
-USE_JAVA=	yes
+USES=		java
 JAVA_VERSION=	21
 
 NO_ARCH=	yes

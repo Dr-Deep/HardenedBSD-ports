@@ -1,5 +1,5 @@
 #!/bin/sh
-SIGNAL_VERS=v7.27.0
+SIGNAL_VERS=v7.60.0
 
 fetch -qo /tmp/package.json https://raw.githubusercontent.com/signalapp/Signal-Desktop/${SIGNAL_VERS}/package.json
 node_version=$(awk /'"node":'/'{print $2}' /tmp/package.json | sed 's/"//g')
@@ -17,16 +17,9 @@ echo "LIBSIGNAL_VERSION= ${libsignalclient_version}"
 electron_version=$(grep '"electron":' /tmp/package.json | awk -F ":" '{print $2}' | sed -E 's#("|,| )##g')
 echo "ELECTRON_VERSION= ${electron_version}"
 
-bsqlite3_version=$(grep '@signalapp/better-sqlite3' /tmp/package.json | awk -F ":" '{print $2}' | sed -E 's#("|,| )##g')
+sqlcipher_version=$(grep '"@signalapp/sqlcipher":' /tmp/package.json | awk -F ":" '{print $2}' | sed -E 's#("|,| )##g')
+echo "SQLCIPHER_VERSION= ${sqlcipher_version}"
 
-fetch -qo /tmp/download.js https://raw.githubusercontent.com/signalapp/better-sqlite3/v${bsqlite3_version}/deps/download.js
-BASE_URI=https://build-artifacts.signal.org/desktop
-HASH=$(awk /"HASH ="/'{print $4}' /tmp/download.js | sed -e 's#;##g' -e "s#'##g")
-SQLCIPHER_VERSION=$(awk /"SQLCIPHER_VERSION ="/'{print $4}' /tmp/download.js | sed -e 's#;##g' -e "s#'##g")
-OPENSSL_VERSION=$(awk /"OPENSSL_VERSION ="/'{print $4}' /tmp/download.js | sed -e 's#;##g' -e "s#'##g")
-TOKENIZER_VERSION=$(awk /"TOKENIZER_VERSION ="/'{print $4}' /tmp/download.js | sed -e 's#;##g' -e "s#'##g")
-TAG="${SQLCIPHER_VERSION}--${OPENSSL_VERSION}--${TOKENIZER_VERSION}"
-echo "Signal-FTS5-Extension= ${TOKENIZER_VERSION}"
-echo "SQLCIPHER=sqlcipher-${TAG}-${HASH}" | portedit merge -i Makefile
-
-echo "fetch https://build-artifacts.signal.org/desktop/sqlcipher-${TAG}-${HASH}.tar.gz"
+fetch -qo /tmp/Cargo.toml https://raw.githubusercontent.com/signalapp/node-sqlcipher/refs/tags/v${sqlcipher_version}/deps/extension/Cargo.toml
+sqlcipher_ext_version=$(awk /version/'{print $3}' /tmp/Cargo.toml |head -n1 | sed 's#"##g')
+echo "devel/signal-sqlcipher-extension: ${sqlcipher_ext_version}"

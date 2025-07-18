@@ -1,16 +1,18 @@
 PORTNAME=	arbor
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.10.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	science
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Multi-compartment neural network simulation library
-WWW=		https://arbor-sim.org/
+WWW=		https://arbor-sim.org/ \
+		https://github.com/arbor-sim/arbor/
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+BROKEN_FreeBSD_15=	compilation fails with clang-19, see https://github.com/arbor-sim/arbor/issues/2424
 BROKEN_armv7=	compilation fails: unknown type name 'float64x2_t'
 
 BUILD_DEPENDS=	bash:shells/bash \

@@ -1,6 +1,6 @@
 PORTNAME=	scipy
 DISTVERSION=	1.11.1
-PORTREVISION=	1
+PORTREVISION=	4
 PORTEPOCH=	1
 CATEGORIES=	science python
 MASTER_SITES=	https://docs.scipy.org/doc/scipy-${DISTVERSION}/:doc \
@@ -44,6 +44,8 @@ FFLAGS+=	-std=legacy
 LDFLAGS+=	-shared
 PYDISTUTILS_BUILDARGS=	--fcompiler=gnu95
 PYDISTUTILS_CONFIGUREARGS=	--fcompiler=gnu95
+
+PIE_UNSAFE=	yes
 
 PORTDOCS=	*
 

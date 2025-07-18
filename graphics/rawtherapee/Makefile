@@ -1,8 +1,8 @@
 PORTNAME=	rawtherapee
-PORTVERSION=	5.11
-PORTREVISION=	1
+PORTVERSION=	5.12
+PORTREVISION=	0
 CATEGORIES=	graphics
-MASTER_SITES=	https://github.com/Beep6581/RawTherapee/releases/download/${PORTVERSION}/ \
+MASTER_SITES=	https://github.com/RawTherapee/RawTherapee/releases/download/${PORTVERSION}/ \
 		https://rawtherapee.com/shared/source/ \
 		LOCAL/mandree/
 
@@ -70,6 +70,8 @@ CONFIGURE_ENV+=	AR=${_AR} RANLIB=${_RANLIB} # for embedded RawTherapee
 CFLAGS+=	-I${LOCALBASE}/include -fPIC ${_OPT_FLAGS}
 LDFLAGS+=	-Wl,--as-needed -lpthread ${_OPT_FLAGS}
 
+PIE_UNSAFE=	yes
+
 .if defined(PACKAGE_BUILDING) && empty(CFLAGS:M-march*) && (${ARCH} == i386 || ${ARCH} == amd64 || ${ARCH} == aarch64)
 # this gets translated to -mtune=generic, see ${WRKSRC}/ProcessorTargets.cmake
 # and as of GCC 8.3, it appears that among FreeBSD's supported architectures,
@@ -111,7 +113,7 @@ OPENMP_LDFLAGS=		-lm -lomp
 # up to twice as fast as clang-16.0 compiled code.
 # So we shall stick to a modern GCC for now.
 #
-USE_GCC=	yes # default
+USE_GCC=	yes  # default
 
 .if (${OPSYS} == FreeBSD) && (${OSVERSION} >= 1500000)
 # don't waste everybody's time with Tier-2 and moving targets.

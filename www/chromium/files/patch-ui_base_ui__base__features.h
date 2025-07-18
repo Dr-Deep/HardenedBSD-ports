@@ -1,7 +1,7 @@
---- ui/base/ui_base_features.h.orig	2024-09-30 07:45:04 UTC
+--- ui/base/ui_base_features.h.orig	2025-07-02 06:08:04 UTC
 +++ ui/base/ui_base_features.h
-@@ -141,7 +141,7 @@ COMPONENT_EXPORT(UI_BASE_FEATURES)
- BASE_DECLARE_FEATURE(kWaylandTextInputV3);
+@@ -129,7 +129,7 @@ COMPONENT_EXPORT(UI_BASE_FEATURES)
+ BASE_DECLARE_FEATURE(kWaylandSessionManagement);
  #endif  // BUILDFLAG(IS_OZONE)
  
 -#if BUILDFLAG(IS_LINUX)

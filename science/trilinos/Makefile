@@ -1,6 +1,6 @@
 PORTNAME=	trilinos
 DISTVERSIONPREFIX=	trilinos-release-
-DISTVERSION=	16-0-0
+DISTVERSION=	16-1-0
 CATEGORIES=	science # physics
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -10,6 +10,7 @@ WWW=		https://trilinos.github.io/
 LICENSE=	BSD3CLAUSE LGPL20 # Trilinos is licensed on a per-package basis. Most packages are under a BSD license, some are published under the (L)GPL.
 LICENSE_COMB=	multi
 
+BROKEN_FreeBSD_15=	compilation fails with clang-19, see https://github.com/trilinos/Trilinos/issues/13570
 BROKEN_armv6=	kokkos assumes a 64-bit build; i.e., 8-byte pointers, but found 4-byte
 BROKEN_armv7=	kokkos assumes a 64-bit build; i.e., 8-byte pointers, but found 4-byte
 BROKEN_i386=	kokkos assumes a 64-bit build; i.e., 8-byte pointers, but found 4-byte
@@ -24,7 +25,7 @@ LIB_DEPENDS=	libamd.so:math/suitesparse-amd \
 		libumfpack.so:math/suitesparse-umfpack
 RUN_DEPENDS=	bash:shells/bash
 
-USES=		cmake compiler:c++17-lang fortran perl5 python shebangfix
+USES=		cmake:testing compiler:c++17-lang fortran perl5 python shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
@@ -36,6 +37,9 @@ SHEBANG_FILES=	packages/kokkos/bin/kokkos_launch_compiler \
 
 CXXFLAGS+=	-DBOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED # fails otherwise with backtrace-related symbol error explicitly printed by Boost
 LDFLAGS+=	-lexecinfo # only for kokkos (?), to prevent missing symbols
+
+CMAKE_OFF=		Trilinos_ENABLE_TESTS
+CMAKE_TESTING_ON=	Trilinos_ENABLE_TESTS # tests fail to compile, see https://github.com/trilinos/Trilinos/issues/13922
 
 CONFLICTS=	kokkos # installs bundled kokkos, need to figure out how to prevent this
 CONFLICTS_INSTALL=	googletest # see https://github.com/trilinos/Trilinos/issues/11271
@@ -84,7 +88,7 @@ CMAKE_ARGS+=	-DAMD_LIBRARY_DIRS=${LOCALBASE}/lib
 
 # users: https://duongdo27.github.io/Trilinos/users.html
 
-CONFLICTS_INSTALL=	googletest # installs files into the same place, problematic file: /usr/local/include/gtest/gtest.h, see https://github.com/trilinos/Trilinos/issues/11184
+CONFLICTS_INSTALL=	googletest # installs files into the same place, problematic file: /usr/local/include/gtest/gtest.h, see https://github.com/trilinos/Trilinos/issues/13929
 
 post-install:
 	# remove MPI headers that it installs

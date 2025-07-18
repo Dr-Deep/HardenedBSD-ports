@@ -1,11 +1,12 @@
 PORTNAME=	netbox-agent
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.2-77
+PORTREVISION=	1
 DISTVERSIONSUFFIX=-g6ae055c
 CATEGORIES=	net-mgmt python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	kiwi@oav.net
+MAINTAINER=	kiwi@FreeBSD.org
 COMMENT=	Agent for the Netbox network automation
 WWW=		https://github.com/KlaraSystems/netbox-agent
 

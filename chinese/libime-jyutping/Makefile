@@ -1,5 +1,5 @@
 PORTNAME=	libime-jyutping
-DISTVERSION=	1.0.12
+DISTVERSION=	1.0.13
 PORTREVISION=	1
 CATEGORIES=	chinese textproc
 MASTER_SITES=	https://download.fcitx-im.org/fcitx5/${PORTNAME}/ \

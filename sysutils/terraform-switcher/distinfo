@@ -1,5 +1,5 @@
-TIMESTAMP = 1725566417
-SHA256 (go/sysutils_terraform-switcher/terraform-switcher-v1.2.2/v1.2.2.mod) = 4f16c57eddee986d8be5437d8a97026e802da608e4b8874bb93073b7f48b7c4a
-SIZE (go/sysutils_terraform-switcher/terraform-switcher-v1.2.2/v1.2.2.mod) = 2595
-SHA256 (go/sysutils_terraform-switcher/terraform-switcher-v1.2.2/v1.2.2.zip) = d0e6b43a12c4a03a08beb454cc6ff758397b9131390844997931e47f37226caa
-SIZE (go/sysutils_terraform-switcher/terraform-switcher-v1.2.2/v1.2.2.zip) = 4883149
+TIMESTAMP = 1747441416
+SHA256 (go/sysutils_terraform-switcher/terraform-switcher-v1.4.5/v1.4.5.mod) = cab217815f250766b58140e2029f1e4e8646380a9f75fd87175c3df4910ee9dc
+SIZE (go/sysutils_terraform-switcher/terraform-switcher-v1.4.5/v1.4.5.mod) = 2337
+SHA256 (go/sysutils_terraform-switcher/terraform-switcher-v1.4.5/v1.4.5.zip) = 37404b4eccedf57430f4328a56f7eca1f1e7c5d6cbde243f6d9e95e167bdda17
+SIZE (go/sysutils_terraform-switcher/terraform-switcher-v1.4.5/v1.4.5.zip) = 4894620

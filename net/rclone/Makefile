@@ -1,6 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.68.1
+DISTVERSION=	1.70.2
+PORTREVISION=	1
 CATEGORIES=	net
 
 MAINTAINER=	tremere@cainites.net
@@ -10,7 +11,7 @@ WWW=		https://rclone.org/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libfuse.so:sysutils/fusefs-libs
+LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
 USES=		cpe go:modules

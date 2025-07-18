@@ -68,7 +68,7 @@ HBSDVERSION!=		${AWK} '/^\#define[[:blank:]]__HardenedBSD_version/ {print $$3}' 
 HBSDVERSION=		0
 .endif
 
-HARDENING_ALL=		cfi fortifysource pie relro retpoline safestack slh
+HARDENING_ALL=		cfi fortifysource pie relro retpoline safestack slh zeroreg
 HARDENING_OFF?=		# all features are on by default
 
 USE_HARDENING?=		# implicit auto-defaults may apply
@@ -82,6 +82,12 @@ _USE_HARDENING+=	lib
 .endif
 .if ${PORTNAME:M*kmod*}
 _USE_HARDENING+=	kmod
+.endif
+.endif
+
+.if defined(USES)
+.if ${USES:Mpython}
+_USE_HARDENING+=	python
 .endif
 .endif
 
@@ -381,6 +387,44 @@ OPTIONS_GROUP_HARDENING+=SLH
 OPTIONS_DEFAULT+=	SLH
 .if ${_USE_HARDENING:Mlock} != ""
 OPTIONS_GROUP_HARDENING+=SLH
+.endif
+.endif
+
+.endif
+.endif
+
+######################
+### Zero Registers ###
+######################
+
+.if ${HARDENING_OFF:Mzeroreg} == ""
+
+.if !defined(USE_GCC)
+zeroreg_ARGS?=	auto
+
+.if ${zeroreg_ARGS:Mauto}
+zeroreg_ARGS:=	off
+.endif
+
+.if ${_USE_HARDENING:Mkmod}
+zeroreg_ARGS:=	off
+.endif
+
+.if ${zeroreg_ARGS:Mauto}
+USE_HARDENING+=	zeroreg
+.endif
+
+ZEROREG_DESC=		Zero registers
+ZEROREG_USES=		zeroreg
+
+.if ${_USE_HARDENING:Mlock} == ""
+OPTIONS_GROUP_HARDENING+=ZEROREG
+.endif
+
+.if ${USE_HARDENING:Mzeroreg} && ${zeroreg_ARGS:Moff} == ""
+OPTIONS_DEFAULT+=	ZEROREG
+.if ${_USE_HARDENING:Mlock} != ""
+OPTIONS_GROUP_HARDENING+=ZEROREG
 .endif
 .endif
 

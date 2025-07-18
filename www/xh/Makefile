@@ -1,6 +1,6 @@
 PORTNAME=	xh
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.22.0
+DISTVERSION=	0.24.0
 PORTREVISION=	3
 CATEGORIES=	www
 
@@ -14,8 +14,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LIB_DEPENDS=	libonig.so:devel/oniguruma
 
 USES=		cargo ssl
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	ducaale
+
+CARGO_FEATURES=	--no-default-features native-tls
 
 PLIST_FILES=	bin/${PORTNAME}
 PORTDOCS=	CHANGELOG.md README.md

@@ -1,6 +1,6 @@
 PKGNAMESUFFIX=	-viewer
-CATEGORIES=	net
 PORTREVISION=	1
+CATEGORIES=	net
 
 COMMENT=	TigerVNC Viewer
 WWW=		https://tigervnc.org/

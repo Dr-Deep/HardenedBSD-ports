@@ -1,5 +1,5 @@
 PORTNAME=	rust-coreutils
-DISTVERSION=	0.0.27
+DISTVERSION=	0.1.0
 PORTREVISION=	2
 CATEGORIES=	sysutils
 
@@ -26,8 +26,6 @@ post-build:
 	@${REINPLACE_CMD} -e 's|%%GREP%%|${GREP}|g' \
 		${CARGO_TARGET_DIR}/symlink-install-helper.sh
 	@${REINPLACE_CMD} -e 's|%%CARGO_TARGET_DIR%%|${CARGO_TARGET_DIR}|g' \
-		${CARGO_TARGET_DIR}/symlink-install-helper.sh
-	@${REINPLACE_CMD} -e 's|%%CARGO_BUILD_TARGET%%|${CARGO_BUILD_TARGET}|g' \
 		${CARGO_TARGET_DIR}/symlink-install-helper.sh
 	@${REINPLACE_CMD} -e 's|%%SED%%|${SED}|g' \
 		${CARGO_TARGET_DIR}/symlink-install-helper.sh

@@ -3,7 +3,7 @@
 # pinned to exact versions of everything used to build them.
 
 PORTNAME=	sbcl
-DISTVERSION=	2.4.9
+DISTVERSION=	2.5.6
 DISTVERSIONSUFFIX=	-source
 PORTEPOCH=	1
 CATEGORIES=	lang lisp
@@ -23,13 +23,13 @@ ONLY_FOR_ARCHS=	amd64 i386
 
 LIB_DEPENDS=	libgmp.so:math/gmp \
 		libmpfr.so:math/mpfr
-RUN_DEPENDS=	cl-asdf>=0:devel/cl-asdf
+RUN_DEPENDS=	cl-freebsd-asdf-init>=0:devel/cl-freebsd-asdf-init
 
 USES=		gmake makeinfo tar:bzip2
 
 USE_HARDENING=	pie:off
 
-SUB_FILES=	pkg-message sbclrc
+SUB_FILES=	sbclrc
 
 WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 

@@ -1,6 +1,7 @@
 PORTNAME=	vm-bhyve-hbsd
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.5.0
+PORTREVISION=	1
 CATEGORIES=	sysutils
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -16,7 +17,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	shawn.webb
 GL_PROJECT=	vm-bhyve
-GL_TAGNAME=	34e2c4c671ae34fb670272f1f26bd670cd59f6ba
+GL_TAGNAME=	cfc66d28289fb6442caae6abd4f304edad631914
 
 CONFLICTS_INSTALL=	vm-bhyve vm-bhyve-devel
 

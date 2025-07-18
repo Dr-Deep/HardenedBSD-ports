@@ -1,12 +1,12 @@
 PORTNAME=		subread
-DISTVERSION=		2.0.2
+DISTVERSION=		2.1.0
 DISTVERSIONSUFFIX=	-source
 CATEGORIES=		biology
 MASTER_SITES=		SF/${PORTNAME}/${PORTNAME}-${PORTVERSION}
 
 MAINTAINER=	jwb@FreeBSD.org
 COMMENT=	High-performance read alignment, quantification and mutation discovery
-WWW=		http://bioinf.wehi.edu.au/subread-package/
+WWW=		https://subread.sourceforge.net/
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${DISTNAME}/LICENSE
@@ -17,9 +17,11 @@ USES=		gmake localbase:ldflags
 
 USE_HARDENING=	pie:off
 
-MAKEFILE=	${FILESDIR}/Makefile.pkg
 WRKSRC_SUBDIR=	src
-CFLAGS+=	-fcommon
+
+MAKEFILE=	${FILESDIR}/Makefile.pkg
 INSTALL_TARGET=	install-strip
+
+CFLAGS+=	-fcommon
 
 .include <bsd.port.mk>

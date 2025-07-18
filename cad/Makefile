@@ -142,11 +142,11 @@
     SUBDIR += stm32flash
     SUBDIR += sumo
     SUBDIR += surelog
+    SUBDIR += surfer
     SUBDIR += svlint
     SUBDIR += svls
     SUBDIR += sweethome3d
     SUBDIR += symbiyosys
-    SUBDIR += tkgate
     SUBDIR += tochnog
     SUBDIR += uhdm
     SUBDIR += uranium

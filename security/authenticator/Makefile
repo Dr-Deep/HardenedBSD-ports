@@ -1,6 +1,6 @@
 PORTNAME=	authenticator
 DISTVERSION=	4.4.0
-PORTREVISION=	1
+PORTREVISION=	8
 CATEGORIES=	security
 
 MAINTAINER=	ports@FreeBSD.org
@@ -14,12 +14,11 @@ BROKEN_i386=	fails to build in aes crate
 
 LIB_DEPENDS=	libgraphene-1.0.so:graphics/graphene \
 		libzbar.so:graphics/zbar
-RUN_DEPENDS=	${LOCALBASE}/lib/gstreamer-1.0/libgstgtk4.so:multimedia/gstreamer1-plugins-rust
 
 USES=		cargo desktop-file-utils gettext gnome gstreamer meson pkgconfig sqlite ssl
 USE_GITLAB=	yes
-USE_GNOME=	gdkpixbuf2 gtk40 libadwaita
-USE_GSTREAMER=	gl zbar
+USE_GNOME=	gdkpixbuf gtk40 libadwaita
+USE_GSTREAMER=	gl rust zbar
 GL_SITE=	https://gitlab.gnome.org
 GL_ACCOUNT=	World
 GL_PROJECT=	Authenticator
@@ -30,12 +29,18 @@ CARGO_INSTALL=	no
 CARGO_TEST=	no
 GLIB_SCHEMAS=	com.belmoussaoui.Authenticator.gschema.xml
 
+.include <bsd.port.pre.mk>
+
+.if ${ARCH:Marmv?}
+LTO_UNSAFE=	yes
+CARGO_ENV+=	CARGO_PROFILE_RELEASE_LTO=false
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} -e '/gstreamer.*bad/d' \
 		${WRKSRC}/meson.build
 # Make each cargo subcommand very verbose
-# Add explicit <triple> subdir for --target from USES=cargo
 	@${REINPLACE_CMD} -e "/cargo_options =/s/ '--/&verbose', &verbose', &/" \
 		${WRKSRC}/src/meson.build
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

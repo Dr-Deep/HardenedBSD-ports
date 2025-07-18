@@ -1,5 +1,5 @@
 PORTNAME=	xorg
-PORTVERSION=	21.1.13
+PORTVERSION=	21.1.18
 PORTEPOCH=	1
 CATEGORIES=	x11-servers
 MASTER_SITES=	XORG/individual/xserver
@@ -79,7 +79,7 @@ LIB_DEPENDS+=	libdrm.so:graphics/libdrm \
 # HardenedBSD note:
 # Due to how xorg handles loadable modules, it cannot be compiled
 # with RELRO + BIND_NOW.
-USE_HARDENING=	relro:off
+USE_HARDENING=	relro:off zeroreg
 
 .include <bsd.port.options.mk>
 .if ${FLAVOR} == xephyr

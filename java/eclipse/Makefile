@@ -1,5 +1,5 @@
 PORTNAME=	eclipse
-DISTVERSION=	4.33
+DISTVERSION=	4.35
 CATEGORIES=	java devel
 ECLIPSE_TAG=	R${DISTVERSION:S|.|_|g}
 
@@ -16,14 +16,12 @@ ONLY_FOR_ARCHS=	aarch64 amd64
 BUILD_DEPENDS=	git:devel/git \
 		mvn:devel/maven39 \
 		zip:archivers/zip
-
-LIB_DEPENDS=	libsecret-1.so:security/libsecret \
-		libwebkit2gtk-4.0.so:www/webkit2-gtk3
-
-USES=		compiler:c++17-lang gmake pkgconfig gnome
+LIB_DEPENDS=	libsecret-1.so:security/libsecret
+RUN_DEPENDS=	webkit2-gtk_41>=0:www/webkit2-gtk@41
 
 USE_HARDENING=	pie:off
 
+USES=		compiler:c++17-lang gl gmake gnome java pkgconfig
 # The github repositories.  The repository under NorbertXYZ is for a predefined maven
 # download, so the build does not need to download while do-build is running
 USE_GITHUB=	yes
@@ -40,9 +38,10 @@ GH_TUPLE=	chirontt:eclipse.platform.releng.aggregator:${ECLIPSE_TAG}_maintenance
 		chirontt:equinox:${ECLIPSE_TAG}_maintenance:k/equinox \
 		chirontt:equinox.binaries:${ECLIPSE_TAG}_maintenance:l/equinox.binaries \
 		chirontt:p2:${ECLIPSE_TAG}_maintenance:m/equinox.p2 \
-		NorbertXYZ:eclipse_maven:${DISTVERSION}:n
-USE_GNOME=	gtk30
-USE_JAVA=	17+
+		NorbertXYZ:eclipse-maven:${DISTVERSION}:n
+USE_GL=		gl glu
+USE_GNOME=	gtk30 gtk40
+JAVA_VERSION=	21+
 
 DESKTOP_ENTRIES=	"Eclipse" \
 			"${COMMENT}" \
@@ -62,7 +61,7 @@ MAVEN_ENV=	MAVEN_OPTS=-Xmx2048m CC=${CC} CFLAGS="${CFLAGS}" JAVA_HOME=${JAVA_HOM
 MAVEN_ARCH=	${ARCH:S|amd64|x86_64|}
 
 MAVEN_PARAMS=	--offline \
-		-Dmaven.repo.local=${WRKDIR}/eclipse_maven-${DISTVERSION} \
+		-Dmaven.repo.local=${WRKDIR}/eclipse-maven-${DISTVERSION} \
 		-Dnative=gtk.freebsd.${MAVEN_ARCH} \
 		-DskipTests clean verify
 

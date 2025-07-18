@@ -1,7 +1,7 @@
---- chrome/browser/ui/views/profiles/profile_picker_view.cc.orig	2024-08-27 06:28:16 UTC
+--- chrome/browser/ui/views/profiles/profile_picker_view.cc.orig	2025-05-07 06:48:23 UTC
 +++ chrome/browser/ui/views/profiles/profile_picker_view.cc
-@@ -87,7 +87,7 @@
- #include "chrome/browser/ui/views/profiles/first_run_flow_controller_lacros.h"
+@@ -85,7 +85,7 @@
+ #include "chrome/browser/global_keyboard_shortcuts_mac.h"
  #endif
  
 -#if BUILDFLAG(IS_LINUX)
@@ -9,7 +9,7 @@
  #include "chrome/browser/shell_integration_linux.h"
  #endif
  
-@@ -117,7 +117,7 @@ class ProfilePickerWidget : public views::Widget {
+@@ -115,7 +115,7 @@ class ProfilePickerWidget : public views::Widget {
      views::Widget::InitParams params(
          views::Widget::InitParams::NATIVE_WIDGET_OWNS_WIDGET);
      params.delegate = profile_picker_view_;

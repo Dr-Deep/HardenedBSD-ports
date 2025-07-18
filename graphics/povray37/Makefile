@@ -1,7 +1,7 @@
 PORTNAME=	povray
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.7.0.10
-PORTREVISION=	17
+PORTREVISION=	21
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	37
 
@@ -26,6 +26,9 @@ GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	COMPILED_BY=${HOSTARCH}-portbld-${OPSYS:tl}-${OSREL:R} \
 		--program-transform-name='s/povray/${PKGBASE}/' \
 		--disable-optimiz
+CPPFLAGS+=	-D POVMSUCS2="char16_t"
+CPPFLAGS+=	-D UCS2="char16_t"
+CPPFLAGS+=	-D UCS4="char32_t"
 
 VERSION_BASE=	${PORTVERSION:C/([0-9]+\.[0-9]+).*/\1/}
 ETCDIR=		${PREFIX}/etc/${PORTNAME}/${VERSION_BASE}
@@ -42,7 +45,7 @@ IO_DESC=	Without I/O restrictions (security risk)
 IO_CONFIGURE_ON=	--disable-io-restrictions
 
 JPEG_USES=		jpeg
-JPEG_CONFIGURE_OFF=	--without-jpeg
+JPEG_CONFIGURE_OFF=	--without-libjpeg
 
 OPENEXR_LIB_DEPENDS=	libImath.so:math/Imath \
 			libOpenEXR.so:graphics/openexr

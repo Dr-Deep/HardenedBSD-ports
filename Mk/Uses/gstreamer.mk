@@ -43,18 +43,19 @@ _GST_VER=	${_GST_VER_DEFAULT}
 # following ports:
 # - multimedia/gstreamer1
 # - multimedia/gstreamer1-editing-services
+# - multimedia/gstreamer1-libav
 # - multimedia/gstreamer1-plugins (via `make makesum-gst1`)
 # - multimedia/gstreamer1-rtsp-server
 # - multimedia/gstreamer1-vaapi
 # - multimedia/py-gstreamer1
-_GST1_VERSION=		1.24.8
+_GST1_VERSION=		1.26.3
 _GST1_LIB_VER=		1.0
 _GST1_SOVERSION=	0.${_GST1_VERSION:R:E}${${_GST1_VERSION:E} > 9:?:0}${_GST1_VERSION:E}.0
 
 _GST1_CATEGORIES=	audio comms devel ftp graphics multimedia net security \
 			sysutils textproc www x11 x11-toolkits
-_GST1_PLUGINS_audio= 	a52dec amrnb amrwbdec bs2b cdparanoia chromaprint faac \
-			faad flac flite gme gsm jack ladspa lame lv2 modplug \
+_GST1_PLUGINS_audio= 	a52dec alsa amrnb amrwbdec bs2b cdparanoia chromaprint faac \
+			faad fdkaac flac flite gme gsm jack ladspa lame lv2 modplug \
 			mpg123 ogg openmpt opus pulse shout2 sidplay \
 			sndfile sndio soundtouch speex taglib twolame vorbis \
 			wavpack webrtcdsp
@@ -66,8 +67,8 @@ _GST1_PLUGINS_graphics=	aalib cairo gdkpixbuf gl jpeg kms libcaca libvisual \
 _GST1_PLUGINS_multimedia=	aom assrender bad dash dts dv dvdread \
 			editing-services good hls libav libde265 \
 			mpeg2dec mpeg2enc mplex mm msdk openh264 resindvd \
-			smoothstreaming theora ttml ugly v4l2 vaapi vpx webrtc \
-			x264 x265
+			rtsp-server rust smoothstreaming theora ttml ugly \
+			v4l2 vaapi vpx webrtc x264 x265
 _GST1_PLUGINS_net=	sctp srtp
 _GST1_PLUGINS_security=	dtls
 _GST1_PLUGINS_sysutils=	cdio
@@ -103,7 +104,7 @@ gst-bad_IMPL=		#
 
 gst-core_PORT=		multimedia/gstreamer${_GST_VER}-plugins-core
 gst-core_IMPL=		#
-gst-core_GST1_VERSION=	1.24
+gst-core_GST1_VERSION=	${_GST1_VERSION:R}
 gst-core_VERSION=	${gst-core_GST${_GST_VER}_VERSION}
 
 gst-good_PORT=		multimedia/gstreamer${_GST_VER}-plugins-good
@@ -119,6 +120,9 @@ gst-libgstreamer_PORT=	multimedia/gstreamer${_GST_VER}
 
 gst-a52dec_PORT=	audio/gstreamer${_GST_VER}-plugins-a52dec
 gst-a52dec_IMPL=	ugly
+
+gst-alsa_PORT=		audio/gstreamer${_GST_VER}-plugins-alsa
+gst-alsa_IMPL=		#
 
 gst-amrnb_PORT=		audio/gstreamer${_GST_VER}-plugins-amrnb
 gst-amrnb_IMPL=		ugly
@@ -140,6 +144,9 @@ gst-faac_IMPL=		bad
 
 gst-faad_PORT=		audio/gstreamer${_GST_VER}-plugins-faad
 gst-faad_IMPL=		bad
+
+gst-fdkaac_PORT=	audio/gstreamer${_GST_VER}-plugins-fdkaac
+gst-fdkaac_IMPL=	bad
 
 gst-flac_PORT=		audio/gstreamer${_GST_VER}-plugins-flac
 gst-flac_IMPL=		good
@@ -194,7 +201,8 @@ gst-sndfile_IMPL=	bad
 
 gst-sndio_PORT=		audio/gstreamer${_GST_VER}-plugins-sndio
 gst-sndio_IMPL=		#
-gst-sndio_VERSION=	1.8.0
+gst-sndio_GST1_VERSION=	1.24.0
+gst-sndio_VERSION=	${gst-sndio_GST${_GST_VER}_VERSION}
 
 gst-soundtouch_PORT=	audio/gstreamer${_GST_VER}-plugins-soundtouch
 gst-soundtouch_IMPL=	bad
@@ -340,6 +348,15 @@ gst-openh264_IMPL=	bad
 
 gst-resindvd_PORT=	multimedia/gstreamer${_GST_VER}-plugins-resindvd
 gst-resindvd_IMPL=	bad
+
+gst-rtsp-server_PORT=	multimedia/gstreamer${_GST_VER}-rtsp-server
+gst-rtsp-server_SUFFIX=	#
+gst-rtsp-server_IMPL=	#
+
+gst-rust_PORT=		multimedia/gstreamer${_GST_VER}-plugins-rust
+gst-rust_IMPL=		#
+gst-rust_GST1_VERSION=	0.13.6
+gst-rust_VERSION=	${gst-rust_GST${_GST_VER}_VERSION}
 
 gst-smoothstreaming_PORT=	multimedia/gstreamer${_GST_VER}-plugins-smoothstreaming
 gst-smoothstreaming_IMPL=	bad

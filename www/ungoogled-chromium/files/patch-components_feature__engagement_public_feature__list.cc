@@ -1,7 +1,7 @@
---- components/feature_engagement/public/feature_list.cc.orig	2024-10-01 07:26:23 UTC
+--- components/feature_engagement/public/feature_list.cc.orig	2025-05-31 17:16:41 UTC
 +++ components/feature_engagement/public/feature_list.cc
-@@ -162,7 +162,7 @@ const base::Feature* const kAllFeatures[] = {
-     &kIPHHomeCustomizationMenuFeature,
+@@ -186,7 +186,7 @@ const base::Feature* const kAllFeatures[] = {
+     &kIPHiOSWelcomeBackFeature,
  #endif  // BUILDFLAG(IS_IOS)
  #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
 -    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_FUCHSIA)
@@ -9,22 +9,21 @@
  #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
      &kEsbDownloadRowPromoFeature,
  #endif
-@@ -227,7 +227,8 @@ const base::Feature* const kAllFeatures[] = {
+@@ -261,7 +261,7 @@ const base::Feature* const kAllFeatures[] = {
+ #endif  // BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) ||
          // BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_FUCHSIA)
  
- #if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
--    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_FUCHSIA)
-+    BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_FUCHSIA) || \
-+    BUILDFLAG(IS_BSD)
-     &kIPHAutofillCreditCardBenefitFeature,
-     &kIPHAutofillDisabledVirtualCardSuggestionFeature,
-     &kIPHAutofillExternalAccountProfileSuggestionFeature,
-@@ -278,7 +279,7 @@ const base::Feature* const kAllFeatures[] = {
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || \
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_APPLE) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD) || \
+     BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_ANDROID) || BUILDFLAG(IS_FUCHSIA)
+     &kIPHAutofillAiOptInFeature,
+     &kIPHAutofillBnplAffirmOrZipSuggestionFeature,
+@@ -316,7 +316,7 @@ const base::Feature* const kAllFeatures[] = {
      &kIPHScalableIphGamingFeature,
- #endif  // BUILDFLAG(IS_CHROMEOS_ASH)
+ #endif  // BUILDFLAG(IS_CHROMEOS)
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
 +#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
      &kIPHDesktopPWAsLinkCapturingLaunch,
-     &kIPHToolbarManagementButtonFeature,
- #endif  // BUILDFLAG(IS_WIN) ||  BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
+     &kIPHDesktopPWAsLinkCapturingLaunchAppInTab,
+     &kIPHSupervisedUserProfileSigninFeature,

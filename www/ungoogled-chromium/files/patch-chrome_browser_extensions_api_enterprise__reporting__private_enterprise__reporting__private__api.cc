@@ -1,6 +1,6 @@
---- chrome/browser/extensions/api/enterprise_reporting_private/enterprise_reporting_private_api.cc.orig	2024-10-01 07:26:23 UTC
+--- chrome/browser/extensions/api/enterprise_reporting_private/enterprise_reporting_private_api.cc.orig	2025-05-06 12:23:00 UTC
 +++ chrome/browser/extensions/api/enterprise_reporting_private/enterprise_reporting_private_api.cc
-@@ -38,7 +38,7 @@
+@@ -40,7 +40,7 @@
  #include "components/reporting/util/statusor.h"
  #endif
  
@@ -9,8 +9,17 @@
  #include <optional>
  
  #include "base/strings/string_util.h"
-@@ -112,7 +112,7 @@ api::enterprise_reporting_private::ContextInfo ToConte
-   return info;
+@@ -114,7 +114,7 @@ api::enterprise_reporting_private::ContextInfo ToConte
+ }
+ 
+ bool AllowClientCertificateReportingForUsers() {
+-#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
++#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX) || BUILDFLAG(IS_BSD)
+   return base::FeatureList::IsEnabled(
+       enterprise_signals::features::kAllowClientCertificateReportingForUsers);
+ #else
+@@ -127,7 +127,7 @@ bool IsProfilePrefManaged(Profile* profile, std::strin
+   return pref && pref->IsManaged();
  }
  
 -#if BUILDFLAG(IS_WIN) || BUILDFLAG(IS_MAC) || BUILDFLAG(IS_LINUX)
@@ -18,7 +27,7 @@
  
  device_signals::SignalsAggregationRequest CreateAggregationRequest(
      device_signals::SignalName signal_name) {
-@@ -174,7 +174,7 @@ EnterpriseReportingPrivateGetDeviceIdFunction::
+@@ -189,7 +189,7 @@ EnterpriseReportingPrivateGetDeviceIdFunction::
  
  // getPersistentSecret
  
@@ -27,7 +36,7 @@
  
  EnterpriseReportingPrivateGetPersistentSecretFunction::
      EnterpriseReportingPrivateGetPersistentSecretFunction() = default;
-@@ -600,7 +600,7 @@ void EnterpriseReportingPrivateEnqueueRecordFunction::
+@@ -629,7 +629,7 @@ void EnterpriseReportingPrivateEnqueueRecordFunction::
  }
  #endif
  

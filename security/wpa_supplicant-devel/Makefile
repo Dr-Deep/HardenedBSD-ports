@@ -1,6 +1,5 @@
 PORTNAME=	wpa_supplicant
 PORTVERSION=	${COMMIT_DATE}
-PORTREVISION=	1
 CATEGORIES=	security net
 PKGNAMESUFFIX=	-devel
 
@@ -11,8 +10,8 @@ WWW=		https://w1.fi/wpa_supplicant/
 USE_GITHUB=	yes
 GH_ACCOUNT=	cschuber
 GH_PROJECT=	hostap
-GH_TAGNAME=	bde17063d
-COMMIT_DATE=	2024.08.19
+GH_TAGNAME=	0b60826a6
+COMMIT_DATE=	2025.06.25
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/README
@@ -20,6 +19,7 @@ LICENSE_FILE=	${WRKSRC}/README
 USES=		cpe gmake pkgconfig:build readline ssl
 BUILD_WRKSRC=	${WRKSRC}/wpa_supplicant
 INSTALL_WRKSRC=	${WRKSRC}/src
+CPPFLAGS+=	-Wno-incompatible-function-pointer-types
 CFLAGS+=	${CPPFLAGS} # USES=readline only augments CPPFLAGS and LDFLAGS
 CFLAGS+=	-I${OPENSSLINC}
 CFLAGS+=	-Wno-deprecated-declarations

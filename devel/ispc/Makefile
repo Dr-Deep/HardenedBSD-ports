@@ -1,14 +1,12 @@
 PORTNAME=	ispc
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.25.1
+DISTVERSION=	1.27.0
 CATEGORIES=	devel
-
-PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
-PATCHFILES=	abb4800eb9553e3710fd0dd293a552a9af361396.diff:-p1 # backport of https://github.com/ispc/ispc/pull/3074/commits
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Intel's compiler for high-performance SIMD programming
-WWW=		https://ispc.github.io/
+WWW=		https://ispc.github.io/ \
+		https://github.com/ispc/ispc
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
@@ -21,7 +19,7 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex \
 LIB_DEPENDS=	libLLVM.so:devel/llvm${LLVM_VERSION} \
 		libtbb.so:devel/onetbb
 
-USES=		bison cmake compiler:c++17-lang llvm:lib,min=16,max=16 python:build,test shebangfix
+USES=		bison cmake compiler:c++17-lang llvm:lib,min=19,max=19 python:build,test shebangfix
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
@@ -80,5 +78,7 @@ run-examples: build
 	${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} && \
 	./${e}
 .endfor
+
+# tests as of 1.26.0: PASSRATE (1389/1389) = 100%
 
 .include <bsd.port.mk>

@@ -1,6 +1,6 @@
---- common.gypi.orig	2024-08-21 12:35:22 UTC
+--- common.gypi.orig	2024-10-16 14:36:50 UTC
 +++ common.gypi
-@@ -491,7 +491,7 @@
+@@ -521,7 +521,7 @@
                  'ldflags': [ '-m32' ],
                }],
                [ 'host_arch=="ppc64" and OS not in "aix os400"', {
@@ -9,7 +9,7 @@
                  'ldflags': [ '-m64' ],
                }],
                [ 'host_arch=="s390x" and OS=="linux"', {
-@@ -515,7 +515,7 @@
+@@ -545,7 +545,7 @@
                  'ldflags': [ '-m32' ],
                }],
                [ 'target_arch=="ppc64" and OS not in "aix os400"', {

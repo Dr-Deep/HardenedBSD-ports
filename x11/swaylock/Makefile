@@ -1,6 +1,6 @@
 PORTNAME=	swaylock
 DISTVERSIONPREFIX?=	v
-DISTVERSION?=	1.8.0
+DISTVERSION?=	1.8.2
 PORTREVISION?=	0
 CATEGORIES=	x11 wayland
 
@@ -29,7 +29,7 @@ PLIST_FILES=	bin/${PORTNAME} \
 		share/fish/vendor_completions.d/${PORTNAME}.fish \
 		share/zsh/site-functions/_${PORTNAME}
 
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack fortifysource:off
 
 OPTIONS_DEFINE=	MANPAGES PIXBUF
 OPTIONS_DEFAULT=MANPAGES PIXBUF
@@ -38,7 +38,7 @@ MANPAGES_BUILD_DEPENDS=	scdoc:textproc/scdoc
 MANPAGES_MESON_ENABLED=	man-pages
 MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 
-PIXBUF_USE=		GNOME=gdkpixbuf2
+PIXBUF_USE=		GNOME=gdkpixbuf
 PIXBUF_MESON_ENABLED=	gdk-pixbuf
 
 post-patch:
@@ -47,7 +47,7 @@ post-patch:
 		-e "s/meson.project_version()/'${DISTVERSIONFULL}'/" \
 		${WRKSRC}/meson.build
 # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=275328
-	@${REINPLACE_CMD} -e 's/_POSIX_C_SOURCE 200809L/_XOPEN_SOURCE 700/' \
-		${WRKSRC}/main.c
+	@${REINPLACE_CMD} -e 's/_POSIX_C_SOURCE=200809L/_XOPEN_SOURCE=700/' \
+		${WRKSRC}/meson.build
 
 .include <bsd.port.mk>

@@ -1,6 +1,6 @@
 PORTNAME=	mesa
-DISTVERSION=	24.2-branchpoint-4566
-DISTVERSIONSUFFIX=	-gc0bceaf0576
+DISTVERSION=	25.2-branchpoint-37
+DISTVERSIONSUFFIX=	-gafdb2c64de0
 CATEGORIES=	graphics
 PKGNAMESUFFIX=	-devel
 
@@ -8,7 +8,6 @@ PATCH_SITES=	https://github.com/mesa3d/${GL_PROJECT}/commit/:github
 PATCHFILES+=	700efacda59c.patch:-p1:github
 PATCH_SITES+=	${GL_SITE}/${GL_ACCOUNT}/${GL_PROJECT}/-/commit/
 PATCHFILES+=	2930dcbb3329.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22246
-PATCHFILES+=	11aaf934112c.patch:-p1 # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22941
 
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Bleeding edge Mesa drivers (OpenCL, OpenGL, Vulkan)
@@ -33,8 +32,8 @@ USE_GITLAB=	yes
 USE_LDCONFIG=	yes
 GL_SITE=	https://gitlab.freedesktop.org
 BINARY_ALIAS=	python=${PYTHON_CMD}
-SHEBANG_FILES=	src/vulkan/overlay-layer/${PORTNAME}-overlay-control.py
-MESON_ARGS=	-Dgallium-xa=disabled \
+SHEBANG_FILES=	src/vulkan/*/*control.py
+MESON_ARGS=	-Dgallium-mediafoundation=disabled \
 		-Dandroid-libbacktrace=disabled \
 		-Dlibunwind=disabled \
 		-Dlmsensors=disabled \
@@ -97,7 +96,7 @@ COINST_SUB_LIST=	SUFFIX=${PKGNAMESUFFIX}
 COINST_PLIST_SUB_OFF=	SUFFIX=
 
 LLVM_DESC=		Build with LLVM support (see implies)
-LLVM_USES=		llvm:min=15,lib,noexport
+LLVM_USES=		llvm:min=18,lib,noexport
 LLVM_CONFIGURE_ENV=	LLVM_CONFIG=${LLVM_CONFIG}
 LLVM_MESON_ENABLED=	llvm
 LLVM_MESON_TRUE=	amd-use-llvm
@@ -114,10 +113,7 @@ OPENCL_RUN_DEPENDS=	libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T}
 OPENCL_SOVERSION=	${LLVM_VERSION}${${LLVM_VERSION}>=18:?.1:}
 OPENCL_CONFIGURE_ENV=	PKG_CONFIG_PATH="${LLVM_PREFIX}/libdata/pkgconfig"
 OPENCL_MESON_FALSE=	b_lundef # environ
-OPENCL_MESON_TRUE=	gallium-rusticl opencl-spirv
-OPENCL_MESON_ON=	-Dgallium-opencl=icd
-OPENCL_MESON_OFF=	-Dgallium-opencl=disabled
-OPENCL_VARS+=		COINST_RUN_DEPENDS+=clover>0:lang/clover # ICD
+OPENCL_MESON_TRUE=	gallium-rusticl
 OPENCL_IMPLIES=		LLVM ${"${PORT_OPTIONS:Miris}":?iris:radeonsi} # any from OPTIONS_GROUP_GALLIUM
 
 VAAPI_DESC=		Hardware encoding/decoding (only r600, radeonsi)
@@ -131,7 +127,8 @@ VDPAU_IMPLIES=		X11
 
 VKLAYERS_DESC=		Vulkan layers: ${VKLAYERS_MESON_ON:C/.*=//} (implies ${VKLAYERS_IMPLIES})
 VKLAYERS_BUILD_DEPENDS=	glslangValidator:graphics/glslang
-VKLAYERS_MESON_ON=	-Dvulkan-layers=device-select,overlay
+VKLAYERS_LIB_DEPENDS=	libpng.so:graphics/png
+VKLAYERS_MESON_ON=	-Dvulkan-layers=device-select,overlay,screenshot,vram-report-limit
 VKLAYERS_IMPLIES=	${"${PORT_OPTIONS:Manv}":?anv:radv} # any from OPTIONS_GROUP_VULKAN
 
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>0:graphics/wayland-protocols
@@ -153,8 +150,6 @@ post-patch:
 		${WRKSRC}/bin/git_sha1_gen.py
 
 post-patch-COINST-on:
-	@${MV} ${WRKSRC}/src/gallium/targets/opencl/MesaOpenCL.def.in \
-		${WRKSRC}/src/gallium/targets/opencl/MesaOpenCL${PKGNAMESUFFIX}.def.in
 	@${MV} ${WRKSRC}/src/util/00-${PORTNAME}-defaults.conf \
 		${WRKSRC}/src/util/00-${PKGBASE}-defaults.conf
 	@${MV} ${WRKSRC}/src/util/00-radv-defaults.conf \

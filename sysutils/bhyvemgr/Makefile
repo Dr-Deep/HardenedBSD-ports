@@ -1,6 +1,6 @@
 PORTNAME=	bhyvemgr
 DISTVERSIONPREFIX=	v
-PORTVERSION=	1.1.1
+PORTVERSION=	1.7.0
 CATEGORIES=	sysutils
 PKGNAMESUFFIX=	${LAZARUS_PKGNAMESUFFIX}
 
@@ -13,7 +13,7 @@ LICENSE=	BSD3CLAUSE
 RUN_DEPENDS=	virt-viewer>0:net-mgmt/virt-viewer \
 		sudo>0:security/sudo
 
-ONLY_FOR_ARCHS=	amd64
+ONLY_FOR_ARCHS?=amd64
 
 USES=		desktop-file-utils fpc lazarus:flavors xorg
 USE_XORG=	x11
@@ -28,7 +28,11 @@ FREERDP3_RUN_DEPENDS=	freerdp3>0:net/freerdp3
 .include <bsd.port.pre.mk>
 
 .if ${OPSYS} == FreeBSD && (${OSVERSION} >= 1500000)
-ONLY_FOR_ARCHS+=	aarch64
+ONLY_FOR_ARCHS=	aarch64 amd64
+.endif
+
+.if ${OPSYS} == FreeBSD && (${OSVERSION} >= 1403000)
+RUN_DEPENDS+=	swtpm>0:sysutils/swtpm
 .endif
 
 .if ${ARCH} == "aarch64"
@@ -37,7 +41,7 @@ RUN_DEPENDS+=	u-boot-bhyve-arm64>0:sysutils/u-boot-bhyve-arm64
 RUN_DEPENDS+=	bhyve-firmware>0:sysutils/bhyve-firmware
 .endif
 
-LAZARUS_PROJECT_FILES=	bhyvemgr.lpi
+LAZARUS_PROJECT_FILES=	src/bhyvemgr.lpi
 
 LAZBUILD_ARGS=		--bm=Release -d
 
@@ -53,7 +57,7 @@ USE_GNOME+=	${USE_GNOME_${FLAVOR}}
 SUB_FILES=	pkg-message
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${INSTALL_PROGRAM} ${WRKSRC}/src/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 	${INSTALL_DATA} ${WRKSRC}/setup/${PORTNAME}.desktop ${STAGEDIR}${PREFIX}/share/applications/${PORTNAME}.desktop
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps
 	${INSTALL_DATA} ${WRKSRC}/setup/${PORTNAME}.png ${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps/${PORTNAME}.png

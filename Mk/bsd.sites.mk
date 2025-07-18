@@ -105,8 +105,7 @@ MASTER_SITE_CRAN+= \
 	https://cran.csiro.au/%SUBDIR%/ \
 	https://mirrors.tuna.tsinghua.edu.cn/CRAN/%SUBDIR%/ \
 	https://mirror.las.iastate.edu/CRAN/%SUBDIR%/ \
-	https://cran.ma.imperial.ac.uk/%SUBDIR%/ \
-	https://cran.ism.ac.jp/%SUBDIR%/
+	https://cran.ma.imperial.ac.uk/%SUBDIR%/
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_CRAN_ARCHIVE)
@@ -162,12 +161,19 @@ MASTER_SITE_ROCKY_LINUX+= \
 
 .if !defined(IGNORE_MASTER_SITE_EPEL7)
 MASTER_SITE_EPEL7+= \
-	https://dl.fedoraproject.org/pub/epel/7/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
-	https://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
-	https://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/%SUBDIR%/:SOURCE \
-	http://dl.fedoraproject.org/pub/epel/7/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
-	http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
-	http://dl.fedoraproject.org/pub/epel/7/SRPMS/Packages/%SUBDIR%/:SOURCE
+	https://archives.fedoraproject.org/pub/archive/epel/7/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
+	https://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
+	https://archives.fedoraproject.org/pub/archive/epel/7/SRPMS/Packages/%SUBDIR%/:SOURCE \
+	http://archives.fedoraproject.org/pub/archive/epel/7/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
+	http://archives.fedoraproject.org/pub/archive/epel/7/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
+	http://archives.fedoraproject.org/pub/archive/epel/7/SRPMS/Packages/%SUBDIR%/:SOURCE
+.endif
+
+.if !defined(IGNORE_MASTER_SITE_EPEL9)
+MASTER_SITE_EPEL9+= \
+	https://dl.fedoraproject.org/pub/epel/9/Everything/aarch64/Packages/%SUBDIR%/:DEFAULT,aarch64 \
+	https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/Packages/%SUBDIR%/:DEFAULT,amd64 \
+	https://dl.fedoraproject.org/pub/epel/9/Everything/source/tree/Packages/%SUBDIR%/:SOURCE
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_RPMFUSION9)
@@ -574,17 +580,30 @@ WWW?=	https://gitlab.com/${GL_ACCOUNT}/${GL_PROJECT}/
 .endif # !defined(IGNORE_MASTER_SITE_GITLAB)
 
 .if !defined(IGNORE_MASTER_SITE_GNOME)
+.  if defined(DISTVERSION) && ${DISTVERSION:M[0-9]*}
+_version_major=	${DISTVERSION:C|^([0-9]+).*|\1|}
+_version_minor=	${DISTVERSION:C|^([0-9]+)\.([0-9]+).*|\2|}
+
+.    if ${_version_major} >= 10
+_gnome_ver=	${_version_major}
+.    else
+_gnome_ver=	${_version_major}.${_version_minor}
+.    endif
+.  endif
+
+.  if !empty(MASTER_SITES:M*/archive/*)
+_GNOME_PATH=	%SUBDIR%
+.  else
+_GNOME_PATH=	%SUBDIR%/${_gnome_ver}
+.  endif
+
 MASTER_SITE_GNOME+= \
-	https://download.gnome.org/%SUBDIR%/ \
-	https://gitlab.gnome.org/GNOME/${PORTNAME}/-/archive/${PORTVERSION}/ \
-	http://ftp.belnet.be/mirror/ftp.gnome.org/gnomeftp/%SUBDIR%/ \
-	ftp://ftp.belnet.be/mirror/ftp.gnome.org/gnomeftp/%SUBDIR%/ \
-	https://ftp.acc.umu.se/pub/GNOME/%SUBDIR%/ \
-	ftp://ftp.cse.buffalo.edu/pub/Gnome/%SUBDIR%/ \
-	https://fr2.rpmfind.net/linux/gnome.org/%SUBDIR%/ \
-	ftp://ftp.kddlabs.co.jp/pub/GNOME/%SUBDIR%/ \
-	ftp://ftp.mirrorservice.org/sites/ftp.gnome.org/pub/GNOME/%SUBDIR%/ \
-	ftp://ftp.nara.wide.ad.jp/pub/X11/GNOME/%SUBDIR%/
+	https://download.gnome.org/${_GNOME_PATH}/ \
+	http://ftp.belnet.be/mirror/ftp.gnome.org/gnomeftp/${_GNOME_PATH}/ \
+	https://ftp.acc.umu.se/pub/GNOME/${_GNOME_PATH}/ \
+	https://fr2.rpmfind.net/linux/gnome.org/${_GNOME_PATH}/ \
+	https://gitlab.gnome.org/GNOME/${PORTNAME}/-/archive/${PORTVERSION}/
+
 .endif
 
 .if !defined(IGNORE_MASTER_SITE_GIMP)
@@ -1081,7 +1100,7 @@ MASTER_SITES_SUBDIRS=	APACHE_COMMONS_BINARIES:${PORTNAME:S,commons-,,} \
 			GIMP:${PORTNAME}/${PORTVERSION:R}/ \
 			GITHUB:${GH_ACCOUNT}/${GH_PROJECT}/tar.gz/${GH_TAGNAME}?dummy=/ \
 			GITHUB_CLOUD:${GH_ACCOUNT}/${GH_PROJECT}/ \
-			GNOME:sources/${PORTNAME}/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/} \
+			GNOME:sources/${DISTNAME:S/-${DISTVERSIONFULL}$//} \
 			GNU:${PORTNAME} \
 			GNUPG:${PORTNAME} \
 			GNU_ALPHA:${PORTNAME} \

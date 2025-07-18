@@ -1,16 +1,17 @@
 PORTNAME=	coreutils
-DISTVERSION=	9.5
+DISTVERSION=	9.7
 CATEGORIES=	sysutils textproc
 MASTER_SITES=	GNU
 
 MAINTAINER=	jharris@widomaker.com
 COMMENT=	Free Software Foundation core utilities
-WWW=		https://www.gnu.org/software/coreutils/
+WWW=		https://www.gnu.org/software/coreutils/ \
+		https://git.savannah.gnu.org/gitweb/?p=coreutils.git
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		cpe iconv perl5 charsetfix tar:xz
+USES=		charsetfix cpe iconv perl5 tar:xz
 CPE_VENDOR=	gnu
 USE_LDCONFIG=	yes
 USE_PERL5=	build	# required for tests and man page generation
@@ -33,10 +34,9 @@ INFO=		coreutils
 OPTIONS_DEFINE=		GMP NLS
 OPTIONS_SUB=		yes
 
-GMP_USES=		localbase:ldflags
 GMP_LIB_DEPENDS=	libgmp.so:math/gmp
+GMP_USES=		localbase:ldflags
 GMP_CONFIGURE_WITH=	libgmp
-
 NLS_USES=		gettext
 NLS_CONFIGURE_ENABLE=	nls
 

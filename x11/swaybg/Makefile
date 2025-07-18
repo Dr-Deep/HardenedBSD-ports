@@ -18,7 +18,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	swaywm
 USE_GNOME=	cairo
 PLIST_FILES=	bin/${PORTNAME}
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack fortifysource:off
 
 OPTIONS_DEFINE=	MANPAGES PIXBUF
 OPTIONS_DEFAULT=MANPAGES PIXBUF
@@ -27,7 +27,7 @@ MANPAGES_BUILD_DEPENDS=	scdoc:textproc/scdoc
 MANPAGES_MESON_ENABLED=	man-pages
 MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 
-PIXBUF_USE=		GNOME=gdkpixbuf2
+PIXBUF_USE=		GNOME=gdkpixbuf
 PIXBUF_MESON_ENABLED=	gdk-pixbuf
 
 post-patch:

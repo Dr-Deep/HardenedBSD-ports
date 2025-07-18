@@ -1,6 +1,6 @@
---- chrome/browser/new_tab_page/new_tab_page_util.cc.orig	2024-09-30 07:45:04 UTC
+--- chrome/browser/new_tab_page/new_tab_page_util.cc.orig	2025-07-02 06:08:04 UTC
 +++ chrome/browser/new_tab_page/new_tab_page_util.cc
-@@ -24,7 +24,7 @@ bool IsOsSupportedForCart() {
+@@ -29,7 +29,7 @@ bool IsOsSupportedForCart() {
  }
  
  bool IsOsSupportedForDrive() {

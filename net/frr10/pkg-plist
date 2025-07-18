@@ -220,6 +220,7 @@ sbin/staticd
 sbin/watchfrr
 sbin/zebra
 share/yang/frr-affinity-map.yang
+share/yang/frr-backend.yang
 share/yang/frr-bfdd.yang
 share/yang/frr-bgp-bmp.yang
 share/yang/frr-bgp-common-multiprotocol.yang
@@ -261,4 +262,4 @@ share/yang/ietf-netconf-acm.yang
 share/yang/ietf-netconf-with-defaults.yang
 share/yang/ietf-netconf.yang
 share/yang/ietf-routing-types.yang
-@dir(frr,frr,750) /var/run/frr
+@dir(frr,frr,755) /var/run/frr

@@ -1,6 +1,6 @@
---- gpu/config/gpu_info_collector.cc.orig	2024-09-30 07:45:04 UTC
+--- gpu/config/gpu_info_collector.cc.orig	2025-05-28 14:55:43 UTC
 +++ gpu/config/gpu_info_collector.cc
-@@ -370,7 +370,7 @@ void ReportWebGPUAdapterMetrics(dawn::native::Instance
+@@ -364,7 +364,7 @@ void ReportWebGPUAdapterMetrics(dawn::native::Instance
  void ReportWebGPUSupportMetrics(dawn::native::Instance* instance) {
    static BASE_FEATURE(kCollectWebGPUSupportMetrics,
                        "CollectWebGPUSupportMetrics",

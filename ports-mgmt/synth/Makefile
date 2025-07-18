@@ -1,6 +1,6 @@
 PORTNAME=	synth
 DISTVERSIONPREFIX=	v
-DISTVERSION=	3.01
+DISTVERSION=	3.12
 CATEGORIES=	ports-mgmt
 
 MAINTAINER=	fluffy@FreeBSD.org
@@ -14,7 +14,7 @@ BUILD_DEPENDS=	gprbuild>0:devel/gprbuild \
 		${GPR}/ini_file_manager.gpr:misc/ini_file_manager \
 		${GPR}/adacurses.gpr:devel/adacurses
 
-USES=		ada elfctl ncurses:base
+USES=		ada elfctl ncurses
 USE_GITHUB=	yes
 GH_ACCOUNT=	jrmarino
 
@@ -40,12 +40,9 @@ post-extract:
 		${WRKSRC}/src/definitions.ads
 
 do-build:
-	(cd ${WRKSRC}/src && ${SETENV} ${MAKE_ENV} \
-		gcc -c unix_core.c -o ../build/unix_core.o)
 	(cd ${WRKSRC}/synthexec && ${SETENV} ${MAKE_ENV} \
 		gcc synthexec.c -o ../build/synthexec)
-	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} gprbuild -P default \
-		-largs build/unix_core.o)
+	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} gprbuild -P default )
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/bash_completion.d \

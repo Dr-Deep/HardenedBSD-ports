@@ -1,5 +1,5 @@
 PORTNAME=	grpc
-PORTVERSION=	1.67.0
+PORTVERSION=	1.73.1
 DISTVERSIONPREFIX=	v
 PORTEPOCH=	2
 CATEGORIES=	devel
@@ -23,8 +23,6 @@ LIB_DEPENDS=	libabsl_base.so:devel/abseil \
 
 USES=		cmake compiler:c++17-lang cpe localbase:ldflags pkgconfig ssl
 
-USE_GITHUB=	yes
-
 CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17 \
 		-DgRPC_ABSL_PROVIDER=package \
 		-DgRPC_BENCHMARK_PROVIDER=package \
@@ -35,6 +33,7 @@ CMAKE_ARGS=	-DCMAKE_CXX_STANDARD=17 \
 		-DgRPC_SSL_PROVIDER=package \
 		-DgRPC_ZLIB_PROVIDER=package
 CMAKE_OFF=	CMAKE_CXX_EXTENSIONS \
+		gRPC_BUILD_GRPCPP_OTEL_PLUGIN \
 		gRPC_BUILD_TESTS \
 		gRPC_DOWNLOAD_ARCHIVES
 CMAKE_ON=	BUILD_SHARED_LIBS \
@@ -45,7 +44,8 @@ CMAKE_ON=	BUILD_SHARED_LIBS \
 		gRPC_BUILD_GRPC_OBJECTIVE_C_PLUGIN \
 		gRPC_BUILD_GRPC_PHP_PLUGIN \
 		gRPC_BUILD_GRPC_PYTHON_PLUGIN \
-		gRPC_BUILD_GRPC_RUBY_PLUGIN
+		gRPC_BUILD_GRPC_RUBY_PLUGIN \
+		gRPC_INSTALL
 USE_CSTD=	c11
 USE_CXXSTD=	c++17
 USE_LDCONFIG=	yes
@@ -56,6 +56,13 @@ PLIST_SUB=	PORTVERSION=${PORTVERSION} \
 CONFLICTS_INSTALL=	grpc[0-9][0-9][0-9]
 
 USE_HARDENING=	pie:off relro:off
+
+USE_GITHUB=	yes
+GH_TUPLE=	envoyproxy:data-plane-api:d9c5e84:envoyproxy_data_plane_api/third_party/envoy-api \
+		googleapis:googleapis:4667a43:googleapis_googleapis/third_party/googleapis \
+		census-instrumentation:opencensus-proto:1664cc9:census_instrumentation_opencensus_proto/third_party/opencensus-proto \
+		bufbuild:protoc-gen-validate:v1.2.1:bufbuild_protoc_gen_validate/third_party/protoc-gen-validate \
+		cncf:xds:2ac532f:cncf_xds/third_party/xds
 
 # Clean up bundled libraries
 .if !defined(MAINTAINER_MODE)

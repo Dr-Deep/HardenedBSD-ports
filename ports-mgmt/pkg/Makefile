@@ -1,5 +1,5 @@
 PORTNAME=	pkg
-DISTVERSION=	1.21.3
+DISTVERSION=	2.2.1
 _PKG_VERSION=	${DISTVERSION}
 CATEGORIES=	ports-mgmt
 
@@ -13,7 +13,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	HardenedBSD
 GL_PROJECT=	pkg
-GL_COMMIT=	cc5eb30e01271142ed374b440bad93c33735369c
+GL_COMMIT=	3af8127bb3512ac91b09a7460080562654588e7d
 
 USE_LDCONFIG=	${PREFIX}/lib/compat/pkg
 HAS_CONFIGURE=	yes
@@ -22,14 +22,17 @@ PORTSCOUT=	ignore:1
 CONFIGURE_ARGS=	--prefix="${PREFIX}"
 CONFIGURE_ENV=	CC_FOR_BUILD="${CC}"
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
 LTO_UNSAFE=	yes
+=======
+USE_HARDENING=	pie:off zeroreg
+>>>>>>> origin/hardenedbsd/main
 
 # Use a submake as 'deinstall install' needs to reevaluate PKG_REGISTER
 # so that pkg-static is used from the wrkdir
 USE_SUBMAKE=	yes
 CFLAGS+=	-Wno-error
-CFLAGS_powerpc64le=	-DSQLITE_BYTEORDER=1234
 
 OPTIONS_DEFINE=	DOCS
 

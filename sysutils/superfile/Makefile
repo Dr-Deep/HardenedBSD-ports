@@ -1,6 +1,7 @@
 PORTNAME=	superfile
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.5
+DISTVERSION=	1.3.1
+PORTREVISION=	2
 PORTEPOCH=	1
 CATEGORIES=	sysutils
 
@@ -11,7 +12,7 @@ WWW=		https://github.com/MHNightCat/superfile
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.22
+USES=		go:modules,1.24
 
 GO_MODULE=	github.com/MHNightCat/superfile
 

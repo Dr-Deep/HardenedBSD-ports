@@ -1,10 +1,11 @@
 PORTNAME=	puddletag
 DISTVERSION=	2.4.0
+PORTREVISION=	1
 CATEGORIES=	audio python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	DtxdF@disroot.org
+MAINTAINER=	dtxdf@FreeBSD.org
 COMMENT=	Powerful, simple, audio tag editor
 WWW=		https://puddletag.net
 

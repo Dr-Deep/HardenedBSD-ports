@@ -1,5 +1,5 @@
 PORTNAME=	got
-DISTVERSION=	0.104
+DISTVERSION=	0.115
 CATEGORIES=	devel
 MASTER_SITES=	https://gameoftrees.org/releases/portable/
 DISTNAME=	got-portable-${DISTVERSION}
@@ -12,6 +12,8 @@ LICENSE=	ISCL
 LICENSE_FILE=	${WRKSRC}/LICENCE
 
 USES=		localbase pkgconfig ssl
+
+USE_HARDENING=	fortifysource:off
 
 CONFLICTS_INSTALL=	p5-App-GitGot
 

@@ -6,7 +6,8 @@ PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Multi-compartment neural network simulation library
-WWW=		https://arbor-sim.org/
+WWW=		https://arbor-sim.org/ \
+		https://github.com/arbor-sim/arbor/
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/../LICENSE
@@ -38,7 +39,7 @@ post-patch:
 	@${ECHO} ${DISTVERSION} > ${WRKSRC}/VERSION
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/arbor/_arbor${PYTHON_EXT_SUFFIX}.so
+	@${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/arbor/_arbor${PYTHON_TAG}.so
 
 do-test: # some tests fail with 'make'-related errors
 	@cd ${BUILD_WRKSRC} && \
