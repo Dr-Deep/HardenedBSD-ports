@@ -360,6 +360,7 @@
     SUBDIR += luakit-devel
     SUBDIR += lux
     SUBDIR += lychee
+    SUBDIR += lycheeorg
     SUBDIR += lynx
     SUBDIR += lynx-current
     SUBDIR += lzr
