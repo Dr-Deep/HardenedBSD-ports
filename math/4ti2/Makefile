@@ -1,6 +1,6 @@
 PORTNAME=	4ti2
 DISTVERSIONPREFIX=	Release_
-DISTVERSION=	1_6_10
+DISTVERSION=	1_6_13
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -13,11 +13,15 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libglpk.so:math/glpk \
 		libgmp.so:math/gmp
 
-USES=		autoreconf compiler:c++11-lang gmake libtool
+USES=		autoreconf compiler:c++11-lang gmake libtool shebangfix
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+SHEBANG_FILES=	test/check.template.in
+>>>>>>> internal/freebsd/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-static --enable-shared --with-glpk=${LOCALBASE} --with-gmp=${LOCALBASE}

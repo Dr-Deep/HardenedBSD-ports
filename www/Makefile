@@ -2518,6 +2518,7 @@
     SUBDIR += swiggle
     SUBDIR += sws
     SUBDIR += tailwindcss3
+    SUBDIR += tailwindcss4
     SUBDIR += tcexam
     SUBDIR += tclhttpd
     SUBDIR += tclwebtest
