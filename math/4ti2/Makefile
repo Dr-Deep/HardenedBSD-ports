@@ -17,11 +17,9 @@ USES=		autoreconf compiler:c++11-lang gmake libtool shebangfix
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
-=======
+
 SHEBANG_FILES=	test/check.template.in
->>>>>>> internal/freebsd/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-static --enable-shared --with-glpk=${LOCALBASE} --with-gmp=${LOCALBASE}
