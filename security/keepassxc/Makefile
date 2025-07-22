@@ -1,10 +1,5 @@
 PORTNAME=	keepassxc
-<<<<<<< HEAD
-DISTVERSION=	2.7.6
-PORTREVISION=	1
-=======
 DISTVERSION=	2.7.10
->>>>>>> internal/freebsd/main
 CATEGORIES=	security
 MASTER_SITES=	https://github.com/keepassxreboot/keepassxc/releases/download/${DISTVERSION}/
 DISTNAME=	${PORTNAME}-${DISTVERSION}-src
