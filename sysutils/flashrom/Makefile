@@ -18,13 +18,9 @@ BUILD_DEPENDS+=	cmocka>=0:sysutils/cmocka \
 		sphinx-build:textproc/py-sphinx
 LIB_DEPENDS=	libpci.so:devel/libpci
 
-<<<<<<< HEAD
 USE_HARDEING=	safestack
 
-USES=		meson pkgconfig tar:bzip2
-=======
 USES=		meson pkgconfig tar:xz
->>>>>>> internal/freebsd/main
 
 PORTDOCS=	*
 
