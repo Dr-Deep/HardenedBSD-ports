@@ -789,6 +789,7 @@
     SUBDIR += paxtest
     SUBDIR += pcsc-tools
     SUBDIR += pdfcrack
+    SUBDIR += pdfrip
     SUBDIR += pear-Auth
     SUBDIR += pear-Auth_HTTP
     SUBDIR += pear-Auth_PrefManager
