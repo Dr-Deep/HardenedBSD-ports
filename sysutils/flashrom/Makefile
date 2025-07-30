@@ -18,14 +18,10 @@ NOT_FOR_ARCHS_REASON=	Unable to determine endianness.
 BUILD_DEPENDS=	cmocka>=0:sysutils/cmocka
 LIB_DEPENDS=	libpci.so:devel/libpci
 
-<<<<<<< HEAD
 USE_HARDEING=	safestack
 
-USES=		meson pkgconfig tar:xz
-=======
 USES=		meson pkgconfig ssl tar:xz
 USE_LDCONFIG=	yes
->>>>>>> origin/freebsd/main
 
 PORTDOCS=	*
 
