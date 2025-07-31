@@ -501,7 +501,6 @@
     SUBDIR += node24
     SUBDIR += nostromo
     SUBDIR += novnc
-    SUBDIR += novnc-websockify
     SUBDIR += npc
     SUBDIR += npm
     SUBDIR += npm-node18
