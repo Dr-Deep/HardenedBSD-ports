@@ -121,17 +121,8 @@ PLIST_SUB+=	LUAJIT="@comment "
 PLIST_SUB+=	LUAJIT=""
 .endif
 
-<<<<<<< HEAD
 xpost-install:
-	# https://github.com/obsproject/obs-studio/issues/2625
-	${INSTALL_DATA} ${WRKSRC}/UI/obs-frontend-api/obs-frontend-api.h ${STAGEDIR}${PREFIX}/include/obs
-	# https://github.com/obsproject/obs-studio/issues/2647 (only for multimedia/obs-audio-spectralizer, should be removed later)
-	${INSTALL_DATA} ${WRKSRC}/cmake/Modules/ObsHelpers.cmake ${STAGEDIR}${PREFIX}/lib/cmake
-	${INSTALL_DATA} ${WRKSRC}/cmake/external/ObsPluginHelpers.cmake ${STAGEDIR}${PREFIX}/lib/cmake
-
 	#HBSD: Disable the linux-v4l2 plugin because it is broken
 	cd ${WRKDIR} ; ${SED} -i -e '/linux-v4l2/d' ${TMPPLIST}
 
-=======
->>>>>>> internal/freebsd/main
 .include <bsd.port.post.mk>
