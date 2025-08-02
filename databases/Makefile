@@ -909,7 +909,6 @@
     SUBDIR += rrdman
     SUBDIR += rrdmerge
     SUBDIR += rrdtool
-    SUBDIR += rrdtool12
     SUBDIR += ruby-bdb
     SUBDIR += ruby-qdbm
     SUBDIR += ruby-tokyocabinet

@@ -375,7 +375,6 @@
     SUBDIR += mattermost-server
     SUBDIR += mattermost-webapp
     SUBDIR += mediawiki139
-    SUBDIR += mediawiki142
     SUBDIR += mediawiki143
     SUBDIR += mediawiki144
     SUBDIR += mergelog
@@ -2644,7 +2643,6 @@
     SUBDIR += web2ldap
     SUBDIR += webalizer
     SUBDIR += webbrowser
-    SUBDIR += webcopy
     SUBDIR += webcrawl
     SUBDIR += webfs
     SUBDIR += webgrind
