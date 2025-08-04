@@ -1520,6 +1520,7 @@
     SUBDIR += usrinfo
     SUBDIR += utcount
     SUBDIR += vagrant
+    SUBDIR += vagrant-gitlab
     SUBDIR += vbetool
     SUBDIR += vchanger
     SUBDIR += vcp
