@@ -742,6 +742,7 @@
     SUBDIR += mstflint
     SUBDIR += mtm
     SUBDIR += mtxorbd
+    SUBDIR += mult
     SUBDIR += multitail
     SUBDIR += munin-common
     SUBDIR += munin-contrib
