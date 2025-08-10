@@ -44,7 +44,7 @@ USERS=		${WWWOWN}
 GROUPS=		${WWWGRP}
 PLIST_SUB=	WWWOWN="${WWWOWN}" WWWGRP="${WWWGRP}" \
 		PORTVERSION="${DISTVERSION}" \
-		ARCH="${ARCH:C/powerpc64.*/powerpc/}"
+		ARCH="${ARCH}"
 
 OPTIONS_DEFINE=	DOCS GEOIP IMAGEMAGICK MEMCACHED MIMALLOC WCCP X11
 OPTIONS_SUB=	yes
@@ -84,6 +84,6 @@ post-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}/snapshots
 	(cd ${STAGEDIR}${ETCDIR} && for f in *.config *.yaml; do ${MV} $$f $$f.sample; done)
 	${SED} -i '' -e 's|^${STAGEDIR}||g' \
-		${STAGEDIR}${PREFIX}/lib/perl5/${ARCH:C/powerpc64.*/powerpc/}-freebsd-thread-multi/auto/Apache/TS/.packlist
+		${STAGEDIR}${PREFIX}/lib/perl5/${ARCH}-freebsd-thread-multi/auto/Apache/TS/.packlist
 
 .include <bsd.port.mk>
