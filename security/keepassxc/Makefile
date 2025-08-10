@@ -21,7 +21,6 @@ LIB_DEPENDS=	libargon2.so:security/libargon2 \
 		libbotan-3.so:security/botan3 \
 		libqrencode.so:graphics/libqrencode
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
 PAGEEXEC_DISABLE=	bin/keepassxc
@@ -31,38 +30,26 @@ FLAVORS=	default lite
 FLAVOR?=	${FLAVORS:[1]}
 lite_PKGNAMESUFFIX=	-lite
 
-USES=		cmake compiler:c++17-lang desktop-file-utils pkgconfig qt:5 \
-		readline shared-mime-info tar:xz xorg
-USE_QT=		concurrent core dbus gui network svg widgets buildtools:build \
-		linguisttools:build qmake:build testlib:build x11extras
-=======
 USES=		cmake compiler:c++17-lang desktop-file-utils minizip \
 		pkgconfig qt:5 readline shared-mime-info tar:xz xorg
 
 USE_QT=		concurrent core dbus gui network svg widgets x11extras \
 		buildtools:build linguisttools:build qmake:build testlib:build
->>>>>>> internal/freebsd/main
 USE_XORG=	x11
 
 CMAKE_OFF=	WITH_XC_UPDATECHECK
 
 CONFLICTS_INSTALL=	keepassx keepassx-0.* keepassx2 keepassxc276
 
-<<<<<<< HEAD
-OPTIONS_DEFINE=		AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING SSHAGENT YUBIKEY TEST
-OPTIONS_DEFAULT=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING SSHAGENT YUBIKEY
-.if ${FLAVOR:U} == lite
-OPTIONS_EXCLUDE:=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING SSHAGENT
-.else
-.endif
-=======
 WRKSRC=		${WRKDIR}/${DISTNAME:S/-src//}
 
 OPTIONS_DEFINE=		AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING \
 			SSHAGENT TEST YUBIKEY
 OPTIONS_DEFAULT=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING \
 			SSHAGENT YUBIKEY
->>>>>>> internal/freebsd/main
+.if ${FLAVOR:U} == lite
+OPTIONS_EXCLUDE:=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING SSHAGENT
+.endif
 OPTIONS_SUB=		yes
 
 AUTOTYPE_DESC=		Auto-type passwords in input fields
