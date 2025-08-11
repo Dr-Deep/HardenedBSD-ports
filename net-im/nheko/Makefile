@@ -35,20 +35,8 @@ USE_QT=		base declarative multimedia \
 		svg \
 		tools:build translations:build
 
-<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/nheko
 
-OPTIONS_DEFINE=	VOIP
-OPTIONS_DEFAULT=
-
-VOIP_DESC=	Enable VOIP calls (experimental)
-VOIP_CMAKE_BOOL=	VOIP
-VOIP_USES=	gstreamer gettext-runtime xorg gnome
-VOIP_USE=	gstreamer=bad,dtls,srtp,webrtc xorg=xcb gnome=glib20
-VOIP_LIB_DEPENDS=	libnice.so:net-im/libnice
-
-=======
->>>>>>> internal/freebsd/main
 # There is one external dependency: lmdb++
 #  - lmdb++ is a single header file, it just needs to be included
 CMAKE_ARGS=	-DLMDBXX_INCLUDE_DIR=${WRKSRC}/deps/lmdb \
