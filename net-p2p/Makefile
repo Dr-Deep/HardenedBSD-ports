@@ -40,7 +40,6 @@
     SUBDIR += heartwood-httpd
     SUBDIR += heartwood-node
     SUBDIR += heartwood-remote-helper
-    SUBDIR += heartwood-tools
     SUBDIR += hostd
     SUBDIR += intermodal
     SUBDIR += jackett

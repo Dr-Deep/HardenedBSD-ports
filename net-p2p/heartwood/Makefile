@@ -1,5 +1,5 @@
 PORTNAME=	heartwood
-DISTVERSION=	1.1.0
+DISTVERSION=	1.3.0
 CATEGORIES=	net-p2p devel
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -9,7 +9,6 @@ WWW=		https://radicle.xyz/
 RUN_DEPENDS=	heartwood-cli>=0:net-p2p/heartwood-cli
 RUN_DEPENDS+=	heartwood-node>=0:net-p2p/heartwood-node
 RUN_DEPENDS+=	heartwood-remote-helper>=0:net-p2p/heartwood-remote-helper
-RUN_DEPENDS+=	heartwood-tools>=0:net-p2p/heartwood-tools
 
 USES=		metaport
 
