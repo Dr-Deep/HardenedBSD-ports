@@ -1835,6 +1835,7 @@
     SUBDIR += py-legacy-cgi
     SUBDIR += py-lektor
     SUBDIR += py-lesscpy
+    SUBDIR += py-lia-web
     SUBDIR += py-libsass
     SUBDIR += py-limits
     SUBDIR += py-livereload
