@@ -1561,6 +1561,7 @@
     SUBDIR += sup
     SUBDIR += svnup
     SUBDIR += syncthing
+    SUBDIR += syncthing1
     SUBDIR += tableutil
     SUBDIR += tac_plus4
     SUBDIR += tacacs
