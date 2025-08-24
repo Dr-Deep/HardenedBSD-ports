@@ -1131,6 +1131,7 @@
     SUBDIR += valkey
     SUBDIR += vfront
     SUBDIR += virtualpg
+    SUBDIR += weaviate
     SUBDIR += webdis
     SUBDIR += wfb2sql
     SUBDIR += xapian-bindings
