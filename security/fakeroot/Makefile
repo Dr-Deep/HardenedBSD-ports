@@ -12,6 +12,8 @@ LICENSE=	GPLv3
 
 USES=	libtool
 
+USE_HARDENING=	fortifysource:off
+
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=		--with-ipc=tcp
