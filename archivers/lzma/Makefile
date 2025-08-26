@@ -17,14 +17,8 @@ LICENSE_TEXT_PD=	LZMA SDK is written and placed in the public \
 
 USES=		7z dos2unix gmake
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		7z gmake dos2unix
-NO_WRKSUBDIR=	yes
-BUILD_WRKSRC=	${WRKSRC}/CPP/7zip/Bundles/LzmaCon
-=======
->>>>>>> internal/freebsd/main
 MAKEFILE=	makefile.gcc
 
 .ifdef (WITH_LZMA_PROB32)
