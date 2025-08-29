@@ -461,6 +461,7 @@
     SUBDIR += watershot
     SUBDIR += way-displays
     SUBDIR += waybar
+    SUBDIR += waycheck
     SUBDIR += waycorner
     SUBDIR += wayidle
     SUBDIR += wayland-logout

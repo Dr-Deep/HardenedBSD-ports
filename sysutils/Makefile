@@ -765,6 +765,7 @@
     SUBDIR += netevent
     SUBDIR += nfcutils
     SUBDIR += ngbuddy
+    SUBDIR += nitro
     SUBDIR += nitrogen
     SUBDIR += nix
     SUBDIR += nmdaemon
