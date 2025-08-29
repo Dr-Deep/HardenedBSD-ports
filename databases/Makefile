@@ -862,6 +862,7 @@
     SUBDIR += py-sqlite-migrate
     SUBDIR += py-sqlite-utils
     SUBDIR += py-sqlite3
+    SUBDIR += py-sqlmodel
     SUBDIR += py-sqlobject
     SUBDIR += py-sqloxide
     SUBDIR += py-sqlparse
