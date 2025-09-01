@@ -720,7 +720,6 @@
     SUBDIR += folly
     SUBDIR += forge
     SUBDIR += forgejo-runner
-    SUBDIR += forge-devel
     SUBDIR += fortran-stdlib
     SUBDIR += fortran-utils
     SUBDIR += fortytwo-encore
@@ -811,7 +810,6 @@
     SUBDIR += geany-plugin-xmlsnippets
     SUBDIR += geany-plugins
     SUBDIR += geany-plugins-l10n
-    SUBDIR += geany-themes
     SUBDIR += generate
     SUBDIR += gengetopt
     SUBDIR += genht
@@ -832,7 +830,6 @@
     SUBDIR += ghostie
     SUBDIR += ghq
     SUBDIR += ghub
-    SUBDIR += ghub-devel
     SUBDIR += gilt
     SUBDIR += gindent
     SUBDIR += gio-sharp
@@ -1651,7 +1648,6 @@
     SUBDIR += mage
     SUBDIR += magic_enum
     SUBDIR += magit
-    SUBDIR += magit-devel
     SUBDIR += makedepend
     SUBDIR += malloy
     SUBDIR += marisa-trie
@@ -8374,7 +8370,6 @@
     SUBDIR += tracy
     SUBDIR += tradcpp
     SUBDIR += transient
-    SUBDIR += transient-devel
     SUBDIR += transwarp
     SUBDIR += tree-sitter
     SUBDIR += tree-sitter-cli
