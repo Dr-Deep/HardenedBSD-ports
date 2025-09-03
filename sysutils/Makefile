@@ -1432,6 +1432,7 @@
     SUBDIR += u-boot-a64-olinuxino
     SUBDIR += u-boot-bananapi
     SUBDIR += u-boot-bananapim2
+    SUBDIR += u-boot-bananapi-r2-pro
     SUBDIR += u-boot-beaglebone
     SUBDIR += u-boot-bhyve-arm64
     SUBDIR += u-boot-bhyve-riscv
