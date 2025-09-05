@@ -459,6 +459,7 @@
     SUBDIR += openssl33-quictls
     SUBDIR += openssl34
     SUBDIR += openssl35
+    SUBDIR += openssl36
     SUBDIR += openvas
     SUBDIR += openvpn
     SUBDIR += openvpn-admin
@@ -1437,7 +1438,9 @@
     SUBDIR += ylva
     SUBDIR += yubico-piv-tool
     SUBDIR += yubikey-agent
+    SUBDIR += yubikey-manager-qt
     SUBDIR += yubikey-personalization-gui
+    SUBDIR += yubioath-desktop
     SUBDIR += zaproxy
     SUBDIR += zeek
     SUBDIR += zeronet
