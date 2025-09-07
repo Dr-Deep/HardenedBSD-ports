@@ -14,11 +14,9 @@ LICENSE_NAME=	lsof
 LICENSE_FILE=	${FILESDIR}/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
-=======
+
 BUILD_DEPENDS=	${LOCALBASE}/bin/bash:shells/bash
->>>>>>> internal/freebsd/main
 
 USES=		compiler cpe shebangfix
 CPE_VENDOR=	lsof_project
