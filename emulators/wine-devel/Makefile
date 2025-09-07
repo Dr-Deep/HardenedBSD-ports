@@ -28,17 +28,13 @@ USE_LDCONFIG=	${WINELIBDIR} ${WINELIBDIR}/wine
 .endif
 USE_SDL=	sdl2
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 SSP_CFLAGS=	-fstack-protector-strong
 
 CPE_VENDOR=	winehq
 
-CONFLICTS_INSTALL=	wine
-=======
 SHEBANG_FILES=	tools/make_requests tools/winemaker/winemaker \
 		tools/winedump/function_grep.pl
->>>>>>> internal/freebsd/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--verbose \
