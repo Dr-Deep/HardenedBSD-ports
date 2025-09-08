@@ -1069,6 +1069,7 @@
     SUBDIR += py-securesystemslib
     SUBDIR += py-service-identity
     SUBDIR += py-signedjson
+    SUBDIR += py-signxml
     SUBDIR += py-social-auth-core
     SUBDIR += py-spake2
     SUBDIR += py-ssh-audit
