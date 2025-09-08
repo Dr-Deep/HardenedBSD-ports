@@ -11,13 +11,8 @@ WWW=		https://www.openntpd.org/
 
 LICENSE=	ISCL
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack zeroreg
 
-RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
-
-=======
->>>>>>> internal/freebsd/main
 USES=		cpe localbase ssl
 
 CONFLICTS=	ntp ntp-devel ntpsec
