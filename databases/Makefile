@@ -11,7 +11,6 @@
     SUBDIR += R-cran-sqldf
     SUBDIR += WWWdb
     SUBDIR += adminer
-    SUBDIR += adminerevo
     SUBDIR += adodb5
     SUBDIR += akonadi
     SUBDIR += apache-commons-dbutils
@@ -898,7 +897,6 @@
     SUBDIR += redis74
     SUBDIR += redis80
     SUBDIR += redis_exporter
-    SUBDIR += redisdesktopmanager
     SUBDIR += redisjson
     SUBDIR += retcl
     SUBDIR += rocksdb
