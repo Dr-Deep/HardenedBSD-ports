@@ -14,13 +14,7 @@ LIB_DEPENDS=	libmp3lame.so:audio/lame \
 		libogg.so:audio/libogg \
 		libvorbis.so:audio/libvorbis
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
-=======
-USES=		gettext
-
-PIE_UNSAFE=	yes
->>>>>>> internal/freebsd/main
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
 
