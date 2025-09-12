@@ -18,7 +18,7 @@ RUN_DEPENDS=	git:devel/git
 USES=		cpe gmake go:no_targets
 USE_RC_SUBR=	forgejo
 
-PIE_UNSAFE=	yes
+USE_HARDENING=	pie:golang relro:off retpoline:off
 
 CONFLICTS_INSTALL=	forgejo[0-79]*
 
