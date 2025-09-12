@@ -19,6 +19,8 @@ RUN_DEPENDS=	git:devel/git
 USES=		cpe gmake go:1.23,no_targets
 USE_RC_SUBR=	forgejo
 
+USE_HARDENING=	pie:golang relro:off retpoline:off
+
 CONFLICTS_INSTALL=	forgejo forgejo[0-689]*
 
 EXTRACT_AFTER_ARGS=	--strip-components 1
