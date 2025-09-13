@@ -734,6 +734,7 @@
     SUBDIR += monit
     SUBDIR += monitord
     SUBDIR += monitorix
+    SUBDIR += moor
     SUBDIR += moreutils
     SUBDIR += most
     SUBDIR += mountsmb2
