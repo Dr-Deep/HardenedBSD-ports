@@ -1657,6 +1657,7 @@
     SUBDIR += py-django-post_office
     SUBDIR += py-django-prometheus
     SUBDIR += py-django-pyscss
+    SUBDIR += py-django-q2
     SUBDIR += py-django-radius
     SUBDIR += py-django-ranged-response
     SUBDIR += py-django-recaptcha
@@ -1828,6 +1829,7 @@
     SUBDIR += py-httpx_gssapi
     SUBDIR += py-hypercorn
     SUBDIR += py-hyperframe
+    SUBDIR += py-hyperkitty
     SUBDIR += py-hyperlink
     SUBDIR += py-inlinestyler
     SUBDIR += py-internetarchive
@@ -1843,6 +1845,7 @@
     SUBDIR += py-libsass
     SUBDIR += py-limits
     SUBDIR += py-livereload
+    SUBDIR += py-mailman-hyperkitty
     SUBDIR += py-mechanicalsoup
     SUBDIR += py-mechanize
     SUBDIR += py-multidict
@@ -1917,6 +1920,7 @@
     SUBDIR += py-rfc3986
     SUBDIR += py-rfc3987
     SUBDIR += py-rfc3987-syntax
+    SUBDIR += py-robot-detection
     SUBDIR += py-rollbar
     SUBDIR += py-routes
     SUBDIR += py-rules
