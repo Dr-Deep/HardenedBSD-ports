@@ -1,6 +1,6 @@
 PORTNAME=	keepassxc
 DISTVERSION=	2.7.10
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	security
 MASTER_SITES=	https://github.com/keepassxreboot/keepassxc/releases/download/${DISTVERSION}/
 DISTNAME=	${PORTNAME}-${DISTVERSION}-src
@@ -47,10 +47,14 @@ WRKSRC=		${WRKDIR}/${DISTNAME:S/-src//}
 OPTIONS_DEFINE=		AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING \
 			SSHAGENT TEST YUBIKEY
 OPTIONS_DEFAULT=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING \
+<<<<<<< HEAD
 			SSHAGENT YUBIKEY
 .if ${FLAVOR:U} == lite
 OPTIONS_EXCLUDE:=	AUTOTYPE BROWSER FDOSECRETS KEESHARE NETWORKING SSHAGENT
 .endif
+=======
+			SSHAGENT
+>>>>>>> internal/freebsd/main
 OPTIONS_SUB=		yes
 
 AUTOTYPE_DESC=		Auto-type passwords in input fields
@@ -59,7 +63,7 @@ FDOSECRETS_DESC=	freedesktop.org secrets service support
 KEESHARE_DESC=		Sharing integration with KeeShare
 NETWORKING_DESC=	Networking support (e.g. for downloading website icons)
 SSHAGENT_DESC=		SSH agent support
-YUBIKEY_DESC=		YubiKey support
+YUBIKEY_DESC=		YubiKey support (broken on <= 14.x)
 
 AUTOTYPE_USE=		XORG=xi,xtst
 AUTOTYPE_CMAKE_BOOL=	WITH_XC_AUTOTYPE
@@ -79,5 +83,11 @@ TEST_TEST_TARGET=	test
 
 YUBIKEY_LIB_DEPENDS=	libpcsclite.so:devel/pcsc-lite
 YUBIKEY_CMAKE_BOOL=	WITH_XC_YUBIKEY
+
+.include <bsd.port.options.mk>
+
+.if ${OSVERSION} >= 1500000
+OPTIONS_DEFAULT+=	YUBIKEY
+.endif
 
 .include <bsd.port.mk>
