@@ -49,6 +49,7 @@
     SUBDIR += chmlib
     SUBDIR += chrono
     SUBDIR += cinnamon-translations
+    SUBDIR += claude-code
     SUBDIR += cldr-emoji-annotation
     SUBDIR += clex
     SUBDIR += clifm
@@ -158,6 +159,7 @@
     SUBDIR += g810-led
     SUBDIR += gedkeeper
     SUBDIR += geekcode
+    SUBDIR += gemini-cli
     SUBDIR += getopt
     SUBDIR += ggml
     SUBDIR += gimp-help-en

@@ -1505,6 +1505,7 @@
     SUBDIR += u-boot-tools
     SUBDIR += u-boot-wandboard
     SUBDIR += ua
+    SUBDIR += ucored
     SUBDIR += ucspi-ipc
     SUBDIR += ucspi-proxy
     SUBDIR += ucspi-ssl
