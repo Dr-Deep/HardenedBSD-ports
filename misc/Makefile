@@ -56,6 +56,7 @@
     SUBDIR += cloc
     SUBDIR += clpbar
     SUBDIR += code2prompt
+    SUBDIR += codex
     SUBDIR += colortail
     SUBDIR += coloursum
     SUBDIR += colwide
@@ -77,6 +78,7 @@
     SUBDIR += cpp-mcp
     SUBDIR += cpuid
     SUBDIR += crosti
+    SUBDIR += crush
     SUBDIR += cryptoballot
     SUBDIR += cs
     SUBDIR += cstream
