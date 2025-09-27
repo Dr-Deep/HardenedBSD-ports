@@ -18,16 +18,8 @@ USE_XORG=	ice sm x11 xext xi xmu xorgproto
 
 GNU_CONFIGURE=	yes
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-CONFIGURE_ARGS=	--includedir="${LOCALBASE}/include" \
-		--libdir="${LOCALBASE}/lib" \
-
-CPPFLAGS+=	-I${LOCALBASE}/include/GL
-LIBS+=		-lm -lcompat -lutil
-=======
 LIBS+=		-lutil
->>>>>>> origin/freebsd/main
 
 .include <bsd.port.mk>
