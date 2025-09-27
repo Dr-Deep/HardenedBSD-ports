@@ -1635,8 +1635,10 @@
     SUBDIR += zetaback
     SUBDIR += zetaback-devel
     SUBDIR += zidrav
+    SUBDIR += zli
     SUBDIR += znapzend
     SUBDIR += zogftw
+    SUBDIR += zot
     SUBDIR += zoxide
     SUBDIR += zpool-iostat-viz
     SUBDIR += zrep

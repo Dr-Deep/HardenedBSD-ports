@@ -1,10 +1,10 @@
 PORTNAME=	openuniverse
 DISTVERSION=	1.0beta3
-PORTREVISION=	15
+PORTREVISION=	16
 CATEGORIES=	astro
-MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/1.0beta3
+MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${DISTVERSION}
 
-MAINTAINER=	ports@FreeBSD.org
+MAINTAINER=	mew14930xvi@inbox.lv
 COMMENT=	OpenGL Solar System simulator for X Window System
 WWW=		https://openuniverse.sourceforge.net/
 
@@ -12,12 +12,13 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		gl gmake jpeg localbase xorg
-USE_CXXSTD=	c++14
+USE_CXXSTD=	c++98
 USE_GL=		gl glu glut
-USE_XORG=	sm ice xmu xi xext x11
+USE_XORG=	ice sm x11 xext xi xmu xorgproto
 
 GNU_CONFIGURE=	yes
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
 CONFIGURE_ARGS=	--includedir="${LOCALBASE}/include" \
@@ -25,5 +26,8 @@ CONFIGURE_ARGS=	--includedir="${LOCALBASE}/include" \
 
 CPPFLAGS+=	-I${LOCALBASE}/include/GL
 LIBS+=		-lm -lcompat -lutil
+=======
+LIBS+=		-lutil
+>>>>>>> origin/freebsd/main
 
 .include <bsd.port.mk>
