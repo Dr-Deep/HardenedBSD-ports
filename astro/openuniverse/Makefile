@@ -18,13 +18,9 @@ USE_XORG=	ice sm x11 xext xi xmu xorgproto
 
 GNU_CONFIGURE=	yes
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-LIBS+=		-lutil
-=======
 .include <bsd.port.pre.mk>
->>>>>>> origin/freebsd/main
 
 .if ${OPSYS}_${OSREL:R} == FreeBSD_13
 LIBS+=		-lcompat
