@@ -534,6 +534,7 @@
     SUBDIR += netembryo
     SUBDIR += nethogs
     SUBDIR += netmap
+    SUBDIR += netpeek
     SUBDIR += netpipes
     SUBDIR += netscript
     SUBDIR += netsed
