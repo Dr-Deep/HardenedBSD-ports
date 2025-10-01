@@ -91,53 +91,7 @@ SUB_LIST+=	NVGL=""
 SUB_LIST+=	NVGL="\# "
 .endif
 
-<<<<<<< HEAD
-.if ${NVVERSION} < 355.006
-NVSRC=		.
-.else
-NVSRC=		nvidia
-.endif
-
-.if ${NVVERSION} < 358.009
-SUB_LIST+=	KLDNAME=nvidia
-.else
-SUB_LIST+=	KLDNAME=nvidia-modeset
-.endif
-
-.if ${NVVERSION} >= 530.03002 && ${NVVERSION} < 545.00
-SUB_PATCHES += extra-patch-src_nvidia-modeset_nvidia-modeset-freebsd.c
-.endif
-.if ${NVVERSION} < 460.039
-.  if ${NVVERSION} >= 358.009
-EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src_nvidia-modeset_nvidia-modeset-freebsd.c
-.  endif
-SUB_PATCHES+=	extra-patch-src-nvidia_ctl.c \
-		extra-patch-src-nvidia_linux.c
-.elif ${NVVERSION} < 510.03901
-EXTRA_PATCHES+=	${FILESDIR}/460-patch-src-nvidia-nvidia_ctl.c \
-		${FILESDIR}/460-patch-src-nvidia-nvidia_linux.c \
-		${FILESDIR}/460-patch-src_nvidia-modeset_nvidia-modeset-freebsd.c
-.endif
-.if ${NVVERSION} < 470.04201
-SUB_PATCHES+=	extra-patch-src-nv-misc.h
-.endif
-
-OPTIONS_DEFINE=	ACPI_PM LINUX WBINVD DOCS
-OPTIONS_DEFINE_i386=	PAE
-OPTIONS_DEFAULT=	ACPI_PM
-
-ACPI_PM_DESC=		ACPI Power Management support
-LINUX_DESC=		Linux compatibility support
-PAE_DESC=		Physical Address Extensions support
-WBINVD_DESC=		Flush CPU caches directly with WBINVD
-
-.if ${NVVERSION} < 310.014
-OPTIONS_DEFINE+=	FREEBSD_AGP
-FREEBSD_AGP_DESC=	Use FreeBSD AGP GART driver
-.endif
-=======
 OPTIONS_DEFINE=	DOCS
->>>>>>> internal/freebsd/main
 
 PLIST_SUB+=	MODULESDIR=${MODULESDIR}
 .if ${NVVERSION} < 410.057
