@@ -959,6 +959,7 @@
     SUBDIR += py-gpsoauth
     SUBDIR += py-greenbone-feed-sync
     SUBDIR += py-gssapi
+    SUBDIR += py-guardpost
     SUBDIR += py-gvm-tools
     SUBDIR += py-hkdf
     SUBDIR += py-htpasswd
