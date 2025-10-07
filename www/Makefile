@@ -465,6 +465,7 @@
     SUBDIR += moodle44
     SUBDIR += moodle45
     SUBDIR += moodle50
+    SUBDIR += moodle51
     SUBDIR += morty
     SUBDIR += multisort
     SUBDIR += multiwatch
