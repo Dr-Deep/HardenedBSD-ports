@@ -67,14 +67,11 @@ CMAKE_ARGS=	-DOBS_VERSION_OVERRIDE:STRING="${PORTVERSION}" \
 		-DQT_VERSION=6 \
 		-DPython_EXECUTABLE="${PYTHON_CMD}"
 
-<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/obs
 PAGEEXEC_DISABLE=	bin/obs
 CMAKE_ARGS+=	-DDISABLE_V4L2=yes
 
-=======
 CFLAGS+=	-Wno-error=attribute-warning
->>>>>>> internal/freebsd/main
 CFLAGS_powerpc64=	-Wno-error=deprecated-altivec-src-compat -Wno-error=pass-failed
 CFLAGS_powerpc64le=	-Wno-error=deprecated-altivec-src-compat
 CFLAGS+=	-fPIC # otherwise we get: relocation R_X86_64_PC32 cannot be used against symbol '__stack_chk_guard'; recompile with -fPIC
