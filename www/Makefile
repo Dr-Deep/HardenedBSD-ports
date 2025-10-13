@@ -1918,6 +1918,8 @@
     SUBDIR += py-qh3
     SUBDIR += py-qt5-webengine
     SUBDIR += py-qt6-webengine
+    SUBDIR += py-quart
+    SUBDIR += py-quart-trio
     SUBDIR += py-quilt3
     SUBDIR += py-readability-lxml
     SUBDIR += py-recaptcha
@@ -2481,6 +2483,7 @@
     SUBDIR += rubygem-turbolinks
     SUBDIR += rubygem-turbolinks-source
     SUBDIR += rubygem-typhoeus
+    SUBDIR += rubygem-typhoeus14
     SUBDIR += rubygem-uglifier
     SUBDIR += rubygem-underscore-rails
     SUBDIR += rubygem-unicorn
