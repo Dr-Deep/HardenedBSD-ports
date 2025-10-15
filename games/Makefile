@@ -309,7 +309,6 @@
     SUBDIR += fs2open
     SUBDIR += funnyboat
     SUBDIR += galaxis
-    SUBDIR += galaxyhack
     SUBDIR += garden-of-coloured-lights
     SUBDIR += gargoyle
     SUBDIR += gbrainy
@@ -1138,7 +1137,6 @@
     SUBDIR += xpired
     SUBDIR += xpuzzletama
     SUBDIR += xpyraminx
-    SUBDIR += xqf
     SUBDIR += xrally
     SUBDIR += xray-16
     SUBDIR += xray_re-tools
