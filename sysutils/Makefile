@@ -372,6 +372,7 @@
     SUBDIR += evtviewer
     SUBDIR += exa
     SUBDIR += extipl
+    SUBDIR += extrace
     SUBDIR += eza
     SUBDIR += ezjail
     SUBDIR += f-upgrade
