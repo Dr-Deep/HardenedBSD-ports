@@ -1202,6 +1202,7 @@
     SUBDIR += rubygem-omniauth-cas
     SUBDIR += rubygem-omniauth-dingtalk-oauth2
     SUBDIR += rubygem-omniauth-gitlab
+    SUBDIR += rubygem-omniauth-gl
     SUBDIR += rubygem-omniauth-jwt
     SUBDIR += rubygem-omniauth-multipassword
     SUBDIR += rubygem-omniauth-multipassword2
@@ -1213,6 +1214,7 @@
     SUBDIR += rubygem-omniauth-saml1
     SUBDIR += rubygem-omniauth-shibboleth
     SUBDIR += rubygem-omniauth-shibboleth-redux
+    SUBDIR += rubygem-omniauth-shibboleth-redux-gitlab
     SUBDIR += rubygem-omniauth1
     SUBDIR += rubygem-openssl
     SUBDIR += rubygem-openssl-ccm

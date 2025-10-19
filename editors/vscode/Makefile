@@ -1,6 +1,5 @@
 PORTNAME=	vscode
-DISTVERSION=	1.105.0
-PORTREVISION=	1
+DISTVERSION=	1.105.1
 CATEGORIES=	editors
 MASTER_SITES=	https://github.com/tagattie/FreeBSD-VSCode/releases/download/${DISTVERSION}/:node_modules
 DISTFILES=	vscode-node-modules-${DISTVERSION}${EXTRACT_SUFX}:node_modules \
@@ -71,7 +70,7 @@ MPROTECT_DISABLE=	share/code-oss/code-oss
 USE_GITHUB=	yes
 GH_ACCOUNT=	microsoft
 
-SOURCE_COMMIT_HASH=	03c265b1adee71ac88f833e065f7bb956b60550a
+SOURCE_COMMIT_HASH=	7d842fb85a0275a4a8e4d7e040d2625abbf7f084
 
 BINARY_ALIAS=	python=${PYTHON_CMD}
 
