@@ -417,6 +417,7 @@
     SUBDIR += fortunelock
     SUBDIR += fpart
     SUBDIR += framework-system
+    SUBDIR += framework-tool-tui
     SUBDIR += frand
     SUBDIR += freebsd-bsdlabel
     SUBDIR += freebsd-fdisk
