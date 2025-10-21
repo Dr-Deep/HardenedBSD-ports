@@ -2650,6 +2650,7 @@
     SUBDIR += unit-ruby
     SUBDIR += unit-wasm
     SUBDIR += unitc
+    SUBDIR += urlfinder
     SUBDIR += uwebsockets
     SUBDIR += uwsgi
     SUBDIR += uwsgitop
