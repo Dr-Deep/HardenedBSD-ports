@@ -26,20 +26,13 @@ USE_GCC=	yes
 USE_LDCONFIG=	${PREFIX}/lib ${PREFIX}/lib/wine
 USE_SDL=	sdl2
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 SSP_CFLAGS=	-fstack-protector-strong
 
 MPROTECT_DISABLE=	bin/wine64.bin
 
-CPE_VENDOR=	winehq
-
-CONFLICTS_INSTALL=	wine-devel
-
-=======
 SHEBANG_FILES=	tools/make_requests tools/winemaker/winemaker \
 		tools/winedump/function_grep.pl
->>>>>>> internal/freebsd/main
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+=--verbose \
 		--disable-kerberos \
