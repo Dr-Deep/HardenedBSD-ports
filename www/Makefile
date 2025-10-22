@@ -2040,6 +2040,7 @@
     SUBDIR += quark
     SUBDIR += qutebrowser
     SUBDIR += radicale
+    SUBDIR += rdrview
     SUBDIR += rearx
     SUBDIR += reddsaver
     SUBDIR += redmine51
