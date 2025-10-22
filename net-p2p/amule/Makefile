@@ -69,6 +69,7 @@ AMULEGUI_CONFIGURE_ENABLE=	amule-gui
 
 BOOST_CONFIGURE_WITH=	boost
 BOOST_LIB_DEPENDS=	libboost_thread.so:devel/boost-libs
+BOOST_USES=		autoreconf
 
 CAS_CONFIGURE_ENABLE=	cas
 CAS_LIB_DEPENDS=	libgd.so:graphics/gd
