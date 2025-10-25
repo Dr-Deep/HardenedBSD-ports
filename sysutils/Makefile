@@ -372,7 +372,7 @@
     SUBDIR += evtviewer
     SUBDIR += exa
     SUBDIR += extipl
-    SUBDIR += extrace
+    SUBDIR += extrace-freebsd
     SUBDIR += eza
     SUBDIR += ezjail
     SUBDIR += f-upgrade
