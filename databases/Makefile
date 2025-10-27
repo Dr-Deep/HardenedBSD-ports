@@ -760,6 +760,7 @@
     SUBDIR += py-aiosql
     SUBDIR += py-aiosqlite
     SUBDIR += py-alembic
+    SUBDIR += py-anysqlite
     SUBDIR += py-apache-arrow
     SUBDIR += py-apsw
     SUBDIR += py-asyncmy
@@ -1140,6 +1141,7 @@
     SUBDIR += unixODBC
     SUBDIR += usql
     SUBDIR += valkey
+    SUBDIR += valkey8
     SUBDIR += vfront
     SUBDIR += virtualpg
     SUBDIR += weaviate
