@@ -22,13 +22,9 @@ RUN_DEPENDS=	git:devel/git
 USES=		cpe gmake go:1.23,no_targets
 USE_RC_SUBR=	forgejo
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:golang relro:off retpoline:off
 
-CONFLICTS_INSTALL=	forgejo forgejo[0-689]*
-=======
 CONFLICTS_INSTALL=	forgejo forgejo-lts
->>>>>>> internal/freebsd/main
 
 EXTRACT_AFTER_ARGS=	--strip-components 1
 SUB_FILES=	app.ini.sample pkg-message
