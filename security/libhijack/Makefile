@@ -1,6 +1,11 @@
 PORTNAME=	libhijack
+<<<<<<< HEAD
 PORTVERSION=	0.8.1
 PORTREVISION=	1
+=======
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.9.0
+>>>>>>> internal/freebsd/main
 CATEGORIES=	security
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -11,6 +16,7 @@ LICENSE=	BSD2CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		uidfix
+<<<<<<< HEAD
 
 USE_HARDENING=	pie relro
 
@@ -28,4 +34,18 @@ PLIST_FILES=	include/hijack.h \
 		lib/libhijack.so.2 \
 		sbin/hijack
 
+=======
+
+ONLY_FOR_ARCHS=	aarch64 amd64
+ONLY_FOR_ARCHS_REASON=	not ported to other architectures
+BROKEN_aarch64=	does not build, upstream is working on a fix (PR 283408)
+BROKEN_FreeBSD_13=	does not build, upstream is working on a fix (PR 283408)
+
+USE_GITLAB=	yes
+GL_SITE=	https://git.hardenedbsd.org
+GL_ACCOUNT=	SoldierX
+
+USE_LDCONFIG=	yes
+
+>>>>>>> internal/freebsd/main
 .include <bsd.port.mk>
