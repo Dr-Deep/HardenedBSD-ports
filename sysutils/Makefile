@@ -1524,6 +1524,7 @@
     SUBDIR += udfclient
     SUBDIR += ufetch
     SUBDIR += uhidd
+    SUBDIR += uhubctl
     SUBDIR += uif2iso
     SUBDIR += unetbootin
     SUBDIR += uniutils
