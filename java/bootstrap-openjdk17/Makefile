@@ -1,6 +1,6 @@
 PORTNAME=	openjdk17
 PORTVERSION=	17.0.1.12.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	java devel
 MASTER_SITES=	LOCAL/glewis/bootstrap-openjdk17 \
 		LOCAL/pkubaj/bootstrap-openjdk17
@@ -29,6 +29,8 @@ JDK_ROOT=	${PKGNAMEPREFIX}${PORTNAME}
 JDK_ARCH=	${ARCH:C/armv.*/arm/}
 
 INSTALLDIR=	${STAGEDIR}${PREFIX}/${JDK_ROOT}
+
+BUNDLE_LIBS=	yes
 
 .include <bsd.port.options.mk>
 
