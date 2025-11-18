@@ -68,7 +68,7 @@ HBSDVERSION!=		${AWK} '/^\#define[[:blank:]]__HardenedBSD_version/ {print $$3}' 
 HBSDVERSION=		0
 .endif
 
-HARDENING_ALL=		cfi fortifysource pie relro retpoline safestack slh zeroreg
+HARDENING_ALL=		cfi fortifysource hardcflags pie relro retpoline safestack slh zeroreg
 HARDENING_OFF?=		# all features are on by default
 
 USE_HARDENING?=		# implicit auto-defaults may apply
@@ -429,6 +429,34 @@ OPTIONS_GROUP_HARDENING+=ZEROREG
 .endif
 
 .endif
+.endif
+
+###############################
+### Hardened Compiler Flags ###
+###############################
+
+.if ${HARDENING_OFF:Mhardcflags} == ""
+
+hardcflags_ARGS?=	auto
+
+.if ${hardcflags_ARGS:Mauto}
+USE_HARDENING+=		hardcflags
+.endif
+
+HARDCFLAGS_DESC=		Various hardened compiler flags
+HARDCFLAGS_USES=		hardcflags
+
+.if ${_USE_HARDENING:Mlock} == ""
+OPTIONS_GROUP_HARDENING+=HARDCFLAGS
+.endif
+
+.if ${USE_HARDENING:Mhardcflags} && ${hardcflags_ARGS:Moff} == ""
+OPTIONS_DEFAULT+=	HARDCFLAGS
+.if ${_USE_HARDENING:Mlock} != ""
+OPTIONS_GROUP_HARDENING+=HARDCFLAGS
+.endif
+.endif
+
 .endif
 
 .endif # !HARDENINGMKINCLUDED
