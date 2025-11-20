@@ -13,6 +13,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		cpe iconv tar:xz
 
+USE_HARDENING=	hardcflags:off
+
 CONFIGURE_ARGS=	--program-prefix=g
 GNU_CONFIGURE=	yes
 
