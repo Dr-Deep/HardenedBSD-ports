@@ -34,6 +34,8 @@ LOCAL_UNZIP=	${CFLAGS} -DACORN_FTYPE_NFS -DWILD_STOP_AT_DIR \
 MAKE_ENV=	LOCAL_UNZIP="${LOCAL_UNZIP}" \
 		D_USE_BZ2=-DUSE_BZIP2 L_BZ2=-lbz2
 
+USE_HARDENING=	hardcflags:off
+
 .ifdef USE_UNZIP
 .error You have "USE_UNZIP" variable defined in environment or in \
 	make(1) arguments. Please undefine and try again.
