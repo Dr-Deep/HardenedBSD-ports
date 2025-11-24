@@ -16,7 +16,7 @@ LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING-LGPLV3
 
 BROKEN_armv6=		fails to build: fails to compile i386_disasm.c
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off hardcflags:off
 
 LIB_DEPENDS=	libargp.so:devel/argp-standalone \
 		libcurl.so:ftp/curl
