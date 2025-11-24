@@ -27,6 +27,8 @@ USES=		compiler:c++11-lang cpe gmake iconv libtool makeinfo perl5 tar:xz
 USE_BINUTILS=	yes
 USE_PERL5=	build
 
+USE_HARDENING=	pie:off retpoline:off fortifysource:off hardcflags:off
+
 CPE_VENDOR=	gnu
 CPE_VERSION=	${GCC_VERSION}
 
