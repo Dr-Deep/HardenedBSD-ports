@@ -19,7 +19,7 @@ LIB_DEPENDS=	libjasper.so:graphics/jasper \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off fortifysource:off
 
 USES=		cpe gmake jpeg perl5 shebangfix tar:xz
 USE_LDCONFIG=	yes
