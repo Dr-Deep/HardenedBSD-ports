@@ -1,6 +1,6 @@
---- src/names.c.orig	Wed Dec  6 21:41:29 2000
-+++ src/names.c	Fri Dec  2 16:12:26 2005
-@@ -101,6 +101,21 @@
+--- src/names.c.orig	2008-02-19 04:13:35 UTC
++++ src/names.c
+@@ -101,6 +101,21 @@ alias_comparator (const void *void_first, const void *
    return strcmp (first->name, second->name) == 0;
  }
  
@@ -22,7 +22,7 @@
  bool
  prepare_for_aliases (RECODE_OUTER outer)
  {
-@@ -108,7 +123,7 @@
+@@ -108,7 +123,7 @@ prepare_for_aliases (RECODE_OUTER outer)
    outer->number_of_symbols = 0;
  
    outer->alias_table
@@ -31,3 +31,12 @@
    if (!outer->alias_table)
      return false;
  
+@@ -892,7 +907,7 @@ list_concise_charset (RECODE_OUTER outer,
+ 	    if (ucs2 >= 0)
+ 	      printf (format, code);
+ 	    else if (mnemonic || counter2 != 112)
+-	      printf (blanks);
++	      printf ("%s", blanks);
+ 
+ 	    if (mnemonic)
+ 	      printf (counter2 == 112 ? " %s\n" : " %-3s", mnemonic);
