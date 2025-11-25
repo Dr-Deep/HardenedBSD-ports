@@ -24,16 +24,11 @@ TEST_DEPENDS=	git:devel/git
 USES=		compiler:c11 cpe gmake python:build readline # c11 is induced by the FreeBSD headers via isnan(3), etc, otherwise the project is all c99 code
 USE_LDCONFIG=	yes
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	ccxvii
-=======
 CPE_VENDOR=	artifex
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
->>>>>>> origin/freebsd/main
 
 LDFLAGS=	-Wl,-soname=libmujs.so
 
