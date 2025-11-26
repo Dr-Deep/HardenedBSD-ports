@@ -1,6 +1,6 @@
 PORTNAME=	openjdk8
 PORTVERSION=	${DISTVERSION_${JDK_ARCH}}
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	java devel
 MASTER_SITES=	LOCAL/jkim \
 		LOCAL/mikael \
@@ -38,8 +38,6 @@ MPROTECT_DISABLE=	bootstrap-openjdk8/bin/java
 PAGEEXEC_DISABLE=	bootstrap-openjdk8/bin/java
 
 INSTALLDIR=	${STAGEDIR}${PREFIX}/${JDK_ROOT}
-
-BUNDLE_LIBS=	yes
 
 .include <bsd.port.pre.mk>
 
