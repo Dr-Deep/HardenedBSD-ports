@@ -1,11 +1,11 @@
 PORTNAME=	pgpool-II
-DISTVERSION=	4.5.9
+DISTVERSION=	4.7beta1
 CATEGORIES=	databases
 MASTER_SITES=	http://www.pgpool.net/mediawiki/images/
-PKGNAMESUFFIX=	-45
+PKGNAMESUFFIX=	-47
 
 MAINTAINER=	bofh@FreeBSD.org
-COMMENT=	Connection pool server for PostgreSQL (4.4.X branch)
+COMMENT=	Connection pool server for PostgreSQL (4.7.X branch)
 WWW=		https://pgpool.net/
 
 LICENSE=	MIT
@@ -17,9 +17,11 @@ USE_RC_SUBR=	pgpool
 
 GNU_CONFIGURE=	yes
 
+INSTALL_TARGET=	install-strip
+
 CONFLICTS_INSTALL=	pgpool-II-[0-9][0-9] pgpool-II[0-9][0-9] # etc/escalation.sh.sample etc/failover.sh.sample etc/pcp.conf.sample
 
-PORTSCOUT=	limit:^4.5.[0-9]*
+PORTSCOUT=	limit:^4.7.[0-9]*
 
 PORTDOCS=	*
 
@@ -38,7 +40,6 @@ SSL_CONFIGURE_WITH=	openssl
 
 post-install:
 	@${MKDIR} ${STAGEDIR}/var/run/pgpool
-	${INSTALL_LIB} ${WRKSRC}/src/libs/pcp/.libs/libpcp.so.2.0.0 ${STAGEDIR}${PREFIX}/lib
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
