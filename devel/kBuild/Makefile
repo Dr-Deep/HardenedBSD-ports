@@ -14,7 +14,7 @@ LICENSE_COMB=	multi
 
 USES=		autoreconf:build gmake makeinfo tar:xz
 
-USE_HARDENING=	fortifysource:off
+USE_HARDENING=	fortifysource:off hardcflags:off
 
 CONFLICTS_INSTALL=	kBuild-devel
 
