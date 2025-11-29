@@ -168,6 +168,7 @@
     SUBDIR += gimp-help-en
     SUBDIR += github-copilot-cli
     SUBDIR += github-copilot-language-server
+    SUBDIR += gitlogue
     SUBDIR += gkrellm-gamma
     SUBDIR += gkrellm-xkb
     SUBDIR += gkrellmbgchg2
@@ -560,6 +561,7 @@
     SUBDIR += py-safetensors
     SUBDIR += py-sagemaker
     SUBDIR += py-sagemaker-core
+    SUBDIR += py-sagemaker-train
     SUBDIR += py-schedulefree
     SUBDIR += py-scikit-fusion
     SUBDIR += py-scikit-quant
