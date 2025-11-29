@@ -1,6 +1,6 @@
 PORTNAME=	diamond
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.1.15
+DISTVERSION=	2.1.16
 CATEGORIES=	biology
 
 MAINTAINER=	jrm@FreeBSD.org
@@ -17,6 +17,8 @@ USE_HARDENING=	pie:off
 USES=		cmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	bbuchfink
+
+TEST_TARGET=	test
 
 PLIST_FILES=	bin/diamond
 
