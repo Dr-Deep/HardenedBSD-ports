@@ -5840,6 +5840,7 @@
     SUBDIR += py-pythonfinder
     SUBDIR += py-pythran
     SUBDIR += py-pytimeparse
+    SUBDIR += py-pytokens
     SUBDIR += py-pytoolconfig
     SUBDIR += py-pytools
     SUBDIR += py-pytrie
@@ -8374,6 +8375,7 @@
     SUBDIR += stylua
     SUBDIR += styx
     SUBDIR += subprocess
+    SUBDIR += subprocess.h
     SUBDIR += subversion
     SUBDIR += subversion-book
     SUBDIR += subversion-lts
