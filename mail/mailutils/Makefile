@@ -24,6 +24,8 @@ USE_RC_SUBR=	comsatd imap4d pop3d
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
 
+USE_HARDENING=	hardcflags:off
+
 CONFLICTS_INSTALL=	avenger elm # bin/dotlock bin/frm
 
 PLIST_SUB+=	LIBVERSION=9.0.0 LIBSUFX=9 VERSION=${PORTVERSION}
