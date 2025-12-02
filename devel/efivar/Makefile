@@ -18,6 +18,9 @@ LIB_DEPENDS=	libpopt.so:devel/popt
 
 USES=		gmake pkgconfig python
 
+CFLAGS+=	-Wformat
+CXXFLAGS+=	-Wformat
+
 USE_GCC=	yes
 USE_GITHUB=	yes
 GH_ACCOUNT=	rhboot
