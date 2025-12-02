@@ -16,6 +16,8 @@ USES=		meson pkgconfig python shebangfix
 USE_GITHUB=	yes
 GH_ACCOUNT=	fwupd
 
+USE_HARDENING=	fortifysource:off hardcflags:off
+
 USE_GCC=	yes
 SHEBANG_GLOB=	*.py
 
