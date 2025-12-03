@@ -19,6 +19,8 @@ USES=		compiler:c11 cpe gmake tcl:test
 CPE_VENDOR=	redislabs
 USE_RC_SUBR=	redis sentinel
 
+USE_HARDENING=	pie:off relro:off
+
 MAKE_ENV=	OPTIMIZATION= \
 		V=yo
 
