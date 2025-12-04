@@ -213,6 +213,7 @@
     SUBDIR += foswiki
     SUBDIR += free-sa-devel
     SUBDIR += freenginx
+    SUBDIR += freenginx-acme
     SUBDIR += freenginx-devel
     SUBDIR += fswiki
     SUBDIR += fusionpbx
