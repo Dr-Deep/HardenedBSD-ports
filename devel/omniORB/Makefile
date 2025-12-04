@@ -18,7 +18,7 @@ USES=		gmake pkgconfig python shebangfix ssl tar:bzip2
 USE_LDCONFIG=	yes
 USE_PYTHON=	py3kplist
 
-USE_HARDENING=  pie:off
+LDFLAGS+=	-lpthread
 
 SHEBANG_FILES=	src/tool/omniidl/python2/scripts/omniidlrun.py \
 		src/tool/omniidl/python3/scripts/omniidlrun.py
