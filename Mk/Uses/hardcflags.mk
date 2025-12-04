@@ -11,8 +11,8 @@ _INCLUDE_USES_HARDCFLAGS_MK=    yes
 HARDCFLAGS+=	-fno-delete-null-pointer-checks
 HARDCXXFLAGS+=	-fno-delete-null-pointer-checks
 
-HARDCFLAGS+=	-Werror=format-security
-HARDCXXFLAGS+=	-Werror=format-security
+HARDCFLAGS+=	-Wformat -Werror=format-security
+HARDCXXFLAGS+=	-Wformat -Werror=format-security
 
 CFLAGS+=	${HARDCFLAGS}
 CXXFLAGS+=	${HARDCXXFLAGS}
