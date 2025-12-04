@@ -577,6 +577,7 @@
     SUBDIR += jdupes
     SUBDIR += jest
     SUBDIR += jkill
+    SUBDIR += jmore
     SUBDIR += joshuto
     SUBDIR += jps
     SUBDIR += jruls
