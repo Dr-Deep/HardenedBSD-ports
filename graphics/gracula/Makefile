@@ -9,6 +9,8 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Graphic Counter Language compiler/interpreter
 WWW=		http://www.whizkidtech.redprince.net/gcl/
 
+USE_HARDENING=	hardcflags:off
+
 SUB_FILES=	pkg-message
 
 OPTIONS_DEFINE=	DOCS
