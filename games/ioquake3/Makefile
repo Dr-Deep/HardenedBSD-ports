@@ -1,6 +1,6 @@
 PORTNAME?=	ioquake3
 PORTVERSION?=	${IOQUAKE3VER}
-PORTREVISION?=	17
+PORTREVISION?=	18
 CATEGORIES=	games
 MASTER_SITES?=	http://ioquake3.org/files/${DISTVERSION}/
 # Using zip this way enables slaves to override it.
@@ -43,6 +43,13 @@ IOQ3_OPTIONS=	${IOQ3:MTOOLS} ${IOQ3:MDLRENDERER} ${IOQ3:MGAMELIBS} \
 		${IOQ3:MOPUS}
 OPTIONS_DEFINE+=	${IOQ3_OPTIONS} DOCS
 OPTIONS_DEFAULT+=	${IOQ3_OPTIONS}
+
+# HardenedBSD additions
+OPTIONS_DEFINE+=	CHEATS
+CHEATS_DESC=		Cheat code support
+CHEATS_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-code_game_g__main.c
+CHEATS_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-code_server_sv__ccmds.c
+OPTIONS_DEFAULT+=	CHEATS
 
 TOOLS_DESC=	Enable modding tools
 DLRENDERER_DESC=Build dynamically loaded renderer
