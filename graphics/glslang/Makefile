@@ -18,6 +18,8 @@ TEST_DEPENDS=	bash:shells/bash \
 
 USES=		cmake:testing compiler:c++11-lib python:build
 
+USE_HARDENING=	hardcflags:off
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup
 
