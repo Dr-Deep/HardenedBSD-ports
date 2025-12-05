@@ -1726,6 +1726,7 @@
     SUBDIR += py-django42
     SUBDIR += py-django51
     SUBDIR += py-django52
+    SUBDIR += py-django60
     SUBDIR += py-django_compressor
     SUBDIR += py-djangocms-admin-style
     SUBDIR += py-djangoql
@@ -2143,7 +2144,6 @@
     SUBDIR += rubygem-coverband
     SUBDIR += rubygem-crass
     SUBDIR += rubygem-cssbundling-rails
-    SUBDIR += rubygem-cssbundling-rails-gitlab
     SUBDIR += rubygem-cssbundling-rails-rails-gitlab
     SUBDIR += rubygem-cssbundling-rails-rails70
     SUBDIR += rubygem-cssbundling-rails-rails71
