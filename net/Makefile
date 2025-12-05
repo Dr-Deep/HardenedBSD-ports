@@ -1099,7 +1099,6 @@
     SUBDIR += py-msrplib
     SUBDIR += py-ndg-httpsclient
     SUBDIR += py-netaddr
-    SUBDIR += py-netif
     SUBDIR += py-netifaces
     SUBDIR += py-netifaces-plus
     SUBDIR += py-netsnmpagent
