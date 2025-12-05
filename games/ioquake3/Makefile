@@ -15,7 +15,7 @@ LICENSE_FILE?=	${WRKSRC}/COPYING.txt
 
 USES=		cpe pkgconfig gmake
 
-USE_HARDENING=	safestack
+USE_HARDENING=	safestack slh
 
 PAGEEXEC_DISABLE=	bin/ioquake3
 MPROTECT_DISABLE=	bin/ioquake3
