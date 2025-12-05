@@ -48,7 +48,7 @@ OPTIONS_DEFAULT+=	${IOQ3_OPTIONS}
 OPTIONS_DEFINE+=	CHEATS
 CHEATS_DESC=		Cheat code support
 CHEATS_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-code_game_g__main.c
-CHEATS_EXTRA_PATCHES=	${PATCHDIR}/extra-patch-code_server_sv__ccmds.c
+CHEATS_EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-code_server_sv__ccmds.c
 OPTIONS_DEFAULT+=	CHEATS
 
 TOOLS_DESC=	Enable modding tools
