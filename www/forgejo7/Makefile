@@ -22,14 +22,8 @@ RUN_DEPENDS=	git:devel/git
 USES=		cpe gmake go:1.23,no_targets
 USE_RC_SUBR=	forgejo
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:golang relro:off retpoline:off
 
-DEPRECATED=	Uses old go, but try building without USES=go:someversion
-EXPIRATION_DATE=2026-01-01
-
-=======
->>>>>>> internal/freebsd/main
 CONFLICTS_INSTALL=	forgejo forgejo-lts
 
 EXTRACT_AFTER_ARGS=	--strip-components 1
