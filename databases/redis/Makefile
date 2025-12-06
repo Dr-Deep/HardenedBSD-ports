@@ -19,7 +19,11 @@ USES=		compiler:c11 cpe gmake tcl:test
 CPE_VENDOR=	redislabs
 USE_RC_SUBR=	redis sentinel
 
-USE_HARDENING=	pie:off relro:off
+# HardenedBSD note (2025-12-06):
+# Redis seems to unconditionally define LD as ld and we cannot override it (by
+# setting LD to /usr/bin/cc). Instead, we have to perform this stupid hack to
+# trick redis' build scripts into executing the compiler.
+BINARY_ALIAS=	ld=/usr/bin/cc
 
 MAKE_ENV=	OPTIMIZATION= \
 		V=yo
