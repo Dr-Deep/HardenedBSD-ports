@@ -12,7 +12,7 @@ WWW=		https://www.inet.no/dante/
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off fortifysource:off
 
 USES=		libtool localbase ssl
 GNU_CONFIGURE=	yes
