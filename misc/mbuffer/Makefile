@@ -14,6 +14,8 @@ TEST_DEPENDS=	gtar:archivers/gtar
 
 USES=		autoreconf gmake localbase ssl tar:tgz
 
+USE_HARDENING=	fortifysource:off
+
 GNU_CONFIGURE=	yes
 
 # for --ignore-failed-read
