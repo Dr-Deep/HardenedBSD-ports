@@ -17,6 +17,8 @@ ONLY_FOR_ARCHS=		amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le
 
 USES=			cpe zip:infozip
 
+USE_HARDENING=		pie:off
+
 OPTIONS_DEFINE=		DOCS
 
 EXTRACT_BEFORE_ARGS=	-aq
