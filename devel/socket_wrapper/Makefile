@@ -15,6 +15,8 @@ TEST_DEPENDS=	cmocka>=1.1.0:sysutils/cmocka
 
 USES=		cmake:testing localbase pathfix
 
+USE_HARDENING=	fortifysource:off
+
 CMAKE_OFF=	HELGRIND_TESTING \
 		PICKY_DEVELOPER \
 		UNIT_TESTING
