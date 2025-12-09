@@ -24,6 +24,8 @@ ALL_TARGET=	freebsd-${ARCH:S/powerpc64le/powerpc64/} OS_CFLAGS="${CFLAGS}"
 PGPLIB=		${STAGEDIR}${PREFIX}/lib/pgpin
 OPTIONS_DEFINE=	DOCS
 
+USE_HARDENING=	hardcflags:off
+
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/pgp ${STAGEDIR}${PREFIX}/bin/pgpin
 	${INSTALL_MAN} ${WRKSRC}/../doc/pgp.1 ${STAGEDIR}${PREFIX}/share/man/man1/pgpin.1
