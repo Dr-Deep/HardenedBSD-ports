@@ -768,6 +768,7 @@
     SUBDIR += py-couchdb
     SUBDIR += py-cymysql
     SUBDIR += py-databases
+    SUBDIR += py-databricks-sql-connector
     SUBDIR += py-datafusion
     SUBDIR += py-dbf
     SUBDIR += py-dbt-core
@@ -845,6 +846,7 @@
     SUBDIR += py-redis5
     SUBDIR += py-redis6
     SUBDIR += py-redisvl
+    SUBDIR += py-redshift-connector
     SUBDIR += py-rrdtool
     SUBDIR += py-schemachange
     SUBDIR += py-sispy

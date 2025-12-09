@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 TEST_DEPENDS=	cmocka>=1.1.0:sysutils/cmocka
 
-USES=		cmake:testing localbase pathfix
+USES=		cmake:testing localbase
 
 USE_HARDENING=	fortifysource:off
 
