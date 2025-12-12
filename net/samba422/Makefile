@@ -313,6 +313,7 @@ AVAHI_LIB_DEPENDS=		libavahi-client.so:net/avahi-app
 AVAHI_CONFIGURE_ENABLE=		avahi
 AVAHI_VARS=			SAMBA4_SERVICES+=avahi_daemon
 
+CLUSTER_LIB_DEPENDS=		libpcap.so:net/libpcap
 CLUSTER_CONFIGURE_WITH=		cluster-support
 CLUSTER_VARS=			PLIST+=${PKGDIR}/pkg-plist.cluster
 
@@ -536,6 +537,7 @@ post-install-CLUSTER-on:
 	${RLN} ${STAGEDIR}${PREFIX}/share/ctdb/events/legacy/01.reclock.script ${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/01.reclock.script
 	${RLN} ${STAGEDIR}${PREFIX}/share/ctdb/events/legacy/05.system.script ${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/05.system.script
 	${RLN} ${STAGEDIR}${PREFIX}/share/ctdb/events/legacy/10.interface.script ${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/10.interface.script
+	${RLN} ${STAGEDIR}${PREFIX}/share/ctdb/events/legacy/95.database.script ${STAGEDIR}${PREFIX}/etc/ctdb/events/legacy/95.database.script
 
 post-install-FRUIT-off:
 	${RM} ${STAGEDIR}${SAMBA4_MODULEDIR}/vfs/fruit.so
