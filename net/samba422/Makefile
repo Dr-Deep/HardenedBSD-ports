@@ -133,7 +133,7 @@ CONFIGURE_ENV=			PTHREAD_LDFLAGS="-lpthread" \
 				PYTHONHASHSEED=1
 MAKE_ENV=			PYTHONHASHSEED=1 \
 				RPCGEN_CPP="${CPP}"
-TEST_ENV+=			PYTHON="${PYTHON_CMD}" \
+TEST_ENV=			PYTHON="${PYTHON_CMD}" \
 				SHA1SUM=/sbin/sha1 \
 				SHA256SUM=${SHA256} \
 				MD5SUM=${MD5} \
@@ -362,8 +362,6 @@ GSSAPI_MIT_PLIST_FILES=		${SAMBA4_MODULEDIR}/krb5/winbind_krb5_localauth.so \
 				%%AD_DC%%${SAMBA4_LIBDIR}/krb5/plugins/kdb/samba.so
 
 LDAP_USES=			ldap
-LDAP_CONFIGURE_ON=		--with-ldap
-LDAP_CONFIGURE_OFF=		--without-ldap
 LDAP_CONFIGURE_WITH=		ldap
 LDAP_VARS=			SAMBA4_MODULES+=idmap_ldap
 
