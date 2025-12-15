@@ -1130,6 +1130,7 @@
     SUBDIR += tcl-lmdb
     SUBDIR += tcl-sqlite3
     SUBDIR += tdb
+    SUBDIR += tdb1
     SUBDIR += tdb1410
     SUBDIR += tdb1413
     SUBDIR += tdbc
