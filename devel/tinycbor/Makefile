@@ -16,13 +16,12 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libcjson.so:devel/libcjson
 
-USES=		gmake localbase:ldflags pathfix
+USES=		gmake localbase:ldflags
 
 USE_HARDENING=	pie:off
 
 INSTALL_TARGET=	install-strip
 MAKE_ARGS=	SOVERSION=${PORTVERSION:R:R}
-PATHFIX_MAKEFILEIN=	Makefile
 
 PLIST_SUB=	PORTVERSION=${PORTVERSION}
 
