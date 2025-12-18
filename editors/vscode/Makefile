@@ -95,16 +95,12 @@ MAKE_ENV+=	PLAYWRIGHT_BROWSERS_PATH=${WRKDIR}/pw-browsers \
 MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
 TEST_ENV=	${MAKE_ENV:C/TMPDIR=.*//}
 
-<<<<<<< HEAD
 USE_HARDENING=	relro:off
 
-NODEJS_DIR=	${.CURDIR:H:H}/www/node22
-=======
 .include "Makefile.version"
 .include <bsd.port.pre.mk>
 
 NODEJS_DIR=	${.CURDIR:H:H}/www/node${NODEJS_VERSION}
->>>>>>> internal/freebsd/main
 .include "${NODEJS_DIR}/Makefile.version"
 ELECTRON_DIR=	${.CURDIR:H:H}/devel/electron39
 .include "${ELECTRON_DIR}/Makefile.version"
