@@ -14,6 +14,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		autoreconf gmake libtool ncurses tar:bzip2
 
+USE_HARDENING=	hardcflags:off
+
 CONFIGURE_ARGS=	--enable-automated --enable-basic --enable-console --enable-curses --enable-debug --enable-memtrace --enable-test
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
