@@ -23,14 +23,10 @@ TPO_GEOIP=	7ce4b3d98d01ff33bad8007db3f488d5b172382a
 TPO_SNOWFLAKE=6472bd86cdd5d13fe61dc851edcf83b03df7bda1
 TPO_GOPTLIB=f4bb5dd5725833bd880347b8fbaf60522ed0a710
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:golang
 
-GO_MODULE=      git.torproject.org/pluggable-transports/snowflake.git/v2
-=======
 GO_MODULE=      gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2
 GO_BUILDFLAGS=  -ldflags '${STRIP} -w -extldflags "-static"'
->>>>>>> internal/freebsd/main
 GO_PKGNAME=	${GO_MODULE}
 GO_TARGET=	./broker ./client ./proxy ./server
 
