@@ -12,6 +12,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		desktop-file-utils gmake iconv ncurses
 
+USE_HARDENING=	fortifysource:off
+
 MAKEFILE=	${WRKSRC}/GNUmakefile
 MAKE_ARGS=	mandir=${PREFIX}/share/man \
 		prefix=${PREFIX} \
