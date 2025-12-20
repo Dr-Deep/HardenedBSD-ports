@@ -1104,6 +1104,7 @@
     SUBDIR += py-queuelib
     SUBDIR += py-ranger
     SUBDIR += py-rdiff-backup
+    SUBDIR += py-rendercv
     SUBDIR += py-resolve-march-native
     SUBDIR += py-salt
     SUBDIR += py-salt-tower
