@@ -22,6 +22,8 @@ USES=		desktop-file-utils gmake localbase:ldflags pkgconfig xorg
 USE_GITHUB=	yes
 USE_XORG=	x11 xft
 
+USE_HARDENING=	pie:off
+
 MAKE_ARGS=	MANPREFIX=${PREFIX}/share/man
 MAKE_ENV=	EGPREFIX=${EXAMPLESDIR} LDLIBS=-linotify
 
