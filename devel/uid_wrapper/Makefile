@@ -15,6 +15,8 @@ TEST_DEPENDS=	cmocka>=1.1.0:sysutils/cmocka
 
 USES=		cmake:testing localbase
 
+USE_HARDENING=	fortifysource:off
+
 CMAKE_OFF=	PICKY_DEVELOPER \
 		UNIT_TESTING
 CMAKE_TESTING_ON=	UNIT_TESTING
