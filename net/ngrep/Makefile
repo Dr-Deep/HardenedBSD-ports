@@ -13,13 +13,9 @@ WWW=		https://ngrep.sourceforge.net/ \
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		gmake tar:bzip2
-=======
 USES=		autoreconf gmake
->>>>>>> origin/freebsd/main
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-pcap-restart
