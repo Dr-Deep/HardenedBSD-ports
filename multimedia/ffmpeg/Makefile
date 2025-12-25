@@ -24,15 +24,9 @@ BUILD_DEPENDS_armv6=	as:devel/binutils
 BUILD_DEPENDS_armv7=	as:devel/binutils
 BUILD_DEPENDS_i386=	nasm:devel/nasm
 
-<<<<<<< HEAD
 USE_HARDENING=	relro:off
 
-HAS_CONFIGURE=	yes
-CONFIGURE_LOG=	ffbuild/config.log
-USES=		compiler:c11 cpe gmake localbase:ldflags perl5 \
-=======
 USES=		compiler:c17 cpe gmake localbase:ldflags perl5 \
->>>>>>> internal/freebsd/main
 		pkgconfig shebangfix tar:xz
 USE_PERL5=	build
 SHEBANG_FILES=	doc/texi2pod.pl
@@ -107,52 +101,6 @@ OPTIONS_EXCLUDE=	CACA DRM JACK JXL LADSPA LENSFUN LIBPLACEBO LIBRSVG2 \
 OPTIONS_DEFINE_amd64=	MFX VPL
 OPTIONS_DEFINE_i386=	MFX
 
-<<<<<<< HEAD
-OPTIONS_DEFAULT=	AOM ASM ASS DAV1D DRM FONTCONFIG FREETYPE FREI0R GMP \
-			GNUTLS HARFBUZZ ICONV JXL LAME LCMS2 LIBPLACEBO LIBXML2 NETWORK \
-			OPTIMIZED_CFLAGS OPUS RTCPU SHADERC SVTAV1 V4L VAAPI VDPAU VMAF \
-			VORBIS VPX VULKAN WEBP X264 X265 XCB
-OPTIONS_DEFAULT_aarch64=LTO
-OPTIONS_DEFAULT_amd64=	LTO NVENC
-OPTIONS_DEFAULT_i386=	NVENC
-
-# i386 is too register-starved for LTO (PR257124)
-OPTIONS_EXCLUDE_i386=	LTO
-
-OPTIONS_DEFAULT+=	SMB
-
-.if !exists(${.CURDIR:H:H}/multimedia/libaribcaption)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/b6138633cdf2
-OPTIONS_EXCLUDE+=	ARIBCAPTION
-.endif
-
-.if !exists(${.CURDIR:H:H}/multimedia/davs2)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/5985a1bf7233
-OPTIONS_EXCLUDE+=	DAVS2
-.endif
-
-.if !exists(${.CURDIR:H:H}/multimedia/uavs3d)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/c952db9d68d3
-OPTIONS_EXCLUDE+=	UAVS3D
-.endif
-
-.if !exists(${.CURDIR:H:H}/multimedia/xavs2)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/85a921f4618
-OPTIONS_EXCLUDE+=	XAVS2
-.endif
-
-.if !exists(${.CURDIR:H:H}/multimedia/klvanc)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/8732dfa9954
-OPTIONS_EXCLUDE+=	KLVANC
-.endif
-
-.if !exists(${.CURDIR:H:H}/science/openvino)
-# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/ff37ebaf30e6
-OPTIONS_EXCLUDE+=	OPENVINO
-.endif
-
-=======
->>>>>>> internal/freebsd/main
 OPTIONS_RADIO=	RTMP SSL
 OPTIONS_RADIO_RTMP=	GCRYPT GMP
 OPTIONS_RADIO_SSL=	GNUTLS OPENSSL
@@ -708,44 +656,6 @@ GPL3_VARS=		LICENSE="GPLv3+ LGPL3+"
 
 NONFREE_CONFIGURE_ENABLE=nonfree
 
-<<<<<<< HEAD
-INSTALL_TARGET=	install-progs install-doc install-data \
-		install-libs install-headers install-examples
-
-DATADIR=	${PREFIX}/share/${PORTNAME}${PKGNAMESUFFIX}
-DOCSDIR=	${PREFIX}/share/doc/${PORTNAME}${PKGNAMESUFFIX}
-MAKE_ENV+=	V=1
-CFLAGS_armv6=	-Wno-error=int-conversion
-CFLAGS_armv7=	-Wno-error=int-conversion
-CFLAGS_i386=	-Wno-error=int-conversion
-CFLAGS_powerpc=	-Wno-error=int-conversion
-LDFLAGS_aarch64=-Wl,-z,notext
-LDFLAGS_armv6=	-Wl,-z,notext
-LDFLAGS_armv7=	-Wl,-z,notext
-LDFLAGS_i386=	-Wl,-z,notext
-
-CONFIGURE_ARGS+=--prefix="${PREFIX}" \
-		--mandir="${PREFIX}/share/man" \
-		--datadir="${DATADIR}" \
-		--docdir="${DOCSDIR}" \
-		--pkgconfigdir="${PREFIX}/libdata/pkgconfig" \
-		--disable-static \
-		--disable-libcelt \
-		--enable-shared \
-		--enable-pic \
-		--enable-gpl \
-		--cc="${CC}" \
-		--cxx="${CXX}" \
-		--toolchain=hardened
-
-DOC_FILES=	Changelog CREDITS INSTALL.md LICENSE.md MAINTAINERS \
-		README.md RELEASE_NOTES
-# under doc subdirectory
-DOC_DOCFILES=	APIchanges *.txt
-PORTDOCS=	*
-
-=======
->>>>>>> internal/freebsd/main
 .include <bsd.port.options.mk>
 
 .if ${PORT_OPTIONS:MNONFREE}
