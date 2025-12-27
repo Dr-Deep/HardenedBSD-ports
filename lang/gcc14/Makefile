@@ -27,6 +27,7 @@ USES=		compiler:c++11-lang cpe gmake iconv libtool makeinfo perl5 tar:xz
 USE_BINUTILS=	yes
 USE_PERL5=	build
 
+NO_UNUSED_ARGUMENTS_CHECK=	yes
 USE_HARDENING=	pie:off retpoline:off fortifysource:off hardcflags:off
 
 CONFLICTS=	gcc14-devel
