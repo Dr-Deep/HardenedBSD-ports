@@ -45,36 +45,9 @@ USE_GL=		gl glu
 USE_GITHUB=	yes
 GH_ACCOUNT=	mixxxdj
 
-<<<<<<< HEAD
-.if ${FLAVOR} == qt6
-PKGNAMESUFFIX=  -qt6
-
-USES+=		qt:6
-USE_QT=		5compat base declarative shadertools \
-		sqldriver-sqlite:run svg tools:build
-CMAKE_ARGS+=	-DQT6=ON
-
-QTKEYCHAIN_LIB_DEPENDS=	libqt6keychain.so:security/qtkeychain@qt6
-
-PLIST_SUB+=	QT6=""
-.else
-PKGNAMESUFFIX=	-qt5
-
-USES+=		qt:5
-USE_QT=		buildtools concurrent core dbus declarative gui linguisttools:build \
-		network opengl printsupport qmake:build sql sql-sqlite3 svg testlib \
-		widgets x11extras xml
-CMAKE_ARGS+=	-DQT6=OFF
-
+# HBSD changes
 CXXFLAGS+=	-Wno-unused-but-set-variable
 
-QTKEYCHAIN_LIB_DEPENDS=	libqt5keychain.so:security/qtkeychain@qt5
-
-PLIST_SUB+=	QT6="@comment "
-.endif
-
-=======
->>>>>>> origin/freebsd/main
 CMAKE_ARGS+=	-DINSTALL_USER_UDEV_RULES:BOOL=OFF \
 		-DOPTIMIZE:STRING=portable \
 		-DBATTERY:BOOL=OFF \
