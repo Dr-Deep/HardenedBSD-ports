@@ -29,8 +29,11 @@ REINPLACE_ARGS=	-i ""
 NO_ARCH=	yes
 NO_BUILD=	yes
 
-SUB_FILES=	config.php httpd-tt-rss.conf pkg-message
+SUB_FILES=	config.php httpd-tt-rss.conf pkg-message start.sh
 SUB_LIST=	WWWOWN=${WWWOWN}
+
+USERS=		ttrssd
+GROUPS=		ttrssd
 
 PLIST_SUB=	WWWGRP=${WWWGRP} \
 		WWWOWN=${WWWOWN}
@@ -53,12 +56,37 @@ do-install:
 		"! -name LICENSE ! -name .empty ! -name Jenkinsfile")
 	${RM} -r ${STAGEDIR}${WWWDIR}/debian
 	${INSTALL_DATA} ${WRKDIR}/httpd-tt-rss.conf ${STAGEDIR}${DATADIR}
-	${ECHO} "${OPSYS}:${PORTVERSION}:${GH_TAGNAME:C/^(.{11}).*$/\1/W}}" > \
+	${ECHO} "${OPSYS}:${PORTVERSION}:${GH_TAGNAME:C/^(.{11}).*$/\1/W}" > \
 		"${STAGEDIR}${WWWDIR}/version_static.txt"
 	${RM} ${STAGEDIR}${WWWDIR}/config.php-dist
 	${INSTALL_DATA} ${WRKDIR}/config.php \
 		${STAGEDIR}${WWWDIR}/config.php.sample
 	${INSTALL_DATA} ${FILESDIR}/newsyslog.sample \
 		${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKDIR}/start.sh ${STAGEDIR}${WWWDIR}
+	${MKDIR} ${STAGEDIR}/var/log/ttrssd
+	${MKDIR} ${STAGEDIR}/var/run/ttrssd
+
+	${MKDIR} ${STAGEDIR}/var/tt-rss
+	${MV}	${STAGEDIR}${WWWDIR}/cache \
+		${STAGEDIR}${WWWDIR}/feed-icons \
+		${STAGEDIR}${WWWDIR}/lock \
+			${STAGEDIR}/var/tt-rss
+
+	${MKDIR} ${STAGEDIR}/var/tt-rss/local/
+	${MV}	${STAGEDIR}${WWWDIR}/plugins.local \
+		${STAGEDIR}${WWWDIR}/templates.local \
+		${STAGEDIR}${WWWDIR}/themes.local \
+			${STAGEDIR}/var/tt-rss/local
+
+	${MKDIR} ${STAGEDIR}/var/tt-rss/local/plugins/af_comics
+	${MV} ${STAGEDIR}${WWWDIR}/plugins/af_comics/filters.local \
+		${STAGEDIR}/var/tt-rss/local/plugins/af_comics
+
+	${RLN} ${STAGEDIR}/var/tt-rss/local/plugins.local ${STAGEDIR}${WWWDIR}
+	${RLN} ${STAGEDIR}/var/tt-rss/local/templates.local ${STAGEDIR}${WWWDIR}
+	${RLN} ${STAGEDIR}/var/tt-rss/local/themes.local ${STAGEDIR}${WWWDIR}
+	${RLN} ${STAGEDIR}/var/tt-rss/local/plugins/af_comics/filters.local \
+		${STAGEDIR}${WWWDIR}/plugins/af_comics
 
 .include <bsd.port.mk>
