@@ -103,7 +103,6 @@
     SUBDIR += carbonapi
     SUBDIR += cas
     SUBDIR += castget
-    SUBDIR += castor
     SUBDIR += cgi-lib
     SUBDIR += cgi-lib.pl
     SUBDIR += cgicc
@@ -1533,6 +1532,7 @@
     SUBDIR += py-cheroot
     SUBDIR += py-cherrypy
     SUBDIR += py-cinemagoer
+    SUBDIR += py-cross-web
     SUBDIR += py-crossplane
     SUBDIR += py-css-html-js-minify
     SUBDIR += py-css-parser
@@ -1882,7 +1882,6 @@
     SUBDIR += py-legacy-cgi
     SUBDIR += py-lektor
     SUBDIR += py-lesscpy
-    SUBDIR += py-lia-web
     SUBDIR += py-libsass
     SUBDIR += py-limits
     SUBDIR += py-litestar
