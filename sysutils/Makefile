@@ -1437,6 +1437,7 @@
     SUBDIR += touchegg
     SUBDIR += toybox
     SUBDIR += tree
+    SUBDIR += treemd
     SUBDIR += treetop
     SUBDIR += triton
     SUBDIR += trueos-libqt5
