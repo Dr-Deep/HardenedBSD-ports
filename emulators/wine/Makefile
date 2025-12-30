@@ -34,7 +34,7 @@ MPROTECT_DISABLE=	bin/wine64.bin
 SHEBANG_FILES=	tools/make_requests tools/winemaker/winemaker \
 		tools/winedump/function_grep.pl
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS+=--verbose \
+CONFIGURE_ARGS=	--verbose \
 		--disable-kerberos \
 		--disable-tests \
 		--without-capi \
@@ -64,7 +64,7 @@ PIE_UNSAFE=	yes
 
 CONFLICTS_INSTALL=	wine-devel
 
-BINARY_ALIAS+=	clang=${LOCALBASE}/bin/clang${LLVM_VERSION} \
+BINARY_ALIAS=	clang=${LOCALBASE}/bin/clang${LLVM_VERSION} \
 		lld-link=${LOCALBASE}/bin/lld-link${LLVM_VERSION}
 PORTSCOUT=	limit:^10\.0
 
@@ -72,11 +72,11 @@ SUB_FILES=	pkg-message
 
 PORTDATA=	wine.inf
 
-OPTIONS_DEFINE=	CUPS DOCS DOSBOX FFMPEG GNUTLS V4L WAYLAND X11 GECKO MONO
-OPTIONS_DEFAULT=ALSA GNUTLS WAYLAND X11
-OPTIONS_RADIO=	AUDIO
+OPTIONS_DEFINE=		CUPS DOCS DOSBOX FFMPEG GNUTLS V4L WAYLAND X11 GECKO MONO
+OPTIONS_DEFAULT=	ALSA GNUTLS WAYLAND X11
+OPTIONS_RADIO=		AUDIO
 OPTIONS_RADIO_AUDIO=	ALSA OSS
-OPTIONS_SUB=	yes
+OPTIONS_SUB=		yes
 
 DOSBOX_DESC=	Use DOSBox to run MS-DOS programs
 GECKO_DESC=	Bundle Gecko MSI package for Wine
@@ -154,7 +154,7 @@ post-patch:
 	${MV} ${WRKSRC}/loader/*.man.in ${WRKSRC}/tools/wine/
 
 .else
-EXTRA_PATCHES+=	files/extra-patch-tools-winebuild-res32
+EXTRA_PATCHES=		${PATCHDIR}/extra-patch-tools-winebuild-res32
 PLIST_SUB+=		WINE32="" WINE64="@comment " WINEARCH="i386"
 
 post-patch:
