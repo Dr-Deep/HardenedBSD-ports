@@ -557,7 +557,6 @@
     SUBDIR += ipa
     SUBDIR += ipad_charge
     SUBDIR += ipdbtools
-    SUBDIR += ipfs-go-fs-repo-migrations
     SUBDIR += ipget
     SUBDIR += ipmi_exporter
     SUBDIR += ipmitool
