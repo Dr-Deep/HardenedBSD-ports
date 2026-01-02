@@ -673,6 +673,8 @@
     SUBDIR += logstalgia
     SUBDIR += logstash7
     SUBDIR += logstash8
+    SUBDIR += logstash91
+    SUBDIR += logstash92
     SUBDIR += logtool
     SUBDIR += logwatch
     SUBDIR += loki
@@ -725,6 +727,7 @@
     SUBDIR += memtester
     SUBDIR += metalog
     SUBDIR += mfid
+    SUBDIR += michaelo-periodic
     SUBDIR += minikube
     SUBDIR += minimunin
     SUBDIR += minipot
