@@ -2,7 +2,7 @@ PORTNAME=	texmacs
 PORTVERSION=	1.99.4
 PORTREVISION=	11
 CATEGORIES=	editors print
-MASTER_SITES=	http://www.texmacs.org/Download/ftp/tmftp/source/
+MASTER_SITES=	https://www.texmacs.org/Download/ftp/tmftp/source/
 DISTNAME=	TeXmacs-${PORTVERSION}-src
 
 MAINTAINER=	ports@FreeBSD.org
@@ -12,10 +12,13 @@ WWW=		https://www.texmacs.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+<<<<<<< HEAD
 BROKEN=		Kernel/Containers/hashtree.cpp:97:14: error: no member named 'contains' in 'hashtree<K, V>'
 
 USE_HARDENING=	pie:off relro:off
 
+=======
+>>>>>>> internal/freebsd/main
 RUN_DEPENDS=	fig2dev:print/transfig
 
 USES=		cpe desktop-file-utils gmake guile:1.8,alias iconv \
@@ -33,7 +36,6 @@ SHEBANG_FILES=	plugins/asymptote/bin/* plugins/dratex/bin/* \
 		plugins/mathematica/bin/realpath.py
 
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--enable-optimize="${CXXFLAGS}" --disable-qt
 
 MAKE_ARGS=	CP="${CP} -R -f"
@@ -75,6 +77,9 @@ post-patch:
 	@${REINPLACE_CMD} -e \
 		 '/require/s|"python"|"${PYTHON_CMD:T}"|' \
 		${WRKSRC}/plugins/python/progs/init-python.scm
+	@${REINPLACE_CMD} -e \
+		 '/contains/s|\*this->|(*this)->|g' \
+		${WRKSRC}/src/Kernel/Containers/hashtree.cpp
 	@${REINPLACE_CMD} -e \
 		 's|int tab=.*)|int tab)|' \
 		${WRKSRC}/src/Kernel/Types/tree.hpp
