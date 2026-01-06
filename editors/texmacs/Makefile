@@ -12,13 +12,8 @@ WWW=		https://www.texmacs.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-<<<<<<< HEAD
-BROKEN=		Kernel/Containers/hashtree.cpp:97:14: error: no member named 'contains' in 'hashtree<K, V>'
-
 USE_HARDENING=	pie:off relro:off
 
-=======
->>>>>>> internal/freebsd/main
 RUN_DEPENDS=	fig2dev:print/transfig
 
 USES=		cpe desktop-file-utils gmake guile:1.8,alias iconv \
