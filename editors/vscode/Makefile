@@ -88,11 +88,9 @@ MAKE_ENV+=	BUILD_SOURCEVERSION=${SOURCE_COMMIT_HASH}
 MAKE_ENV+=	PYTHONDONTWRITEBYTECODE=1
 TEST_ENV=	${MAKE_ENV:C/TMPDIR=.*//}
 
-<<<<<<< HEAD
 USE_HARDENING=	relro:off
-=======
+
 UPSTREAM_ELECTRON_VER=	${ELECTRON_VER}
->>>>>>> origin/freebsd/main
 
 .include "Makefile.version"
 .include <bsd.port.pre.mk>
