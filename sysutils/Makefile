@@ -743,8 +743,8 @@
     SUBDIR += mmc-utils
     SUBDIR += mmve
     SUBDIR += modman
-    SUBDIR += modules
     SUBDIR += mods
+    SUBDIR += modules
     SUBDIR += mog
     SUBDIR += mongodb_exporter
     SUBDIR += monit
