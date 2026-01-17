@@ -12,8 +12,7 @@ WWW=		https://github.com/Rogdham/backports.zstd
 LICENSE=	PSFL
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=61:devel/py-setuptools@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=61:devel/py-setuptools@${PY_FLAVOR}
 LIB_DEPENDS=	libzstd.so:archivers/zstd
 
 USES=		localbase:ldflags python:3.10-3.13
