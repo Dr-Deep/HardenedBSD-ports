@@ -14,10 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cpe java
 CPE_VENDOR=	apache
-<<<<<<< HEAD
-=======
 #JAVA_VERSION=	18
->>>>>>> internal/freebsd/main
 USE_RC_SUBR=	activemq
 
 NO_ARCH=	yes
