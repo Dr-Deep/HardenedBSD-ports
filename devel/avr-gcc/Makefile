@@ -30,7 +30,7 @@ USE_CXXSTD=	gnu++11
 USE_LDCONFIG=	${PREFIX}/lib/gcci/avr/${SUFFIX}
 USE_PERL5=	build
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off hardcflags:off
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
