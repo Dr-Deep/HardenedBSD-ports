@@ -1729,6 +1729,7 @@
     SUBDIR += yggdrasil
     SUBDIR += yptransitd
     SUBDIR += zapret
+    SUBDIR += zapret2
     SUBDIR += zebra-server
     SUBDIR += zerotier
     SUBDIR += zmap
