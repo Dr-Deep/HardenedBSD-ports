@@ -25,14 +25,9 @@ post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/sbin/tayga
 	${INSTALL_DATA} ${WRKSRC}/tayga.conf.example ${STAGEDIR}${PREFIX}/etc
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-post-configure:
-	@${REINPLACE_CMD} -e 's|^CFLAGS =|CFLAGS ?=|g' ${WRKSRC}/Makefile
-=======
 post-install-DOCS-on:
 	cd ${WRKSRC}/docs && ${COPYTREE_SHARE} . ${STAGEDIR}${DOCSDIR}
->>>>>>> internal/freebsd/main
 
 .include <bsd.port.mk>
