@@ -1075,6 +1075,7 @@
     SUBDIR += py-scrypt
     SUBDIR += py-secure
     SUBDIR += py-securesystemslib
+    SUBDIR += py-serpico
     SUBDIR += py-service-identity
     SUBDIR += py-signedjson
     SUBDIR += py-signxml
