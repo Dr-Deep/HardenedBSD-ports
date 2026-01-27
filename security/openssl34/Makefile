@@ -26,6 +26,8 @@ USES=		cpe perl5
 USE_PERL5=	build
 TEST_TARGET=	test
 
+USE_HARDENING=	zeroreg
+
 LDFLAGS_i386=	-Wl,-znotext
 
 MAKE_ARGS+=	WHOLE_ARCHIVE_FLAG=--whole-archive CNF_LDFLAGS="${LDFLAGS}"
