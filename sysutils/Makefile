@@ -1591,6 +1591,7 @@
     SUBDIR += waitforssh
     SUBDIR += walk
     SUBDIR += watchfolder
+    SUBDIR += watchcat
     SUBDIR += watchman
     SUBDIR += watchmen
     SUBDIR += waynergy
