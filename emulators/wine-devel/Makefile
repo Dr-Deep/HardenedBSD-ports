@@ -1,9 +1,9 @@
 PORTNAME=	wine
-DISTVERSION=	11.0
+DISTVERSION=	11.1
 PORTEPOCH=	1
 CATEGORIES=	emulators
-MASTER_SITES=	https://dl.winehq.org/wine/source/11.0/
-PKGNAMESUFFIX=	-devel
+MASTER_SITES=	https://dl.winehq.org/wine/source/11.x/
+PKGNAMESUFFIX=	-devel${FLAVOR:N${FLAVORS:[1]}:C/.+/-${FLAVOR}/}
 
 MAINTAINER=	monwarez@mailoo.org
 COMMENT=	Microsoft Windows compatibility environment
@@ -17,6 +17,9 @@ ONLY_FOR_ARCHS=	amd64 i386
 
 BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex
 LIB_DEPENDS=	libhwloc.so:devel/hwloc2
+
+FLAVORS=	default allaudio
+FLAVOR?=	default
 
 # Only devel/llvm17 and later come with necessary include files - PR274542
 USES=		bison cpe desktop-file-utils gmake llvm:min=17,build,noexport \
@@ -53,7 +56,6 @@ CONFIGURE_ARGS=	--verbose \
 		--without-pcap \
 		--without-pcsclite \
 		--with-pthread \
-		--without-pulse \
 		--without-sane \
 		--with-sdl \
 		--without-udev \
@@ -75,9 +77,12 @@ PORTDATA=	wine.inf
 # GECKO and MONO are intentionally kept at the end since they are just
 # used to depends at runtime on wine-gecko-devel and wine-mono-devel
 OPTIONS_DEFINE=		CUPS DOCS DOSBOX FFMPEG GNUTLS V4L WAYLAND X11 GECKO MONO
-OPTIONS_DEFAULT=	ALSA FFMPEG GNUTLS WAYLAND X11
-OPTIONS_RADIO=		AUDIO
-OPTIONS_RADIO_AUDIO=	ALSA OSS
+OPTIONS_DEFAULT=	ALSA FFMPEG GNUTLS OSS WAYLAND X11
+.if ${FLAVOR} == allaudio
+OPTIONS_DEFAULT+=	PULSEAUDIO
+.endif
+OPTIONS_GROUP=		AUDIO
+OPTIONS_GROUP_AUDIO=	ALSA OSS PULSEAUDIO
 OPTIONS_SUB=		yes
 
 DOSBOX_DESC=	Use DOSBox to run MS-DOS programs
@@ -110,6 +115,11 @@ OSS_USES=		gnome gstreamer
 OSS_USE=		GNOME=glib20
 OSS_CONFIGURE_WITH=	oss
 
+PULSEAUDIO_LIB_DEPENDS=		libpulse.so:audio/pulseaudio
+PULSEAUDIO_USES=		gnome gstreamer
+PULSEAUDIO_USE=			GNOME=glib20
+PULSEAUDIO_CONFIGURE_WITH=	pulse
+
 V4L_BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
 V4L_LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 V4L_CONFIGURE_WITH=	v4l2
@@ -128,7 +138,7 @@ X11_CONFIGURE_WITH=	fontconfig freetype opengl x xinerama xinput2 xrandr xrender
 
 .include <bsd.port.pre.mk>
 
-.if ${PORT_OPTIONS:MALSA} || ${PORT_OPTIONS:MOSS}
+.if ${PORT_OPTIONS:MALSA} || ${PORT_OPTIONS:MOSS} || ${PORT_OPTIONS:MPULSEAUDIO}
 CONFIGURE_ARGS+=	--with-gstreamer
 PLIST_SUB+=		GSTREAMER=""
 .else
