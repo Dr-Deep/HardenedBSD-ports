@@ -1716,7 +1716,6 @@
     SUBDIR += py-fastapi-sso
     SUBDIR += py-feedgen
     SUBDIR += py-feedgenerator
-    SUBDIR += py-flatnotes
     SUBDIR += py-flasgger
     SUBDIR += py-flask
     SUBDIR += py-flask-admin
@@ -1757,6 +1756,7 @@
     SUBDIR += py-flask-theme
     SUBDIR += py-flask-uploads
     SUBDIR += py-flask-wtf
+    SUBDIR += py-flatnotes
     SUBDIR += py-flower
     SUBDIR += py-flup6
     SUBDIR += py-folium
