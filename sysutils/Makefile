@@ -153,7 +153,6 @@
     SUBDIR += bulk_extractor
     SUBDIR += bupstash
     SUBDIR += burp
-    SUBDIR += burp-devel
     SUBDIR += busybox
     SUBDIR += bvm
     SUBDIR += byobu
@@ -1372,7 +1371,6 @@
     SUBDIR += stow
     SUBDIR += stowES
     SUBDIR += stress
-    SUBDIR += stressdisk
     SUBDIR += superfile
     SUBDIR += superiotool
     SUBDIR += swapd
@@ -1600,7 +1598,6 @@
     SUBDIR += wemux
     SUBDIR += whatpix
     SUBDIR += whowatch
-    SUBDIR += wiimms
     SUBDIR += wiper
     SUBDIR += witr
     SUBDIR += wmapmload
