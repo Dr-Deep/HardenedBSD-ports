@@ -14,15 +14,8 @@ LICENSE_COMB=	multi
 
 USES=		autoreconf:build gmake makeinfo tar:xz
 
-<<<<<<< HEAD
 USE_HARDENING=	fortifysource:off hardcflags:off
 
-CONFLICTS_INSTALL=	kBuild-devel
-
-WRKSRC=		${WRKDIR}/${PORTNAME}-${DISTVERSION}
-
-=======
->>>>>>> origin/freebsd/main
 KBUILD_VERSION=	0.1.9998
 KBUILD_ARCH=	${MACHINE_ARCH:S/aarch64/arm64/:S/i386/x86/:S/x86_64/amd64/:C/powerpc64.*/ppc64/:C/powerpc.*/ppc32/:C/armv.*/arm32/}
 KBUILD_ENV=	AUTORECONF=${AUTORECONF} \
