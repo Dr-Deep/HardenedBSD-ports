@@ -8,14 +8,10 @@ MAINTAINER?=	meta@FreeBSD.org
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/LICENCE.TXT
 
-<<<<<<< HEAD
 USE_HARDENING=	cfi safestack
 CFI_OVERRIDE=	-fno-sanitize=cfi-icall
 
-USES+=		cmake:insource,noninja cpe
-=======
 USES+=		cmake:insource,noninja cpe gmake
->>>>>>> internal/freebsd/main
 USE_GITHUB=	yes
 
 GH_ACCOUNT=	TigerVNC
