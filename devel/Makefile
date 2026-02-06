@@ -1717,6 +1717,7 @@
     SUBDIR += newtonsoft-json
     SUBDIR += nextest
     SUBDIR += nextpnr
+    SUBDIR += nextpnr-devel
     SUBDIR += nexus2-oss
     SUBDIR += nimble
     SUBDIR += nini
@@ -6043,6 +6044,7 @@
     SUBDIR += py-speaklater
     SUBDIR += py-speg
     SUBDIR += py-spin
+    SUBDIR += py-spy
     SUBDIR += py-spyder-kernels
     SUBDIR += py-sqids
     SUBDIR += py-sqlfluff
@@ -6149,6 +6151,7 @@
     SUBDIR += py-tree-sitter-languages
     SUBDIR += py-tree-sitter-python
     SUBDIR += py-tree-sitter-regex
+    SUBDIR += py-tree-sitter-sql
     SUBDIR += py-tree-sitter-yaml
     SUBDIR += py-tree-sitter023
     SUBDIR += py-treelib
