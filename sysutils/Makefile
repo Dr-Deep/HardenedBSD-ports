@@ -1446,6 +1446,7 @@
     SUBDIR += treetop
     SUBDIR += triton
     SUBDIR += trueos-libqt5
+    SUBDIR += try-rs
     SUBDIR += ts
     SUBDIR += tty-clock
     SUBDIR += ttyd
