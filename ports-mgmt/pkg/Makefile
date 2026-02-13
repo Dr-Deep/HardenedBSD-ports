@@ -1,5 +1,6 @@
 PORTNAME=	pkg
 DISTVERSION=	2.5.1
+PORTREVISION=	1
 _PKG_VERSION=	${DISTVERSION}
 CATEGORIES=	ports-mgmt
 
@@ -13,7 +14,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	HardenedBSD
 GL_PROJECT=	pkg
-GL_COMMIT=	ba4c03657d7346677c0bf7dc7462856dafdab6af
+GL_COMMIT=	e6e6ccec695e250b8796796e38abfcf4d5c5c5da
 
 USE_LDCONFIG=	${PREFIX}/lib/compat/pkg
 HAS_CONFIGURE=	yes
