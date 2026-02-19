@@ -12,13 +12,9 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 ONLY_FOR_ARCHS=	aarch64 amd64 powerpc64 powerpc64le
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
-USES=		cmake
-=======
 USES=		cmake localbase sqlite
->>>>>>> internal/freebsd/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	bbuchfink
 
