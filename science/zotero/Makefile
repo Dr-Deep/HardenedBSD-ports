@@ -1,6 +1,6 @@
 PORTNAME=	zotero
 DISTVERSION=	7.0.15
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	science deskutils
 MASTER_SITES=	LOCAL/mikael
 DISTFILES=	Zotero-${DISTVERSION}_FreeBSD-${ARCH}${EXTRACT_SUFX}
@@ -44,6 +44,9 @@ USE_GNOME=	atk cairo gdkpixbuf glib20 gtk20 gtk30 pango
 USE_XORG=	ice pixman sm x11 xau xcb xcomposite xcursor xdamage xdmcp xext \
 		xfixes xi xinerama xrandr xrender xt
 WRKSRC=		${WRKDIR}/Zotero_FreeBSD-${ARCH}
+
+MPROTECT_DISABLE=	lib/zotero/zotero-bin
+PAGEEXEC_DISABLE=	lib/zotero/zotero-bin
 
 NO_BUILD=	yes
 
