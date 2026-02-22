@@ -543,6 +543,8 @@
     SUBDIR += pg.el
     SUBDIR += pgFormatter
     SUBDIR += pg_activity
+    SUBDIR += pg_auto_failover
+    SUBDIR += pg_auto_failover-devel
     SUBDIR += pg_citus
     SUBDIR += pg_cron
     SUBDIR += pg_dirtyread
