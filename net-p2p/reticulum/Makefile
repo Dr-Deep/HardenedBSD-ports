@@ -1,5 +1,6 @@
 PORTNAME=	reticulum
 DISTVERSION=	1.1.3
+PORTREVISION=	1
 CATEGORIES=	net-p2p
 
 MAINTAINER=	cs@FreeBSD.org
@@ -18,7 +19,7 @@ WRKSRC=		${WRKDIR}/reticulum-${GL_TAGNAME}
 USES=		python:3.11
 USE_GITLAB=	yes
 GL_ACCOUNT=	HardenedBSD
-GL_TAGNAME=	d4adbc8983185dfbe1ce7fed67e388bcad9f249a
+GL_TAGNAME=	d34bb55cb70aa88876203f7d8ebf9cf10c157217
 GL_SITE=	https://git.hardenedbsd.org
 USE_PYTHON=	cryptography distutils
 USE_RC_SUBR=	reticulum
