@@ -205,6 +205,7 @@
     SUBDIR += flat-frog
     SUBDIR += flexget
     SUBDIR += flickcurl
+    SUBDIR += fmd-server
     SUBDIR += foreign-cdm
     SUBDIR += forgejo
     SUBDIR += forgejo-lts
