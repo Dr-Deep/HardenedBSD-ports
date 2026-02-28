@@ -1084,6 +1084,7 @@
     SUBDIR += rubygem-state_machines-activerecord08
     SUBDIR += rubygem-tarantool
     SUBDIR += rubygem-trilogy
+    SUBDIR += sabiql
     SUBDIR += sequeler
     SUBDIR += sfcgal
     SUBDIR += sharedance
