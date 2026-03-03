@@ -1,6 +1,10 @@
 PORTNAME=	pkg
+<<<<<<< HEAD
 DISTVERSION=	2.5.1
 PORTREVISION=	1
+=======
+DISTVERSION=	2.6.0
+>>>>>>> internal/freebsd/main
 _PKG_VERSION=	${DISTVERSION}
 CATEGORIES=	ports-mgmt
 
