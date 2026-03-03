@@ -1,10 +1,5 @@
 PORTNAME=	pkg
-<<<<<<< HEAD
-DISTVERSION=	2.5.1
-PORTREVISION=	1
-=======
-DISTVERSION=	2.6.0
->>>>>>> internal/freebsd/main
+DISTVERSION=	2.6.1
 _PKG_VERSION=	${DISTVERSION}
 CATEGORIES=	ports-mgmt
 
@@ -18,7 +13,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	HardenedBSD
 GL_PROJECT=	pkg
-GL_COMMIT=	e6e6ccec695e250b8796796e38abfcf4d5c5c5da
+GL_COMMIT=	08baa8e9178cdccbd84d90fe420ac5c44f44c7ce
 
 USE_LDCONFIG=	${PREFIX}/lib/compat/pkg
 HAS_CONFIGURE=	yes
