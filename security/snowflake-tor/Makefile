@@ -22,7 +22,7 @@ CPE_VENDOR=	torproject
 USE_HARDENING=	pie:golang
 
 GO_MODULE=      gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake/v2
-GO_BUILDFLAGS=  -ldflags '${STRIP} -w -extldflags "-static"'
+GO_BUILDFLAGS=  -ldflags '${STRIP} -w'
 GO_PKGNAME=	${GO_MODULE}
 GO_TARGET=	./broker ./client ./proxy ./server
 
