@@ -13,14 +13,8 @@ WWW=		https://www.draisberghof.de/usb_modeswitch/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
-DATAVERSION=	20191128
-DATANAME=	${PORTNAME:S|_|-|}-data-${DATAVERSION}
-
 USE_HARDENING=	safestack
 
-=======
->>>>>>> origin/freebsd/main
 USES=		gmake tar:bzip2
 
 DATAVERSION=	20251207
