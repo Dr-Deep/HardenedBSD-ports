@@ -23,13 +23,8 @@ USES=		compiler:c++11-lang gmake localbase:ldflags perl5 pkgconfig ssl \
 USE_RC_SUBR=	courier-imap-imapd courier-imap-imapd-ssl \
 		courier-imap-pop3d courier-imap-pop3d-ssl
 
-<<<<<<< HEAD
 USE_HARDENING= pie:off relro:off
 
-CONFLICTS=	courier imap-uw panda-imap
-
-=======
->>>>>>> origin/freebsd/main
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 CONFIGURE_ARGS=	--datadir=${DATADIR} \
