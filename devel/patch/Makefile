@@ -11,13 +11,9 @@ LICENSE=	GPLv3+
 
 TEST_DEPENDS=	bash:shells/bash
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		cpe charsetfix gmake tar:xz
-=======
 USES=		charsetfix cpe tar:xz
->>>>>>> internal/freebsd/main
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--program-prefix=g
 CPE_VENDOR=	gnu
