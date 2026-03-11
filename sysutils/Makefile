@@ -1187,7 +1187,9 @@
     SUBDIR += rubygem-backup
     SUBDIR += rubygem-bolt
     SUBDIR += rubygem-bosh-gen
+    SUBDIR += rubygem-bundle-audit
     SUBDIR += rubygem-bundler
+    SUBDIR += rubygem-bundler-audit
     SUBDIR += rubygem-bundler_ext
     SUBDIR += rubygem-capistrano
     SUBDIR += rubygem-capistrano-ext
