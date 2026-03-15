@@ -20,12 +20,9 @@ BUILD_DEPENDS_i386=	jwasm:devel/jwasm
 BUILD_DEPENDS=	${BUILD_DEPENDS_${ARCH}}
 USES=		7z dos2unix gmake
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-=======
 CPE_VENDOR=	7-zip
->>>>>>> origin/freebsd/main
 MAKEFILE=	makefile.gcc
 CONFLICTS=	lzmautils xz
 
