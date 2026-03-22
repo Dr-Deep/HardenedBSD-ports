@@ -2683,6 +2683,7 @@
     SUBDIR += wabt
     SUBDIR += wasm-bindgen-cli
     SUBDIR += wasm-pack
+    SUBDIR += wasmtime
     SUBDIR += waterfox
     SUBDIR += web2ldap
     SUBDIR += webalizer
