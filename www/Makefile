@@ -2674,6 +2674,7 @@
     SUBDIR += vger
     SUBDIR += vigil
     SUBDIR += vimb
+    SUBDIR += vinyl09
     SUBDIR += visitors
     SUBDIR += volta
     SUBDIR += vultr-cli
