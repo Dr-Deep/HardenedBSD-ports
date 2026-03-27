@@ -1,10 +1,6 @@
 PORTNAME=	curl
-<<<<<<< HEAD
-PORTVERSION=	8.18.0
-=======
 PORTVERSION=	8.19.0
 PORTREVISION=	1
->>>>>>> internal/freebsd/main
 CATEGORIES=	ftp net www
 MASTER_SITES=	https://curl.se/download/ \
 		https://github.com/curl/curl/releases/download/curl-${PORTVERSION:S|.|_|g}/
@@ -178,11 +174,7 @@ post-install:
 
 post-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}/ ${STAGEDIR}${DOCSDIR}/internals/ ${STAGEDIR}${DOCSDIR}/libcurl/
-<<<<<<< HEAD
-	cd ${WRKSRC}/docs/ && ${INSTALL_DATA} INSTALL THANKS options-in-versions *.md ${STAGEDIR}${DOCSDIR}/
-=======
 	cd ${WRKSRC}/docs/ && ${INSTALL_DATA} THANKS options-in-versions *.md ${STAGEDIR}${DOCSDIR}/
->>>>>>> internal/freebsd/main
 	${INSTALL_DATA} ${WRKSRC}/docs/internals/*.md ${STAGEDIR}${DOCSDIR}/internals/
 	cd ${WRKSRC}/docs/libcurl/ && ${INSTALL_DATA} ABI.md libcurl.m4 *.pl symbols-in-versions ${STAGEDIR}${DOCSDIR}/libcurl/
 
