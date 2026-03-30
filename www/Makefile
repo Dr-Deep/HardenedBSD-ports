@@ -2745,5 +2745,6 @@
     SUBDIR += zine-ssg
     SUBDIR += zgrab2
     SUBDIR += zola
+    SUBDIR += zoraxy
 
 .include <bsd.port.subdir.mk>
