@@ -1,5 +1,5 @@
 PORTNAME=	heartwood
-DISTVERSION=	1.4.0
+DISTVERSION=	1.8.0
 CATEGORIES=	net-p2p devel
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
