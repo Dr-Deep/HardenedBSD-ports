@@ -85,7 +85,6 @@
     SUBDIR += cjdns
     SUBDIR += claws
     SUBDIR += cloud-init
-    SUBDIR += cloud-init-devel
     SUBDIR += cloudflare-speed-cli
     SUBDIR += cloudflared
     SUBDIR += cloudquery
@@ -441,7 +440,6 @@
     SUBDIR += libyang
     SUBDIR += libyang2
     SUBDIR += libzapojit
-    SUBDIR += libzmq3
     SUBDIR += libzmq4
     SUBDIR += liferea
     SUBDIR += linphone
