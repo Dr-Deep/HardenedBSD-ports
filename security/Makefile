@@ -972,6 +972,8 @@
     SUBDIR += py-hkdf
     SUBDIR += py-htpasswd
     SUBDIR += py-httpx-auth
+    SUBDIR += py-iam-expand
+    SUBDIR += py-iamdata
     SUBDIR += py-iris-check-module
     SUBDIR += py-iris-client
     SUBDIR += py-iris-evtx-module
@@ -1083,7 +1085,6 @@
     SUBDIR += py-serpico
     SUBDIR += py-service-identity
     SUBDIR += py-shamir-mnemonic
-    SUBDIR += py-shodan
     SUBDIR += py-signedjson
     SUBDIR += py-signxml
     SUBDIR += py-slip10

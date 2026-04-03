@@ -502,6 +502,7 @@
     SUBDIR += msend
     SUBDIR += msgraph
     SUBDIR += msoak
+    SUBDIR += mtg
     SUBDIR += mtr
     SUBDIR += multicat
     SUBDIR += mvfst
