@@ -1026,6 +1026,7 @@
     SUBDIR += py-plaso
     SUBDIR += py-pnu-certwatch
     SUBDIR += py-pnu-vuxml
+    SUBDIR += py-policyuniverse
     SUBDIR += py-potr
     SUBDIR += py-pwntools
     SUBDIR += py-pyaes
@@ -1082,6 +1083,7 @@
     SUBDIR += py-serpico
     SUBDIR += py-service-identity
     SUBDIR += py-shamir-mnemonic
+    SUBDIR += py-shodan
     SUBDIR += py-signedjson
     SUBDIR += py-signxml
     SUBDIR += py-slip10
