@@ -11,22 +11,6 @@
 @mode
 @mode 0440
 @sample %%WWWDIR%%/config.php.sample
-<<<<<<< HEAD
-@mode 0770
-@dir /var/tt-rss/cache
-@dir /var/tt-rss/cache/export
-@dir /var/tt-rss/cache/feeds
-@dir /var/tt-rss/cache/images
-@dir /var/tt-rss/cache/upload
-@dir /var/tt-rss/feed-icons
-@dir /var/tt-rss/lock
-@group
-@mode 0700
-@dir /var/tt-rss/local/plugins.local
-@dir /var/tt-rss/local/plugins/af_comics/filters.local
-@dir /var/tt-rss/local/templates.local
-@dir /var/tt-rss/local/themes.local
-=======
 @mode
 @dir %%WWWDIR%%/cache
 @dir %%WWWDIR%%/cache/export
@@ -38,7 +22,6 @@
 @dir %%WWWDIR%%/plugins/af_comics/filters.local
 @dir %%WWWDIR%%/templates.local
 @dir %%WWWDIR%%/themes.local
->>>>>>> origin/freebsd/main
 @owner
 @group ttrssd
 @mode 775
