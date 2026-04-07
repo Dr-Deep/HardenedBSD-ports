@@ -1465,6 +1465,7 @@
     SUBDIR += py-line-protocol-parser
     SUBDIR += py-lingua-language-detector
     SUBDIR += py-linkify-it-py
+    SUBDIR += py-llguidance
     SUBDIR += py-m2r
     SUBDIR += py-mako
     SUBDIR += py-markdown
@@ -1523,6 +1524,7 @@
     SUBDIR += py-openstackdocstheme
     SUBDIR += py-openstep-plist
     SUBDIR += py-os-api-ref
+    SUBDIR += py-outlines-core
     SUBDIR += py-packageurl-python
     SUBDIR += py-pager
     SUBDIR += py-paginate
@@ -1536,6 +1538,7 @@
     SUBDIR += py-parsel
     SUBDIR += py-parsimonious
     SUBDIR += py-parso
+    SUBDIR += py-partial-json-parser
     SUBDIR += py-patiencediff
     SUBDIR += py-pdf2docx
     SUBDIR += py-pdfminer.six
