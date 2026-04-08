@@ -186,6 +186,7 @@
     SUBDIR += eolie
     SUBDIR += ephemera
     SUBDIR += epiphany
+    SUBDIR += evcc
     SUBDIR += fabio
     SUBDIR += falkon
     SUBDIR += fancybox
