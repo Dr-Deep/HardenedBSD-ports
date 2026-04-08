@@ -1576,6 +1576,7 @@
     SUBDIR += py-pylons-sphinx-themes
     SUBDIR += py-pyls-spyder
     SUBDIR += py-pymdown-extensions
+    SUBDIR += py-pymupdf4llm
     SUBDIR += py-pypa-docs-theme
     SUBDIR += py-pypandoc
     SUBDIR += py-pyphen
@@ -1774,6 +1775,7 @@
     SUBDIR += py-zensical
     SUBDIR += py-zope.i18nmessageid
     SUBDIR += py-zpt
+    SUBDIR += pymupdf4llm-mcp
     SUBDIR += qo
     SUBDIR += qprint
     SUBDIR += qr
