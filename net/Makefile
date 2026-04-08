@@ -441,6 +441,7 @@
     SUBDIR += libwebsockets
     SUBDIR += libyang
     SUBDIR += libyang2
+    SUBDIR += libyang3
     SUBDIR += libzapojit
     SUBDIR += libzmq4
     SUBDIR += liferea
