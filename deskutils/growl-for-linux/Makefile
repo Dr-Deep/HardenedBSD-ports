@@ -10,7 +10,12 @@ WWW=		http://mattn.github.com/growl-for-linux/
 LICENSE=	BSD2CLAUSE
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
+=======
+DEPRECATED=	Obsolete software that does not compile with recent versions of GCC or Clang
+EXPIRATION_DATE=	2026-05-12
+>>>>>>> internal/freebsd/main
 
 BUILD_DEPENDS=	desktop-file-install:devel/desktop-file-utils
 LIB_DEPENDS=	libcurl.so:ftp/curl \
