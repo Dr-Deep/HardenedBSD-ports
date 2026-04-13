@@ -1902,17 +1902,13 @@ PKG_DEPENDS+=	${LOCALBASE}/sbin/pkg:${PKG_ORIGIN}
 .include "${PORTSDIR}/Mk/bsd.gcc.mk"
 .    endif
 
-<<<<<<< HEAD
 .if !defined(USE_GCC) && defined(USES) && !${USES:Mfortran}
 .if !defined(NO_UNUSED_ARGUMENTS_CHECK)
 CFLAGS+=	-Qunused-arguments
 .endif
 .endif
 
-.    if defined(LLD_UNSAFE) && ${/usr/bin/ld:L:tA} == /usr/bin/ld.lld
-=======
 .    if defined(LLD_UNSAFE)
->>>>>>> origin/freebsd/main
 LDFLAGS+=	-fuse-ld=bfd
 BINARY_ALIAS+=	ld=${LD}
 USE_BINUTILS=	yes
