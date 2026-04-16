@@ -1973,7 +1973,6 @@
     SUBDIR += py-ttrv
     SUBDIR += py-tuir
     SUBDIR += py-turbogears2
-    SUBDIR += py-tvdb_api
     SUBDIR += py-twill
     SUBDIR += py-urlgrabber
     SUBDIR += py-urlman
