@@ -16,12 +16,8 @@ EXPIRATION_DATE=	2026-07-16
 
 RUN_DEPENDS=	${LOCALBASE}/bin/dig:dns/bind-tools
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-GNU_CONFIGURE=	yes
-=======
->>>>>>> origin/freebsd/main
 USES=		gmake libtool
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
