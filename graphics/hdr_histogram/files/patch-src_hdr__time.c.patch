@@ -1,0 +1,11 @@
+--- src/hdr_time.c.orig	2026-04-17 07:52:30 UTC
++++ src/hdr_time.c
+@@ -62,7 +62,7 @@ void hdr_getnow(hdr_timespec* ts)
+     hdr_gettime(ts);
+ }
+ 
+-#elif defined(__linux__) || defined(__CYGWIN__) || defined(__OpenBSD__)
++#elif defined(__linux__) || defined(__CYGWIN__) || defined(__OpenBSD__) || defined(__FreeBSD__)
+ 
+ 
+ void hdr_gettime(hdr_timespec* t)

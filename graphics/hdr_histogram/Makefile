@@ -1,5 +1,6 @@
 PORTNAME=	hdr_histogram
 PORTVERSION=	0.11.9
+PORTREVISION=	1
 CATEGORIES=	graphics
 
 MAINTAINER=	sunpoet@FreeBSD.org
