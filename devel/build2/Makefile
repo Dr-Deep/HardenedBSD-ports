@@ -13,12 +13,9 @@ LICENSE_COMB=	multi
 
 USES=		gmake pkgconfig sqlite tar:xz
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off
-=======
-PIE_UNSAFE=	yes
+
 CXXFLAGS=	-Wno-unqualified-std-cast-call
->>>>>>> internal/freebsd/main
 
 # Fix build on i386/powerpc: error: timestamp is not lock-free on this architecture
 CXXFLAGS_i386=		-DLIBBUILD2_ATOMIC_NON_LOCK_FREE
