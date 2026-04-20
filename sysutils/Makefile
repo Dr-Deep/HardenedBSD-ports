@@ -1418,6 +1418,7 @@
     SUBDIR += tarsnap-gui
     SUBDIR += tarsnap-periodic
     SUBDIR += tartarus
+    SUBDIR += taws
     SUBDIR += tbku
     SUBDIR += tclsyslog
     SUBDIR += tcplist
