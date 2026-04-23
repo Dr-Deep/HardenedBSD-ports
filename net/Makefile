@@ -1497,6 +1497,7 @@
     SUBDIR += rustdesk-server
     SUBDIR += ryu
     SUBDIR += s3m
+    SUBDIR += s3req
     SUBDIR += s5cmd
     SUBDIR += sacc
     SUBDIR += sakisafecli

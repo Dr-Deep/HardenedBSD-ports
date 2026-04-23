@@ -120,6 +120,7 @@
     SUBDIR += hdf5
     SUBDIR += hdf5-110
     SUBDIR += hdf5-18
+    SUBDIR += hdf5-21
     SUBDIR += healpix
     SUBDIR += helfem
     SUBDIR += hepmc3
@@ -404,6 +405,7 @@
     SUBDIR += py-pyberny
     SUBDIR += py-pycsw
     SUBDIR += py-pydicom
+    SUBDIR += py-pydoe
     SUBDIR += py-pygeodesy
     SUBDIR += py-pygeometa
     SUBDIR += py-pygmo2
