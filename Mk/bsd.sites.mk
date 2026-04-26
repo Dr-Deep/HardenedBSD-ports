@@ -245,6 +245,11 @@ MASTER_SITE_GENTOO+= \
 	http://gentoo-mirror.flux.utah.edu/%SUBDIR%/
 .endif
 
+.if !defined(MASTER_SITE_RADICLE)
+MASTER_SITE_RADICLE+= \
+	https://rad.hardenedbsd.org
+.endif
+
 # Keep this before USE_GITHUB
 .if !empty(MASTER_SITES:M*/github.com/*/archive/*)
 DEV_WARNING+=	"MASTER_SITES contains ${MASTER_SITES:M*/github.com/*/archive/*}, please use USE_GITHUB instead."
@@ -576,6 +581,29 @@ git-clone-${_group}: ${_GITLAB_CLONE_DIR}
 WWW?=	https://gitlab.com/${GL_ACCOUNT}/${GL_PROJECT}/
 .  endif # defined(USE_GITLAB)
 .endif # !defined(IGNORE_MASTER_SITE_GITLAB)
+
+.if defined(USE_RADICLE)
+. if !defined(RID)
+	@${ECHO_MSG} "Radicle Repository ID (RID) required"
+	@${FALSE}
+. endif # !defined(RID)
+. if !defined(RAD_COMMIT)
+	@${ECHO_MSG} "Please set RAD_COMMIT"
+	@${FALSE}
+. endif
+. if !defined(RAD_PROJECT_NAME)
+	@${ECHO_MSG} "Please set RAD_PROJECT_NAME"
+	@${FALSE}
+. endif # !dfined(RAD_PROJECT_NAME)
+
+RAD_NODE?=	rad.hardenedbsd.org
+RAD_WRKSRC?=	${RAD_PROJECT_NAME}-${RAD_COMMIT}
+WRKSRC:=	${WRKDIR}/${RAD_WRKSRC}
+
+MASTER_SITES:=	https://${RAD_NODE}/raw/${RID}/
+DISTFILES:=	${RAD_COMMIT}.tar.gz
+
+.endif # defined(USE_RADICLE)
 
 .if !defined(IGNORE_MASTER_SITE_GNOME)
 .  if defined(DISTVERSION) && ${DISTVERSION:M[0-9]*}
