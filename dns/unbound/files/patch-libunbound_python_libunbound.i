@@ -1,8 +1,4 @@
-<<<<<<< HEAD
---- libunbound/python/libunbound.i.orig	2025-11-26 10:16:06 UTC
-=======
 --- libunbound/python/libunbound.i.orig	2026-01-21 12:34:44 UTC
->>>>>>> upstream/main
 +++ libunbound/python/libunbound.i
 @@ -853,7 +853,7 @@ Result: ['74.125.43.147', '74.125.43.99', '74.125.43.1
  %{ 
