@@ -1080,6 +1080,7 @@
     SUBDIR += py-focker
     SUBDIR += py-glances
     SUBDIR += py-google-compute-engine
+    SUBDIR += py-greaseweazle
     SUBDIR += py-hared
     SUBDIR += py-hcloud
     SUBDIR += py-healthchecks
