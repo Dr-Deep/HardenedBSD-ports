@@ -1,10 +1,10 @@
 PORTNAME=	xbacklight
-PORTVERSION=	1.2.3
-PORTREVISION=	1
+DISTVERSION=	1.2.4
 CATEGORIES=	x11
 
 MAINTAINER=	x11@FreeBSD.org
-COMMENT=	Program to adjust backlight brightness
+COMMENT=	Utility to adjust backlight brightness using RandR extension
+WWW=		https://gitlab.freedesktop.org/xorg/app/xbacklight
 
 USE_HARDENING=	safestack
 
@@ -13,10 +13,9 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libxcb-util.so:x11/xcb-util
 
-USES=		xorg xorg-cat:app
-USE_XORG=	x11 xrender xrandr xcb
+USES=		tar:xz xorg xorg-cat:app
+USE_XORG=	xcb
 
 PLIST_FILES=	bin/xbacklight share/man/man1/xbacklight.1.gz
-GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
 
 .include <bsd.port.mk>
