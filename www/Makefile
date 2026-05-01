@@ -1609,6 +1609,7 @@
     SUBDIR += py-django-cms
     SUBDIR += py-django-compression-middleware
     SUBDIR += py-django-configurations
+    SUBDIR += py-django-configurator
     SUBDIR += py-django-constance
     SUBDIR += py-django-contact-form
     SUBDIR += py-django-context-decorator
