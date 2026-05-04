@@ -1,17 +1,14 @@
 PORTNAME=	forgejo
-DISTVERSIONPREFIX=	v
-DISTVERSION=	14.0.5
+PORTVERSION=	15
 CATEGORIES=	www
-MASTER_SITES=	https://codeberg.org/forgejo/forgejo/releases/download/${DISTVERSIONFULL}/
-DISTNAME=	forgejo-src-${DISTVERSION}
 
 MAINTAINER=	des@FreeBSD.org
 COMMENT=	Compact self-hosted Git forge
 WWW=		https://forgejo.org/
 
-LICENSE=	GPLv3+
-LICENSE_FILE=	${WRKSRC}/LICENSE
+RUN_DEPENDS=	forgejo${PORTVERSION}>=0:www/forgejo${PORTVERSION}
 
+<<<<<<< HEAD
 RUN_DEPENDS=	git:devel/git
 
 USES=		cpe gmake go:1.25+,no_targets
@@ -99,5 +96,8 @@ do-install:
 do-install-BINDATA-off:
 	cd ${WRKSRC} && \
 		${COPYTREE_SHARE} "options public templates" ${STAGEDIR}${DATADIR}
+=======
+USES=		metaport
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>
