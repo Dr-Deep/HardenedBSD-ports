@@ -23,11 +23,7 @@ GH_PROJECT=	epoll-shim
 PLIST_SUB=	SHIM_EVENTFD="${exists(/usr/include/sys/eventfd.h):?@comment :}" \
 	SHIM_TIMERFD="${exists(/usr/include/sys/timerfd.h):?@comment :}"
 
-<<<<<<< HEAD
 USE_HARDENING=	fortifysource:off
-=======
-FORTIFY_UNSAFE=	Redefines ppoll, which conflicts with /usr/include/ssp/poll.h
->>>>>>> upstream/main
 
 .include <bsd.port.pre.mk>
 

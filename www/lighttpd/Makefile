@@ -14,15 +14,9 @@ LIB_DEPENDS=	libpcre2-8.so:devel/pcre2
 
 USES=		compiler:c11 cmake cpe localbase:ldflags pkgconfig tar:xz
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack zeroreg
 
-GNU_CONFIGURE=	yes
-
-CONFIGURE_ARGS=	--libdir=${PREFIX}/lib/lighttpd
-=======
 CMAKE_ARGS=	-DLIB_INSTALL_DIR:PATH=${PREFIX}/lib/lighttpd
->>>>>>> upstream/main
 
 TEST_TARGET=	check
 
