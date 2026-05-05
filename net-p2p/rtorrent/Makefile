@@ -1,9 +1,7 @@
 PORTNAME=	rtorrent
-DISTVERSION=	0.16.6
-PORTREVISION=	1
+DISTVERSION=	0.16.11
 CATEGORIES=	net-p2p
-MASTER_SITES=	https://github.com/rakshasa/rtorrent/releases/download/v0.16.5/
-DISTNAME=	${PORTNAME}-0.16.5
+MASTER_SITES=	https://github.com/rakshasa/rtorrent/releases/download/v${DISTVERSION}/
 
 MAINTAINER=	eduardo@FreeBSD.org
 COMMENT=	BitTorrent Client written in C++
@@ -14,6 +12,7 @@ LICENSE_COMB=	dual
 LICENSE_FILE_GPLv2=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libtorrent.so:net-p2p/libtorrent
+TEST_DEPENDS=	cppunit>0:devel/cppunit
 
 USES=		compiler:c++17-lang ncurses pkgconfig
 USE_RC_SUBR=	rtorrent
@@ -21,7 +20,12 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-debug \
 		--with-xmlrpc-tinyxml2
 
+<<<<<<< HEAD
 USE_HARDENING=	safestack
+=======
+TEST_ARGS=	CPPUNIT_LIBS="-L${LOCALBASE}/lib -lcppunit"
+TEST_TARGET=	check
+>>>>>>> upstream/main
 
 SUB_FILES=	pkg-message
 
