@@ -20,12 +20,10 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-debug \
 		--with-xmlrpc-tinyxml2
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
-=======
+
 TEST_ARGS=	CPPUNIT_LIBS="-L${LOCALBASE}/lib -lcppunit"
 TEST_TARGET=	check
->>>>>>> upstream/main
 
 SUB_FILES=	pkg-message
 
