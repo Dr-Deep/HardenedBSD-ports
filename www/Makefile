@@ -1909,6 +1909,7 @@
     SUBDIR += py-pysmartdl
     SUBDIR += py-python-digitalocean
     SUBDIR += py-python-dotenv
+    SUBDIR += py-python-fasthtml
     SUBDIR += py-python-multipart
     SUBDIR += py-pyweblib
     SUBDIR += py-pywebview-gtk

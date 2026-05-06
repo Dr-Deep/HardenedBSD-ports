@@ -528,6 +528,7 @@
     SUBDIR += ndpi
     SUBDIR += ndproxy
     SUBDIR += neatvnc
+    SUBDIR += nekobox
     SUBDIR += nemesis
     SUBDIR += netatalk4
     SUBDIR += netcat
