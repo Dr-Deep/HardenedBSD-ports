@@ -18,8 +18,11 @@ LICENSE_NAME=	Nmap Public Source License
 LICENSE_PERMS=	auto-accept dist-mirror pkg-mirror pkg-sell
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+<<<<<<< HEAD
 USE_HARDENING?=	cfi safestack
 
+=======
+>>>>>>> upstream/main
 LIB_DEPENDS=	libpcre2-16.so:devel/pcre2
 
 .if !defined(MASTERDIR)
@@ -70,9 +73,6 @@ CONFIGURE_ARGS+=--without-localdirs \
 .if defined(SSL_DEFAULT)
 .if ${SSL_DEFAULT} == libressl
 BROKEN=	error: OpenSSL-3.0.0 is the minimum supported version. LibreSSL is not supported
-.endif
-.if ${SSL_DEFAULT} == openssl111
-BROKEN=	error: OpenSSL-3.0.0 is the minimum supported version.
 .endif
 .endif
 
