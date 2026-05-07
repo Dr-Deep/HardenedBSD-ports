@@ -17,17 +17,9 @@ USE_GL=		gl glu glut
 USE_XORG=	ice sm x11 xext xi xmu xorgproto
 
 GNU_CONFIGURE=	yes
-<<<<<<< HEAD
 
 USE_HARDENING=	pie:off
 
-.include <bsd.port.pre.mk>
-
-.if ${OPSYS}_${OSREL:R} == FreeBSD_13
-LIBS+=		-lcompat
-.else
-=======
->>>>>>> upstream/main
 LIBS+=		-lutil
 
 .include <bsd.port.mk>

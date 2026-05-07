@@ -11,14 +11,8 @@ WWW=		https://yhbt.net/cmogstored/
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
 
-BROKEN_mips=		failst to compile: fdmap.c:89: undefined reference to `__sync_add_and_fetch_4'
-BROKEN_mips64=		failst to compile: fdmap.c:89: undefined reference to `__sync_add_and_fetch_4'
-
-=======
->>>>>>> upstream/main
 USES=		compiler:c11
 
 PLIST_FILES=	sbin/cmogstored \
