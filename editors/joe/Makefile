@@ -11,15 +11,9 @@ WWW=		https://sourceforge.net/projects/joe-editor/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=  safestack
 
-CONFLICTS=	jupp
-
-USES=		gmake iconv localbase ncurses
-=======
 USES=		desktop-file-utils gmake iconv ncurses
->>>>>>> upstream/main
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	SPELL=aspell
 
