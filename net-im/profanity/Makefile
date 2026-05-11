@@ -21,16 +21,8 @@ GH_ACCOUNT=	profanity-im
 
 INSTALL_TARGET=	install-strip
 
-<<<<<<< HEAD
-CONFIGURE_ARGS=	--enable-otr --enable-python-plugins --enable-c-plugins \
-		--enable-plugins --enable-pgp --disable-icons-and-clipboard \
-		--without-xscreensaver --disable-gdk-pixbuf \
-		--enable-omemo --enable-omemo-qrcode --enable-year2038
-
 USE_HARDENING=	pie:off safestack
 
-OPTIONS_DEFINE=	NOTIFY
-=======
 OPTIONS_DEFINE=			NOTIFY PYTHON C OTR PGP OMEMO QRCODE CLIPBOARD \
 				AVATAR SCREENSAVER SPELLCHECK MIME
 OPTIONS_SINGLE=			OMEMO-BACKEND
@@ -39,7 +31,6 @@ OPTIONS_SINGLE_OMEMO-BACKEND=	LIBSIGNAL \
 OPTIONS_DEFAULT=		NOTIFY PYTHON C OMEMO LIBOMEMO QRCODE SPELLCHECK \
 				CLIPBOARD MIME
 OPTIONS_SUB=		C
->>>>>>> upstream/main
 
 NOTIFY_LIB_DEPENDS=	libnotify.so:devel/libnotify
 NOTIFY_MESON_ENABLED=	notifications
