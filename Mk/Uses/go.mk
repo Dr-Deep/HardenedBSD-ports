@@ -90,6 +90,9 @@
 # GO_BUILDFLAGS
 #	Additional build arguments to be passed to the `go build` command
 #
+# GO_LDFLAGS
+#	Additional LDFLAGS variables to be passed to the `go build` command
+#
 # GO_TESTFLAGS
 #	Additional build arguments to be passed to the `go test` command
 #
@@ -146,7 +149,7 @@ GO_BUILDFLAGS+=	-v -trimpath
 GO_BUILDFLAGS+=-v -buildmode=exe
 .endif
 .  if !defined(WITH_DEBUG) && empty(GO_BUILDFLAGS:M-ldflags*)
-GO_BUILDFLAGS+=	-ldflags=-s
+GO_BUILDFLAGS+=	-ldflags '-s ${GO_LDFLAGS}'
 .  endif
 GO_BUILDFLAGS+=	-buildvcs=false
 GO_TESTFLAGS+=	-v -buildvcs=false
