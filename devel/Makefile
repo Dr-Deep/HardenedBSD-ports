@@ -1367,8 +1367,8 @@
     SUBDIR += libk8055
     SUBDIR += libkiwix
     SUBDIR += libkiwix13
-    SUBDIR += libks
     SUBDIR += libklel
+    SUBDIR += libks
     SUBDIR += liblangtag
     SUBDIR += liblnk
     SUBDIR += liblockfile
@@ -4840,6 +4840,7 @@
     SUBDIR += py-dal
     SUBDIR += py-darkdetect
     SUBDIR += py-darts.util.lru
+    SUBDIR += py-dasbus
     SUBDIR += py-dask
     SUBDIR += py-dask-awkward
     SUBDIR += py-dask-expr
