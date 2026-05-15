@@ -13,6 +13,8 @@ LICENSE_FILE=	${WRKSRC}/GPL-3.0.txt
 
 USES=		cmake:noninja compiler:c++17-lang pathfix shebangfix tar:xz
 
+USE_HARDENING=	pie:off
+
 SHEBANG_FILES=	doc/scripts/* test/*
 SHEBANG_GLOB=	*.sh *.bash
 
