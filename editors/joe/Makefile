@@ -12,16 +12,12 @@ WWW=		https://sourceforge.net/projects/joe-editor/
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=  safestack
 
-USES=		desktop-file-utils gmake iconv ncurses
-=======
 FLAVORS=	tiny x11
 FLAVOR?=	${FLAVORS:[1]}
 
 USES=		gmake iconv ncurses
->>>>>>> upstream/main
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	SPELL=aspell
 
