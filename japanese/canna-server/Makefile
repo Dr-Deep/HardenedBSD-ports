@@ -14,13 +14,9 @@ LICENSE_FILE=	${WRKSRC}/COPYRIGHT
 
 LIB_DEPENDS=	libcanna.so:japanese/canna-lib
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
 
-USES=		imake tar:bzip2
-=======
 USES=		imake tar:xz
->>>>>>> upstream/main
 USE_RC_SUBR=	canna
 
 MAKE_JOBS_UNSAFE=	yes

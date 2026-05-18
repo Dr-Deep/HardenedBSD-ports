@@ -12,13 +12,9 @@ WWW=		https://canna-input.github.io/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYRIGHT
 
-<<<<<<< HEAD
 USE_HARDENING=	pie:off relro:off
 
-USES=		imake:notall,noman tar:bzip2
-=======
 USES=		imake:notall,noman tar:xz
->>>>>>> upstream/main
 USE_LDCONFIG=	yes
 
 MAKE_JOBS_UNSAFE=	yes
