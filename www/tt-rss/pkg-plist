@@ -32,14 +32,6 @@
 @dir /var/tt-rss/local/plugins/af_comics
 @group
 @mode
-<<<<<<< HEAD
-%%WWWDIR%%/plugins.local
-%%WWWDIR%%/plugins/af_comics/filters.local
-%%WWWDIR%%/templates.local
-%%WWWDIR%%/themes.local
-/var/tt-rss/feed-icons/index.html
-=======
->>>>>>> upstream/main
 /var/tt-rss/local/plugins.local/index.html
 /var/tt-rss/local/templates.local/index.html
 %%WWWDIR%%/CONTRIBUTING.md

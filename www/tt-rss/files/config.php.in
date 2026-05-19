@@ -25,13 +25,10 @@
 	putenv('TTRSS_ICONS_DIR=/var/tt-rss/feed-icons');
 	putenv('TTRSS_LOCK_DIRECTORY=/var/tt-rss/lock');
 
-<<<<<<< HEAD
-=======
 	putenv('TTRSS_LOCAL_PLUGINS_DIR=/var/tt-rss/local/plugins.local');
 	putenv('TTRSS_LOCAL_TEMPLATES_DIR=/var/tt-rss/local/templates.local');
 	putenv('TTRSS_LOCAL_THEMES_DIR=/var/tt-rss/local/themes.local');
 
->>>>>>> upstream/main
 	#putenv('TTRSS_SINGLE_USER_MODE=true');
 
 	#putenv('TTRSS_SELF_URL_PATH=');
