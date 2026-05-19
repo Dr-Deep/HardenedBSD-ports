@@ -11,17 +11,17 @@
 @mode
 @mode 0440
 @sample %%WWWDIR%%/config.php.sample
-@mode
-@dir %%WWWDIR%%/cache
-@dir %%WWWDIR%%/cache/export
-@dir %%WWWDIR%%/cache/feeds
-@dir %%WWWDIR%%/cache/images
-@dir %%WWWDIR%%/cache/upload
-@dir %%WWWDIR%%/lock
-@dir %%WWWDIR%%/plugins.local
-@dir %%WWWDIR%%/plugins/af_comics/filters.local
-@dir %%WWWDIR%%/templates.local
-@dir %%WWWDIR%%/themes.local
+@mode 0770
+@dir /var/tt-rss/cache
+@dir /var/tt-rss/cache/export
+@dir /var/tt-rss/cache/feeds
+@dir /var/tt-rss/cache/images
+@dir /var/tt-rss/cache/upload
+@dir /var/tt-rss/lock
+@dir /var/tt-rss/local/plugins.local
+@dir /var/tt-rss/local/plugins/af_comics/filters.local
+@dir /var/tt-rss/local/templates.local
+@dir /var/tt-rss/local/themes.local
 @owner
 @group ttrssd
 @mode 775
@@ -32,11 +32,14 @@
 @dir /var/tt-rss/local/plugins/af_comics
 @group
 @mode
+<<<<<<< HEAD
 %%WWWDIR%%/plugins.local
 %%WWWDIR%%/plugins/af_comics/filters.local
 %%WWWDIR%%/templates.local
 %%WWWDIR%%/themes.local
 /var/tt-rss/feed-icons/index.html
+=======
+>>>>>>> upstream/main
 /var/tt-rss/local/plugins.local/index.html
 /var/tt-rss/local/templates.local/index.html
 %%WWWDIR%%/CONTRIBUTING.md

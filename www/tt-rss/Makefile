@@ -1,5 +1,6 @@
 PORTNAME=	tt-rss
 DISTVERSION=	g20260501
+PORTREVISION=	1
 PORTEPOCH=	2
 CATEGORIES=	www
 PKGNAMESUFFIX=	${PHP_PKGNAMESUFFIX}
@@ -66,7 +67,10 @@ do-install:
 
 	${MKDIR} ${STAGEDIR}/var/tt-rss
 	${MV}	${STAGEDIR}${WWWDIR}/cache \
+<<<<<<< HEAD
 		${STAGEDIR}${WWWDIR}/feed-icons \
+=======
+>>>>>>> upstream/main
 		${STAGEDIR}${WWWDIR}/lock \
 			${STAGEDIR}/var/tt-rss
 
@@ -79,11 +83,14 @@ do-install:
 	${MKDIR} ${STAGEDIR}/var/tt-rss/local/plugins/af_comics
 	${MV} ${STAGEDIR}${WWWDIR}/plugins/af_comics/filters.local \
 		${STAGEDIR}/var/tt-rss/local/plugins/af_comics
+<<<<<<< HEAD
 
 	${RLN} ${STAGEDIR}/var/tt-rss/local/plugins.local ${STAGEDIR}${WWWDIR}
 	${RLN} ${STAGEDIR}/var/tt-rss/local/templates.local ${STAGEDIR}${WWWDIR}
 	${RLN} ${STAGEDIR}/var/tt-rss/local/themes.local ${STAGEDIR}${WWWDIR}
 	${RLN} ${STAGEDIR}/var/tt-rss/local/plugins/af_comics/filters.local \
 		${STAGEDIR}${WWWDIR}/plugins/af_comics
+=======
+>>>>>>> upstream/main
 
 .include <bsd.port.mk>
