@@ -5010,7 +5010,9 @@
     SUBDIR += py-flatland
     SUBDIR += py-flatten-dict
     SUBDIR += py-flex
+    SUBDIR += py-flexcache
     SUBDIR += py-flexmock
+    SUBDIR += py-flexparser
     SUBDIR += py-flit
     SUBDIR += py-flit-core
     SUBDIR += py-flit-scm
@@ -7661,6 +7663,7 @@
     SUBDIR += rubygem-gyoku
     SUBDIR += rubygem-hamster
     SUBDIR += rubygem-hana
+    SUBDIR += rubygem-hansi
     SUBDIR += rubygem-hashdiff
     SUBDIR += rubygem-hashery
     SUBDIR += rubygem-hashie
@@ -7829,8 +7832,10 @@
     SUBDIR += rubygem-mustache
     SUBDIR += rubygem-mustache-sinatra
     SUBDIR += rubygem-mustermann
+    SUBDIR += rubygem-mustermann-contrib
     SUBDIR += rubygem-mustermann-grape
     SUBDIR += rubygem-mustermann-grape10
+    SUBDIR += rubygem-mustermann3
     SUBDIR += rubygem-mutex_m
     SUBDIR += rubygem-mutter
     SUBDIR += rubygem-nakayoshi_fork
