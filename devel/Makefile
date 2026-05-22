@@ -1860,6 +1860,7 @@
     SUBDIR += open-beagle
     SUBDIR += open62541
     SUBDIR += openapi
+    SUBDIR += openapi-generator
     SUBDIR += openapi-tui
     SUBDIR += opencl
     SUBDIR += opencl-clang
@@ -6528,9 +6529,11 @@
     SUBDIR += qt6-grpc
     SUBDIR += qt6-languageserver
     SUBDIR += qt6-location
+    SUBDIR += qt6-openapi
     SUBDIR += qt6-positioning
     SUBDIR += qt6-remoteobjects
     SUBDIR += qt6-scxml
+    SUBDIR += qt6-tasktree
     SUBDIR += qt6-tools
     SUBDIR += qt6-translations
     SUBDIR += qtcreator
@@ -7541,6 +7544,7 @@
     SUBDIR += rubygem-formatador
     SUBDIR += rubygem-forwardable
     SUBDIR += rubygem-forwardable-extended
+    SUBDIR += rubygem-freezolite
     SUBDIR += rubygem-fugit
     SUBDIR += rubygem-fugit-gitlab
     SUBDIR += rubygem-fuubar
@@ -8127,6 +8131,7 @@
     SUBDIR += rubygem-repl_type_completor
     SUBDIR += rubygem-request_store
     SUBDIR += rubygem-request_store15
+    SUBDIR += rubygem-require-hooks
     SUBDIR += rubygem-require_all
     SUBDIR += rubygem-resque
     SUBDIR += rubygem-resque-scheduler
@@ -8504,6 +8509,7 @@
     SUBDIR += shfmt
     SUBDIR += shiboken2
     SUBDIR += shiboken6
+    SUBDIR += shiboken6-tools
     SUBDIR += shmap
     SUBDIR += shroud
     SUBDIR += shtk
