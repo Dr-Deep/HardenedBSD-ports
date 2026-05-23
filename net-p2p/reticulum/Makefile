@@ -12,15 +12,21 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_NAME=	Reticulum License
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+#USE_GITLAB=	yes
+#GL_ACCOUNT=	HardenedBSD
+#GL_TAGNAME=	8fd56ff14ef4e2f4a70aed297a47532abf34a59d
+#GL_SITE=	https://git.hardenedbsd.org
+
+USE_RADICLE=		yes
+RID=			rad:z3qK66oep4eCEe2gCByt63wLiL34h
+RAD_PROJECT_NAME=	reticulum
+RAD_COMMIT=		8fd56ff14ef4e2f4a70aed297a47532abf34a59d
+
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}netifaces>=0:net/py-netifaces@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyserial>0:comms/py-pyserial@${PY_FLAVOR}
 
 WRKSRC=		${WRKDIR}/reticulum-${GL_TAGNAME}
 USES=		python:3.11
-USE_GITLAB=	yes
-GL_ACCOUNT=	HardenedBSD
-GL_TAGNAME=	8fd56ff14ef4e2f4a70aed297a47532abf34a59d
-GL_SITE=	https://git.hardenedbsd.org
 USE_PYTHON=	cryptography distutils
 USE_RC_SUBR=	reticulum
 GROUPS=		_reticulum
