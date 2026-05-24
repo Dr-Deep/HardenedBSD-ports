@@ -12,11 +12,10 @@ LICENSE=	BSD2CLAUSE
 USES+=		uidfix
 USE_HARDENING?=	safestack
 
-USE_GITLAB=	yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=	hardenedbsd
-GL_PROJECT=	secadm
-GL_TAGNAME=	001cda1ebea43f7971306417bd3232fd3cca6aae
+USE_RADICLE=		yes
+RID=			rad:z5p6VcE97HCTVkiNtjBhMtW5mEnW
+RAD_PROJECT_NAME=	HardenedBSD-secadm
+RAD_COMMIT=		001cda1ebea43f7971306417bd3232fd3cca6aae
 
 .if !defined(KMOD)
 LIBDIR?=	${PREFIX}/lib
