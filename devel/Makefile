@@ -4763,6 +4763,8 @@
     SUBDIR += py-cluster
     SUBDIR += py-cmd2
     SUBDIR += py-cmdtest
+    SUBDIR += py-cmeel
+    SUBDIR += py-cmeel-eigen
     SUBDIR += py-cobble
     SUBDIR += py-codegen
     SUBDIR += py-cogapp
@@ -5431,6 +5433,7 @@
     SUBDIR += py-nbformat
     SUBDIR += py-nbval
     SUBDIR += py-nest-asyncio
+    SUBDIR += py-nest-asyncio2
     SUBDIR += py-ninja
     SUBDIR += py-node-semver
     SUBDIR += py-nodeenv
@@ -6170,6 +6173,7 @@
     SUBDIR += py-super-collections
     SUBDIR += py-sure
     SUBDIR += py-swagger-spec-validator
+    SUBDIR += py-swig
     SUBDIR += py-sybil
     SUBDIR += py-synr
     SUBDIR += py-syrupy

@@ -1518,6 +1518,7 @@
     SUBDIR += scr_ipfm
     SUBDIR += sctplib
     SUBDIR += sdl2_net
+    SUBDIR += sdl3_net
     SUBDIR += sdl_net
     SUBDIR += seaweedfs
     SUBDIR += seda

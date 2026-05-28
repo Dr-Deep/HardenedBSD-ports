@@ -1595,7 +1595,6 @@
     SUBDIR += py-dj52-django-tasks
     SUBDIR += py-dj52-django-timezone-field
     SUBDIR += py-dj52-django-treebeard
-    SUBDIR += py-dj52-django-treenode
     SUBDIR += py-dj52-django-unfold
     SUBDIR += py-dj52-djangorestframework
     SUBDIR += py-dj52-djangorestframework-guardian
@@ -1710,6 +1709,7 @@
     SUBDIR += py-django-tinymce
     SUBDIR += py-django-tree-queries
     SUBDIR += py-django-treebeard
+    SUBDIR += py-django-treenode
     SUBDIR += py-django-unfold
     SUBDIR += py-django-voting
     SUBDIR += py-django-webpack-loader
@@ -2779,6 +2779,7 @@
     SUBDIR += youtube
     SUBDIR += yt-dlp
     SUBDIR += yuicompressor
+    SUBDIR += zen
     SUBDIR += zenphoto
     SUBDIR += zerowait-httpd
     SUBDIR += zgrab2
