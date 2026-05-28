@@ -1,6 +1,5 @@
 PORTNAME=	perl
 DISTVERSION=	${PERL_VERSION}
-PORTREVISION=	1
 CATEGORIES=	lang devel perl5
 MASTER_SITES=	CPAN/../../src/5.0 CPAN/../by-authors/id/B/BO/BOOK
 DIST_SUBDIR=	perl
@@ -133,7 +132,7 @@ PERLMANPREFIX_REL=	${_PRIV_LIB}/perl
 PERLMANPREFIX=		${PREFIX}/${PERLMANPREFIX_REL}
 MANDIRS=		${PERLMANPREFIX}/man
 
-# XXX replace all LIBPERL_VER occurences with PERL_VERSION
+# XXX replace all LIBPERL_VER occurrences with PERL_VERSION
 LIBPERL_VER=	${PORTVERSION:C/[^0-9.]//}
 
 OPTIONS_DEFINE=		DEBUG DOT_INC DTRACE GDBM MULTIPLICITY PERL_64BITINT \
@@ -144,8 +143,7 @@ OPTIONS_DEFAULT=	MULTIPLICITY PERL_64BITINT
 OPTIONS_EXCLUDE=	DTRACE
 .endif
 .for a in aarch64 armv6 armv7 \
-	mips mips64 mips64el mips64elhf mips64hf mipsel mipselhf mipshf mipsn32 \
-	riscv64 riscv64sf
+	riscv64
 OPTIONS_EXCLUDE_${a}=	DTRACE
 .endfor
 OPTIONS_SUB=		yes

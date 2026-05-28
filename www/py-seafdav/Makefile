@@ -2,10 +2,11 @@ PORTNAME=	seafdav
 DISTVERSIONPREFIX=	v
 DISTVERSION=	${SEAHUB_VER}
 DISTVERSIONSUFFIX=	-server
+PORTREVISION=	2
 CATEGORIES=	www python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	ultima@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Python library for accessing seafile data model
 WWW=		https://github.com/haiwen/seafdav
 

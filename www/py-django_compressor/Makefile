@@ -1,11 +1,11 @@
 PORTNAME=	django_compressor
 PORTVERSION=	4.5
-PORTREVISION=	1
+PORTREVISION=	3
 CATEGORIES=	www python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	ultima@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Compresses linked and inline JavaScript/CSS into a single cached file
 WWW=		https://github.com/jezdez/django_compressor
 

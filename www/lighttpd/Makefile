@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.79
+PORTVERSION=	1.4.82
 CATEGORIES=	www
 MASTER_SITES=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
@@ -16,9 +16,7 @@ USES=		compiler:c11 cmake cpe localbase:ldflags pkgconfig tar:xz
 
 USE_HARDENING=	safestack zeroreg
 
-GNU_CONFIGURE=	yes
-
-CONFIGURE_ARGS=	--libdir=${PREFIX}/lib/lighttpd
+CMAKE_ARGS=	-DLIB_INSTALL_DIR:PATH=${PREFIX}/lib/lighttpd
 
 TEST_TARGET=	check
 
@@ -66,7 +64,7 @@ LUA_CMAKE_ON=		-DWITH_LUA_VERSION:STRING="lua-${LUA_VER}"
 MAXMINDDB_CMAKE_BOOL=	WITH_MAXMINDDB
 MAXMINDDB_LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb
 MBEDTLS_CMAKE_BOOL=	WITH_MBEDTLS
-MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls2
+MBEDTLS_LIB_DEPENDS=	libmbedtls.so:security/mbedtls3
 NETTLE_CMAKE_BOOL=	WITH_NETTLE
 NETTLE_LIB_DEPENDS=	libnettle.so:security/nettle
 NSS_CMAKE_BOOL=		WITH_NSS

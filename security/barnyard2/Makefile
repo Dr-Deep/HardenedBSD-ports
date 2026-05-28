@@ -12,6 +12,8 @@ LICENSE=	GPLv2
 
 USES=		autoreconf libtool
 
+USE_HARDENING=	fortifysource:off hardcflags:off
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	firnsy
 

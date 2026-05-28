@@ -16,6 +16,8 @@ LICENSE_FILE=	${WRKSRC}/license.terms
 USES=		autoreconf tcl:tea,wrapper
 USE_LDCONFIG=	${LOCALBASE}/lib/${DISTNAME}
 
+USE_HARDENING=	hardcflags:off
+
 MAKE_ENV+=	STRIPPROG=${STRIP_CMD}
 TEST_TARGET=	test
 

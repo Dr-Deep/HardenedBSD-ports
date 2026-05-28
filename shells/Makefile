@@ -1,6 +1,7 @@
     COMMENT = Shells
 
     SUBDIR += 44bsd-csh
+    SUBDIR += agsh
     SUBDIR += anongitssh
     SUBDIR += antibody
     SUBDIR += ast-ksh
@@ -56,6 +57,7 @@
     SUBDIR += psh
     SUBDIR += rc
     SUBDIR += rubygem-shellwords
+    SUBDIR += rura
     SUBDIR += rush
     SUBDIR += sash
     SUBDIR += schemesh

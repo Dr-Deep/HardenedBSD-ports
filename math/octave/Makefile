@@ -1,7 +1,11 @@
 PORTNAME=	octave
 PORTVERSION=	${OCTAVE_VERSION}
-CATEGORIES=	math
+PORTREVISION=	6
+CATEGORIES=	math java
 MASTER_SITES=	GNU
+
+PATCH_SITES=	https://github.com/gnu-octave/octave/commit/
+PATCHFILES=	e21b1898cb6507dff38679c25b4db7fde44de883.patch:-p1
 
 MAINTAINER=	stephen@FreeBSD.org
 COMMENT=	High-level interactive language for numerical computations
@@ -13,12 +17,13 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/gperf:devel/gperf \
 		${LOCALBASE}/bin/makeinfo:print/texinfo \
 		gnuplot:math/gnuplot \
 		gsed:textproc/gsed \
-		${LOCALBASE}/include/rapidjson/rapidjson.h:devel/rapidjson
+		${LOCALBASE}/include/rapidjson/rapidjson.h:devel/rapidjson \
+		${LOCALBASE}/include/fast_float/fast_float.h:math/fast_float
 RUN_DEPENDS=	${LOCALBASE}/bin/makeinfo:print/texinfo \
 		gnuplot:math/gnuplot \
 		gsed:textproc/gsed
 LIB_DEPENDS=	libamd.so:math/suitesparse-amd \
-		libarpack.so:math/arpack-ng \
+		libarpack.so:math/arpack-ng@mpich \
 		libcamd.so:math/suitesparse-camd \
 		libccolamd.so:math/suitesparse-ccolamd \
 		libcholmod.so:math/suitesparse-cholmod \
@@ -37,7 +42,6 @@ LIB_DEPENDS=	libamd.so:math/suitesparse-amd \
 		libGraphicsMagick.so:graphics/GraphicsMagick \
 		libhdf5.so:science/hdf5 \
 		libklu.so:math/suitesparse-klu \
-		libOSMesa.so:graphics/libosmesa \
 		libpcre.so:devel/pcre \
 		libportaudio.so:audio/portaudio \
 		libqhull_r.so:math/qhull \
@@ -49,7 +53,7 @@ LIB_DEPENDS=	libamd.so:math/suitesparse-amd \
 
 USES=		charsetfix compiler:c++17-lang desktop-file-utils fortran gl \
 		gmake iconv libtool localbase:ldflags ncurses octave:env perl5 \
-		pkgconfig readline tar:xz xorg
+		pkgconfig readline tar:xz xorg python:3.0+
 USE_LDCONFIG=	${PREFIX}/lib/${PORTNAME}/${PORTVERSION}
 USE_PERL5=	build
 GNU_CONFIGURE=	yes
@@ -80,8 +84,7 @@ CONFIGURE_ARGS=	--disable-jit \
 		--enable-shared \
 		--host=${GNU_HOST} \
 		--with-blas="-L${LOCALBASE}/lib ${BLASLIB}" \
-		--with-lapack="${LAPACKLIB}" \
-		--with-osmesa
+		--with-lapack="${LAPACKLIB}"
 
 INFO=		octave liboctave
 
@@ -107,12 +110,16 @@ DOCS_USES=	tex
 DOCS_USE=	TEX=dvipsk:build,formats:build
 JAVA_USES=	java
 JAVA_CFLAGS=	-I${JAVA_HOME}/include/${OPSYS:tl}
+JAVA_VARS=	JAVA_VERSION=11+
 QT6_USES=	qt:6
 OPENBLAS_USES=	blaslapack:openblas
 NETLIB_USES=	blaslapack:netlib
 ATLAS_USES=	blaslapack:atlas
 
 BINARY_ALIAS=	sed=gsed
+
+post-patch:
+	${REINPLACE_CMD} -e s+python3+${PYTHON_CMD}+g ${WRKSRC}/scripts/miscellaneous/python.m
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

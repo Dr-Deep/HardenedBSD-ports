@@ -1,8 +1,8 @@
 PORTNAME=	valkey
-DISTVERSION=	8.1.3
+DISTVERSION=	9.1.0
 CATEGORIES=	databases
 
-MAINTAINER=	yasu@FreeBSD.org
+MAINTAINER=	bofh@freebsd.org
 COMMENT=	High-performance data structure server that primarily serves key/value workloads
 WWW=		https://valkey.io/
 
@@ -62,6 +62,9 @@ post-install:
 	${MKDIR} ${STAGEDIR}${VALKEY_LOGDIR} \
 		${STAGEDIR}${VALKEY_DBDIR} \
 		${STAGEDIR}${VALKEY_RUNDIR}
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/valkey-benchmark
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/valkey-cli
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/valkey-server
 
 do-test:
 	@cd ${WRKSRC} && ${TCLSH} tests/test_helper.tcl

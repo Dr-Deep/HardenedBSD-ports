@@ -1,5 +1,5 @@
-TIMESTAMP = 1736487060
-SHA256 (go/security_gosec/gosec-v2.22.0/v2.22.0.mod) = c9b50f9bd90d045c3c3d69a0b8f966f797a70417490c45b0e401f8bb119d59c2
-SIZE (go/security_gosec/gosec-v2.22.0/v2.22.0.mod) = 2382
-SHA256 (go/security_gosec/gosec-v2.22.0/v2.22.0.zip) = 77e046f8c0fbaf9da4ed0e193d3782a7d76b090485a4693f09e2b93c455b8640
-SIZE (go/security_gosec/gosec-v2.22.0/v2.22.0.zip) = 250973
+TIMESTAMP = 1777458396
+SHA256 (go/security_gosec/gosec-v2.26.1/v2.26.1.mod) = 2d1988171d73fd39b038ed3d9da9f725d48af8077e386c0a3856456be90b5bf0
+SIZE (go/security_gosec/gosec-v2.26.1/v2.26.1.mod) = 2755
+SHA256 (go/security_gosec/gosec-v2.26.1/v2.26.1.zip) = b5bb601a781e59d69b635ee8b452dbf4311e05c07e9e75653e3826b8a5f4bc99
+SIZE (go/security_gosec/gosec-v2.26.1/v2.26.1.zip) = 528999

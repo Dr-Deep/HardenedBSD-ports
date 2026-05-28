@@ -1,7 +1,7 @@
 PORTNAME=	keybase
-PORTVERSION=	6.5.1
+PORTVERSION=	6.6.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+PORTREVISION=	1
 CATEGORIES=	security
 
 MAINTAINER=	sunpoet@FreeBSD.org
@@ -15,9 +15,6 @@ LICENSE_FILE=	${WRKSRC}/../LICENSE
 
 USES=		cpe go:modules
 
-USE_GITHUB=	yes
-GH_PROJECT=	client
-
 GO_BUILDFLAGS=	-tags production
 GO_MOD_DIST=	github
 GO_MODULE=	github.com/keybase/client/go
@@ -27,5 +24,8 @@ WRKSRC_SUBDIR=	go
 USE_HARDENING=	pie:golang
 
 PLIST_FILES=	bin/git-remote-keybase bin/kbfsfuse bin/kbfstool bin/keybase
+
+USE_GITHUB=	yes
+GH_PROJECT=	client
 
 .include <bsd.port.mk>

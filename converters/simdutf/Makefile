@@ -1,6 +1,6 @@
 PORTNAME=	simdutf
 DISTVERSIONPREFIX=	v
-DISTVERSION=	7.3.2
+DISTVERSION=	9.0.0
 CATEGORIES=	converters textproc
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -12,7 +12,7 @@ LICENSE_COMB=	dual
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
 
-USES=		cmake:testing compiler:c++17-lang pathfix python:build,test
+USES=		cmake:testing compiler:c++17-lang python:build,test
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
@@ -35,5 +35,7 @@ ICONV_USES=	iconv
 ICONV_CMAKE_BOOL=	SIMDUTF_ICONV
 
 TOOLS_CMAKE_BOOL=	SIMDUTF_TOOLS
+
+CXXFLAGS_powerpc64=	-mpower8-vector
 
 .include <bsd.port.mk>

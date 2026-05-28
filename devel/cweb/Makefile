@@ -19,6 +19,8 @@ CONFLICTS_INSTALL=	tex-web2c
 
 OPTIONS_DEFINE=	DOCS
 
+USE_HARDENING=	hardcflags:off
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%PREFIX%%|${PREFIX}|g' ${WRKSRC}/cweb.1
 

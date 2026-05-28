@@ -1,5 +1,5 @@
 PORTNAME=	fakeroot
-PORTVERSION=	1.37.1.2
+PORTVERSION=	1.38.1
 CATEGORIES=	security
 MASTER_SITES=	DEBIAN
 DISTNAME=	${PORTNAME}_${PORTVERSION}.orig
@@ -11,6 +11,8 @@ WWW=		https://tracker.debian.org/pkg/fakeroot
 LICENSE=	GPLv3
 
 USES=	libtool
+
+USE_HARDENING=	fortifysource:off
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share

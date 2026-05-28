@@ -1,59 +1,76 @@
 PORTNAME=	transient
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.9.3
+DISTVERSION=	0.13.3
 CATEGORIES=	devel elisp
-PKGNAMESUFFIX=	${EMACS_PKGNAMESUFFIX}
 
-MAINTAINER=	yasu@FreeBSD.org
+MAINTAINER=	freebsd@dev.thsi.be
 COMMENT=	Emacs key and popup interface for complex keybindings
 WWW=		https://github.com/magit/transient
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	compat.el${EMACS_PKGNAMESUFFIX}>=30.1.0.0:misc/compat.el@${EMACS_FLAVOR}
-RUN_DEPENDS=	compat.el${EMACS_PKGNAMESUFFIX}>=30.1.0.0:misc/compat.el@${EMACS_FLAVOR}
+_BR_DEPENDS=	compat.el>=30.1.0.0:misc/compat.el \
+		cond-let>=0.2:devel/cond-let
+BUILD_DEPENDS=	${_BR_DEPENDS}
+RUN_DEPENDS=	${_BR_DEPENDS}
 
-USES=		emacs gmake makeinfo
+USES=		emacs:build gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	magit
 
-MAKE_ENV+=	LOAD_PATH="-L ${PREFIX}/${EMACS_VERSION_SITE_LISPDIR}/compat"
-MAKE_JOBS_UNSAFE=	yes
-ALL_TARGET=	lisp info
-
-CONFLICTS_INSTALL=	transient-devel-emacs*
+CONFLICTS_INSTALL=	transient-emacs_*
 
 NO_ARCH=	yes
 
-INFO=		transient
-
+PLIST_FILES=	${ELISPDIR}/transient-autoloads.el \
+		${ELISPDIR}/transient.el
 PORTDOCS=	CHANGELOG README.org transient.html
 
-OPTIONS_DEFINE=	DOCS PDF
+ELISPDIR=	${EMACS_SITE_LISPDIR}/${PORTNAME}
+
+OPTIONS_DEFINE=		DOCS INFO PDF
+OPTIONS_DEFAULT=	INFO
 
 PDF_DESC=	Build and install PDF document
 
 DOCS_BUILD_DEPENDS=	gsed:textproc/gsed
-DOCS_ALL_TARGET=	html
-DOCS_BINARY_ALIAS=	sed=gsed
-PDF_BUILD_DEPENDS=	texi2pdf:print/texinfo
+DOCS_USES=		makeinfo
+
+INFO_BUILD_DEPENDS=	gsed:textproc/gsed
+INFO_INFO=		transient
+
+PDF_BUILD_DEPENDS=	gsed:textproc/gsed \
+			texi2pdf:print/texinfo
 PDF_USES=		tex
 PDF_USE=		TEX=dvipdfmx:build
-PDF_ALL_TARGET=		pdf
 PDF_PLIST_FILES=	${DOCSDIR}/transient.pdf
 
+do-build:
+	cd ${WRKSRC}/lisp && ${MAKE_CMD} autoloads
+
+do-build-DOCS-on:
+	cd ${WRKSRC}/docs && SED=gsed ${MAKE_CMD} html
+
+do-build-INFO-on:
+	cd ${WRKSRC} && SED=gsed ${MAKE_CMD} info
+
+do-build-PDF-on:
+	cd ${WRKSRC}/docs && SED=gsed ${MAKE_CMD} pdf
+
 do-install:
-	@${MKDIR} ${STAGEDIR}${PREFIX}/${EMACS_VERSION_SITE_LISPDIR}
-	${INSTALL_DATA} ${WRKSRC}/lisp/*.el* \
-		${STAGEDIR}${PREFIX}/${EMACS_VERSION_SITE_LISPDIR}
-	${INSTALL_DATA} ${WRKSRC}/docs/*.info \
-		${STAGEDIR}${PREFIX}/${INFO_PATH}
+	@${MKDIR} ${STAGEDIR}${PREFIX}/${ELISPDIR}
+	${INSTALL_DATA} ${WRKSRC}/lisp/*.el \
+		${STAGEDIR}${PREFIX}/${ELISPDIR}
 
 do-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	${INSTALL_DATA} ${WRKSRC}/README.org ${WRKSRC}/CHANGELOG \
 		${WRKSRC}/docs/transient.html ${STAGEDIR}${DOCSDIR}
+
+do-install-INFO-on:
+	${INSTALL_DATA} ${WRKSRC}/docs/*.info \
+		${STAGEDIR}${PREFIX}/${INFO_PATH}
 
 do-install-PDF-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

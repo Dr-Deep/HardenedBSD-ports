@@ -10,6 +10,8 @@ WWW=		http://www.arjsoftware.com/
 
 USES=	tar:tgz
 
+USE_HARDENING=	hardcflags:off
+
 PLIST_FILES=	bin/unarj
 PORTDOCS=	unarj.txt technote.txt
 

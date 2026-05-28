@@ -1,6 +1,5 @@
 PORTNAME=	unbound
-DISTVERSION=	1.23.0
-PORTREVISION=	1
+DISTVERSION=	1.25.1
 CATEGORIES=	dns
 MASTER_SITES=	https://www.nlnetlabs.nl/downloads/unbound/
 
@@ -17,7 +16,7 @@ LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 USES=		autoreconf cpe libtool pkgconfig ssl
 CPE_VENDOR=	nlnetlabs
 USE_LDCONFIG=	yes
-USE_RC_SUBR=	unbound
+USE_RC_SUBR=	${PORTNAME}
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-libexpat=${LOCALBASE} \
@@ -105,9 +104,7 @@ post-patch-FILTER_AAAA-on:
 		${PATCH} -d ${WRKSRC} -p1 -s
 
 post-build:
-	@for s in ${STRIP_FILES}; \
-		do ${STRIP_CMD} ${WRKSRC}/$$s; \
-		done
+	${STRIP_CMD} ${STRIP_FILES:S|^|${WRKSRC}/|}
 
 post-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}

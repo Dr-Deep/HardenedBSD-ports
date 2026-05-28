@@ -23,6 +23,8 @@ USES=		autoreconf gmake pkgconfig tar:bzip2 xorg
 USE_XORG=	x11 xext xt
 NO_WRKSUBDIR=	yes
 
+USE_HARDENING=	hardcflags:off
+
 PORTDOCS=	ChangeLog README
 
 OPTIONS_DEFINE=	DOCS

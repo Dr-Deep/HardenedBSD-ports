@@ -42,10 +42,6 @@
 #				add the following to your Makefile:
 #				"GLIB_SCHEMAS=foo.gschema.xml bar.gschema.xml".
 #
-# INSTALLS_OMF		- If set, bsd.gnome.mk will automatically scan pkg-plist
-#				file and add apropriate @postexec/@postunexec directives for
-#				each .omf file found to track OMF registration database.
-#
 # MAINTAINER: gnome@FreeBSD.org
 
 .if !defined(_INCLUDE_USES_GNOME_MK)
@@ -83,8 +79,8 @@ _USE_GNOME_ALL+=dconf evolutiondataserver3 gnomecontrolcenter3 gnomedesktop3 \
 _USE_GNOME_ALL+=gtk40 libadwaita gtksourceview5 gnomedesktop4 nautilus4
 
 # C++ bindings
-_USE_GNOME_ALL+=atkmm cairomm cairomm11 gconfmm26 glibmm glibmm26 gtkmm24 \
-		gtkmm30 gtkmm40 gtksourceviewmm3 libgdamm5 libxml++26 libsigc++20 \
+_USE_GNOME_ALL+=atkmm cairomm cairomm11 glibmm glibmm26 gtkmm24 \
+		gtkmm30 gtkmm40 gtksourceviewmm3 libxml++26 libsigc++20 \
 		libsigc++30 pangomm pangomm24
 
 # glib-mkenums often fails with C locale
@@ -116,9 +112,6 @@ cairomm_USE_GNOME_IMPL=	cairo libsigc++20
 cairomm11_LIB_DEPENDS=	libcairomm-1.16.so:graphics/cairomm11
 cairomm11_USE_GNOME_IMPL=	cairo libsigc++30
 
-gconfmm26_LIB_DEPENDS=		libgconfmm-2.6.so:devel/gconfmm26
-gconfmm26_USE_GNOME_IMPL=	glibmm gconf2
-
 glibmm_LIB_DEPENDS=	libglibmm-2.4.so:devel/glibmm
 glibmm_USE_GNOME_IMPL=	libsigc++20 glib20
 
@@ -141,9 +134,6 @@ gtkmm40_USE_GNOME_IMPL=	cairomm11 gdkpixbuf glibmm26 gtk40 pangomm24
 
 gtksourceviewmm3_LIB_DEPENDS=		libgtksourceviewmm-3.0.so:x11-toolkits/gtksourceviewmm3
 gtksourceviewmm3_USE_GNOME_IMPL=	gtkmm30 gtksourceview3
-
-libgdamm5_LIB_DEPENDS=		libgdamm-5.0.so:databases/libgdamm5
-libgdamm5_USE_GNOME_IMPL=	libgda5 glibmm
 
 libsigc++20_LIB_DEPENDS=	libsigc-2.0.so:devel/libsigc++20
 
@@ -445,17 +435,6 @@ gnome-post-gconf-schemas:
 
 .  if defined(GLIB_SCHEMAS)
 PLIST_FILES+=	${GLIB_SCHEMAS:C,^,share/glib-2.0/schemas/,}
-.  endif
-
-.  if defined(INSTALLS_OMF)
-_USES_install+=	690:gnome-post-omf
-gnome-post-omf:
-	@for i in `${GREP} "\.omf$$" ${TMPPLIST}`; do \
-		${ECHO_CMD} "@postexec scrollkeeper-install -q %D/$${i} 2>/dev/null || /usr/bin/true" \
-			>> ${TMPPLIST}; \
-		${ECHO_CMD} "@postunexec scrollkeeper-uninstall -q %D/$${i} 2>/dev/null || /usr/bin/true" \
-			>> ${TMPPLIST}; \
-	done
 .  endif
 
 .endif

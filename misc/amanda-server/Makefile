@@ -22,6 +22,8 @@ USES=		charsetfix cpe gmake gnome libtool perl5 pkgconfig ssl
 USE_GNOME=	glib20
 USE_LDCONFIG=	yes
 
+USE_HARDENING=	fortifysource:off
+
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 CONFIGURE_ARGS=	--libexecdir=${PREFIX}/libexec/amanda \

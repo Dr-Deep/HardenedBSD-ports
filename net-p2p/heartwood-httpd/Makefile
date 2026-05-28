@@ -1,5 +1,5 @@
 PORTNAME=	heartwood-httpd
-DISTVERSION=	0.19.1
+DISTVERSION=	0.20.0
 CATEGORIES=	net-p2p devel
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -18,7 +18,7 @@ USE_GITLAB=	yes
 GL_SITE=	https://git.hardenedbsd.org
 GL_ACCOUNT=	shawn.webb
 GL_PROJECT=	radicle-explorer
-GL_TAGNAME=	f54222326a18fa5202ecdc57b1c326c8657f60e4
+GL_TAGNAME=	be5605acdee1cfa94718fd295342067656887647
 
 CARGO_CRATES=	addr2line-0.22.0 \
 		adler-1.0.2 \
@@ -92,6 +92,7 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		ed25519-1.5.3 \
 		elliptic-curve-0.13.8 \
 		equivalent-1.0.1 \
+		erased-serde-0.4.6 \
 		errno-0.3.9 \
 		fastrand-2.1.1 \
 		ff-0.13.0 \
@@ -191,7 +192,7 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		proc-macro2-1.0.86 \
 		qcheck-1.0.0 \
 		quote-1.0.37 \
-		radicle-0.15.0 \
+		radicle-0.16.1 \
 		radicle-cob-0.14.0 \
 		radicle-crypto-0.12.0 \
 		radicle-dag-0.10.0 \
@@ -220,6 +221,7 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		ryu-1.0.18 \
 		sec1-0.7.3 \
 		serde-1.0.209 \
+		serde-untagged-0.1.7 \
 		serde_derive-1.0.209 \
 		serde_json-1.0.127 \
 		serde_path_to_error-0.1.16 \
@@ -272,6 +274,7 @@ CARGO_CRATES=	addr2line-0.22.0 \
 		tracing-logfmt-0.3.5 \
 		tracing-subscriber-0.3.18 \
 		try-lock-0.2.5 \
+		typeid-1.0.3 \
 		typenum-1.17.0 \
 		unicode-bidi-0.3.15 \
 		unicode-display-width-0.3.0 \

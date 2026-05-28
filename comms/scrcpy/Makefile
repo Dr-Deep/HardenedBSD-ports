@@ -1,6 +1,6 @@
 PORTNAME=	scrcpy
 DISTVERSIONPREFIX=	v
-DISTVERSION=	3.3.1
+DISTVERSION=	4.0
 CATEGORIES=	comms net
 MASTER_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/releases/download/${DISTVERSIONFULL}/:server
 DISTFILES=	${SERVER_FILE}:server
@@ -21,17 +21,18 @@ USES=		compiler:c++11-lang meson pkgconfig sdl
 USE_GITHUB=	yes
 GH_ACCOUNT=	Genymobile
 
-USE_SDL=	sdl2
+USE_SDL=	sdl3
 
 MESON_ARGS=	-Dportable=false \
 		-Dprebuilt_server=${WRKSRC}/${SERVER_FILE}
 
 PLIST_FILES=	bin/scrcpy \
 		etc/bash_completion.d/scrcpy \
-		share/man/man1/scrcpy.1.gz \
 		share/applications/scrcpy-console.desktop \
 		share/applications/scrcpy.desktop \
+		share/icons/hicolor/256x256/apps/disconnected.png \
 		share/icons/hicolor/256x256/apps/scrcpy.png \
+		share/man/man1/scrcpy.1.gz \
 		${DATADIR}/scrcpy-server \
 		share/zsh/site-functions/_scrcpy
 PORTDOCS=	FAQ.md README.md

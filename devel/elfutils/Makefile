@@ -1,6 +1,6 @@
 PORTNAME=	elfutils
 DISTVERSION=	0.187
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	devel
 MASTER_SITES=	https://sourceware.org/elfutils/ftp/${PORTVERSION}/
 
@@ -16,7 +16,7 @@ LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING-LGPLV3
 
 BROKEN_armv6=		fails to build: fails to compile i386_disasm.c
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off hardcflags:off
 
 LIB_DEPENDS=	libargp.so:devel/argp-standalone \
 		libcurl.so:ftp/curl
@@ -57,9 +57,16 @@ CONFIGURE_ARGS+=	--disable-debuginfod
 pre-configure:
 	@${CP} -a \
 	    ${LOCALBASE}/share/gnulib/lib/obstack.c \
-	    ${LOCALBASE}/share/gnulib/lib/obstack.h \
 	    ${LOCALBASE}/share/gnulib/lib/obstack_printf.c \
+	    ${LOCALBASE}/share/gnulib/lib/libc-config.h \
+	    ${LOCALBASE}/share/gnulib/lib/cdefs.h \
+	    ${LOCALBASE}/share/gnulib/lib/exitfail.h \
+	    ${LOCALBASE}/share/gnulib/lib/exitfail.c \
+	    ${LOCALBASE}/share/gnulib/lib/gettext.h \
 	    ${WRKSRC}/lib
+	@${SED} -e 's|_GL_ATTRIBUTE_PURE|__attribute__ ((__pure__))|g' \
+	    ${LOCALBASE}/share/gnulib/lib/obstack.in.h > \
+	    ${WRKSRC}/lib/obstack.h
 
 post-configure: # remove -Werror since it causes build failures
 	@${FIND} ${WRKSRC} -name Makefile | ${XARGS} ${REINPLACE_CMD} -e 's| -Werror| |; s|-Werror ||'

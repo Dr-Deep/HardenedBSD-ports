@@ -1,7 +1,7 @@
 PORTNAME=	nfpm
 DISTVERSIONPREFIX=	v
-DISTVERSION=	2.41.3
-PORTREVISION=	5
+DISTVERSION=	2.46.3
+PORTREVISION=	1
 CATEGORIES=	archivers
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://github.com/goreleaser/nfpm
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-USES=		go:modules
+USES=		go:1.25+,modules
 
 GO_MODULE=	github.com/goreleaser/nfpm/v2
 GO_TARGET=	./cmd/${PORTNAME}

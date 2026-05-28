@@ -1,10 +1,11 @@
 PORTNAME=	streamlit
-DISTVERSION=	1.45.1
+DISTVERSION=	1.48.1
+PORTREVISION=	2
 CATEGORIES=	www python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
-MAINTAINER=	dch@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Turn data scripts into shareable web apps in minutes, in pure python
 WWW=		https://streamlit.io/
 

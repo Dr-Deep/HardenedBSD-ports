@@ -1,7 +1,7 @@
 PORTNAME=	openturns
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.24
-PORTREVISION=	6
+DISTVERSION=	1.25.1
+PORTREVISION=	3
 CATEGORIES=	math
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -73,7 +73,7 @@ OPTIONS_SUB=		yes
 PYTHON_USES=		python
 PYTHON_CMAKE_BOOL=	BUILD_PYTHON
 PYTHON_CMAKE_ON=	-DSWIG_EXECUTABLE=${LOCALBASE}/bin/swig
-PYTHON_PY_DEPENDS=	${PYNUMPY} \
+PYTHON_PY_DEPENDS=	${PYTHON_PKGNAMEPREFIX}numpy>=1.16:math/py-numpy@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}chaospy>0:math/py-chaospy@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}dill>0:devel/py-dill@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}matplotlib>=1.3.1:math/py-matplotlib@${PY_FLAVOR} \
@@ -97,6 +97,6 @@ PORTEXAMPLES=		*
 post-install:
 	@${RM} -r ${STAGEDIR}${DOCSDIR}
 
-# tests as of 1.24: 99% tests passed, 1 tests failed out of 537, see https://github.com/openturns/openturns/issues/2862
+# tests as of 1.25.1: 99% tests passed, 1 tests failed out of 539, the test cppcheck_Normal_large was killed because it used too much memory
 
 .include <bsd.port.mk>

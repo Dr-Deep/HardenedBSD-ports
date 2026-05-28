@@ -14,8 +14,6 @@ LICENSE=	BSD2CLAUSE
 USE_HARDENING=	pie:off relro:off
 
 BROKEN_i386=	FAILED: man/lib/clpfdlib.tex
-BROKEN_mips=	fails to link: libswipl.so: undefined reference to '__sync_sub_and_fetch_4'
-BROKEN_mips64=	fails to link: libswipl.so: undefined reference to '__sync_sub_and_fetch_4'
 
 LIB_DEPENDS=	libpcre2-posix.so:devel/pcre2 \
 		libossp-uuid.so:misc/ossp-uuid \

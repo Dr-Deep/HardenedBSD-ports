@@ -1,6 +1,6 @@
 PORTNAME=	dante
 PORTVERSION=	1.4.3
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	net security
 MASTER_SITES=	http://www.inet.no/dante/files/ \
 		ftp://ftp.inet.no/pub/socks/
@@ -12,7 +12,7 @@ WWW=		https://www.inet.no/dante/
 LICENSE=	BSD4CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off fortifysource:off
 
 USES=		libtool localbase ssl
 GNU_CONFIGURE=	yes

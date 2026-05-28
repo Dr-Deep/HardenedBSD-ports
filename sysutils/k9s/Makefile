@@ -1,7 +1,7 @@
 PORTNAME=	k9s
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.50.7
-PORTREVISION=	1
+DISTVERSION=	0.50.18
+PORTREVISION=	5
 CATEGORIES=	sysutils
 
 MAINTAINER=	gogolok@gmail.com
@@ -11,11 +11,14 @@ WWW=		https://github.com/derailed/k9s
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.24,modules
+ONLY_FOR_ARCHS=	aarch64 amd64
+ONLY_FOR_ARCHS_REASON=	module modernc.org/sqlite only supported on aarch64 and amd64
+
+USES=		go:1.25+,modules
 GO_MODULE=	github.com/derailed/k9s
 GO_BUILDFLAGS=	-ldflags="-X github.com/derailed/k9s/cmd.version=${DISTVERSIONFULL} \
 		-X github.com/derailed/k9s/cmd.date=$$(date +'%Y-%m-%dT%H:%M:%SZ') \
-		-X github.com/derailed/k9s/cmd.commit=457e4b86db896d776e2be7401de88002a8b04932"
+		-X github.com/derailed/k9s/cmd.commit=6dbf571c59fd48dc5b384aa46ee7f3e5decfae2b"
 
 PLIST_FILES=	bin/${PORTNAME}
 

@@ -12,9 +12,8 @@ WWW=		https://gcc.gnu.org
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-USE_HARDENING=  pie:off relro:off retpoline:off fortifysource:off
-
-USE_GCC=	11:build
+NO_UNUSED_ARGUMENTS_CHECK=	yes
+USE_HARDENING=  pie:off relro:off retpoline:off fortifysource:off hardcflags:off
 
 ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le riscv64
 

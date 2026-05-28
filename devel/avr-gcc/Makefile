@@ -11,8 +11,6 @@ WWW=		https://www.nongnu.org/avr-libc/
 LICENSE=	GPLv3 GPLv3RLE
 LICENSE_COMB=	multi
 
-BROKEN_mips64=	Fails to configure: cannot compute suffix of object files
-
 BUILD_DEPENDS=	avr-as:devel/binutils@avr \
 		avr-ld:devel/binutils@avr \
 		objdump:devel/binutils
@@ -30,7 +28,7 @@ USE_CXXSTD=	gnu++11
 USE_LDCONFIG=	${PREFIX}/lib/gcci/avr/${SUFFIX}
 USE_PERL5=	build
 
-USE_HARDENING=	pie:off
+USE_HARDENING=	pie:off hardcflags:off
 
 GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share

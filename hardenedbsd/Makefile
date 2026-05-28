@@ -1,5 +1,6 @@
     COMMENT = HardenedBSD projects
 
+SUBDIR += ctrl
 SUBDIR += hardenedbsd-meta
 SUBDIR += hbsdmon
 SUBDIR += kernel-nodebug

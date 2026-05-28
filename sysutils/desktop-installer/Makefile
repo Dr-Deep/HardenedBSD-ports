@@ -1,5 +1,6 @@
 PORTNAME=	desktop-installer
-DISTVERSION=	1.1.1
+DISTVERSION=	1.1.1-31
+DISTVERSIONSUFFIX=	-gc5e9eb6
 CATEGORIES=	sysutils
 
 MAINTAINER=	jwb@FreeBSD.org
@@ -9,7 +10,7 @@ WWW=		https://github.com/outpaddling/desktop-installer
 LICENSE=	BSD2CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	auto-admin>=0.8.1:sysutils/auto-admin
+RUN_DEPENDS=	auto-admin>=0.8.4.22:sysutils/auto-admin
 
 USES=		desktop-file-utils
 USE_GITHUB=	yes

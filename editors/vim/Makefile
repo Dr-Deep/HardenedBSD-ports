@@ -1,5 +1,5 @@
 PORTNAME=	vim
-PORTVERSION=	9.1.1563
+PORTVERSION=	9.2.0461
 DISTVERSIONPREFIX=	v
 CATEGORIES=	editors
 
@@ -24,7 +24,8 @@ CONFIGURE_ARGS=	--disable-canberra \
 		--enable-cscope \
 		--enable-gui=${GUI} \
 		--enable-multibyte \
-		--with-tlib=ncursesw
+		--with-tlib=ncursesw \
+		--without-wayland
 MAKE_ARGS=	STRIP="${STRIP_CMD}" \
 		VIMRCLOC=${ETCDIR} \
 		VIMRUNTIMEDIR=${PREFIX}/share/vim/${VIM_VER}
@@ -66,15 +67,16 @@ GUI=		gtk2
 CONFIGURE_ARGS+=--enable-xim --enable-fontset
 PLIST_SUB+=	GUI="" DESKTOP=""
 USES+=		desktop-file-utils gnome xorg
-USE_GNOME=	gdkpixbuf gtk20
+USE_GNOME=	gdkpixbufextra gtk20
 USE_XORG=	ice sm x11 xpm xt
 
 .elif ${FLAVOR:U} == gtk3
 GUI=		gtk3
-CONFIGURE_ARGS+=--enable-xim --enable-fontset
+CONFIGURE_ARGS+=--enable-xim --enable-fontset --with-wayland
+LIB_DEPENDS+=	libwayland-client.so:graphics/wayland
 PLIST_SUB+=	GUI="" DESKTOP=""
 USES+=		desktop-file-utils gnome xorg
-USE_GNOME=	cairo gdkpixbuf gtk30
+USE_GNOME=	cairo gdkpixbufextra gtk30
 USE_XORG=	ice sm x11 xpm xt
 
 .elif ${FLAVOR:U} == motif
@@ -93,15 +95,24 @@ USES+=		xorg
 USE_XORG=	ice sm x11 xmu xpm xt
 .endif
 
+.if ${FLAVOR:U} != tiny
+USES+=		python:build
+CONFIGURE_ARGS+=--enable-python3interp=dynamic \
+		--with-python3-command=${PYTHON_CMD}
+.  if !empty(WITH_DEBUG)
+CFLAGS+=		-DPy_DEBUG -DPy_DEBUG_NO_PYMALLOC
+.  endif
+.endif
+
 # Options {{{1
 # The bulk of the OPTIONS are for normal (non-tiny) vim
 ### Make sure any new options are excluded below in CONSOLE/TINY
-OPTIONS_DEFAULT=	CTAGS_BASE PYTHON XXD
+OPTIONS_DEFAULT=	CTAGS_BASE XXD
 OPTIONS_DEFINE=		MAKE_JOBS NLS XTERM_SAVE XXD
 OPTIONS_SINGLE=		CTAGS
 OPTIONS_SINGLE_CTAGS=	CTAGS_BASE CTAGS_EXUBERANT CTAGS_UNIVERSAL
 OPTIONS_GROUP=		LANGBIND
-OPTIONS_GROUP_LANGBIND=	LUA PERL PYTHON RUBY SCHEME TCL
+OPTIONS_GROUP_LANGBIND=	LUA PERL RUBY SCHEME TCL
 OPTIONS_SUB=		yes
 
 # vim-tiny excludes everything except CONSOLE, MAKE_JOBS
@@ -141,11 +152,6 @@ LUA_USES=		lua
 PERL_CONFIGURE_ENABLE=	perlinterp
 PERL_USES=		perl5
 
-PYTHON_USES=		python
-PYTHON_USES_OFF=	python:env
-PYTHON_CONFIGURE_ENABLE=	python3interp
-PYTHON_CONFIGURE_WITH=	python3-command=${PYTHON_CMD}
-
 RUBY_CONFIGURE_ENABLE=	rubyinterp
 RUBY_USES=		ruby
 
@@ -161,10 +167,6 @@ TCL_USES=		tcl
 # Targets {{{1
 .include <bsd.port.pre.mk>
 
-.if ${PORT_OPTIONS:MPYTHON} && !empty(WITH_DEBUG)
-CFLAGS+=		-DPy_DEBUG -DPy_DEBUG_NO_PYMALLOC
-.endif
-
 post-extract:
 	${INSTALL_DATA} ${FILESDIR}/vietnamese_viscii.vim ${WRKSRC}/runtime/keymap
 
@@ -178,7 +180,7 @@ post-configure:
 	${REINPLACE_CMD} -e '/^#define HAVE_SYSINFO/ d' ${WRKSRC}/src/auto/config.h
 
 do-test:
-	${DO_MAKE_BUILD} -C ${WRKSRC} test
+	${MAKE_CMD} -C ${WRKSRC} test
 
 .if ${FLAVOR:U} == tiny
 do-install:

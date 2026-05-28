@@ -12,7 +12,6 @@ WWW=		https://www.pgpi.org/
 
 LICENSE=	MIT
 
-BROKEN_mips64=		Does not build
 BROKEN_riscv64=		Does not build: make: don't know how to make freebsd-riscv64
 
 PORTSCOUT=	ignore:1
@@ -23,6 +22,8 @@ MAKEFILE=	makefile
 ALL_TARGET=	freebsd-${ARCH:S/powerpc64le/powerpc64/} OS_CFLAGS="${CFLAGS}"
 PGPLIB=		${STAGEDIR}${PREFIX}/lib/pgpin
 OPTIONS_DEFINE=	DOCS
+
+USE_HARDENING=	hardcflags:off
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/pgp ${STAGEDIR}${PREFIX}/bin/pgpin

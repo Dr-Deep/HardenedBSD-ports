@@ -1,7 +1,6 @@
 PORTNAME=	nsxiv
 DISTVERSIONPREFIX=	v
-DISTVERSION=	28
-PORTREVISION=	3
+DISTVERSION=	33
 CATEGORIES=	graphics
 
 MAINTAINER=	0mp@FreeBSD.org
@@ -23,6 +22,8 @@ USES=		desktop-file-utils gmake localbase:ldflags pkgconfig xorg
 USE_GITHUB=	yes
 USE_XORG=	x11 xft
 
+USE_HARDENING=	pie:off
+
 MAKE_ARGS=	MANPREFIX=${PREFIX}/share/man
 MAKE_ENV=	EGPREFIX=${EXAMPLESDIR} LDLIBS=-linotify
 
@@ -32,5 +33,9 @@ OPTIONS_DEFINE=	EXAMPLES
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+
+post-install-EXAMPLES-on:
+	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/etc/examples/* ${STAGEDIR}${EXAMPLESDIR}
 
 .include <bsd.port.mk>

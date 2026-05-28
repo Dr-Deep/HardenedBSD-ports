@@ -1,5 +1,5 @@
-TIMESTAMP = 1737535432
-SHA256 (go/devel_lefthook/lefthook-v1.10.10/v1.10.10.mod) = 25a9bdc9f14da74e1f3d15d2bfe4220a85f92acc9bcd838640e88a89a5a04d4a
-SIZE (go/devel_lefthook/lefthook-v1.10.10/v1.10.10.mod) = 2689
-SHA256 (go/devel_lefthook/lefthook-v1.10.10/v1.10.10.zip) = 24d24163f86ddd9f1a8ab1f746b4992a058a7e9a26db6c4c3eb0caf4ab12ee63
-SIZE (go/devel_lefthook/lefthook-v1.10.10/v1.10.10.zip) = 229193
+TIMESTAMP = 1779241499
+SHA256 (go/devel_lefthook/lefthook-v2.1.8/v2.1.8.mod) = 2cdc5095ded8fdfabab0093779efc1e9b218082101d292e8c504375949d70f69
+SIZE (go/devel_lefthook/lefthook-v2.1.8/v2.1.8.mod) = 3122
+SHA256 (go/devel_lefthook/lefthook-v2.1.8/v2.1.8.zip) = deb554f5b339db2dbf56d7ca0c314d73b135ce0ac56435dc5fa70ea086238ef6
+SIZE (go/devel_lefthook/lefthook-v2.1.8/v2.1.8.zip) = 359945

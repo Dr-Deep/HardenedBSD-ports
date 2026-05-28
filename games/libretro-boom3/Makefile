@@ -11,6 +11,8 @@ LICENSE=	GPLv3
 USES=		gmake gl localbase:ldflags
 USE_GL=		gl
 
+USE_HARDENING=	hardcflags:off
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	libretro
 GH_PROJECT=	boom3

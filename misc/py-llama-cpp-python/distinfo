@@ -1,5 +1,5 @@
-TIMESTAMP = 1731907964
-SHA256 (abetlen-llama-cpp-python-v0.3.2_GH0.tar.gz) = 491057624a095ff6d4eae1bcc139b579f72d03d9deee1a2ab05d2f980ec824ed
-SIZE (abetlen-llama-cpp-python-v0.3.2_GH0.tar.gz) = 274530
-SHA256 (ggerganov-llama.cpp-74d73dc_GH0.tar.gz) = 9cc0aad9746b93b461c53d7038211ea7cbe70df2aa1a23b2daac07af935f6990
-SIZE (ggerganov-llama.cpp-74d73dc_GH0.tar.gz) = 19564318
+TIMESTAMP = 1778576373
+SHA256 (abetlen-llama-cpp-python-v0.3.23_GH0.tar.gz) = 710c1475a22741f0f8dabaf97fa6f21ce16e32184f684645ab84f7693222d894
+SIZE (abetlen-llama-cpp-python-v0.3.23_GH0.tar.gz) = 288724
+SHA256 (ggerganov-llama.cpp-f49e917_GH0.tar.gz) = 9b683589792de24a79042b5b232451c5697ef64dfe0f8ca0bc77347538223877
+SIZE (ggerganov-llama.cpp-f49e917_GH0.tar.gz) = 29723031

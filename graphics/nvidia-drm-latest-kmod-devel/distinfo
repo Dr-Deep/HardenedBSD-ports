@@ -1,0 +1,5 @@
+TIMESTAMP = 1777389791
+SHA256 (NVIDIA-FreeBSD-x86_64-595.71.05.tar.xz) = 690ea1fed7b4310e5a6977738eb51a27593aa1ebf6e50a5853f1bedfccc782cf
+SIZE (NVIDIA-FreeBSD-x86_64-595.71.05.tar.xz) = 328170544
+SHA256 (freebsd-drm-kmod-drm_v6.9_1_GH0.tar.gz) = df7933202e61ebf8c9decb6835e4908817923fe4e76213e532873b0b611e8c63
+SIZE (freebsd-drm-kmod-drm_v6.9_1_GH0.tar.gz) = 41512758

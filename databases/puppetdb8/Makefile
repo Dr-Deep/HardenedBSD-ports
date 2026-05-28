@@ -1,5 +1,6 @@
 PORTNAME=	puppetdb
 PORTVERSION=	8.8.1
+PORTREVISION=	2
 CATEGORIES=	databases java
 MASTER_SITES=	https://downloads.puppetlabs.com/puppetdb/
 PKGNAMESUFFIX=	8
@@ -10,11 +11,14 @@ WWW=		https://docs.puppetlabs.com/puppetdb/latest/
 
 LICENSE=	APACHE20
 
+DEPRECATED=	Discontinued, use databases/openvoxdb-8
+EXPIRATION_DATE=2026-07-01
+
 RUN_DEPENDS=	bash:shells/bash
 
 USE_RC_SUBR=	puppetdb
 
-CONFLICTS_INSTALL=	puppetdb[0-9] # etc/puppetdb/bootstrap.cfg.sample
+CONFLICTS_INSTALL=	openvoxdb[0-9] puppetdb[0-9] # etc/puppetdb/bootstrap.cfg.sample
 USES=		cpe java shebangfix
 CPE_VENDOR=	puppet
 SHEBANG_FILES=	ext/bin/puppetdb \

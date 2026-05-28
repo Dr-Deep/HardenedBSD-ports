@@ -1,5 +1,5 @@
 PORTNAME=	nano
-DISTVERSION=	8.4
+DISTVERSION=	9.0
 CATEGORIES=	editors
 MASTER_SITES=	https://www.nano-editor.org/dist/v${DISTVERSION:R:R}/ GNU
 
@@ -16,7 +16,7 @@ GNU_CONFIGURE=	yes
 USE_HARDENING=	safestack
 
 GNU_CONFIGURE_MANPREFIX=	${PREFIX}/share
-CONFIGURE_ARGS=	--docdir=${DOCSDIR} --enable-utf8 --mandir=${PREFIX}/share
+CONFIGURE_ARGS=	--docdir=${DOCSDIR} --enable-utf8
 MAKE_ARGS+=	install_htmlmanDATA=install-htmlmanDATA
 PORTSCOUT=	limitw:1,even
 INFO=		nano

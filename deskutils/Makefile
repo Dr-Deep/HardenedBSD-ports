@@ -1,6 +1,7 @@
     COMMENT = Things that used to be on the desktop before computers were invented
 
     SUBDIR += R-cran-exams
+    SUBDIR += R-cran-exams2forms
     SUBDIR += affiche
     SUBDIR += akonadi-calendar-tools
     SUBDIR += akonadi-import-wizard
@@ -30,7 +31,6 @@
     SUBDIR += calindori
     SUBDIR += cartotheque
     SUBDIR += cfiles
-    SUBDIR += charmtimetracker
     SUBDIR += chart
     SUBDIR += cherrytree
     SUBDIR += clipit
@@ -41,6 +41,8 @@
     SUBDIR += copyq
     SUBDIR += coregarage
     SUBDIR += countdown
+    SUBDIR += crengine-ng
+    SUBDIR += crqt-ng
     SUBDIR += dailystrips
     SUBDIR += deforaos-notes
     SUBDIR += deforaos-todo
@@ -50,6 +52,7 @@
     SUBDIR += dosage
     SUBDIR += dstask
     SUBDIR += easystroke
+    SUBDIR += ekphos
     SUBDIR += elementary-calendar
     SUBDIR += elementary-iconbrowser
     SUBDIR += fasd
@@ -79,21 +82,14 @@
     SUBDIR += gnome-planner
     SUBDIR += gnome-pomodoro
     SUBDIR += gnome-screenshot
-    SUBDIR += gnome-shell-extension-audio-output-switcher
     SUBDIR += gnome-shell-extension-coverflow
     SUBDIR += gnome-shell-extension-dashtodock
     SUBDIR += gnome-shell-extension-dashtopanel
-    SUBDIR += gnome-shell-extension-filesmenu
     SUBDIR += gnome-shell-extension-hidetopbar
     SUBDIR += gnome-shell-extension-lockkeys
     SUBDIR += gnome-shell-extension-manager
-    SUBDIR += gnome-shell-extension-mediaplayer
-    SUBDIR += gnome-shell-extension-openweather
-    SUBDIR += gnome-shell-extension-panel-osd
     SUBDIR += gnome-shell-extension-recent-items
-    SUBDIR += gnome-shell-extension-trash
-    SUBDIR += gnome-shell-extension-weather
-    SUBDIR += gnome-shell-extension-windowoverlay-icons
+    SUBDIR += gnome-shell-extension-simple-weather
     SUBDIR += gnome-shell-extra-extensions
     SUBDIR += gnome-sound-recorder
     SUBDIR += gnome-todo
@@ -108,7 +104,6 @@
     SUBDIR += gpicker
     SUBDIR += grantlee-editor
     SUBDIR += grantleetheme
-    SUBDIR += growl-for-linux
     SUBDIR += gsimplecal
     SUBDIR += gtimer
     SUBDIR += gucharmap
@@ -129,10 +124,12 @@
     SUBDIR += itinerary
     SUBDIR += jjclient
     SUBDIR += jlj
+    SUBDIR += joplin-desktop
     SUBDIR += jot
     SUBDIR += just
     SUBDIR += kaddressbook
     SUBDIR += kalarm
+    SUBDIR += kanbanapp
     SUBDIR += kcharselect
     SUBDIR += kchmviewer
     SUBDIR += kdeconnect-kde
@@ -146,13 +143,13 @@
     SUBDIR += kmail
     SUBDIR += kmail-account-wizard
     SUBDIR += kodaskanna
+    SUBDIR += komodo
     SUBDIR += kongress
     SUBDIR += kontact
     SUBDIR += korganizer
     SUBDIR += kronometer
     SUBDIR += kruler
     SUBDIR += ktimetracker
-    SUBDIR += kuserfeedback
     SUBDIR += kweather
     SUBDIR += kweathercore
     SUBDIR += latte-dock
@@ -220,6 +217,7 @@
     SUBDIR += plasma6-sddm-kcm
     SUBDIR += plasma6-xdg-desktop-portal-kde
     SUBDIR += plopfolio
+    SUBDIR += podman-desktop
     SUBDIR += preferences
     SUBDIR += presage
     SUBDIR += projectlibre
@@ -230,21 +228,26 @@
     SUBDIR += py-calendar_cli
     SUBDIR += py-i3-gnome-pomodoro
     SUBDIR += py-khal
-    SUBDIR += py-paperless
+    SUBDIR += py-khard
+    SUBDIR += py-mss
     SUBDIR += py-paperless-ngx
     SUBDIR += py-py3status
     SUBDIR += py-pystash
+    SUBDIR += py-qmd
     SUBDIR += py-send2trash
     SUBDIR += py-taskw
     SUBDIR += py-term-background
     SUBDIR += py-trash-cli
     SUBDIR += py-vdirsyncer
+    SUBDIR += py-vit
     SUBDIR += py-vobject
     SUBDIR += py-vorta
     SUBDIR += qlipper
+    SUBDIR += qmd
     SUBDIR += qmediamanager
     SUBDIR += qownnotes
     SUBDIR += qtfeedback
+    SUBDIR += readur
     SUBDIR += recoll
     SUBDIR += rednotebook
     SUBDIR += remind
@@ -253,8 +256,8 @@
     SUBDIR += rubygem-taskjuggler
     SUBDIR += rwpspread
     SUBDIR += semantik
-    SUBDIR += showdown
     SUBDIR += sigi
+    SUBDIR += sigye
     SUBDIR += simpleagenda
     SUBDIR += skim
     SUBDIR += sliderule
@@ -272,6 +275,7 @@
     SUBDIR += tasksh
     SUBDIR += taskwarrior
     SUBDIR += taskwarrior-tui
+    SUBDIR += tatuin
     SUBDIR += teapot
     SUBDIR += terminal-image-viewer
     SUBDIR += thinkingrock
@@ -299,6 +303,8 @@
     SUBDIR += xdg-desktop-portal
     SUBDIR += xdg-desktop-portal-lxqt
     SUBDIR += xdg-terminal-exec
+    SUBDIR += xdgctl
+    SUBDIR += xdpi
     SUBDIR += xfce4-generic-slider
     SUBDIR += xfce4-notes-plugin
     SUBDIR += xfce4-notifyd
@@ -315,7 +321,7 @@
     SUBDIR += ydotool
     SUBDIR += zanshin
     SUBDIR += zim
-    SUBDIR += znotes
+    SUBDIR += zk
     SUBDIR += zorro
 
 .include <bsd.port.subdir.mk>

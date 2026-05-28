@@ -1,5 +1,5 @@
 PORTNAME=	poudriere
-DISTVERSION=	3.4.2
+DISTVERSION=	3.4.8
 CATEGORIES=	ports-mgmt
 PKGNAMESUFFIX=	-hbsd
 
@@ -11,17 +11,10 @@ LICENSE=	BSD2CLAUSE
 
 CONFLICTS_INSTALL=	poudriere poudriere-devel
 
-#USE_GITHUB=	yes
-#GH_ACCOUNT=	hardenedbsd
-#GH_PROJECT=	poudriere-hbsd
-#GH_COMMIT=	bbc35d4384509ff6bf512d5209171f0c30291e0a
-#GH_TAGNAME=	${GH_COMMIT}
-
-USE_GITLAB=	yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=	hardenedbsd
-GL_PROJECT=	poudriere
-GL_COMMIT=	336524ff0e2b7f4e6d9733ad4693989a04a247ba
+USE_RADICLE=	yes
+RID=		rad:z43ZcZorA8F7zEp9zw3n9dqZijMdP
+RAD_PROJECT_NAME=	HardenedBSD-Poudriere
+RAD_COMMIT=	c1a42d1b0b6578c8c7b812f3c3e9e2c230413b2f
 
 GNU_CONFIGURE=	yes
 ETCDIR=		${PREFIX}/etc/poudriere.d

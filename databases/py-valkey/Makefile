@@ -1,5 +1,6 @@
 PORTNAME=	valkey
-DISTVERSION=	6.1.0
+DISTVERSION=	6.1.1
+PORTREVISION=	1
 CATEGORIES=	databases python
 MASTER_SITES=	PYPI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,6 +15,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		python
 USE_PYTHON=	autoplist distutils
 
+NO_ARCH=	yes
+
 OPTIONS_DEFINE=		LIBVALKEY OCSP
 OPTIONS_DEFAULT=	LIBVALKEY OCSP
 
@@ -21,9 +24,9 @@ LIBVALKEY_DESC=	Install valkey with libvalkey support
 OCSP_DESC=	Enable support for OCSP stapling
 
 LIBVALKEY_RUN_DEPENDS=	libvalkey>=0:databases/libvalkey
-OCSP_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}openssl>=0:security/py-openssl@${PY_FLAVOR} \
+OCSP_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cryptography>=0:security/py-cryptography@${PY_FLAVOR} \
+			${PYTHON_PKGNAMEPREFIX}pyopenssl>=0:security/py-pyopenssl@${PY_FLAVOR} \
 			${PYTHON_PKGNAMEPREFIX}requests>=0:www/py-requests@${PY_FLAVOR}
-OCSP_USE_PYTHON=	cryptography
 
 .include <bsd.port.pre.mk>
 

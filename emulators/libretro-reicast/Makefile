@@ -28,7 +28,8 @@ CMAKE_ARGS=	-DLIBRETRO_CORE=ON \
 		-DOPENGL_INCLUDE_DIR:PATH=${LOCALBASE}/include/GL \
 		-DOPENGL_opengl_LIBRARY:PATH=${LOCALBASE}/lib/libGL.so
 
-CXXFLAGS+=	-Wno-c++11-extensions
+CXXFLAGS+=	-Wno-c++11-extensions -Wformat
+CFLAGS+=	-Wformat
 USE_GITHUB=	yes
 GH_ACCOUNT=	reicast
 GH_PROJECT=	reicast-emulator

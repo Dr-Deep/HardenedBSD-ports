@@ -1,6 +1,6 @@
 PORTNAME=	libmodbus
 DISTVERSIONPREFIX=	v
-DISTVERSION=	3.1.11
+DISTVERSION=	3.1.12
 CATEGORIES=	comms
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -10,7 +10,7 @@ WWW=		https://libmodbus.org/
 LICENSE=	LGPL21+
 LICENSE_FILE=	${WRKSRC}/COPYING.LESSER
 
-USES=		autoreconf cpe gmake libtool pathfix
+USES=		autoreconf cpe gmake libtool
 USE_GITHUB=	yes
 GH_ACCOUNT=	stephane
 USE_LDCONFIG=	yes

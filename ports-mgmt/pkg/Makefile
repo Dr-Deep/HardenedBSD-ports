@@ -1,5 +1,5 @@
 PORTNAME=	pkg
-DISTVERSION=	2.2.1
+DISTVERSION=	2.7.5
 _PKG_VERSION=	${DISTVERSION}
 CATEGORIES=	ports-mgmt
 
@@ -9,11 +9,16 @@ WWW=		https://github.com/freebsd/pkg
 
 LICENSE=	BSD2CLAUSE
 
-USE_GITLAB=	yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=	HardenedBSD
-GL_PROJECT=	pkg
-GL_COMMIT=	3af8127bb3512ac91b09a7460080562654588e7d
+#USE_GITLAB=	yes
+#GL_SITE=	https://git.hardenedbsd.org
+#GL_ACCOUNT=	HardenedBSD
+#GL_PROJECT=	pkg
+#GL_COMMIT=	59dceb7cece001292d1801ee4a073d14ef39c235
+
+USE_RADICLE=	yes
+RID=		rad:z3QDZAW2FAfuLvihrhiyDC9fAD8G9
+RAD_PROJECT_NAME=	HardenedBSD-pkg
+RAD_COMMIT=	2c236fffd0d8e986f3c96b7911517e519889ea29
 
 USE_LDCONFIG=	${PREFIX}/lib/compat/pkg
 HAS_CONFIGURE=	yes
@@ -60,6 +65,7 @@ PKG_BIN=	${WRKSRC}/src/pkg-static
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/compat/pkg
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libpkg.so ${STAGEDIR}${PREFIX}/sbin/pkg*
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

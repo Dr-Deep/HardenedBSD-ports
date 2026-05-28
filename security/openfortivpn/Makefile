@@ -1,6 +1,6 @@
 PORTNAME=	openfortivpn
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.23.1
+DISTVERSION=	1.24.0
 CATEGORIES=	security net-vpn
 
 MAINTAINER=	atanubiswas484@gmail.com
@@ -19,7 +19,7 @@ GH_ACCOUNT=	adrienverge
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	ac_cv_path_SED=${LOCALBASE}/bin/gsed \
-		OPENSSL_CFLAGS=${OPENSSLINC} \
+		OPENSSL_CFLAGS=-I${OPENSSLINC} \
 		OPENSSL_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
 		ac_cv_header_net_route_h=yes
 

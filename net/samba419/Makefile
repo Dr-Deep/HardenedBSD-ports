@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}419
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			9
+PORTREVISION=			12
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -11,6 +11,8 @@ WWW=				https://gitlab.com/samba-freebsd/
 
 LICENSE=			GPLv3+
 LICENSE_FILE=			${WRKSRC}/COPYING
+
+DEPRECATED=	Discontinued upstream; transition to a supported versions of Samba (refer to https://wiki.samba.org/index.php/Samba_Release_Planning)
 
 USES=				cpe
 
@@ -95,6 +97,7 @@ CONFIGURE_ARGS=			--mandir="${PREFIX}/share/man" \
 # XXX: Flags
 CONFIGURE_ENV=			PTHREAD_LDFLAGS="-lpthread" \
 				PYTHONHASHSEED=1
+FORTIFY_UNSAFE=			yes
 MAKE_ENV=			PYTHONHASHSEED=1
 
 USES=				compiler:c++11-lang iconv localbase:ldflags \
@@ -359,15 +362,22 @@ CLUSTER_VARS=			PLIST+=${PKGDIR}/pkg-plist.cluster
 CUPS_CONFIGURE_ENABLE=		cups iprint
 CUPS_LIB_DEPENDS=		libcups.so:print/cups
 # https://bugzilla.samba.org/show_bug.cgi?id=9545
-FAM_USES=			fam
+FAM_LIB_DEPENDS=		libfam.so.0:devel/gamin
 FAM_CONFIGURE_WITH=		fam
 
 GPGME_CONFIGURE_WITH=		gpgme
 GPGME_LIB_DEPENDS=		libgpgme.so:security/gpgme
 GPGME_RUN_DEPENDS=		${PYTHON_PKGNAMEPREFIX}gpg>=2.0.0:security/py-gpg@${PY_FLAVOR}
 
+.if exists(/usr/libexec/krb5kdc)
+GSSAPI_BUILTIN_USES=		bison gssapi
+GSSAPI_BUILTIN_BUILD_DEPENDS=	p5-JSON>=4.0:converters/p5-JSON
+GSSAPI_MIT_CONFIGURE_ON=	--with-system-mitkrb5 ${GSSAPIBASEDIR} \
+				--with-system-mitkdc=${GSSAPIBASEDIR}/libexec/krb5kdc
+.else
 GSSAPI_BUILTIN_USES=		bison
 GSSAPI_BUILTIN_BUILD_DEPENDS=	p5-JSON>=4.0:converters/p5-JSON
+.endif
 
 GSSAPI_MIT_CONFIGURE_ON=	--with-system-mitkrb5 ${GSSAPIBASEDIR} \
 				--with-system-mitkdc=${GSSAPIBASEDIR}/sbin/krb5kdc \
@@ -514,7 +524,7 @@ DEBUG_FLAGS?=			-g -ggdb3 -O0
 .include <bsd.port.pre.mk>
 ##############################################################################
 # Only for 64-bit architectures
-.if ${ARCH} != armv6 && ${ARCH} != armv7 && ${ARCH} != i386 && ${ARCH} != mips && ${ARCH} != powerpc && ${ARCH} != powerpcspe
+.if ${ARCH} != armv6 && ${ARCH} != armv7 && ${ARCH} != i386 && ${ARCH} != powerpc && ${ARCH} != powerpcspe
 .	if defined(SAMBA4_BUNDLED_LDB) && ${SAMBA4_BUNDLED_LDB} == yes && (${PORT_OPTIONS:MAD_DC} || ${PORT_OPTIONS:MDEVELOPER})
 # LMDB
 SAMBA4_LMDB_DEPENDS=		lmdb>=0.9.16:databases/lmdb

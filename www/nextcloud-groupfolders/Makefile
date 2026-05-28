@@ -1,5 +1,5 @@
 PORTNAME=	groupfolders
-PORTVERSION=	19.1.2
+PORTVERSION=	21.0.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www
 
@@ -7,7 +7,7 @@ MAINTAINER=	brnrd@FreeBSD.org
 COMMENT=	Groupfolders app for Nextcloud
 WWW=		https://apps.nextcloud.com/apps/groupfolders
 
-NEXTCLOUD_RUN_DEPENDS=	31
+NEXTCLOUD_RUN_DEPENDS=	33
 
 USES=		nextcloud php:flavors
 

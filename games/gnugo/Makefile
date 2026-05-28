@@ -12,6 +12,8 @@ GNU_CONFIGURE=	yes
 GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 USES=		gmake
 
+USE_HARDENING=	hardcflags:off
+
 INFO=		gnugo
 PLIST_FILES=	bin/gnugo \
 		share/man/man6/gnugo.6.gz

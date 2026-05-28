@@ -1,9 +1,10 @@
 PORTNAME=	modules
-DISTVERSION=	5.4.0
+DISTVERSION=	5.6.1
+PORTREVISION=	1
 CATEGORIES=	sysutils tcl
-MASTER_SITES=	https://github.com/cea-hpc/modules/releases/download/v${PORTVERSION}/
+MASTER_SITES=	https://github.com/envmodules/modules/releases/download/v${DISTVERSION}/
 
-MAINTAINER=	laurent.chardon@gmail.com
+MAINTAINER=	laurent@FreeBSD.org
 COMMENT=	Dynamic modification of a user environment
 WWW=		https://modules.sourceforge.net/
 
@@ -12,25 +13,30 @@ LICENSE_FILE=	${WRKSRC}/COPYING.GPLv2
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sphinx>=0:textproc/py-sphinx@${PY_FLAVOR} \
 		bash:shells/bash
+TEST_DEPENDS=	runtest:misc/dejagnu
 
-USES=			gmake python:env shebangfix tar:bzip2 tcl
-GNU_CONFIGURE=		yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
+USES=		gmake python:env shebangfix tar:bzip2 tcl
+
+GNU_CONFIGURE=	yes
 GNU_CONFIGURE_PREFIX=	${PREFIX}/Modules
-CONFIGURE_SHELL=	${LOCALBASE}/bin/bash
-CONFIGURE_ARGS=		--enable-versioning \
-			--with-python="${PYTHON_CMD}"
+CONFIGURE_ARGS=	--enable-versioning \
+		--with-modulepath=${GNU_CONFIGURE_PREFIX}/\$$MODULE_VERSION/modulefiles:${PREFIX}/etc/modulefiles \
+		--with-python="${PYTHON_CMD}"
 
-PLIST_SUB=	MODULES_VERSION=${PORTVERSION}
+TEST_TARGET=	test
+
+SUB_FILES=	pkg-message
+PLIST_SUB=	MODULES_VERSION=${DISTVERSION}
+
+post-install:
+	@${STRIP_CMD} ${STAGEDIR}${GNU_CONFIGURE_PREFIX}/${DISTVERSION}/lib/libtclenvmodules.so
 
 post-stage:
-	${MKDIR} ${STAGEDIR}${PREFIX}/etc/profile.d
+	${MKDIR} ${STAGEDIR}${PREFIX}/etc/modulefiles \
+		${STAGEDIR}${PREFIX}/etc/profile.d
 	${RLN} ${STAGEDIR}${PREFIX}/Modules/${PORTVERSION}/init/profile.sh \
 		${STAGEDIR}${PREFIX}/etc/profile.d/module.sh
 	${RLN} ${STAGEDIR}${PREFIX}/Modules/${PORTVERSION}/init/profile.csh \
 		${STAGEDIR}${PREFIX}/etc/profile.d/module.csh
-
-post-install:
-	@${STRIP_CMD} ${STAGEDIR}${GNU_CONFIGURE_PREFIX}/${PORTVERSION}/lib/libtclenvmodules.so
 
 .include <bsd.port.mk>

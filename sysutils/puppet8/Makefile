@@ -1,5 +1,6 @@
 PORTNAME=	puppet
 PORTVERSION=	8.10.0
+PORTREVISION=	2
 CATEGORIES=	sysutils
 MASTER_SITES=   https://forge.puppet.com/v3/files/:forge
 PKGNAMESUFFIX=	8
@@ -10,6 +11,9 @@ WWW=		https://puppet.com/docs/puppet/latest/puppet_index.html
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+DEPRECATED=	Discontinued, use sysutils/openvox-agent8
+EXPIRATION_DATE=2026-07-01
 
 RUN_DEPENDS=	rubygem-concurrent-ruby>1.0:devel/rubygem-concurrent-ruby \
 		rubygem-deep_merge>1.0:devel/rubygem-deep_merge \
@@ -22,12 +26,14 @@ RUN_DEPENDS=	rubygem-concurrent-ruby>1.0:devel/rubygem-concurrent-ruby \
 		rubygem-ruby-augeas>=0:textproc/rubygem-ruby-augeas \
 		rubygem-scanf>=1.0:devel/rubygem-scanf \
 		rubygem-semantic_puppet>=1.0:devel/rubygem-semantic_puppet
+# Ruby 3.4 support
+RUN_DEPENDS+=	rubygem-syslog>0:devel/rubygem-syslog
 
 USES=		cpe ruby
 USE_GITHUB=	yes
 GH_ACCOUNT=	puppetlabs
 
-CONFLICTS_INSTALL=	puppet[0-9]
+CONFLICTS_INSTALL=	openvox-agent[0-9] puppet[0-9]
 PLIST_SUB=	PORTVERSION="${PORTVERSION}"
 NO_ARCH=	yes
 NO_BUILD=	yes

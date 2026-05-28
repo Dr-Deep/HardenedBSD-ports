@@ -14,6 +14,8 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 USES=		tar:bzip2
 GNU_CONFIGURE=	yes
 
+USE_HARDENING=	fortifysource:off
+
 PLIST_FILES=	bin/akpop3d share/man/man8/akpop3d.8.gz
 
 OPTIONS_DEFINE=		SSL

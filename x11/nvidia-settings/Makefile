@@ -1,9 +1,9 @@
 PORTNAME=	nvidia-settings
-PORTVERSION=	570.169
+PORTVERSION=	595.71.05
 CATEGORIES=	x11
 
 MAINTAINER=	x11@FreeBSD.org
-COMMENT=	Display Control Panel for X NVidia driver
+COMMENT=	Display Control Panel for NVIDIA graphics
 WWW=		https://www.nvidia.com/object/unix.html
 
 LICENSE=	GPLv2

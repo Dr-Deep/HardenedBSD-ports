@@ -20,6 +20,8 @@ ONLY_FOR_ARCHS=	i386 amd64
 USES=	gmake tar:tgz
 GNU_CONFIGURE=	yes
 
+USE_HARDENING=	fortifysource:off
+
 DATADIR=	${PREFIX}/lib/pcc
 PORTDATA=	*
 

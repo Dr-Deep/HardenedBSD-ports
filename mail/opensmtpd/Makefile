@@ -14,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 LIB_DEPENDS=	libevent.so:devel/libevent
 
-USE_HARDENING=	cfi safestack
+USE_HARDENING=	cfi safestack fortifysource:off
 CFI_OVERRIDE=	-fno-sanitize=cfi-icall
 
 OPTIONS_DEFINE=	MAILERCONF PAM TABLE_DB

@@ -1,9 +1,9 @@
 PORTNAME=	redis
-DISTVERSION=	7.4.3.20250430
+DISTVERSION=	8.6.2.20260331
 CATEGORIES=	databases
 PKGNAMESUFFIX=	-devel
 
-MAINTAINER=	yasu@FreeBSD.org
+MAINTAINER=	bofh@freebsd.org
 COMMENT=	Persistent key-value database with built-in net interface
 WWW=		https://redis.io/
 
@@ -15,17 +15,17 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 LICENSE_PERMS_RSALv2=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_PERMS_SSPLv1=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-USES+=		compiler:c11 cpe gmake tcl:test
+USES=		compiler:c11 cpe gmake tcl:test pkgconfig
 CPE_VENDOR=	redislabs
 USE_GITHUB=	yes
-GH_TAGNAME=	de16bee70
+GH_TAGNAME=	8f3b6990d
 USE_RC_SUBR=	redis sentinel
 
 MAKE_ENV=	OPTIMIZATION= \
 		V=yo
 
 CFLAGS+=	-Wno-deprecated-declarations
-LDFLAGS+=	-lpthread -lm -lexecinfo
+LDFLAGS+=	-L/usr/lib -lexecinfo
 
 CONFLICTS_INSTALL=	redis redis62 redis72 redis74
 
@@ -33,6 +33,7 @@ PORTSCOUT=	ignore:1
 SUB_FILES=	pkg-message
 SUB_LIST+=	PORTNAME=${PORTNAME} \
 		REDIS_DBDIR=${REDIS_DBDIR} \
+		REDIS_GROUP=${GROUPS} \
 		REDIS_LOGDIR=${REDIS_LOGDIR} \
 		REDIS_RUNDIR=${REDIS_RUNDIR} \
 		REDIS_USER=${USERS}

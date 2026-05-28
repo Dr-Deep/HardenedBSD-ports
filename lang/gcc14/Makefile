@@ -27,6 +27,9 @@ USES=		compiler:c++11-lang cpe gmake iconv libtool makeinfo perl5 tar:xz
 USE_BINUTILS=	yes
 USE_PERL5=	build
 
+NO_UNUSED_ARGUMENTS_CHECK=	yes
+USE_HARDENING=	pie:off retpoline:off fortifysource:off hardcflags:off
+
 CONFLICTS=	gcc14-devel
 
 CPE_VENDOR=	gnu
@@ -80,7 +83,11 @@ CONFIGURE_TARGET=	x86_64-portbld-${OPSYS:tl}${OSREL}
 CONFIGURE_ARGS+=	--with-abi=elfv2
 .endif
 
-LANGUAGES:=	c,c++,objc,fortran,jit
+LANGUAGES=	c,c++,objc,fortran
+.if ${ARCH} != i386 && !empty(PORT_OPTIONS:M*BOOTSTRAP)
+LANGUAGES:=	${LANGUAGES},jit
+.endif
+
 TARGLIB=	${PREFIX}/lib/gcc${SUFFIX}
 TARGLIB32=	${PREFIX}/lib32	# The version information is added later
 LIBEXEC=	${PREFIX}/libexec/gcc${SUFFIX}

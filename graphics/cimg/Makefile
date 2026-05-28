@@ -1,6 +1,6 @@
 PORTNAME=	cimg
 DISTVERSIONPREFIX=	v.
-DISTVERSION=	3.5.5
+DISTVERSION=	3.7.6
 PORTEPOCH=	3
 CATEGORIES=	graphics devel
 
@@ -36,14 +36,6 @@ USES+=		compiler:c11 gmake pkgconfig:build xorg
 
 .if ${PORT_OPTIONS:MDOCS}
 
-.if !defined(WITHOUT_LAPACK)
-. if defined(WITH_ATLAS)
-USES+=		blaslapack:atlas
-. else
-USES+=		blaslapack
-. endif
-.endif
-
 REINPLACE_ARGS=	-i ""
 
 . if !defined(WITH_DEBUG)
@@ -55,7 +47,6 @@ LIB_DEPENDS+=	libcurl.so:ftp/curl			\
 		libOpenEXR.so:graphics/openexr		\
 		libfftw3.so:math/fftw3			\
 		libwebp.so:graphics/webp		\
-		libboard.so:graphics/libboard		\
 		libopencv_core.so:graphics/opencv	\
 		libGraphicsMagick.so:graphics/GraphicsMagick
 RUN_DEPENDS+=	dcraw:graphics/dcraw
@@ -65,7 +56,6 @@ ALL_TARGET=	Mlinux
 ALL_TARGET=	dlinux
 WITHOUT_MEDCON=	yes
 WITHOUT_FFMPEG=	yes
-WITHOUT_LAPACK=	yes
 . endif
 
 . if !defined(WITHOUT_MEDCON)
@@ -73,11 +63,6 @@ RUN_DEPENDS+=	medcon:graphics/xmedcon
 . endif
 . if !defined(WITHOUT_FFMPEG)
 LIB_DEPENDS+=	libavformat.so:multimedia/ffmpeg
-. endif
-
-. if !defined(WITHOUT_LAPACK)
-# Don't really need Fortran, but required to link with blas/lapack
-USES+=	fortran
 . endif
 
 USE_XORG+=	x11 xrandr
@@ -105,24 +90,12 @@ NO_BUILD=	yes
 
 .include <bsd.port.pre.mk>
 
-pre-configure-DOCS-on:
-	${REINPLACE_CMD} -e 's|make|${MAKE_CMD}|' ${BUILD_WRKSRC}/Makefile
-
-pre-configure-DOCS-off:
-	${REINPLACE_CMD} -e 's|^OPTFLAGS|#OPTFLAGS|' ${BUILD_WRKSRC}/Makefile
-
 pre-configure:
+	${REINPLACE_CMD} -e 's|make|${MAKE_CMD}|' ${BUILD_WRKSRC}/Makefile
 . if !defined(WITHOUT_FFMPEG)
 	${REINPLACE_CMD} -e 's|#FFMPEG_CFLAGS|FFMPEG_CFLAGS|'	\
 		-e 's|#FFMPEG_DEFINE|FFMPEG_DEFINE|'		\
 		-e 's|#FFMPEG_LIBS|FFMPEG_LIBS|'		\
-		${BUILD_WRKSRC}/Makefile
-. endif
-. if !defined(WITHOUT_LAPACK)
-	${REINPLACE_CMD} -e 's|#LAPACK_CFLAGS|LAPACK_CFLAGS|'			\
-		-e 's|#LAPACK_DEFINE|LAPACK_DEFINE|'				\
-		-e 's|#LAPACK_LIBS|LAPACK_LIBS|'				\
-		-e 's|-lblas -llapack|-L${LOCALBASE}/lib ${BLASLIB} ${LAPACKLIB}|'	\
 		${BUILD_WRKSRC}/Makefile
 . endif
 . if defined(WITH_XSHM)
@@ -130,6 +103,10 @@ pre-configure:
 		-e 's|XSHM_LDFLAGS = #|XSHM_LDFLAGS =|'		\
 		${BUILD_WRKSRC}/Makefile
 . endif
+
+pre-configure-DOCS-off:
+	${REINPLACE_CMD} -e 's|^OPTFLAGS|#OPTFLAGS|;s|/usr/X11R6|${LOCALBASE}|	\'
+		${BUILD_WRKSRC}/Makefile
 
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/CImg.h ${STAGEDIR}${PREFIX}/include

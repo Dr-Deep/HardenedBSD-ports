@@ -1,7 +1,0 @@
-bin/rad-agent
-bin/rad-cli-demo
-bin/rad-init
-bin/rad-merge
-bin/rad-push
-bin/rad-self
-bin/rad-set-canonical-refs

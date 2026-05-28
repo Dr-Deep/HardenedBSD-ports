@@ -1,5 +1,5 @@
 PORTNAME=	gcc
-PORTVERSION=	15.1.0
+PORTVERSION=	15.2.0
 PORTREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	GCC
@@ -26,6 +26,8 @@ BUILD_DEPENDS+=	runtest:misc/dejagnu
 USES=		compiler:c++11-lang cpe gmake iconv libtool makeinfo perl5 tar:xz
 USE_BINUTILS=	yes
 USE_PERL5=	build
+
+USE_HARDENING=	pie:off retpoline:off fortifysource:off hardcflags:off
 
 CONFLICTS=	gcc15-devel
 
@@ -78,17 +80,13 @@ CONFIGURE_TARGET=	x86_64-portbld-${OPSYS:tl}${OSREL}
 
 .elif ${ARCH} == powerpc64
 CONFIGURE_ARGS+=	--with-abi=elfv2
-USE_GCC=	yes
-
-.elif ${ARCH} == powerpc64le
-USE_GCC=	yes
 .endif
 
-.if ${ARCH} == i386
-LANGUAGES:=	c,c++,objc,fortran
-.else
-LANGUAGES:=	c,c++,objc,fortran,jit
+LANGUAGES=	c,c++,objc,fortran
+.if ${ARCH} != i386 && !empty(PORT_OPTIONS:M*BOOTSTRAP)
+LANGUAGES:=	${LANGUAGES},jit
 .endif
+
 TARGLIB=	${PREFIX}/lib/gcc${SUFFIX}
 TARGLIB32=	${PREFIX}/lib32	# The version information is added later
 LIBEXEC=	${PREFIX}/libexec/gcc${SUFFIX}

@@ -2,6 +2,7 @@
 
     SUBDIR += aeron
     SUBDIR += amule
+    SUBDIR += autopulse
     SUBDIR += autoscan
     SUBDIR += awgg
     SUBDIR += bazarr
@@ -22,6 +23,7 @@
     SUBDIR += createtorrent
     SUBDIR += ctcs
     SUBDIR += ctorrent
+    SUBDIR += datum_gateway
     SUBDIR += dclib
     SUBDIR += deluge
     SUBDIR += deluge-cli
@@ -40,7 +42,6 @@
     SUBDIR += heartwood-httpd
     SUBDIR += heartwood-node
     SUBDIR += heartwood-remote-helper
-    SUBDIR += heartwood-tools
     SUBDIR += hostd
     SUBDIR += intermodal
     SUBDIR += jackett
