@@ -1,7 +1,7 @@
 PORTNAME=	redisjson
 DISTVERSIONPREFIX=	v
-DISTVERSION=	8.6.0
-PORTREVISION=	2
+DISTVERSION=	8.8.0
+PORTREVISION=	1
 CATEGORIES=	databases
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -16,6 +16,9 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 LICENSE_PERMS_RSALv2=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LICENSE_PERMS_SSPLv1=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+NOT_FOR_ARCHS=	i386
+NOT_FOR_ARCHS_REASON=	Requires 64-bit architecture
+
 BUILD_DEPENDS=	${LOCALBASE}/llvm${LLVM_DEFAULT}/lib/libclang.so:devel/llvm${LLVM_DEFAULT}
 
 USES=		cargo
@@ -26,6 +29,6 @@ GH_PROJECT=	RedisJSON
 PLIST_FILES=	lib/librejson.so
 
 do-install:
-	${INSTALL_LIB} ${CARGO_TARGET_DIR}/*/librejson.so ${STAGEDIR}${PREFIX}/lib
+	${INSTALL} -m 0755 ${CARGO_TARGET_DIR}/*/librejson.so ${STAGEDIR}${PREFIX}/lib
 
 .include <bsd.port.mk>
