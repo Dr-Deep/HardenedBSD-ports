@@ -1513,7 +1513,6 @@
     SUBDIR += py-asgiref
     SUBDIR += py-autobahn
     SUBDIR += py-azure-common
-    SUBDIR += py-azure-storage
     SUBDIR += py-baize
     SUBDIR += py-beaker
     SUBDIR += py-beautifulsoup
@@ -1917,7 +1916,6 @@
     SUBDIR += py-py-restclient
     SUBDIR += py-pygsheets
     SUBDIR += py-pyjwt
-    SUBDIR += py-pyjwt1
     SUBDIR += py-pylsqpack
     SUBDIR += py-pyocclient
     SUBDIR += py-pyramid
@@ -2059,7 +2057,6 @@
     SUBDIR += rdrview
     SUBDIR += rearx
     SUBDIR += reddsaver
-    SUBDIR += redmine51
     SUBDIR += redmine60
     SUBDIR += redmine61
     SUBDIR += rejik
