@@ -108,8 +108,12 @@ LINUX_DEFAULT?=		rl9
 LLVM_DEFAULT?=		21
 .else
 LLVM_DEFAULT?=		19
+<<<<<<< HEAD
 .endif
 # Possible values: 5.1, 5.2, 5.3, 5.4
+=======
+# Possible values: 5.1, 5.2, 5.3, 5.4, 5.5
+>>>>>>> upstream/main
 LUA_DEFAULT?=		5.4
 # Possible values: luajit, luajit-openresty
 .  if ${ARCH:Mpowerpc64*}
