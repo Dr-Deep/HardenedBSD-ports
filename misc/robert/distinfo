@@ -1,10 +1,10 @@
-TIMESTAMP = 1780267053
-SHA256 (llmrb-robert-0.7.0-v0.7.0_GH0.tar.gz) = abee38b15fe8b2bf41da9059254707cd625a8a11e7d4f23c5713ff4a8e879afd
-SIZE (llmrb-robert-0.7.0-v0.7.0_GH0.tar.gz) = 247111
+TIMESTAMP = 1780442496
+SHA256 (llmrb-robert-0.8.1-v0.8.1_GH0.tar.gz) = cec39d7d09786297c7215efd41ccd2cd8858037143cf2845830d0a47e5a04f7a
+SIZE (llmrb-robert-0.8.1-v0.8.1_GH0.tar.gz) = 251691
 SHA256 (mruby-mruby-94bd329afeb9f14d2de4c62aff1eddea6adec0ca_GH0.tar.gz) = cca06567aeadc8e33912822199605261b09d09cd6d2cc08ad11cedb6adac91af
 SIZE (mruby-mruby-94bd329afeb9f14d2de4c62aff1eddea6adec0ca_GH0.tar.gz) = 1455734
-SHA256 (llmrb-mruby-llm-v0.1.0.beta.5_GH0.tar.gz) = 884a55d631c10f42434283685eb70b30e64089f4902ba3577f077b3c4bdf1c26
-SIZE (llmrb-mruby-llm-v0.1.0.beta.5_GH0.tar.gz) = 664786
+SHA256 (llmrb-mruby-llm-v0.1.0.beta.7_GH0.tar.gz) = 59c0bd9eef8d295add4c72d04b27535d2683ba588a1fb02974fa334ff51e01b5
+SIZE (llmrb-mruby-llm-v0.1.0.beta.7_GH0.tar.gz) = 666630
 SHA256 (mrbgemz-mruby-tui-v0.4.0_GH0.tar.gz) = 250cbb169c76aaa29bfdef1b9af6527773abc98fd91e7f62838a03f2f6760ab2
 SIZE (mrbgemz-mruby-tui-v0.4.0_GH0.tar.gz) = 23969
 SHA256 (mrbgemz-mruby-tui-chat-v0.1.0_GH0.tar.gz) = ebb9a40b2450369c829fa4216a26c4b8d25ae9cd252ffb9c03185d2ef91d2bb3

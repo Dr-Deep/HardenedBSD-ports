@@ -1,5 +1,5 @@
 PORTNAME=	robert
-DISTVERSION=	0.7.0
+DISTVERSION=	0.8.1
 CATEGORIES=	misc education deskutils sysutils
 
 MAINTAINER=	0x1eef@hardenedbsd.org
@@ -17,7 +17,7 @@ PLIST_FILES=	bin/robert man/man1/robert.1
 
 ROBERT_COMMIT=		v${DISTVERSION}
 MRUBY_COMMIT=		94bd329afeb9f14d2de4c62aff1eddea6adec0ca
-MRUBY_LLM_COMMIT=	v0.1.0.beta.5
+MRUBY_LLM_COMMIT=	v0.1.0.beta.7
 MRUBY_TUI_COMMIT=	v0.4.0
 MRUBY_TUI_CHAT_COMMIT=	v0.1.0
 MRUBY_MARKDOWN_COMMIT=	56ba9c05679a15dd2d888776e1c47ee35ed8cfbd
