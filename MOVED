@@ -498,7 +498,6 @@ audio/lxmusic||2021-06-26|Has expired: Uses EOL Python 2.7 via audio/xmms2
 math/gringo||2021-06-26|Has expired: Uses Python 2.7 which is EOLed upstream
 math/aspcud||2021-06-26|Has expired: Uses EOL Python 2.7 via math/gringo
 math/py-pyasp||2021-06-26|Has expired: Uses EOL Python 2.7 via math/gringo
-devel/viewvc|devel/viewvc-devel|2021-06-26|Has expired: Uses Python 2.7 which is EOLed upstream
 chinese/sunpinyin||2021-06-26|Has expired: Uses Python 2.7 which is EOLed upstream
 chinese/fcitx-sunpinyin||2021-06-26|Has expired: Uses EOL Python 2.7 via chinese/sunpinyin
 www/dojo-shrinksafe||2021-06-26|Removed, deprecated upstream
@@ -5338,3 +5337,4 @@ graphics/tippecanoe||2026-05-31|Broken for months
 games/minetestmapper||2026-05-31|Broken for months
 devel/rye||2026-06-02|Has expired: Rye is no longer developed. All users should migrate to uv, the successor project from the same maintainers, which is actively maintained and much more widely used
 x11/hamclock||2026-06-02|Has expired: Upstream programmer is deceased upstream server discontinued in June
+devel/twiggy||2026-06-02|Archived upstream, no longer maintained, and has an unclear latest release number
