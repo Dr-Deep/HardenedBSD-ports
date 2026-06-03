@@ -20,5 +20,4 @@ libexec/portzap/scripts/mdo
 libexec/portzap/scripts/setup-user
 man/man8/portzap.8
 %%DATADIR%%/LICENSE
-%%DATADIR%%/NEWS
 %%DATADIR%%/VERSION
