@@ -1,5 +1,5 @@
 PORTNAME=           portzap
-PORTVERSION=        2.3.0
+PORTVERSION=        2.4.0
 DISTVERSIONPREFIX=  v
 CATEGORIES=         hardenedbsd
 
@@ -11,11 +11,10 @@ LICENSE=        BSD0CLAUSE
 
 RUN_DEPENDS=	rsync:net/rsync git:devel/git
 
-USE_GITLAB=     yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=     0x1eef
-GL_PROJECT=	portzap
-GL_COMMIT=	0950a061adffc5612bbeeae9699f76ff628ecb50
+USE_RADICLE=     yes
+RID=	z4F5ZCdvemg71BDoMDHk5dKUDPs3D
+RAD_COMMIT=	2db3778d466f3e6bb881f4633492349c6e7c3634
+RAD_PROJECT_NAME=	portzap
 
 BATCH=          yes
 NO_ARCH=        yes
