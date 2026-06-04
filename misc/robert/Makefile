@@ -1,5 +1,5 @@
 PORTNAME=	robert
-DISTVERSION=	0.9.0
+DISTVERSION=	0.10.0
 CATEGORIES=	misc education deskutils sysutils
 
 MAINTAINER=	0x1eef@hardenedbsd.org
