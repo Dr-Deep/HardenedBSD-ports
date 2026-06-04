@@ -1,10 +1,5 @@
 PORTNAME=	zotero
-<<<<<<< HEAD
-DISTVERSION=	7.0.15
-PORTREVISION=	2
-=======
 DISTVERSION=	9.0.4
->>>>>>> upstream/main
 CATEGORIES=	science deskutils
 MASTER_SITES=	LOCAL/mikael
 DISTFILES=	Zotero-${DISTVERSION}_FreeBSD-${ARCH}${EXTRACT_SUFX}
