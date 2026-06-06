@@ -1,6 +1,6 @@
 PORTNAME=           ctrl
 PORTVERSION=        3.0.0
-PORTREVISION=	1
+PORTREVISION=	2
 DISTVERSIONPREFIX=  v
 CATEGORIES=         hardenedbsd
 
@@ -13,12 +13,10 @@ LICENSE_FILE=   ${WRKSRC}/LICENSE
 USES=           go:modules
 GO_PKGNAME=     ctrl
 
-DISTFILES=      ctrl-v${PORTVERSION}.tar.gz
-MASTER_SITES=   https://git.hardenedbsd.org/0x1eef/ctrl/-/archive/v${PORTVERSION}/
-
-WRKSRC=         ${WRKDIR}/ctrl-v${PORTVERSION}
-
-GO_MOD_DIST=    gitlab
+USE_RADICLE=	yes
+RID=	zCobqyNAXGwCEJWBxvHQGMwxUYmj
+RAD_COMMIT=	8b79a80f8280ba4417f82137051cc3b73c541f17
+RAD_PROJECT_NAME=	${PORTNAME}
 
 GO_TARGET=      ./cmd/ctrl/
 GO_ENV+=        GOMAXPROCS=1
