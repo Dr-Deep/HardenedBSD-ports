@@ -2596,7 +2596,6 @@
     SUBDIR += suitecrm
     SUBDIR += suphp
     SUBDIR += surf
-    SUBDIR += surge
     SUBDIR += swiggle
     SUBDIR += sws
     SUBDIR += tailwindcss3

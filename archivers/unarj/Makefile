@@ -8,7 +8,8 @@ MAINTAINER=	ak@FreeBSD.org
 COMMENT=	Allows files to be extracted from ARJ archives
 WWW=		http://www.arjsoftware.com/
 
-USES=	tar:tgz
+USES=		cpe tar:tgz
+CPE_VENDOR=	arjsoftware
 
 USE_HARDENING=	hardcflags:off
 
