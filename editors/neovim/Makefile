@@ -34,16 +34,11 @@ GH_TUPLE=	tree-sitter:tree-sitter-c:v0.24.2:treesitter_c \
 		tree-sitter-grammars:tree-sitter-vim:v0.8.1:treesitter_vim \
 		neovim:tree-sitter-vimdoc:v4.1.0:treesitter_vimdoc
 
-<<<<<<< HEAD
 MPROTECT_DISABLE=	bin/nvim
 DISALLOW_MAP32BIT_DISABLE=	bin/nvim
 
-CMAKE_ARGS=	-DLUA_PRG:FILEPATH="${LUA_CMD}" \
-		-DCMAKE_INSTALL_MANDIR:PATH="${PREFIX}/share/man" \
-=======
 CMAKE_ARGS=	-DCMAKE_INSTALL_MANDIR:PATH="${PREFIX}/share/man" \
 		-DCMAKE_LIBRARY_PATH:PATH="${LOCALBASE}/lib/lua/${LUA_VER}" \
->>>>>>> upstream/main
 		-DDEPS_PREFIX:PATH="${LOCALBASE}" \
 		-DLUA_GEN_PRG:FILEPATH="luajit" \
 		-DLUA_PRG:FILEPATH="${LUA_CMD}"
