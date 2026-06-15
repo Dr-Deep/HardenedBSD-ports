@@ -13,17 +13,8 @@ LIB_DEPENDS=	libcryptopp.so:security/cryptopp \
 		libcurl.so:ftp/curl \
 		libzstd.so:archivers/zstd
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		bison compiler:c++11-lang cpe desktop-file-utils gmake \
-		localbase:ldflags perl5 pkgconfig shebangfix tar:xz
-USE_PERL5=	build
-USE_WX=		3.0
-WX_CONF_ARGS=	absolute
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--with-denoise-level=0
-=======
 USES=		cmake:testing gettext-runtime gnome localbase:ldflags pkgconfig \
 		readline
 USE_GITHUB=	yes
@@ -31,7 +22,6 @@ GH_ACCOUNT=	amule-org
 USE_GNOME=	glib20
 USE_WX=		3.2
 USE_RC_SUBR=	amuled
->>>>>>> rad/freebsd/main
 
 CMAKE_ON=	BUILD_ALC BUILD_ALCC BUILD_AMULECMD BUILD_DAEMON BUILD_ED2K \
 		BUILD_WXCAS
