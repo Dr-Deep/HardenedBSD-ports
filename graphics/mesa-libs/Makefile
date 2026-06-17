@@ -10,6 +10,8 @@ LICENSE_FILE=	${WRKSRC}/docs/license.rst
 
 USES=		llvm:noexport
 
+USE_HARDENING=	fortifysource:off
+
 BUILD_DEPENDS=	libglvnd>=0:graphics/libglvnd \
 		${PYTHON_PKGNAMEPREFIX}ply>0:devel/py-ply@${PY_FLAVOR} \
 		libclc-${LLVM_PORT:T}>0:devel/libclc@${LLVM_PORT:T} \
