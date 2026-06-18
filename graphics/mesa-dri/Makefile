@@ -11,6 +11,8 @@ LIB_DEPENDS+=	libgallium-${MESAVERSION}.so:graphics/mesa-libs \
 
 USES+=		llvm:lib,noexport
 
+USE_HARDENING=	fortifysource:off
+
 OPTIONS_DEFINE=		ZSTD
 OPTIONS_GROUP=		GALLIUM PLATFORM VULKAN
 OPTIONS_DEFAULT=	WAYLAND X11 ZSTD
