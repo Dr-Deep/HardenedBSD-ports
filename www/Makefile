@@ -159,6 +159,7 @@
     SUBDIR += dolibarr19
     SUBDIR += dolibarr20
     SUBDIR += dolibarr21
+    SUBDIR += dolibarr22
     SUBDIR += domoticz
     SUBDIR += domoticz-devel
     SUBDIR += dooble
