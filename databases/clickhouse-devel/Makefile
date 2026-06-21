@@ -1,9 +1,10 @@
 PORTNAME=	clickhouse
 DISTVERSIONPREFIX=	v
-DISTVERSION=	26.3.1.896
-DISTVERSIONSUFFIX=-lts
+DISTVERSION=	26.2.6.27
+DISTVERSIONSUFFIX=-stable
 CATEGORIES=	databases
 DIST_SUBDIR=	${PORTNAME}
+PKGNAMESUFFIX=	-devel
 
 # implicit-approval+: pi
 MAINTAINER=	bofh@FreeBSD.org
@@ -11,6 +12,9 @@ COMMENT=	Fast open-source OLAP database management system
 WWW=		https://clickhouse.com/
 
 LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+CONFLICTS_INSTALL=	clickhouse-[0-9]*
 
 ONLY_FOR_ARCHS=	aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	only supported on aarch64 and amd64
@@ -35,8 +39,8 @@ USE_PERL5=	build
 USE_RC_SUBR=	${PORTNAME}
 
 SHEBANG_FILES=	tests/clickhouse-test \
-		tests/queries/0_stateless/02010_lc_native.python
-#		tests/queries/0_stateless/02203_shebang
+		tests/queries/0_stateless/02010_lc_native.python \
+		tests/queries/0_stateless/02203_shebang
 SHEBANG_GLOB=	*.expect *.py *.python *.sh
 SHEBANG_LANG=	clickhouse-local expect
 clickhouse-local_OLD_CMD=	/usr/bin/clickhouse-local
