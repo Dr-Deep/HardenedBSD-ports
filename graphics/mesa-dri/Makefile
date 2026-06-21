@@ -13,11 +13,9 @@ LIB_DEPENDS+=	libgallium-${MESAVERSION}.so:graphics/mesa-libs \
 
 USES+=		llvm:lib,noexport
 
-<<<<<<< HEAD
 USE_HARDENING=	fortifysource:off
-=======
+
 GALLIUM_DRIVERS=	zink
->>>>>>> rad/freebsd/main
 
 OPTIONS_DEFINE=		ZSTD
 OPTIONS_GROUP=		GALLIUM PLATFORM VULKAN
