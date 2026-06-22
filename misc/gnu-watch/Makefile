@@ -12,13 +12,9 @@ WWW=		https://gitlab.com/procps-ng/procps/
 
 LICENSE=	GPLv2
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		autoreconf gettext-tools gmake libtool localbase:ldflags \
-=======
 USES=		gettext-tools gmake libtool localbase:ldflags \
->>>>>>> rad/freebsd/main
 		ncurses pkgconfig tar:xz
 
 GNU_CONFIGURE=	yes
