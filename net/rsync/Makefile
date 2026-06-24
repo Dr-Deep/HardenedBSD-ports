@@ -14,13 +14,8 @@ WWW=		https://rsync.samba.org/
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	cfi safestack zeroreg
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cmarkgfm>=0.8.0:textproc/py-cmarkgfm@${PY_FLAVOR} \
-		${PYTHON_VERSION}:lang/python${PYTHON_SUFFIX}
-=======
->>>>>>> rad/freebsd/main
 LIB_DEPENDS=	liblz4.so:archivers/liblz4 \
 		libxxhash.so:devel/xxhash \
 		libzstd.so:archivers/zstd
