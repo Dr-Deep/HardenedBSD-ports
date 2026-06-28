@@ -4774,6 +4774,7 @@
     SUBDIR += py-cobble
     SUBDIR += py-codegen
     SUBDIR += py-cogapp
+    SUBDIR += py-coherent.licensed
     SUBDIR += py-collections-extended
     SUBDIR += py-colorama
     SUBDIR += py-colored-traceback
@@ -5831,6 +5832,7 @@
     SUBDIR += py-pyquil
     SUBDIR += py-pyral
     SUBDIR += py-pyrate-limiter
+    SUBDIR += py-pyrefly
     SUBDIR += py-pyrepl
     SUBDIR += py-pyrfc3339
     SUBDIR += py-pyright
