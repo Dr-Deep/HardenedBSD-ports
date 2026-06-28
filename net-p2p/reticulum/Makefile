@@ -26,7 +26,7 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}netifaces>=0:net/py-netifaces@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pyserial>0:comms/py-pyserial@${PY_FLAVOR}
 
 WRKSRC=		${WRKDIR}/reticulum-${GL_TAGNAME}
-USES=		python:3.11
+USES=		python
 USE_PYTHON=	cryptography distutils
 USE_RC_SUBR=	reticulum
 GROUPS=		_reticulum
