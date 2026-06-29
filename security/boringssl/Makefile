@@ -1,5 +1,6 @@
 PORTNAME=	boringssl
 DISTVERSION=	0.20260616.0
+PORTREVISION=	1
 CATEGORIES=	security
 EXTRACT_ONLY=	${GH_ACCOUNT}-${PORTNAME}-${DISTVERSION}_GH0.tar.gz
 
@@ -12,10 +13,14 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cmake:insource cpe go:1.25,no_targets localbase perl5
 
+<<<<<<< HEAD
 USE_HARDENING=	pie:off
 
 CONFLICTS_INSTALL=	libressl libressl-devel openssl openssl111 \
 			openssl3[23456] openssl-quictls openssl33-quictls
+=======
+CONFLICTS_INSTALL=	aws-lc libressl libressl-devel openssl openssl[34][0456]
+>>>>>>> rad/freebsd/main
 
 CPE_VENDOR=	google
 
