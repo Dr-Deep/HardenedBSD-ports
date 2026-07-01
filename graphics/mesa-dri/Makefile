@@ -13,9 +13,13 @@ LIB_DEPENDS+=	libgallium-${MESAVERSION}.so:graphics/mesa-libs \
 
 USES+=		llvm:lib,noexport
 
+<<<<<<< HEAD
 USE_HARDENING=	fortifysource:off
 
 GALLIUM_DRIVERS=	zink
+=======
+GALLIUM_DRIVERS=	virgl zink
+>>>>>>> rad/freebsd/main
 
 OPTIONS_DEFINE=		ZSTD
 OPTIONS_GROUP=		GALLIUM PLATFORM VULKAN
@@ -109,10 +113,6 @@ MESON_ARGS+=	-Dandroid-libbacktrace=disabled \
 		-Dlmsensors=disabled \
 		-Dmicrosoft-clc=disabled \
 		-Dvalgrind=disabled
-
-.if !${PORT_OPTIONS:Mr600} && !${PORT_OPTIONS:Mradeonsi}
-MESON_ARGS+=	-Dgallium-va=disabled
-.endif
 
 .if ${ARCH} != amd64
 MESON_ARGS+=	-Dintel-rt=disabled # https://gitlab.freedesktop.org/mesa/mesa/-/issues/10629
