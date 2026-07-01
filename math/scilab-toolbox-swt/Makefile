@@ -16,7 +16,6 @@ RUN_DEPENDS:=	${BUILD_DEPENDS}
 USE_HARDENING=	pie:off relro:off
 
 USES=		dos2unix zip
-USE_LOCALE=	en_US.UTF-8
 
 SCILAB_CMD=	${LOCALBASE}/bin/scilab-adv-cli
 SCILAB_ARGS=	-noatomsautoload -nb -nouserstartup

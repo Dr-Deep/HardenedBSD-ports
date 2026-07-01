@@ -177,8 +177,6 @@
     SUBDIR += frp
     SUBDIR += frr10
     SUBDIR += frr10-pythontools
-    SUBDIR += frr8
-    SUBDIR += frr8-pythontools
     SUBDIR += frr9
     SUBDIR += frr9-pythontools
     SUBDIR += fspclient
@@ -441,7 +439,6 @@
     SUBDIR += libusrsctp
     SUBDIR += libvncserver
     SUBDIR += libwebsockets
-    SUBDIR += libyang
     SUBDIR += libyang2
     SUBDIR += libyang3
     SUBDIR += libzapojit
@@ -1648,6 +1645,7 @@
     SUBDIR += tsctp
     SUBDIR += tsocks
     SUBDIR += ttl
+    SUBDIR += tun2socks
     SUBDIR += tunneller
     SUBDIR += turnserver
     SUBDIR += u6rd
@@ -1664,8 +1662,6 @@
     SUBDIR += ulxmlrpcpp
     SUBDIR += unfs3
     SUBDIR += unison
-    SUBDIR += unison248
-    SUBDIR += unison251
     SUBDIR += unison253
     SUBDIR += unix2tcp
     SUBDIR += urelay
