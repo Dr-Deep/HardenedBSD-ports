@@ -19,12 +19,8 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-maintainer-mode \
 		--docdir="${DOCSDIR}"
 
-<<<<<<< HEAD
-TEST_TARGET=	check # 3 tests fail, see https://github.com/jqlang/jq/issues/2885
-=======
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
->>>>>>> rad/freebsd/main
 
 PORTDOCS=	*
 
