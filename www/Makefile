@@ -401,6 +401,7 @@
     SUBDIR += mediawiki143
     SUBDIR += mediawiki144
     SUBDIR += mediawiki145
+    SUBDIR += mediawiki146
     SUBDIR += mergelog
     SUBDIR += mhonarc
     SUBDIR += micro_httpd
