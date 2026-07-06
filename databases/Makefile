@@ -156,6 +156,7 @@
     SUBDIR += liquibase
     SUBDIR += litestream
     SUBDIR += lmdb
+    SUBDIR += lmdb0
     SUBDIR += lua-lsqlite3
     SUBDIR += lua-pgsql
     SUBDIR += lua-resty-redis
