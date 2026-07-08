@@ -1,10 +1,5 @@
 PORTNAME=	hdr_histogram
-<<<<<<< HEAD
-PORTVERSION=	0.11.9
-PORTREVISION=	1
-=======
 PORTVERSION=	0.11.10
->>>>>>> rad/freebsd/main
 CATEGORIES=	graphics
 
 MAINTAINER=	sunpoet@FreeBSD.org
