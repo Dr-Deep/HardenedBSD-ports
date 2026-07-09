@@ -454,10 +454,12 @@
     SUBDIR += py-accelerate
     SUBDIR += py-aistudio-sdk
     SUBDIR += py-alive-progress
+    SUBDIR += py-analysis-framework-base
     SUBDIR += py-anthropic
     SUBDIR += py-apache-beam
     SUBDIR += py-ascii-magic
     SUBDIR += py-ast-comments
+    SUBDIR += py-banks
     SUBDIR += py-bce-python-sdk
     SUBDIR += py-bitsandbytes
     SUBDIR += py-boost-histogram
@@ -483,6 +485,7 @@
     SUBDIR += py-cppman
     SUBDIR += py-crudini
     SUBDIR += py-csvw
+    SUBDIR += py-cvat-sdk
     SUBDIR += py-datasets
     SUBDIR += py-detecta
     SUBDIR += py-diffusers
@@ -496,6 +499,7 @@
     SUBDIR += py-facenet-pytorch
     SUBDIR += py-fal-client
     SUBDIR += py-fast-histogram
+    SUBDIR += py-faster-coco-eval
     SUBDIR += py-fastmcp
     SUBDIR += py-fastmcp-slim
     SUBDIR += py-fastscapelib
