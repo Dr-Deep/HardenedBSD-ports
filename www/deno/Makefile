@@ -20,14 +20,9 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		liblcms2.so:graphics/lcms2 \
 		libzstd.so:archivers/zstd
 
-<<<<<<< HEAD
-USES=		cargo cpe gmake gnome llvm:min=21,build ninja:build pkgconfig:build python:build
-
 MPROTECT_DISABLE=	bin/deno
 
-=======
 USES=		cargo cpe gmake llvm:min=21,build ninja:build pkgconfig python:build
->>>>>>> rad/freebsd/main
 USE_GITHUB=	yes
 GH_ACCOUNT=	denoland
 GH_TUPLE=	denoland:deno_lsp_benchdata:a787434:denolsp/tests/bench/testdata/lsp_benchdata \
