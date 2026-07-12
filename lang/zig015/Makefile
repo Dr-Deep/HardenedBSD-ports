@@ -38,7 +38,7 @@ STATIC_CMAKE_BOOL=	ZIG_STATIC
 STATIC_LDFLAGS=		-licudata -licuuc -llzma -lm -lmd -lxml2 -lz -lzstd
 STATIC_LIB_DEPENDS+=	libxml2.so:textproc/libxml2
 
-_LLVM_VER=	20
+_LLVM_VER=	21
 _ZIG_BIN=	${STAGEDIR}${PREFIX}/bin/zig
 
 post-configure-STATIC-on:
