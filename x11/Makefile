@@ -644,6 +644,7 @@
     SUBDIR += xorg-libraries
     SUBDIR += xorg-minimal
     SUBDIR += xorgproto
+    SUBDIR += xpointerbarrier
     SUBDIR += xpr
     SUBDIR += xpra
     SUBDIR += xpra-html5

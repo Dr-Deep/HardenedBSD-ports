@@ -1,5 +1,5 @@
 PORTNAME=	git
-DISTVERSION=	2.54.0
+DISTVERSION=	2.55.0
 CATEGORIES=	devel
 MASTER_SITES=	KERNEL_ORG/software/scm/git
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
@@ -52,7 +52,7 @@ CFI_OVERRIDE=	-fno-sanitize=cfi-icall
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-isystem${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
-MAKE_ARGS=	DEVELOPER= NO_TCLTK=yes
+MAKE_ARGS=	DEVELOPER= NO_RUST=yes NO_TCLTK=yes
 MAKE_ENV+=	V=1
 .if ${SUBPORT} == core
 USE_RC_SUBR=	git_daemon
@@ -132,7 +132,7 @@ SUBTREE_BUILD_DEPENDS=	asciidoctor:textproc/rubygem-asciidoctor \
 
 NO_ARCH=	yes
 MAKE_ENV+=	V=1
-MAKE_ARGS=	NO_GETTEXT=yes
+MAKE_ARGS=	NO_GETTEXT=yes NO_RUST=yes
 . if ${SUBPORT} != gui
 MAKE_ARGS+=	NO_TCLTK=yes
 . endif
