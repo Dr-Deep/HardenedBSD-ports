@@ -1507,6 +1507,7 @@
     SUBDIR += py-aiohttp-jinja2
     SUBDIR += py-aiohttp-middlewares
     SUBDIR += py-aiohttp-oauthlib
+    SUBDIR += py-aiohttp-retry
     SUBDIR += py-aiohttp-session
     SUBDIR += py-aiohttp-wsgi
     SUBDIR += py-aiolimiter
