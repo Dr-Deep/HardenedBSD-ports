@@ -1036,7 +1036,6 @@
     SUBDIR += proftpd-mod_ldap
     SUBDIR += prosearch
     SUBDIR += proxy-suite
-    SUBDIR += proxychains
     SUBDIR += proxychains-ng
     SUBDIR += prrte
     SUBDIR += prtunnel
