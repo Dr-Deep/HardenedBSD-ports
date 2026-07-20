@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 TIMESTAMP = 1777480640
 SHA256 (2c236fffd0d8e986f3c96b7911517e519889ea29.tar.gz) = 64d866708662c5ddde1f600b070f9772e4e106593d25f5aad6ecae85eb870bbe
 SIZE (2c236fffd0d8e986f3c96b7911517e519889ea29.tar.gz) = 12337759
+=======
+TIMESTAMP = 1784538459
+SHA256 (freebsd-pkg-2.8.0_GH0.tar.gz) = 4e91a5d0e2f487dabbae6493784cc3dd16f1f07017c2cadd6d4dc2bf388d278d
+SIZE (freebsd-pkg-2.8.0_GH0.tar.gz) = 12278833
+>>>>>>> rad/freebsd/main
