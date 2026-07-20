@@ -9,15 +9,10 @@ WWW=		https://gitlab.freedesktop.org/xorg/app/xhost
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-<<<<<<< HEAD
 USE_HARDENING=	safestack
 
-USES=		xorg xorg-cat:app
-USE_XORG=	x11 xmuu xau
-=======
 USES=		tar:xz xorg xorg-cat:app
 USE_XORG=	x11 xau xmuu xorgproto
->>>>>>> rad/freebsd/main
 
 PLIST_FILES=	bin/xhost share/man/man1/xhost.1.gz
 
