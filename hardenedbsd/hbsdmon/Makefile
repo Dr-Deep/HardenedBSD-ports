@@ -11,11 +11,16 @@ LICENSE=	BSD2CLAUSE
 USES+=		uidfix kmod
 USE_HARDENING?=	pie relro safestack
 
-USE_GITLAB=	yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=	hardenedbsd
-GL_PROJECT=	hbsdmon
-GL_TAGNAME=	c064ea9702b60a0f848bee7358815035ae84d8df
+#USE_GITLAB=	yes
+#GL_SITE=	https://git.hardenedbsd.org
+#GL_ACCOUNT=	hardenedbsd
+#GL_PROJECT=	hbsdmon
+#GL_TAGNAME=	c064ea9702b60a0f848bee7358815035ae84d8df
+
+USE_RADICLE=	yes
+RID=		rad:zZzwtG13zar5mKyyyeAGTByghVqD
+RAD_PROJECT_NAME=	${PORTNAME}
+RAD_COMMIT=	c064ea9702b60a0f848bee7358815035ae84d8df
 
 LIB_DEPENDS=	libpushover.so:net/libpushover
 LIB_DEPENDS+=	libucl.so:textproc/libucl
