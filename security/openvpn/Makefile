@@ -19,15 +19,11 @@ TEST_DEPENDS=		fping:net/fping
 USES=			cpe libtool localbase:ldflags pkgconfig python:build shebangfix ssl
 USE_RC_SUBR=		openvpn
 
-<<<<<<< HEAD
 USE_HARDENING=		cfi safestack zeroreg
 
-SHEBANG_FILES=		sample/sample-scripts/auth-pam.pl \
-=======
 SHEBANG_FILES=		sample/sample-plugins/keying-material-exporter-demo/http-client.py \
 			sample/sample-plugins/keying-material-exporter-demo/http-server.py \
 			sample/sample-scripts/auth-pam.pl \
->>>>>>> freebsd/main
 			sample/sample-scripts/totpauth.py \
 			sample/sample-scripts/ucn.pl \
 			sample/sample-scripts/verify-cn
