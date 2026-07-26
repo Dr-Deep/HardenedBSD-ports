@@ -362,6 +362,7 @@
     SUBDIR += eksctl
     SUBDIR += elephant
     SUBDIR += elfx86exts
+    SUBDIR += elio
     SUBDIR += endian
     SUBDIR += enteruser
     SUBDIR += entr
