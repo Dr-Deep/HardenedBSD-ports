@@ -1488,6 +1488,7 @@
     SUBDIR += pmwiki
     SUBDIR += pnews
     SUBDIR += pocket-id
+    SUBDIR += pocketbase
     SUBDIR += podcastamatic
     SUBDIR += pomerium
     SUBDIR += pomerium-envoy-custom
