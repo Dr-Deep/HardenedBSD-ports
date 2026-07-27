@@ -491,6 +491,7 @@
     SUBDIR += gomplate
     SUBDIR += gonzo
     SUBDIR += google-compute-engine-oslogin
+    SUBDIR += goreman
     SUBDIR += gotop
     SUBDIR += govmomi
     SUBDIR += gpart
