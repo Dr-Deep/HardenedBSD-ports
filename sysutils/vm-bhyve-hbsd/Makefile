@@ -1,7 +1,5 @@
 PORTNAME=	vm-bhyve-hbsd
-DISTVERSIONPREFIX=	v
-DISTVERSION=	1.5.0
-PORTREVISION=	1
+DISTVERSION=	1.7.4
 CATEGORIES=	sysutils
 
 MAINTAINER=	shawn.webb@hardenedbsd.org
@@ -13,11 +11,16 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
 
-USE_GITLAB=	yes
-GL_SITE=	https://git.hardenedbsd.org
-GL_ACCOUNT=	shawn.webb
-GL_PROJECT=	vm-bhyve
-GL_TAGNAME=	cfc66d28289fb6442caae6abd4f304edad631914
+#USE_GITLAB=	yes
+#GL_SITE=	https://git.hardenedbsd.org
+#GL_ACCOUNT=	shawn.webb
+#GL_PROJECT=	vm-bhyve
+#GL_TAGNAME=	cfc66d28289fb6442caae6abd4f304edad631914
+
+USE_RADICLE=		yes
+RID=			rad:z2hVyd5Ea5Sm8xfY5ovym67wTwrKo
+RAD_COMMIT=		cde6346f427793f298c0588540f410526fa66fbb
+RAD_PROJECT_NAME=	vm-bhyve-hbsd
 
 CONFLICTS_INSTALL=	vm-bhyve vm-bhyve-devel
 
