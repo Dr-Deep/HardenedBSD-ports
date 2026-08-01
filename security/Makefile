@@ -328,8 +328,6 @@
     SUBDIR += libotr3
     SUBDIR += libp11
     SUBDIR += libpki
-    SUBDIR += libprelude
-    SUBDIR += libpreludedb
     SUBDIR += libpwquality
     SUBDIR += libressl
     SUBDIR += libressl-devel
@@ -880,7 +878,6 @@
     SUBDIR += please
     SUBDIR += portacl-rc
     SUBDIR += proftpd-mod_clamav
-    SUBDIR += proxycheck
     SUBDIR += proxytunnel
     SUBDIR += pssh
     SUBDIR += pulledpork
