@@ -1534,6 +1534,7 @@
     SUBDIR += py-bokeh
     SUBDIR += py-bootstrap-flask
     SUBDIR += py-boto3
+    SUBDIR += py-boto3-stubs
     SUBDIR += py-botocore-stubs
     SUBDIR += py-bottle
     SUBDIR += py-bottle-cork
