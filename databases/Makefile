@@ -846,6 +846,7 @@
     SUBDIR += py-pyarrow
     SUBDIR += py-pyarrow-stubs
     SUBDIR += py-pyiceberg
+    SUBDIR += py-pylance
     SUBDIR += py-pylibmc
     SUBDIR += py-pymemcache
     SUBDIR += py-pymongo
