@@ -50,12 +50,8 @@ SUB_LIST+=	WWWOWN=${WWWOWN} \
 
 HAS_CONFIGURE=	yes
 CONFIGURE_ARGS+=--prefix=${ETCDIR} \
-<<<<<<< HEAD
-		--with-cc-opt="-I ${LOCALBASE}/include" \
-		--with-ld-opt="-pie" \
-=======
 		--with-cc-opt="-I ${LOCALBASE}/include ${NJS_QJS_CFLAGS}" \
->>>>>>> rad/freebsd/main
+		--with-ld-opt="-pie" \
 		--conf-path=${ETCDIR}/nginx.conf \
 		--sbin-path=${PREFIX}/sbin/nginx \
 		--pid-path=${NGINX_RUNDIR}/nginx.pid \
