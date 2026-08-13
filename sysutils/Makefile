@@ -832,6 +832,7 @@
     SUBDIR += obliterate
     SUBDIR += oc
     SUBDIR += ocijail
+    SUBDIR += oddjob
     SUBDIR += odo
     SUBDIR += ohmu
     SUBDIR += omnibackup

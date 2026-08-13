@@ -216,6 +216,7 @@
     SUBDIR += formication
     SUBDIR += foswiki
     SUBDIR += free-sa-devel
+    SUBDIR += freeipa-auth-gssapi
     SUBDIR += freenginx
     SUBDIR += freenginx-acme
     SUBDIR += freenginx-acme-module

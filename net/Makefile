@@ -1547,6 +1547,7 @@
     SUBDIR += sipsak
     SUBDIR += sl2tps
     SUBDIR += slackcat
+    SUBDIR += slapi-nis
     SUBDIR += slurm
     SUBDIR += smb4k
     SUBDIR += smbldap-tools
