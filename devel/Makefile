@@ -4435,7 +4435,6 @@
     SUBDIR += premake4
     SUBDIR += premake5
     SUBDIR += priv_wrapper
-    SUBDIR += prjpeppercorn112
     SUBDIR += prjpeppercorn113
     SUBDIR += projectcenter
     SUBDIR += prometheus-cpp
@@ -5230,6 +5229,7 @@
     SUBDIR += py-icalendar-searcher
     SUBDIR += py-ice
     SUBDIR += py-ice37
+    SUBDIR += py-icecream
     SUBDIR += py-id
     SUBDIR += py-identify
     SUBDIR += py-ijson
@@ -6562,7 +6562,6 @@
     SUBDIR += py-yarg
     SUBDIR += py-yaspin
     SUBDIR += py-yattag
-    SUBDIR += py-yg.lockfile
     SUBDIR += py-ytmusicapi
     SUBDIR += py-yunomi
     SUBDIR += py-zarr
@@ -8614,6 +8613,7 @@
     SUBDIR += sccache
     SUBDIR += sccs
     SUBDIR += schilybase
+    SUBDIR += scnlib
     SUBDIR += scons
     SUBDIR += sdbus-cpp
     SUBDIR += sdl12

@@ -1,6 +1,6 @@
 PORTNAME=	mono
 PORTVERSION=	5.10.1.57
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	lang
 MASTER_SITES=	https://download.mono-project.com/sources/mono/
 PKGNAMESUFFIX=	5.10
@@ -13,6 +13,7 @@ WWW=		https://www.mono-project.com/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+<<<<<<< HEAD
 MPROTECT_DISABLE+=	bin/mono
 MPROTECT_DISABLE+=	bin/mono-sgen
 MPROTECT_DISABLE+=	bin/mono-boehm
@@ -22,6 +23,10 @@ PAGEEXEC_DISABLE+=	bin/mono-boehm
 DISALLOW_MAP32BIT+=	bin/mono
 DISALLOW_MAP32BIT+=	bin/mono-sgen
 DISALLOW_MAP32BIT+=	bin/mono-boehm
+=======
+DEPRECATED=	Ports default to a newer version, no consumers left
+EXPIRATION_DATE=2026-11-30
+>>>>>>> rad/freebsd/main
 
 ONLY_FOR_ARCHS=	aarch64 amd64 armv6 armv7 i386 powerpc powerpc64 powerpc64le
 
@@ -52,11 +57,12 @@ USES=	autoreconf bison compiler:c11 cpe elfctl gmake iconv libtool \
 	pathfix perl5 python shebangfix tar:bzip2
 USE_PERL5=	build
 GNU_CONFIGURE=	yes
-GNU_CONFIGURE_MANPREFIX=${PREFIX}/share
 USE_LDCONFIG=	yes
 SHEBANG_FILES=	scripts/mono-heapviz mono/mini/genmdesc.py mono/tests/test_lldb.py
 BINARY_ALIAS=	python=${PYTHON_CMD}
 ELF_FEATURES=	+wxneeded:mono/mini/mono-sgen
+# workaround build failure with libtool >= 2.6
+MAKE_JOBS_UNSAFE=	yes
 
 CONFIGURE_ARGS=	--disable-dtrace
 CONFIGURE_ENV=	ac_cv_header_sys_inotify_h=no
