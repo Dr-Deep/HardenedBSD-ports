@@ -1456,7 +1456,6 @@
     SUBDIR += pear-UDDI
     SUBDIR += pear-XML_GRDDL
     SUBDIR += pear-twig
-    SUBDIR += pecl-solr
     SUBDIR += pecl-yaf
     SUBDIR += pecl-yar
     SUBDIR += peersuite
@@ -1466,6 +1465,7 @@
     SUBDIR += phalcon
     SUBDIR += php-google-api-php-client
     SUBDIR += php-http
+    SUBDIR += php-solr
     SUBDIR += php82-opcache
     SUBDIR += php82-session
     SUBDIR += php82-tidy
