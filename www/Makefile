@@ -311,6 +311,8 @@
     SUBDIR += ikiwiki
     SUBDIR += ilias
     SUBDIR += imaginary
+    SUBDIR += immich
+    SUBDIR += immich-ml
     SUBDIR += iocaine
     SUBDIR += iridium
     SUBDIR += janus
