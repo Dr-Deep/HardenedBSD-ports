@@ -1,6 +1,6 @@
-PORTNAME=	octave-forge-llms
+PORTNAME=	octave-forge-drafting
 DISTVERSIONPREFIX=	release-
-DISTVERSION=	0.2.0
+DISTVERSION=	0.1.0
 CATEGORIES=	math
 
 MAINTAINER=	stephen@FreeBSD.org
@@ -10,18 +10,14 @@ WWW=		https://packages.octave.org/
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKDIR}/${OCTAVE_SRC}/COPYING
 
-RUN_DEPENDS+=	${OCTAVE_TARBALLS_DIR}/datatypes.tar.gz:math/octave-forge-datatypes
-
 USES=		octave
 USE_GITHUB=	yes
 GH_ACCOUNT=	pr0m1th3as
-GH_PROJECT=	octave-llms
+GH_PROJECT=	${OCTAVE_PKGNAME}
 
-CXXFLAGS_amd64=	-mpclmul -msse4.1
-CXXFLAGS_i386=	-mpclmul -msse4.1
+OCTAVE_SRC=		${GH_PROJECT}-release-${DISTVERSION}
 
-IGNORE_arm64=	does not build
-
-OCTAVE_SRC=	${GH_PROJECT}-release-${DISTVERSION}
+NO_ARCH=	yes
+NO_BUILD=	yes
 
 .include <bsd.port.mk>
