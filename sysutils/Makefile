@@ -518,6 +518,7 @@
     SUBDIR += healthd
     SUBDIR += heirloom
     SUBDIR += helm
+    SUBDIR += helm-docs
     SUBDIR += helmfile
     SUBDIR += herbe
     SUBDIR += hexpeek
