@@ -17,14 +17,9 @@ LICENSE_PERMS=	auto-accept dist-mirror pkg-mirror
 
 USES=		compiler:c++11-lang cpe
 
-<<<<<<< HEAD
-CPE_VENDOR=	rarlab
-
 USE_HARDENING=	pie:off safestack
 
-=======
 CFLAGS_aarch64+=-march=armv8-a+crc+crypto
->>>>>>> rad/freebsd/main
 LDFLAGS+=	-lpthread
 MAKE_ARGS=	CXX="${CXX}" CXXFLAGS="${CXXFLAGS}" LDFLAGS="${LDFLAGS}" STRIP="${STRIP_CMD}"
 MAKEFILE=	makefile
