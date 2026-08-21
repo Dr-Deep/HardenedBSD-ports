@@ -16,14 +16,10 @@ LICENSE_NAME=	Nmap Public Source License
 LICENSE_PERMS=	auto-accept dist-mirror pkg-mirror pkg-sell
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-<<<<<<< HEAD
 USE_HARDENING?=	cfi safestack
 
-LIB_DEPENDS=	libpcre2-16.so:devel/pcre2
-=======
 LIB_DEPENDS=	libpcap.so.1:net/libpcap \
 		libpcre2-8.so:devel/pcre2
->>>>>>> rad/freebsd/main
 
 USES=		cpe gmake libtool lua:54 tar:bzip2
 
