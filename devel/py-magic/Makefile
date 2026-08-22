@@ -1,5 +1,5 @@
 PORTNAME=	magic
-PORTVERSION=	5.46
+PORTVERSION=	5.48
 CATEGORIES=	devel python
 MASTER_SITES=	https://astron.com/pub/file/ \
 		https://www.mirrorservice.org/sites/distfiles.macports.org/file/
