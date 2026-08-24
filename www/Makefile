@@ -129,6 +129,7 @@
     SUBDIR += codeberg-pages-server
     SUBDIR += codeigniter
     SUBDIR += colly
+    SUBDIR += comentario
     SUBDIR += coppermine
     SUBDIR += corepack
     SUBDIR += cpp-httplib
