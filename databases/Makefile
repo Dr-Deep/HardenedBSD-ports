@@ -603,6 +603,7 @@
     SUBDIR += pgsql-http
     SUBDIR += pgtcl
     SUBDIR += pgtop
+    SUBDIR += pgtui
     SUBDIR += pguri
     SUBDIR += pgvector
     SUBDIR += php-memvector
