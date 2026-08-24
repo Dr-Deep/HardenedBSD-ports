@@ -48,14 +48,10 @@ SHEBANG_FILES=	scripts/fsxs.in
 
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS=	--with-pkgconfigdir=${PREFIX}/libdata/pkgconfig \
-<<<<<<< HEAD
 		--enable-zrtp --with-pic
-=======
-		--enable-zrtp
 
 MAKE_JOBS_UNSAFE=	yes
 
->>>>>>> rad/freebsd/main
 CFLAGS+=	-Wno-error -I${LUA_INCDIR}
 
 CONFLICTS_BUILD=	xmlrpc-c
