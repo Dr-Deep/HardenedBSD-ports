@@ -1478,6 +1478,7 @@
     SUBDIR += xmlsec1
     SUBDIR += xorsearch
     SUBDIR += xray-core
+    SUBDIR += y509
     SUBDIR += yafic
     SUBDIR += yapet
     SUBDIR += yara
